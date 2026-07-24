@@ -9,3 +9,4 @@ desktop.ini
 # 回收站与临时
 .trash/
 *.tmp
+.obsidian-mcp-trash/
