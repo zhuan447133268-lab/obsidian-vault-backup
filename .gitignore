@@ -1,0 +1,11 @@
+# Obsidian 本机状态（换机会自动重建，不同步）
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+# 系统垃圾
+.DS_Store
+Thumbs.db
+desktop.ini
+# 回收站与临时
+.trash/
+*.tmp
