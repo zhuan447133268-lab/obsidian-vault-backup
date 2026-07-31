@@ -1,0 +1,39 @@
+{
+	"nodes":[
+		{"id":"center","type":"text","x":540,"y":40,"width":320,"height":80,"text":"# 智能网联汽车\\n感知-决策-执行系统","color":"1"},
+		{"id":"perception","type":"text","x":140,"y":170,"width":220,"height":70,"text":"## 🔵 感知层","color":"4"},
+		{"id":"camera","type":"text","x":140,"y":290,"width":220,"height":60,"text":"摄像头\\n视觉识别车道线/交通标志"},
+		{"id":"lidar","type":"text","x":140,"y":380,"width":220,"height":60,"text":"激光雷达 LiDAR\\n三维点云建图"},
+		{"id":"radar","type":"text","x":140,"y":470,"width":220,"height":60,"text":"毫米波雷达\\n测距测速/全天候感知"},
+		{"id":"hdmap","type":"text","x":140,"y":560,"width":220,"height":60,"text":"高精地图\\n车道级静态环境"},
+		{"id":"decision","type":"text","x":590,"y":170,"width":220,"height":70,"text":"## 🟠 决策层","color":"5"},
+		{"id":"fusion","type":"text","x":590,"y":290,"width":220,"height":60,"text":"传感器融合\\n多源数据统一表征"},
+		{"id":"planning","type":"text","x":590,"y":380,"width":220,"height":60,"text":"路径规划\\n全局+局部行驶轨迹"},
+		{"id":"prediction","type":"text","x":590,"y":470,"width":220,"height":60,"text":"行为预测\\n预判他车/行人意图"},
+		{"id":"algo","type":"text","x":590,"y":560,"width":220,"height":60,"text":"自动驾驶算法\\n感知→决策闭环"},
+		{"id":"execution","type":"text","x":1040,"y":170,"width":220,"height":70,"text":"## 🟢 执行层","color":"2"},
+		{"id":"steering","type":"text","x":1040,"y":290,"width":220,"height":60,"text":"线控转向\\n电子控制转向角度"},
+		{"id":"braking","type":"text","x":1040,"y":380,"width":220,"height":60,"text":"线控制动\\n电子液压/电机制动"},
+		{"id":"driving","type":"text","x":1040,"y":470,"width":220,"height":60,"text":"线控驱动\\n电机扭矩精确输出"},
+		{"id":"vcu","type":"text","x":1040,"y":560,"width":220,"height":60,"text":"整车控制 VCU\\n协调各执行器动作"}
+	],
+	"edges":[
+		{"id":"e-center-perception","fromNode":"center","fromSide":"bottom","toNode":"perception","toSide":"top"},
+		{"id":"e-center-decision","fromNode":"center","fromSide":"bottom","toNode":"decision","toSide":"top"},
+		{"id":"e-center-execution","fromNode":"center","fromSide":"bottom","toNode":"execution","toSide":"top"},
+		{"id":"e-perception-camera","fromNode":"perception","fromSide":"bottom","toNode":"camera","toSide":"top"},
+		{"id":"e-perception-lidar","fromNode":"perception","fromSide":"bottom","toNode":"lidar","toSide":"top"},
+		{"id":"e-perception-radar","fromNode":"perception","fromSide":"bottom","toNode":"radar","toSide":"top"},
+		{"id":"e-perception-hdmap","fromNode":"perception","fromSide":"bottom","toNode":"hdmap","toSide":"top"},
+		{"id":"e-decision-fusion","fromNode":"decision","fromSide":"bottom","toNode":"fusion","toSide":"top"},
+		{"id":"e-decision-planning","fromNode":"decision","fromSide":"bottom","toNode":"planning","toSide":"top"},
+		{"id":"e-decision-prediction","fromNode":"decision","fromSide":"bottom","toNode":"prediction","toSide":"top"},
+		{"id":"e-decision-algo","fromNode":"decision","fromSide":"bottom","toNode":"algo","toSide":"top"},
+		{"id":"e-execution-steering","fromNode":"execution","fromSide":"bottom","toNode":"steering","toSide":"top"},
+		{"id":"e-execution-braking","fromNode":"execution","fromSide":"bottom","toNode":"braking","toSide":"top"},
+		{"id":"e-execution-driving","fromNode":"execution","fromSide":"bottom","toNode":"driving","toSide":"top"},
+		{"id":"e-execution-vcu","fromNode":"execution","fromSide":"bottom","toNode":"vcu","toSide":"top"},
+		{"id":"e-flow-perception-decision","fromNode":"perception","fromSide":"right","toNode":"decision","toSide":"left","label":"数据流"},
+		{"id":"e-flow-decision-execution","fromNode":"decision","fromSide":"right","toNode":"execution","toSide":"left","label":"控制指令"}
+	]
+}

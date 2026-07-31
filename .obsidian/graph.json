@@ -1,30 +1,37 @@
 {
   "collapse-filter": false,
   "search": "",
-  "showTags": true,
+  "showTags": false,
   "showAttachments": false,
-  "hideUnresolved": true,
+  "hideUnresolved": false,
   "showOrphans": true,
   "collapse-color-groups": false,
   "colorGroups": [
     {
+      "query": "tag:# project",
+      "color": {
+        "a": 1,
+        "rgb": 14048348
+      }
+    },
+    {
       "query": "",
       "color": {
         "a": 1,
-        "rgb": 11821531
+        "rgb": 14069084
       }
     }
   ],
   "collapse-display": false,
   "showArrow": false,
-  "textFadeMultiplier": -0.7,
+  "textFadeMultiplier": -1.2,
   "nodeSizeMultiplier": 1,
   "lineSizeMultiplier": 1,
   "collapse-forces": false,
-  "centerStrength": 0.5,
-  "repelStrength": 8.75,
+  "centerStrength": 0.518713248970312,
+  "repelStrength": 10,
   "linkStrength": 1,
-  "linkDistance": 204,
-  "scale": 0.3823010968769938,
-  "close": true
+  "linkDistance": 250,
+  "scale": 0.5359795996225892,
+  "close": false
 }
