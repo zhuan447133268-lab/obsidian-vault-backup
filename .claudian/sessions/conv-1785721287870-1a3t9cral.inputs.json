@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1785721287870-1a3t9cral",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1785721288085-wy4lnjb",
+      "userTurnOrdinal": 1,
+      "state": "staged",
+      "localMessageId": "msg-1785721287864-4bkivfk",
+      "timestamp": 1785721287864,
+      "rawDisplayText": "@智能网联汽车感知决策执行系统.canvas 你读一下这个",
+      "canonicalText": "@智能网联汽车感知决策执行系统.canvas 你读一下这个",
+      "images": [],
+      "contentDigest": "20f23393c4ecde44de3e3cd56dd8afdab236b5a8ed817b3158223bf7b98f3941"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1785721599783-2we43xf",
+      "userTurnOrdinal": 1,
+      "state": "staged",
+      "localMessageId": "msg-1785721599639-mggzlzf",
+      "timestamp": 1785721599639,
+      "rawDisplayText": "@智能网联汽车感知决策执行系统.canvas 读一下",
+      "canonicalText": "@智能网联汽车感知决策执行系统.canvas 读一下",
+      "context": {
+        "currentNote": {
+          "path": "工作台/Desk.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "4c5be409c5aa7d6f2525aa8e0a023b9826523d2b59c1e14e11d85724f5b1aa8c"
+    }
+  ]
+}
