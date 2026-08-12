@@ -1,12 +1,11 @@
 {
   "id": "conv-1785721287870-1a3t9cral",
   "providerId": "claude",
-  "title": "@智能网联汽车感知决策执行系统",
+  "title": "为什么你用不了",
   "titleGenerationStatus": "failed",
   "createdAt": 1785721287874,
-  "updatedAt": 1785721599844,
-  "lastResponseAt": 1785721599844,
+  "updatedAt": 1786504812350,
+  "lastResponseAt": 1786426408087,
   "sessionId": null,
-  "selectedModel": "haiku",
-  "currentNote": "工作台/Desk.md"
+  "selectedModel": "haiku"
 }

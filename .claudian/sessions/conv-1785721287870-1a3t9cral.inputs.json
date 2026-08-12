@@ -30,6 +30,18 @@
       },
       "images": [],
       "contentDigest": "4c5be409c5aa7d6f2525aa8e0a023b9826523d2b59c1e14e11d85724f5b1aa8c"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1786426408043-v6wu50w",
+      "userTurnOrdinal": 1,
+      "state": "staged",
+      "localMessageId": "msg-1786426407813-wpxqhhg",
+      "timestamp": 1786426407813,
+      "rawDisplayText": "为什么你用不了",
+      "canonicalText": "为什么你用不了",
+      "images": [],
+      "contentDigest": "163ddc2eed2d8538860f2beae432476816c9700d166e286602f4cc34e2dcabf6"
     }
   ]
 }
