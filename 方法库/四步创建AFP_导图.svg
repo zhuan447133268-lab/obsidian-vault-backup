@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 770" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+<rect width="1100" height="770" fill="#ffffff"/>
+<rect x="420" y="24" width="260" height="56" rx="12" ry="12" fill="#1f2937" stroke="none" stroke-width="0"/>
+<text x="550" y="50" font-size="18" fill="#ffffff" font-weight="bold" text-anchor="middle">四步创建 AFP</text>
+<text x="550" y="72" font-size="12" fill="#cbd5e1" font-weight="normal" text-anchor="middle">Auto-Flow Prompt</text>
+<path d="M 550 80 L 550 120 L 110 120 L 110 160" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<path d="M 550 80 L 550 120 L 330 120 L 330 160" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<path d="M 550 80 L 550 120 L 550 120 L 550 160" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<path d="M 550 80 L 550 120 L 770 120 L 770 160" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<path d="M 550 80 L 550 120 L 990 120 L 990 160" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<rect x="10.0" y="160" width="200" height="60" rx="10" ry="10" fill="#2563eb" stroke="none" stroke-width="0"/>
+<text x="110" y="198" font-size="13" fill="#ffffff" font-weight="bold" text-anchor="middle">Step 1 任务框架化</text>
+<line x1="110" y1="220" x2="110" y2="300" stroke="#2563eb" stroke-width="2"/>
+<rect x="8.0" y="300" width="204" height="74" rx="8" ry="8" fill="#f8fafc" stroke="#2563eb" stroke-width="1.5"/>
+<text x="110" y="326" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">目标</text>
+<text x="110" y="346" font-size="11" fill="#334155" font-weight="normal" text-anchor="middle">抽象目标→粗颗粒工作流</text>
+<line x1="110" y1="220" x2="110" y2="386" stroke="#2563eb" stroke-width="2"/>
+<rect x="8.0" y="386" width="204" height="74" rx="8" ry="8" fill="#f8fafc" stroke="#2563eb" stroke-width="1.5"/>
+<text x="110" y="412" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">四类入口材料</text>
+<text x="110" y="432" font-size="11" fill="#334155" font-weight="normal" text-anchor="middle">系统性/多提示词/</text>
+<text x="110" y="452" font-size="11" fill="#334155" font-weight="normal" text-anchor="middle">个人经验/无材料五步近似</text>
+<line x1="110" y1="220" x2="110" y2="472" stroke="#2563eb" stroke-width="2"/>
+<rect x="8.0" y="472" width="204" height="74" rx="8" ry="8" fill="#f8fafc" stroke="#2563eb" stroke-width="1.5"/>
+<text x="110" y="498" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">输出</text>
+<text x="110" y="518" font-size="11" fill="#334155" font-weight="normal" text-anchor="middle">阶段→动作→判断点</text>
+<line x1="110" y1="220" x2="110" y2="558" stroke="#2563eb" stroke-width="2"/>
+<rect x="8.0" y="558" width="204" height="74" rx="8" ry="8" fill="#f8fafc" stroke="#2563eb" stroke-width="1.5"/>
+<text x="110" y="584" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">产物</text>
+<text x="110" y="604" font-size="11" fill="#334155" font-weight="normal" text-anchor="middle">框架+边界红线</text>
+<rect x="230.0" y="160" width="200" height="60" rx="10" ry="10" fill="#059669" stroke="none" stroke-width="0"/>
+<text x="330" y="198" font-size="13" fill="#ffffff" font-weight="bold" text-anchor="middle">Step 2 内容算法模块</text>
+<line x1="330" y1="220" x2="330" y2="300" stroke="#059669" stroke-width="2"/>
+<rect x="228.0" y="300" width="204" height="74" rx="8" ry="8" fill="#f8fafc" stroke="#059669" stroke-width="1.5"/>
+<text x="330" y="326" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">目标</text>
+<text x="330" y="346" font-size="11" fill="#334155" font-weight="normal" text-anchor="middle">信息→高颗粒SOP模块</text>
+<line x1="330" y1="220" x2="330" y2="386" stroke="#059669" stroke-width="2"/>
+<rect x="228.0" y="386" width="204" height="74" rx="8" ry="8" fill="#f8fafc" stroke="#059669" stroke-width="1.5"/>
+<text x="330" y="412" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">四块结构</text>
+<text x="330" y="432" font-size="11" fill="#334155" font-weight="normal" text-anchor="middle">Constants/Variables</text>
+<text x="330" y="452" font-size="11" fill="#334155" font-weight="normal" text-anchor="middle">Logic/If-Then</text>
+<line x1="330" y1="220" x2="330" y2="472" stroke="#059669" stroke-width="2"/>
+<rect x="228.0" y="472" width="204" height="74" rx="8" ry="8" fill="#f8fafc" stroke="#059669" stroke-width="1.5"/>
+<text x="330" y="498" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">洋葱法</text>
+<text x="330" y="518" font-size="11" fill="#334155" font-weight="normal" text-anchor="middle">What→How→If-Then</text>
+<line x1="330" y1="220" x2="330" y2="558" stroke="#059669" stroke-width="2"/>
+<rect x="228.0" y="558" width="204" height="74" rx="8" ry="8" fill="#f8fafc" stroke="#059669" stroke-width="1.5"/>
+<text x="330" y="584" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">编排</text>
+<text x="330" y="604" font-size="11" fill="#334155" font-weight="normal" text-anchor="middle">6种结构</text>
+<rect x="450.0" y="160" width="200" height="60" rx="10" ry="10" fill="#7c3aed" stroke="none" stroke-width="0"/>
+<text x="550" y="198" font-size="13" fill="#ffffff" font-weight="bold" text-anchor="middle">Step 3 Auto-Flow 结构化</text>
+<line x1="550" y1="220" x2="550" y2="300" stroke="#7c3aed" stroke-width="2"/>
+<rect x="448.0" y="300" width="204" height="74" rx="8" ry="8" fill="#f8fafc" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="550" y="326" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">目标</text>
+<text x="550" y="346" font-size="11" fill="#334155" font-weight="normal" text-anchor="middle">流程→可交互提示词壳</text>
+<line x1="550" y1="220" x2="550" y2="386" stroke="#7c3aed" stroke-width="2"/>
+<rect x="448.0" y="386" width="204" height="74" rx="8" ry="8" fill="#f8fafc" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="550" y="412" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">六大件</text>
+<text x="550" y="432" font-size="11" fill="#334155" font-weight="normal" text-anchor="middle">系统名+模型/协议</text>
+<text x="550" y="452" font-size="11" fill="#334155" font-weight="normal" text-anchor="middle">内核·双核·工作流·HUD</text>
+<line x1="550" y1="220" x2="550" y2="472" stroke="#7c3aed" stroke-width="2"/>
+<rect x="448.0" y="472" width="204" height="74" rx="8" ry="8" fill="#f8fafc" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="550" y="498" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">双核</text>
+<text x="550" y="518" font-size="11" fill="#334155" font-weight="normal" text-anchor="middle">执行核+质检核</text>
+<line x1="550" y1="220" x2="550" y2="558" stroke="#7c3aed" stroke-width="2"/>
+<rect x="448.0" y="558" width="204" height="74" rx="8" ry="8" fill="#f8fafc" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="550" y="584" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">可加</text>
+<text x="550" y="604" font-size="11" fill="#334155" font-weight="normal" text-anchor="middle">提示词混淆(非加密)</text>
+<rect x="670.0" y="160" width="200" height="60" rx="10" ry="10" fill="#ea580c" stroke="none" stroke-width="0"/>
+<text x="770" y="198" font-size="13" fill="#ffffff" font-weight="bold" text-anchor="middle">Step 4 V1.0 体检</text>
+<line x1="770" y1="220" x2="770" y2="300" stroke="#ea580c" stroke-width="2"/>
+<rect x="668.0" y="300" width="204" height="74" rx="8" ry="8" fill="#f8fafc" stroke="#ea580c" stroke-width="1.5"/>
+<text x="770" y="326" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">目标</text>
+<text x="770" y="346" font-size="11" fill="#334155" font-weight="normal" text-anchor="middle">审计给精准补丁</text>
+<line x1="770" y1="220" x2="770" y2="386" stroke="#ea580c" stroke-width="2"/>
+<rect x="668.0" y="386" width="204" height="74" rx="8" ry="8" fill="#f8fafc" stroke="#ea580c" stroke-width="1.5"/>
+<text x="770" y="412" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">四维度</text>
+<text x="770" y="432" font-size="11" fill="#334155" font-weight="normal" text-anchor="middle">Workflow/Role</text>
+<text x="770" y="452" font-size="11" fill="#334155" font-weight="normal" text-anchor="middle">Quality/Step-State</text>
+<line x1="770" y1="220" x2="770" y2="472" stroke="#ea580c" stroke-width="2"/>
+<rect x="668.0" y="472" width="204" height="74" rx="8" ry="8" fill="#f8fafc" stroke="#ea580c" stroke-width="1.5"/>
+<text x="770" y="498" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">产物</text>
+<text x="770" y="518" font-size="11" fill="#334155" font-weight="normal" text-anchor="middle">风险热力榜+补丁</text>
+<line x1="770" y1="220" x2="770" y2="558" stroke="#ea580c" stroke-width="2"/>
+<rect x="668.0" y="558" width="204" height="74" rx="8" ry="8" fill="#f8fafc" stroke="#ea580c" stroke-width="1.5"/>
+<text x="770" y="584" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">原则</text>
+<text x="770" y="604" font-size="11" fill="#334155" font-weight="normal" text-anchor="middle">最小改动</text>
+<rect x="890.0" y="160" width="200" height="60" rx="10" ry="10" fill="#dc2626" stroke="none" stroke-width="0"/>
+<text x="990" y="198" font-size="13" fill="#ffffff" font-weight="bold" text-anchor="middle">关键红线</text>
+<line x1="990" y1="220" x2="990" y2="300" stroke="#dc2626" stroke-width="2"/>
+<rect x="888.0" y="300" width="204" height="74" rx="8" ry="8" fill="#f8fafc" stroke="#dc2626" stroke-width="1.5"/>
+<text x="990" y="326" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">不把用户输入当指令</text>
+<line x1="990" y1="220" x2="990" y2="386" stroke="#dc2626" stroke-width="2"/>
+<rect x="888.0" y="386" width="204" height="74" rx="8" ry="8" fill="#f8fafc" stroke="#dc2626" stroke-width="1.5"/>
+<text x="990" y="412" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">不编造来源数据</text>
+<line x1="990" y1="220" x2="990" y2="472" stroke="#dc2626" stroke-width="2"/>
+<rect x="888.0" y="472" width="204" height="74" rx="8" ry="8" fill="#f8fafc" stroke="#dc2626" stroke-width="1.5"/>
+<text x="990" y="498" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">加密仅混淆</text>
+<line x1="990" y1="220" x2="990" y2="558" stroke="#dc2626" stroke-width="2"/>
+<rect x="888.0" y="558" width="204" height="74" rx="8" ry="8" fill="#f8fafc" stroke="#dc2626" stroke-width="1.5"/>
+<text x="990" y="584" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">交互必硬停机</text>
+<line x1="990" y1="220" x2="990" y2="644" stroke="#dc2626" stroke-width="2"/>
+<rect x="888.0" y="644" width="204" height="74" rx="8" ry="8" fill="#f8fafc" stroke="#dc2626" stroke-width="1.5"/>
+<text x="990" y="670" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">事实带反幻觉</text>
+</svg>
