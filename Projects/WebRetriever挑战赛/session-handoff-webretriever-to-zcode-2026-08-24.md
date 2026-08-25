@@ -63,7 +63,15 @@ status: active
 ### 2.3 冒烟测试状态
 
 - ✅ 官方冒烟测试已通过（基于 commit `6304f7e`）
-- 输出格式、CDP 连接、标签页清理、capture.json 均正常
+- ✅ 2026-08-24 修复后复跑（run6）再次通过：输出格式、CDP 连接、标签页清理、capture.json 均正常
+- ✅ **已 push**：`6304f7e..f4c7836`（2026-08-24 18:40），main 最新 = f4c7836；config.json 已是比赛配置（aixforge + kimi-k2.6）
+- ✅ 验证项：viewport 截图全部 1920×1080；标签页无堆积（仅 1 真实页 + 初始空页）；5/5 capture.json 非空；`python -m py_compile` 全模块通过
+- ✅ status 归一化到官方枚举：自定义的 FAIL_AGENT_GIVEUP / FAIL_NO_ANSWER / FAIL_LOOP / FAIL_PREDICT_ERROR 等在写 result.json 前统一映射为 `FAIL`（官方枚举：SUCCESS / FAIL / FAIL_SCROLLDOWN / FAIL_SAVE_SCREENSHOT_ERROR），避免官方解析器不识别自定义枚举；映射表 10/10 单测通过，失败路径实测落盘 FAIL、capture.json 非空
+- ⚠️ **API 额度预警（2026-08-24 15:05）**：kimi 令牌经 0x7e.vip 网关报 401「该令牌额度已用尽」
+- ✅ **已换新网关 + 新 key（2026-08-24 15:45）**：aixforge.com，`api_base=https://api.aixforge.com/v1`、`api_model=kimi-k2.6`；单题 MIT 全链路通过（SUCCESS 答对、4 步、0 API 错误）
+- ✅ **巨型文本页卡死修复（2026-08-24 17:00）**：模型自发 goto raw.githubusercontent 的 owid co2 CSV（浏览器渲染几十 MB 文本）时，`_JS_EXTRACT_STRUCTURED_TEXT` 对每个节点反复取完整 innerText → 主进程卡死 15 分钟。修复：JS 顶部闸门 `rawBody.length > 400000` 直接返回截断文本 + 各处 innerText 先 `.slice()` 再 regex。实测巨型 CSV 页提取 0.16s 返回。**正式评测风险点：任意一题 goto 大文件响应页都可能踩中，此修复必须保留**
+- 新题验证（2026-08-24 17:0x）：protocol3_sample15 抽取 5 道新题（zongheng/OWID/NYC311/护照/JNTO）在 aixforge 上跑 run1/run2；纵横中文网 JS 多级分类筛选为明显短板（run1 干净 FAIL）；其余题结果待汇总
+- ✅ **新题 5 道验证汇总（2026-08-24 18:40）**：纵横/OWID/护照/JNTO 全部**干净 FAIL**（0 假成功、0 泄漏、0 卡死），NYC311 首跑遭进程外力消失（未复现，run5 正常 EXITCODE=0）。结论：数据库/筛选门户类题目（纵横、NYC311、JNTO、SAM 同型）是 DOM agent 正确性短板，但失败模式全部干净；sample5 类型题（表格读数/深链 CSV）表现 4/5。**评测得分取决于官方题库构成**：若以 sample5 型为主可保 3-4/5；筛选门户型越多丢分越多（但不会假成功骗分）。JNTO 观察点：累计 actions 166>100（无效动作计数，SUCCESS 题不受影响，已记录）
 
 ---
 
@@ -89,6 +97,24 @@ python src/agent/main.py --input D:/claude-work/webretriever/data/sample5.json -
 **答案正确率：0/5（0%）**
 
 详细结果：`D:\claude-work\WR-001\test_results\sample5_20260824\summary.txt`
+
+### 3.3 修复后复跑对比（run3–run6，2026-08-24，同日）
+
+| run | 软科(17) | MIT(11) | statcounter(75) | rand(28) 403 | sam(86) | 假成功(SUCCESS泄漏) |
+|---|---|---|---|---|---|---|
+| run1 基线 | ✅读表答对 | ❌未到课就 finished | ❌读错点 | ❌ | ❌ | 5 题全假成功 |
+| run3 核心修复 | ❌放弃语泄漏 | ✅ 6.042[J] AND (6.0001 OR 6.009) | ✅ 62.58%（live 正确值） | ❌放弃语泄漏 | ❌ 81 步死循环 | 2 处泄漏 |
+| run4 | ✅复旦/华师/同济 | ✅ | ❌从未深链(FAIL_LOOP) | ✅正确放弃 | ✅23 步干净放弃 | 0 |
+| run5 | ❌第 2 步早放弃拦截→第 6 步又放弃 | ✅ | ✅ 62.58% 2 步(深链hook) | ✅正确放弃 | ❌SUCCESS 泄漏计划+JSON动作 | 1 处泄漏 |
+| **run6** | ✅复旦/华师/同济 | ✅ 6.042[J]，以及（6.0001 或 Coreq: 6.009） | ✅ 62.58% | ✅合法放弃(403页放行) | ✅干净 FAIL_AGENT_GIVEUP（多次泄漏尝试全被拦截） | **0** |
+
+**run6 结果（2026-08-24 14:45）：** 3/5 答对 + rand 合法放弃（403 官方认可）+ sam 干净放弃。答案正确率口径：3/5 直接答对、4/5 行为正确（含 rand 403 合法放弃）。
+
+- **要点**：statcounter "62.58%" 是现网真实值（golden 0.6351 为旧数据修订，live CSV 即 62.58%，评测应读现网）。
+- **sam 608**：现网任何口径（active/inactive、2019 日期筛选）都不存在 608，数据已漂移；agent 已按 prompt #8b 用 sfm 深链 + 表单筛选，76 步后干净放弃，零泄漏。
+- 早放弃门限 <6→<8 步，且 403/拒绝访问页（rand）直接放行放弃，不再白耗步数。
+
+详细结果目录：`D:\claude-work\WR-001\test_results\sample5_zcode_run6_20260824\`（summary.json / 每题 result.json / trajectory）
 
 ---
 
