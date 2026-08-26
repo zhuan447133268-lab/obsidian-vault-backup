@@ -12,9 +12,9 @@ status: active
 
 > 本笔记为 WebRetriever 挑战赛的唯一主文档。后续所有相关信息、配置变更、测试结果、bug 修复均追加于此，新 session 从这里接续。
 
-> **🏷️ 新 session 先读**（2026-08-25 起）：
-> - 现状与全部上下文 → [[session-handoff-webretriever-to-claude-2026-08-25]]（代码已 push f4c7836、aixforge 网关、3/5 答对 0 假成功、唯一待办=窗口内 @WR-EvalBot 提交 + 确认额度）
-> - 上一份交接（修复过程细节） → [[session-handoff-webretriever-to-zcode-2026-08-24]]
+> **🏷️ 新 session 先读**（2026-08-26 起）：
+> - 现状与全部上下文 → [[session-handoff-webretriever-to-zcode-2026-08-26]]（合规修复已 push `17609f8`、删全部题目特判/预设跳转、待重过冒烟+8/27 正式评测）
+> - 上一份交接（3d38d0c 及之前状态） → [[session-handoff-webretriever-to-claude-2026-08-25]]
 
 ---
 
@@ -347,4 +347,17 @@ python src/agent/main.py --input data/example_tasks.json --output test_results -
 ---
 
 *本章节追加于 2026-08-24*
+
+---
+
+## 11. 2026-08-26 合规修复（对齐「有效成绩认定」公告）
+
+- 组委会公布有效成绩认定：①逐步交互 ②实时自主 ③来源合规 + **提交代码与运行轨迹人工复核**。
+- **提交库确认**：正式提交仓库 = `hhhhhhhalf/WR-001`（Private，本地 `D:\claude-work\WR-001`）；`webretriever` 仅为历史参考库（origin 指向官方仓库 `Mininglamp-AI/WebRetriever`，**禁止 push**）。
+- WR-001 删除：iFixit 硬编码兜底、Statcounter 深链 hook、is_ifixit 特判分支、prompts 任务示例查询 → commit `17609f8` 已 push main。
+- 实测：iFixit 样题 SUCCESS、16 步、纯模型自主导航（`WR-001/output/smoke_compliance_wr001/`）。
+- **状态变更**：8/25 冒烟通过（`3d38d0c`）不再适用，正式评测前须重过冒烟；8/27 10:00 窗口发「正式评测」。
+- 详见 [[session-handoff-webretriever-to-zcode-2026-08-26]]
+
+*追加于 2026-08-26*
 
