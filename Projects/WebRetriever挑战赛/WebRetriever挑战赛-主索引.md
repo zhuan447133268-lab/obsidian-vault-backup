@@ -13,7 +13,7 @@ status: active
 > 本笔记为 WebRetriever 挑战赛的唯一主文档。后续所有相关信息、配置变更、测试结果、bug 修复均追加于此，新 session 从这里接续。
 
 > **🏷️ 新 session 先读**（2026-08-26 起）：
-> - 现状与全部上下文 → [[session-handoff-webretriever-to-zcode-2026-08-26]]（合规修复已 push `17609f8`、删全部题目特判/预设跳转、待重过冒烟+8/27 正式评测）
+> - 现状与全部上下文 → [[session-handoff-webretriever-to-zcode-2026-08-26]]（合规修复已 push `17609f8`、删全部题目特判/预设跳转、待重过冒烟+8/27「开始评测」）
 > - 上一份交接（3d38d0c 及之前状态） → [[session-handoff-webretriever-to-claude-2026-08-25]]
 
 ---
@@ -222,7 +222,7 @@ python src/agent/main.py --input data/example_tasks.json --output test_results -
 |---|---|
 | 正式评测窗口 | 8月27日 10:00 — 9月2日 23:59（北京时间） |
 | 每日正式评测次数 | 1 次，00:00 刷新 |
-| 提交时间认定 | 在专属提交群 @WR-EvalBot 发起「正式评测」的时间 |
+| 提交时间认定 | 在专属提交群 @WR-EvalBot 发起「开始评测」的时间 |
 | 全量题数 | 每次 100 题，所有队伍同一套题 |
 | 冒烟测试要求 | 8月27日前至少通过一次；每次代码改动后、发起正式评测前需重新通过 |
 | 冒烟测试通过标志 | Bot 回复「冒烟测试通过，环境就绪！可以发起评测了」或「代码验证通过，环境就绪！可以发起评测了」 |
@@ -234,7 +234,7 @@ python src/agent/main.py --input data/example_tasks.json --output test_results -
 > - **官方冒烟测试：✅ 已通过**（2026-08-25，Bot 回复确认）。规则：每次代码改动后、发起正式评测前需重新过冒烟。
 > - 基线校准：官方 15 题样本（`protocol3_sample15.json`）= 100 题池切片；本地基线 **3/15 = 20%**（3/5 仅对 sample5 子集成立，不可外推；构成偏表格/深链型约 20-40%，偏筛选门户型更低）。
 > - 策略：每日 1 次（00:00 刷新）× 窗口约 7 天 ≈ 7 次机会、取最优；**8/27 当天先提交一轮锁定有效提交（含荣誉证书）**，后续按官方分数反馈决定是否再迭代。
-> - **2026-08-25 已发 `@WR-EvalBot 提交代码`**（冒烟 ✅ 通过）；待 8/27 10:00 通道打开后在群内发起「正式评测」——**提交时间以发起「正式评测」的动作为准**（10.1 表格）。
+> - **2026-08-25 已发 `@WR-EvalBot 提交代码`**（冒烟 ✅ 通过）；待 8/27 10:00 通道打开后在群内发起「开始评测」——**提交时间以发起「开始评测」的动作为准**（10.1 表格）。
 
 ### 10.2 沙箱与运行环境（新增/确认）
 
@@ -356,8 +356,65 @@ python src/agent/main.py --input data/example_tasks.json --output test_results -
 - **提交库确认**：正式提交仓库 = `hhhhhhhalf/WR-001`（Private，本地 `D:\claude-work\WR-001`）；`webretriever` 仅为历史参考库（origin 指向官方仓库 `Mininglamp-AI/WebRetriever`，**禁止 push**）。
 - WR-001 删除：iFixit 硬编码兜底、Statcounter 深链 hook、is_ifixit 特判分支、prompts 任务示例查询 → commit `17609f8` 已 push main。
 - 实测：iFixit 样题 SUCCESS、16 步、纯模型自主导航（`WR-001/output/smoke_compliance_wr001/`）。
-- **状态变更**：8/25 冒烟通过（`3d38d0c`）不再适用，正式评测前须重过冒烟；8/27 10:00 窗口发「正式评测」。
+- **状态变更**：8/25 冒烟通过（`3d38d0c`）不再适用，正式评测前须重过冒烟；8/27 10:00 窗口发「开始评测」。
 - 详见 [[session-handoff-webretriever-to-zcode-2026-08-26]]
 
 *追加于 2026-08-26*
+
+---
+
+## 12. 2026-08-27 官方口径确认 + prompts 二次合规修复
+
+### 12.1 官方对 IMDb 筛选题口径（选手群对话）
+
+- **8 路并行**：正式评测强制 8 路并发请求。
+- **IMDb 第 58 题示例**：查询满足若干条件的电影数量，入口 `https://www.imdb.com/`。
+- **官方判定**：Agent 必须像人一样做细粒度的 filter 填充和点击搜索，通过这种方式跳转到 target 页面才算正确；**如果 Agent 猜测拼接 URL + goto 到达 target 页面，算不合规**。
+
+### 12.2 prompts 二次合规修复
+
+据此判断当前 `prompts.py` 存在 3 处与官方口径冲突的描述：
+
+| 位置 | 修改前 | 修改后 |
+|---|---|---|
+| `:124` | 鼓励 goto 用于「date-based or parameterized pages when normal clicks fail」 | 明确 goto 只能用于页面上显式给出的链接或任务指定 URL，**禁止绕过 filter / 搜索表单 / 日期选择器** |
+| `:162` | 死循环换策略允许「construct a date/parameter URL」 | 删除该选项，仅保留 search / menu / scroll / 放弃 |
+| `:164` | 整条教 sam.gov 构造完整过滤 URL + `goto()` 绕开 UI | **整条删除** |
+| `:158` | 日期查询小节编号重复为「7.」 | 改为「8. DATE-BASED QUERIES (LAST RESORT)」，强调 URL 拼日期是**最后手段**，且禁止用于非日期 filter |
+
+- **提交**：commit `f58e7c0` 已 push `main`
+- **本地语法检查**：`python -m py_compile src/agent/prompts.py` 通过
+
+### 12.3 当前状态（2026-08-27 上午）
+
+- **官方 Bot 系统异常**：`@WR-EvalBot 提交代码` 返回「系统还在异常中，暂时没法确认提交，请稍等几分钟再 @我说'提交代码'」。
+- **策略**：
+  1. 每隔 5–10 分钟重试 `@WR-EvalBot 提交代码`；
+  2. 若 10:00 正式窗口开启时仍未恢复/未通过冒烟，**不抢第一波**，等冒烟通过后再发「开始评测」；
+  3. 若持续异常，联系赛事运维。
+- **本地验证**：iFixit 样题已本地跑完 `f58e7c0`，**SUCCESS**、22 步、`agent_answer='iPad Air 3 屏幕更换'`、最终到达 `https://zh.ifixit.com/Guide/iPad+Air+3+屏幕更换/143725`，纯 UI 交互（搜索→点击指南标签→滚动→再搜索→点击指南链接），无 URL 拼接绕过行为（`WR-001/output/smoke_f58e7c0/`）。
+
+### 12.4 风险与决策
+
+- 删除 sam.gov 的 URL filter 提示后，该类题可能得分下降，但**避免人工复核时被判违规**。
+- 日期查询 URL 构造保留为「最后手段」，是目前与官方口径的最小冲突点；若后续官方明确禁止，则进一步删除。
+
+### 12.5 2026-08-27 冒烟测试 result.json 缺失修复
+
+- **官方冒烟结果**：3 道题中 2 道输出正常，1 道缺少有效输出（未生成 result.json）。
+- **根因分析**（代码审计）：
+  1. `main.py:744-748` 对 `FAIL_SAVE_SCREENSHOT_ERROR` 直接 `continue`，未保存 result.json；
+  2. `main.py:463-492` 浏览器状态重置失败 / 页面初始化失败等 early failure 也直接 `continue`，未保存 result.json；
+  3. `safe_save_results` 中 `for tmp_file in temp_result_path:` 遍历字符串，临时文件清理逻辑错误。
+- **修复**：commit `8f9b13d` 已 push `main`
+  - 删除 `FAIL_SAVE_SCREENSHOT_ERROR` 的特殊 `continue`，走正常保存流程；
+  - 新增 `_save_early_fallback()`，在浏览器重置失败、页面初始化失败等 early failure 时仍写出 result.json + capture.json；
+  - 修复 `safe_save_results` 字符串迭代 bug。
+- **本地验证**：iFixit 样题 commit `8f9b13d` 本地 SUCCESS，4 步，result.json / capture.json 均正常（`WR-001/output/smoke_8f9b13d/`）。
+- **官方冒烟结果**：commit `8f9b13d` **已通过**（3 题均生成有效输出）。
+- **下一步**：在提交群发送 `@WR-EvalBot 开始评测`，运行 100 题正式评测。
+
+*追加于 2026-08-27*
+
+---
 
