@@ -749,3 +749,205 @@ python src/agent/main.py --input data/task0_only.json --output output/smoke_fix_
 3. 若再次 0 分或异常快速完成，把官方返回的任意 stdout 或单个任务的 `result.json` 贴给 agent，继续定位根因。
 
 *追加于 2026-08-28*
+
+
+
+---
+
+## 18. 2026-08-28 官方冒烟测试失败修复 — 根目录 `run.sh` 缺失
+
+### 18.1 现象与排查
+
+- 用户在群内触发 `@WR-EvalBot 提交代码` 后，Bot 回复：
+  > "❌ 冒烟测试未通过，请检查 run.sh 是否能正常输出结果"
+- 初步排查时误入历史参考库 `/d/claude-work/webretriever`，该仓库 `origin` 指向官方 `Mininglamp-AI/WebRetriever`，无 push 权限。
+- 按用户提示读取 Obsidian 主索引后，确认**正式提交仓库为 `hhhhhhalf/WR-001`**，本地路径 `D:\claude-work\WR-001`。
+
+### 18.2 根因
+
+- WR-001 仓库此前已修复 `scripts/run.sh`（commit `7ff31db`）。
+- 但官方冒烟测试默认调用的是**仓库根目录的 `run.sh`**，导致评测脚本找不到入口，直接失败。
+
+### 18.3 修复内容
+
+在仓库根目录新增 `run.sh`，作为 `scripts/run.sh` 的转发入口，保持单一真源：
+
+```bash
+#!/bin/bash
+set -euo pipefail
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+exec bash "${SCRIPT_DIR}/scripts/run.sh" "$@"
+```
+
+- commit: `b3114b2`
+- message: `fix: add missing root run.sh entry point for official smoke test`
+
+### 18.4 本地验证
+
+```bash
+cd D:\claude-work\WR-001
+timeout 60 bash run.sh data/example_tasks.json output/runsh_test launch
+```
+
+结果：
+- ✅ `main.py` 正常启动
+- ✅ 生成 `output/runsh_test/<task_id>/result.json`
+- ✅ 生成 `output/runsh_test/<task_id>/capture.json`
+- ✅ `output/runsh_test/logs/summary.json` 与 worker log 均正常
+
+### 18.5 提交状态
+
+- **已 push**: `main → https://github.com/hhhhhhalf/WR-001.git`
+- 用户随后触发官方冒烟测试，**已通过**。
+
+### 18.6 教训
+
+- `webretriever` 与 `WR-001` 两个本地目录极易混淆；新 session 必须先确认当前工作目录与 remote。
+- 官方入口脚本的放置位置必须与评测系统约定一致：根目录 `run.sh`，而非仅 `scripts/run.sh`。
+
+---
+
+## 19. 2026-08-28 关于正式评测日志可获取性的记录
+
+### 19.1 客观事实
+
+根据历次官方反馈，能拿到的日志/信息有限：
+
+| 信息类型 | 是否通常能拿到 | 示例 |
+|---|---|---|
+| 分数与耗时 | ✅ 是 | "0 分，30 分钟完成" |
+| 冒烟通过/失败状态 | ✅ 是 | "冒烟测试未通过" |
+| 概括性失败原因 | 有时 | "3 道题中 1 道缺少有效输出" |
+| 环境安装失败原因 | 有时 | "conda 软件包网络拉取失败" |
+| 逐任务 stdout/stderr | ❌ 否 | — |
+| Python 异常堆栈 | ❌ 否 | — |
+| 浏览器 CDP/截图日志 | ❌ 否 | — |
+
+### 19.2 已做的防御性增强
+
+为降低"无日志可排"的风险，代码已具备：
+
+1. `result.json` 带 `diagnostics` 字段（commit `c35ff37`）
+2. 早期失败统一兜底保存 `result.json` + `capture.json`
+3. `capture.json` 空记录兜底
+
+### 19.3 后续策略
+
+- 正式评测后，以官方 Bot 返回的**完整文本**为首要输入，结合当前 commit 做代码级反推。
+- 若官方反馈模糊，则在本地用 `protocol3_sample15.json` 或自建批量样本复现。
+
+*追加于 2026-08-28*
+
+---
+
+## 20. 2026-08-29 正式评测 0 分根因诊断 — 模型输出过度清洗
+
+### 20.1 现象
+
+- 8/28 与 8/29 正式评测均为 **30 分钟完成 100 题，0 分**。
+- 用户能在评测过程中看到 API Key 被调用，排除 key 额度/连通性问题。
+- 官方不返回逐任务日志，无法直接查看失败原因。
+
+### 20.2 根因
+
+commit `c35ff37`（"清洗模型输出"）引入的防御逻辑过度：
+
+| 位置 | 过度逻辑 | 后果 |
+|---|---|---|
+| `agent.py::_sanitize_model_output()` | 将包含 `elements:` / `page summary:` / `current page:` / `url:` / `title:` / `page visible text:` / `current page elements:` 的模型输出判为无效 | 返回 `None` → `client error` |
+| `agent.py::parse_action_to_structure_output()` | 前置防御同样检测上述词并抛异常 | 解析失败 |
+
+这些词在 DOM prompt 中大量存在（页面 URL、标题、元素列表、正文摘要），模型在 Thought 中自然提及，属于正常输出而非污染。结果每道题第一步模型返回即被清洗为 `None` → `main.py` 标 `FAIL_PREDICT_ERROR` 并 break。**每题只走 1 步**，100 题在 30 分钟内快速跑完并得 0 分。
+
+### 20.3 修复
+
+commit `1d604bf` 已 push `main`：
+
+1. 移除 `_sanitize_model_output` 中的 observation markers 过滤；仅保留 markdown 清洗和自我介绍/系统身份泄漏过滤。
+2. 移除 `parse_action_to_structure_output` 中的前置 observation block 防御。
+3. 新增 `tests/test_sanitize_model_output.py` 回归测试锁定该行为。
+
+### 20.4 验证
+
+| 门禁 | 命令 | 结果 |
+|---|---|---|
+| Python 语法检查 | `python -m py_compile src/agent/*.py` | ✅ 通过 |
+| 全量测试 | `python -m pytest tests/ -v` | ✅ 14 passed |
+| 回归测试 | `tests/test_sanitize_model_output.py` | ✅ 5 passed |
+
+### 20.5 下一步
+
+1. 用户在群内发送 `@WR-EvalBot 提交代码` 跑官方冒烟测试。
+2. 冒烟通过后，触发 `@WR-EvalBot 开始评测` 消耗今日正式评测次数。
+3. 若仍有 0 分或快速完成，把 Bot 返回的任意文本或本地日志贴给 agent 继续定位。
+
+### 20.6 教训
+
+- 防御性清洗不要基于 prompt 中已有的关键词做负向过滤，极易误杀正常输出。
+- DOM 方案中模型输出包含 `url:`、`title:`、`elements:` 等词是预期行为，不应视为 observation leak。
+- 官方评测不返回日志时，从"每题平均耗时极短"反推"每题早期失败"，再定位到第一步输出处理逻辑。
+
+*追加于 2026-08-29*
+
+---
+
+## 21. 2026-08-29 冒烟测试 1/3 缺少有效输出 — evaluate 超时全量修复
+
+### 21.1 现象
+
+- 用户在 commit `1d604bf` 后触发官方冒烟测试。
+- 结果：**3 道冒烟题中有 1 道缺少有效输出（2/3 通过）**。
+- 用户指出：历次冒烟测试常出现"3 题只过 2 题"，且报错多与 `run.sh` 相关；并明确要求**筛查出的问题必须全修**。
+
+### 21.2 排查与修复
+
+本次不再只修表面报错点，而是对 `page.evaluate` / `handle.evaluate` / `focus` / `scrollIntoView` 等所有可能阻塞的 Playwright 调用做统一扫描加固。
+
+#### commit `33f57bd` 已 push `main`
+
+| 文件 | 修复点 | 说明 |
+|---|---|---|
+| `src/agent/web_controller.py::click_type` | focus/scrollIntoView evaluate | 加 `_with_action_timeout(page, 5000, ...)` |
+| `src/agent/web_controller.py::click_type` | setValue evaluate | 加 `_with_action_timeout(page, 5000, ...)` |
+| `src/agent/web_controller.py::_handle_download_as_text` | 注入下载内容 evaluate | 加 `_with_action_timeout(page, 5000, ...)` |
+| `src/agent/prompts.py` | 删除硬编码中秋节日期 | 避免事实错误与绕过日期过滤器风险 |
+
+#### 上一轮已修但未在本次 commit 中的关键修复
+
+- `src/agent/main.py`：`page_summary` / 过早放弃 body text 两处 `page.evaluate` 加 5s 超时。
+- `src/agent/dom_extractor.py`：`extract_interactive_elements` / `get_element_handle` / `extract_page_text` 三处加超时保护。
+
+### 21.3 8/27 深度审计 P0/P1 复核
+
+按 [[session-handoff-webretriever-2026-08-27-deep-audit]] 逐项复核，**当前代码已全部修复**：
+
+| 类别 | 问题 | 当前状态 |
+|---|---|---|
+| P0-1 | `web_controller.py` 4 处 `exit()` | ✅ 已移除 |
+| P0-2 | `agent.py` `content is None` / images 空 | ✅ 已判空处理 |
+| P0-3 | `prompts.py` URL 拼接 + 硬编码日期 / hotkey | ✅ 已删除/已对齐 |
+| P0-4 | 浏览器状态管理缺陷 | ✅ 已修复 |
+| P0-5 | `main.py` 断点续跑 key 类型 | ✅ 已统一字符串 |
+| P1-1 | `dom_extractor.py` JS 端 cap | ✅ `MAX_NODES=2000` |
+| P1-2 | `get_element_handle` 页面变化误点击 | ✅ tagName 二次校验 |
+| P1-3 | `agent.py` 重试无 jitter | ✅ 已加随机抖动 |
+| P1-4 | 所有异常都重试 | ✅ `_is_retryable_error` 区分 |
+| P1-5 | `scroll_into_view_if_needed` / `focus` 未传 timeout | ✅ 已传 5s |
+| P1-6 | `_handle_download_as_text` 不删临时文件/不限制大小 | ✅ 已删 + 10MB 限制 |
+| P1-7 | `main.py` 读取 result.json 无 try | ✅ 已加 try-except |
+
+### 21.4 验证
+
+| 门禁 | 命令 | 结果 |
+|---|---|---|
+| Python 语法检查 | `python -m py_compile src/agent/*.py` | ✅ 通过 |
+| 全量测试 | `python -m pytest tests/ -v` | ✅ 14 passed |
+
+### 21.5 下一步
+
+1. 在群内发送 `@WR-EvalBot 提交代码` 跑官方冒烟测试。
+2. 冒烟通过后，触发 `@WR-EvalBot 开始评测`。
+3. 若仍有问题，继续按"筛查出的问题必须全修"原则处理。
+
+*追加于 2026-08-29*
+
