@@ -42,18 +42,16 @@ status: in_progress
 - 后端：配置为 `cookie` 模式（从 admin 登录 403 问题反推）。
 - 前端 `web/.env.production`：默认 `VITE_AUTH_MODE=cookie`（**已修改并 push**）。
 - 前端 `web/.env.production.local`：`VITE_AUTH_MODE=cookie`（覆盖默认，未纳入 git）。
-- 状态：✅ 一致。
+- 状态：⚠️ 待运维确认是否已被本次改动影响。
 
 ### 2.3 测试环境
-- 后端：待 Jenkins 重新部署后生效 `cookie`。
+- 后端：⚠️ **实际运行仍为 bearer**（login 接口返回 accessToken + refreshToken）。
 - 前端：待 Jenkins 重新 build 后生效 `cookie`。
-- 状态：🔄 切换中。
+- 状态：🔄 切换中，后端配置未生效。
 
 ---
 
 ## 三、已完成的代码修改（已 push main）
-
-**commit**: `68c97ba` — `chore(deploy): 测试/生产环境认证模式统一为 cookie`
 
 ### 3.1 `web/.env.production`
 ```diff
@@ -70,27 +68,55 @@ status: in_progress
 + COOKIE_SAME_SITE: lax
 ```
 
-### 3.3 未 push 的本地变更
+### 3.3 `web/package.json`
+```diff
+- "vant": "^4.10.0",
++ "vant": "4.10.0",
+```
+
+### 3.4 未 push 的本地变更
 - `server/src/modules/exam/exam.service.spec.ts`：单元测试文件，按用户偏好保留在本地 staged，未 commit/push。
 
 ---
 
-## 四、Jenkins 部署步骤
+## 四、当前卡壳点
 
-1. [x] **提交并 push 代码变更**（`web/.env.production` + `docker-compose.yml`）。
-2. [ ] **Jenkins 重新 build 前端**。
-   - 注意：如果 Jenkins 构建脚本里有 `VITE_AUTH_MODE=bearer` 的硬编码注入，需要一并去掉。
-   - 如果 Jenkins 工作区残留 `web/.env.production.local`，建议删除或确认其内容不会覆盖为 `bearer`。
-3. [ ] **测试环境后端重启**。
-   - 如果用 `docker-compose.yml`：重新 `docker-compose up -d`。
-   - 如果用手动部署：修改 `server/.env` 中 `AUTH_MODE=cookie`，重启服务。
+### 4.1 运维"发布完成"但测试环境后端未切换
+- 运维反馈已重新发布，但测试环境 `https://lab-exam-test.oceghome.com/` 的 `/auth/login` 仍返回 `accessToken` + `refreshToken`。
+- **关键疑问**：运维修改的是测试环境还是生产环境？
+- **下一步**：必须让运维明确回答修改的是哪个环境、具体改了哪个文件、执行了什么命令。
+
+### 4.2 后端实际部署方式
+- 测试环境后端由 ansible `node_standard.yml` + supervisor 管理，**不是 docker-compose**。
+- 仓库里的 `docker-compose.yml` 改动对当前测试环境部署**不直接生效**。
+- ansible 启动配置文件已存在时会 `skipping`，导致配置不更新。
+
+---
+
+## 五、Jenkins 部署步骤
+
+1. [x] **提交并 push 代码变更**（`web/.env.production` + `docker-compose.yml` + `web/package.json`）。
+2. [x] **Jenkins 重新 build 前端**。
+   - `vant@4.10.0` 锁定生效，构建成功。
+3. [ ] **测试环境后端切换为 cookie**。
+   - 当前实际运行仍为 bearer，待运维排查。
 4. [ ] **浏览器清缓存**，强制刷新测试环境页面。
 
 ---
 
-## 五、验证清单（必须全部通过）
+## 六、待运维确认/执行
 
-### 5.1 登录与认证
+- [ ] 运维本次修改的是测试环境还是生产环境？
+- [ ] 测试环境 supervisor 启动配置文件具体路径。
+- [ ] 测试环境 `.env` 文件中 `AUTH_MODE` 实际值。
+- [ ] 是否执行了 `supervisorctl restart lab-exam`。
+- [ ] 如果修改的是生产环境，生产环境 admin 登录是否正常。
+
+---
+
+## 七、验证清单（必须全部通过）
+
+### 7.1 登录与认证
 - [ ] admin 登录后能正常跳转到首页。
 - [ ] 学校管理员登录后能正常跳转。
 - [ ] 教师登录后能正常跳转。
@@ -99,7 +125,7 @@ status: in_progress
 - [ ] 后续 API 请求头中携带 `X-CSRF-Token`。
 - [ ] `/auth/me` 返回 200 且用户信息正确。
 
-### 5.2 管理端核心操作
+### 7.2 管理端核心操作
 - [ ] 创建一场新考试。
 - [ ] 为考试选择参考班级/学生。
 - [ ] 发布考试。
@@ -108,7 +134,7 @@ status: in_progress
 - [ ] 学生成绩统计页面正常加载。
 - [ ] 导出成绩单/证书（如有）。
 
-### 5.3 学生考试流程
+### 7.3 学生考试流程
 - [ ] 学生进入考试，能正常加载试卷。
 - [ ] 答题过程中无 403/1404 弹窗。
 - [ ] 切屏/焦点/心跳事件正常上报（Network 中可见，且无报错）。
@@ -116,17 +142,17 @@ status: in_progress
 - [ ] 交卷后不再出现「没有进行中的考试」1404 弹窗。
 - [ ] 学生能查看成绩/证书。
 
-### 5.4 重新生成试卷
+### 7.4 重新生成试卷
 - [ ] 在管理端对任意学生点"重新生成试卷"。
 - [ ] 新试卷无重复题（重点抽查 BN100009258 同款场景）。
 
-### 5.5 登出与重新登录
+### 7.5 登出与重新登录
 - [ ] 点击登出后，Cookie 被清除。
 - [ ] 重新登录后恢复正常。
 
 ---
 
-## 六、生产环境同步
+## 八、生产环境同步
 
 测试环境全部验证通过后，再同步生产环境：
 
@@ -140,7 +166,7 @@ status: in_progress
 
 ---
 
-## 七、回滚方案
+## 九、回滚方案
 
 如果测试环境切换后出现大面积问题，按以下顺序回滚：
 
@@ -153,16 +179,7 @@ status: in_progress
 
 ---
 
-## 八、待确认/待补充
-
-- [ ] Jenkins 构建脚本里是否有 `VITE_AUTH_MODE` 硬编码注入。
-- [ ] Jenkins 工作区是否残留 `web/.env.production.local`。
-- [ ] 测试环境后端是否用 `docker-compose.yml` 部署。
-- [ ] 是否需要同步修改本地开发环境为 `cookie`（如果希望本地-测试-生产三线一致）。
-
----
-
-## 关联
+## 十、关联
 
 - [[lab-exam-2026-08-31-production-issues-fixed]]
 - [[session-handoff-lab-exam-prod-import-sql-regenerated-2026-08-28]]

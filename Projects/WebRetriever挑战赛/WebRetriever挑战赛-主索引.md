@@ -1,6 +1,9 @@
 ---
 title: WebRetriever Challenge 2026 — 主索引
 ---
+> **🏷️ 2026-08-31 最新交接**：本地 benchmark 18 题跑至第 10 题 hang 住，已评分 9 题（7/9 PASS），待 workbuddy 接手 → [[2026-08-31 本地benchmark交接-待workbuddy接手]]
+
+
 
 # WebRetriever Challenge 2026 — 主索引
 
@@ -1469,4 +1472,464 @@ python tools/eval_local.py test_results/regression_v2
 
 **结论修正**：上一轮"慢 = 好（放弃修复生效）"的判断需补一刀——**慢但能完成 = 好；卡死/不能完成 = 坏**。c178d0c 把题从"8 步秒弃"变成"真跑 70 步"，暴露了队列损坏死锁。本 fix 让 run 必完成，剩 9/1、9/2 两次机会。
 
+> **⚠️ 8/31 13:13 证据修正（重要）**：同一场评测（10:42 起）到 13:13 已完成 **99/100**，且当时 `61a75e8` **尚未 push**（本地 ahead 1）。真·`mp.Queue` 死锁**不可能自愈到 99 题**。故"50 分钟卡在 45 题"实为**某难题（如 SAM.gov 类多步导航）极慢被误判冻结**，并非队列损坏死锁。→ `61a75e8` 仍是合理保险（仅触达超时/长任务路径），但本次并非必需；是否 push 待 9/1 前据分数决定。
+
+### 31.12 8/31 正式评测进度（2026-08-31 13:14）
+
+- **时间线**：10:42 触发 → 13:13 达 **99/100**（~2.5h），未永久冻结，预计整场 < 平台 4h 上限。
+- **速度解读**：≈91s/题（历史 12–18s/题）。慢 = c178d0c 生效——题在真干活（放弃门槛 15 + 软结束 70 步 + 非答案续找），不再 8 步秒弃。
+- **待定**：官方总分（评测完 100 题后由平台给出）。**完成 ≠ 得分**，分数才是唯一验收。
+- **判断树（分数一出即用）**：
+  - **>0 分**：c178d0c 方向验证，下一步按基线失败分类迭代阈值（放弃未降→门槛 15→20~25；超时高→`SOFT_FINISH_STEP` 50→40）。
+  - **=0 分但 99 完成**：题在跑但答案错 → 瓶颈是**导航/答案提取**非"放弃"，需换思路（难度路由、靶向死磕易类）；此时 `61a75e8` 超时修复无关。
+
+**✦ 8/31 官方总分 = 2 / 100（2%）——已出分（13:28）：**
+- **>0 但极低**：c178d0c「杀假放弃」确证有效（至少救回这 2 题），但 2% 证明**"放弃"只是极小失分桶**；官方 98% 失败的主因是**页面读取 / 导航 / 答案推理**，而非放弃。
+- **本地 40% vs 官方 2% 鸿沟的根因（破案）**：`data/example_tasks.json` 仅 **2 条**任务；此前"基线 40.4%"来自 `test_results/` 历史混合跑（4 天不同版本、不同输入题），**完全不具代表性**。本地 40% 不可外推，官方 2% 才是真相。→ 之后迭代**绝不能**再把 40% 当地基线。
+- **任务类型（读 example_tasks + maoyan/worldbank 样例）**：中文**事实查询 / 排名 / 趋势**类——如"2025 中秋票房排名第二的电影""中国青少年生育率增速最快年份"，站点为猫眼/世行等**重 JS 动态、数据在表格/图表**的站。这类题对纯 DOM 文本 agent 极不友好：要导航到正确页 + 筛选(日期/国家) + 从动态表/图读数 + 做排名/最大增速推理。
+- **锁定模型天花板（必须正视）**：Kimi K2.6 纯 DOM 无视觉，无法读图表/canvas。若官方 100 题大量是数据可视化类，则存在**硬上限**，纯提示调参破不了；2 分可能接近 DOM-only 可达下限，或仍有"文本可渲染子集"可榨。
+- **下一步最高杠杆（见 31.13）**：①用户是否持有官方 100 题定义？有→建代表性本地评测集闭环迭代（game changer）；无→只能在 2 条样本盲调。②无论与否立即着手：a) 增强 `dom_extractor.format_elements_for_prompt` 抓表格/正文文本（非仅可点击元素）；b) 收紧 `finished()` 答案提取提示返回精确值。
+
+### 31.13 黑盒根因定位 + DOM 文本覆盖修复 + 本地基准方案（2026-08-31 13:39）
+
+**用户确认**：**拿不到官方 100 题题目**，**也不知道哪 2 分是哪类过的** → 完全无官方信号。黑盒分数只当验收、不能当路标。
+
+**✦ 真·根因（代码层确证，比"放弃"致命得多）**：
+读 `src/agent/dom_extractor.py` + `main.py:877/1096` 发现——**页面答案所在的"表格/正文文本"被严重截断**：
+- `extract_page_text(page, max_len=1000)`：页面可见文本（含排名表、趋势数据）被砍到 **1000 字符**（JS 结构化提取预算也仅 1800）。
+- 表格抽取：`_JS_EXTRACT_STRUCTURED_TEXT` 只取前 **2 个表、前 4 行**（表头+3 行）；正文块只取最长的 **4 个 div**。
+- 后果：你的题全是"排名/趋势事实查询"，答案恰在表格/长正文里，而 agent 只被喂到冰山一角 → **不是不会，是没被喂到答案数据**。这正是 98% 失败的主因（与"放弃"无关，c178d0c 救回的只是极小桶）。
+
+**✦ 修复（已本地提交 `b2861d5`，未 push）**——纯增量给模型更多信息，不碰导航逻辑，回归风险极低：
+- `main.py` 两处 `extract_page_text` `max_len` 1000 → **4000**。
+- `dom_extractor.py` JS 预算 1800 → **5000**；表格 2→**3 表**、行 4→**15 行**；正文块 4→**6 个**、单块截断 900→**1200**；交互元素文本 60→**80 字符**。
+- 预期：排名/趋势类页的答案进入模型视野的概率大幅提升，直接抬"页面可读到答案"的下限。
+
+**✦ 唯一能造信号的事：自建本地基准集（黑盒下的"眼睛"）**：
+因拿不到官方题，**自己构造 20–40 道真实"排名/趋势事实"任务**（仿 example_tasks 的猫眼/世行类，覆盖票房/天气/体育排名/上市公司/维基等公开站），每道用 WebSearch **先核实标准答案**写进 `expected_answer` 字段。本地跑 agent → 用弱匹配（答案串是否被 `agent_answer` 包含）判定 pass/fail → 得到"哪类题 agent 能做对"的画像。
+- 这是把"盲调"变"有眼睛"的唯一途径；没有它，9/1、9/2 仍只会拿到一个无细节的数字。
+- 配套：写 `tools/benchmark_score.py`，对 `agent_answer` 做规范化（去空格/标点）后 `expected_answer in` 判定，输出逐题 pass/fail 与按类型聚合。
+- ⚠️ 弱匹配的局限：官方是语义评分，本地包含匹配会漏判同义改写；但足以区分"根本读不到"vs"读到了"。
+
+**✦ 黑盒兜底策略重估（"只死磕 1 道"）**：
+字面"只跑 1 道"做不到（评测喂全部 100 题）。等价做法 = **难度路由 + 资源倾斜**：本地基准跑出画像后，对"能做对的类"全力投入（步数拉满、重试拉满），其余快速交卷省资源。前提是先有本地画像 → 即先建基准集。
+
+**✦ 当前 git 状态**：main 领先 origin **2 个提交**（`61a75e8` 卡死修复 + `b2861d5` DOM 覆盖修复），均未 push。`61a75e8` 此前已证非必需（无它也能跑完 99 题），但属合理保险；`b2861d5` 是本轮强相关修复。→ 9/1 前建议 push 两版 + 跑官方冒烟确认构建不崩，再发正式评测。
+
 *追加于 2026-08-31*
+
+---
+
+## 31.14 2026-08-31「有效成绩认定」公告对齐 + 合规审计 + 基准集落地
+
+### 31.14.1 公告与现有记录的对应
+
+用户再次贴出组委会「有效成绩认定」公告：①逐步交互 ②实时自主 ③来源合规 + **提交代码与运行轨迹人工复核**。
+
+→ 主索引 **第 11 章（2026-08-26）已对齐过同一公告**，且当时已做合规修复（commit `17609f8` 删 iFixit 硬编码兜底 / Statcounter 深链 hook / is_ifixit 特判 / prompts 任务示例查询）。本次新增的关键约束是 **"组委会将结合提交代码与运行轨迹进行人工复核"**——即不仅要功能能跑，代码层与轨迹层都不能留把柄。
+
+### 31.14.2 代码合规审计（针对 ①②③ + 人工复核）
+
+逐项核对 `src/agent/*`：
+
+| 条款 | 审计点 | 结论 |
+| --- | --- | --- |
+| ① 逐步交互 | 是否有"遍历网站数据接口直接取答案"的代码路径 | ✅ 无。Agent 仅 click/type/scroll/goto(可见链接)/finished；DOM 文本经 `page.evaluate` 读**渲染后 DOM**（属"观察界面"），不解析 XHR/JSON 接口取值 |
+| ① 逐步交互 | `prompts.py:192` 的 iFixit 示例是否泄漏预设答案 | ✅ 仅为"输出格式示范"（Task/Thought/Action 示范），不含答案，人工复核安全 |
+| ② 实时自主 | 是否硬编码答案 / 网站特判兜底 | ✅ 无。`17609f8` 已删；全仓 grep `ifixit/statcounter/硬编码/expected_answer/preset` 仅命中 benign 注释与格式示例 |
+| ③ 来源合规 | 是否使用外部搜索引擎 | ✅ 禁止且拦截。`prompts.py:168` 明示 FORBIDDEN EXTERNAL SEARCH ENGINES；`web_controller.py:1640-1654` 在 `goto` 层对 `_SEARCH_ENGINE_HOSTS` 黑名单拦截并返回 forbidden |
+
+**结论**：本仓库**已满足 ①②③**，与第 11 章、第 10.3 节一致；本轮无新增代码需为合规改动。
+
+### 31.14.3 人工复核口径带来的设计约束（基准集）
+
+公告点名"人工复核运行轨迹"→ 轨迹必须体现真实"观察→推理→执行"闭环。本仓库 `result.json` 已含 `trajectory`(截图) + `step_diagnostics` + `history_resps`，可作证据。
+
+由此对 **Plan A 本地基准集** 施加一条硬约束：**标准答案绝不能进入喂给 Agent 的 task 字段**（否则违反 ②"预置于代码"）。落地方式：
+- `data/benchmark_tasks.json`：**仅含官方 schema**（`task_idx / task_id / website / task`），可直接 `--input` 喂给 `main.py`，Agent 全程看不到答案。
+- `data/benchmark_answers.json`：**独立文件**，只被 `tools/benchmark_score.py` 读取，从不进入 Agent 输入。
+- `tools/benchmark_score.py`：读 `result.json` 的 `agent_answer`，弱匹配（规范化后任一别名被包含即 PASS），输出逐题 + 按类型画像 + 总体率，并写 `BENCHMARK_REPORT.md`。
+
+### 31.14.4 基准集内容
+
+- 20 道真实"排名/趋势/事实"题，覆盖 8 道 wikipedia（干净、隔离 agent 能力）+ 12 道真实 JS 重站（olympics/forbes/fortune/apple/microsoft/amazon/nvidia/tesla/stats.gov.cn/maoyan/boxofficemojo），镜像官方"中文事实/排名/趋势"类难度。
+- 每题 `expected` 多别名已用 WebSearch 核实（Apple $391B / MS $245.122B / Amazon $638B / Walmart F500#1 $648.1B / India 14.509 亿 / BTC ATH 2025 / 珠峰 8848.86m 等均复核通过）。
+- 自检：合成 result.json 跑评分器，正确→PASS、错值→FAIL、放弃→FAIL，类型画像正常。
+
+### 31.14.5 git 状态（2026-08-31 14:xx）
+
+- 本地新增 commit `28018bc`（基准集三件套：tasks + answers + scorer）。
+- 当前 main 领先 origin **3 个提交**未推：`61a75e8` + `b2861d5` + `28018bc`。
+- 本会话沙箱无 GitHub 出网，**push 由用户在正式环境执行**：`git push origin main` → 群内 `@WR-EvalBot 提交代码` 跑冒烟 → 冒烟过 → 9/1（或 9/2）`@WR-EvalBot 开始评测`。
+- 本地跑基准命令（用户正式环境）：
+  ```bash
+  python src/agent/main.py --input data/benchmark_tasks.json --output test_results/benchmark_run --cdp_url launch
+  python tools/benchmark_score.py test_results/benchmark_run
+  ```
+
+*追加于 2026-08-31*
+
+---
+
+## 31.15 2026-08-31 正式评测结果与剩余机会
+
+### 31.15.1 今日结果
+
+- **分数**：2/100（2%）
+- **耗时**：约 2.5 小时跑完 99/100 题
+- **基于 commit**：`c178d0c`（Day 2-7 改动）
+- **意义**：从 0 分→2 分，证明杀假放弃改动生效；但 2% 也说明 98% 失败主因不是放弃，而是**页面文本覆盖不足 / 导航 / 答案提取**（详见 31.13）。
+
+### 31.15.2 赛程与剩余机会
+
+根据第 10.1 节官方规则：
+
+| 项 | 内容 |
+|---|---|
+| 正式评测窗口 | 8月27日 10:00 — 9月2日 23:59（北京时间） |
+| 每日正式评测次数 | **1 次，00:00 刷新** |
+| 排名规则 | 取最优成绩 |
+
+- **已用机会**：8/27、8/28、8/29、8/30、8/31（今日）共 5 次
+- **剩余机会**：**9月1日、9月2日，共 2 次**
+- **当前最优**：2/100（2%）
+
+### 31.15.3 9/1 行动建议
+
+1. **~~先 push 本地未推的 3 个 commit~~** ✅ 已完成（2026-08-31 22:xx）：`61a75e8` + `b2861d5` + `28018bc` 已 push 到 `origin/main`，最新 commit = `28018bc`。
+2. **官方冒烟测试**：群内 `@WR-EvalBot 提交代码`
+3. **冒烟通过后**：00:00 后尽快发 `@WR-EvalBot 开始评测` 消耗 9/1 次数
+4. **本地基准验证**（可选）：
+   ```bash
+   python src/agent/main.py --input data/benchmark_tasks.json --output test_results/benchmark_run --cdp_url launch
+   python tools/benchmark_score.py test_results/benchmark_run
+   ```
+
+### 31.15.4 关键决策点
+
+- 若 9/1 分数 >2% 且耗时可控 → 方向对，继续迭代 DOM 文本覆盖
+- 若 9/1 分数仍 ≤2% 或大幅卡死 → 考虑剩余 9/2 最后一次机会，或接受当前最优 2% 作为最终成绩（所有提交有效结果的队伍均获荣誉证书）
+
+### 31.15.5 push 完成状态
+
+- 本地 main 已同步到 origin：`c178d0c..28018bc  main -> main`
+- 关键改动已上线：
+  - `b2861d5` DOM 文本覆盖提升
+  - `61a75e8` 评测卡死自愈 + `SOFT_FINISH_STEP` 70→50
+  - `28018bc` 本地基准集（不影响官方分数，仅本地观测）
+- 语法检查：`python -m py_compile src/agent/*.py` 通过。
+
+*追加于 2026-08-31*
+
+---
+
+## 31.16 2026-08-31 14:59 push 执行确认
+
+由 agent 在会话续接后执行 `git push origin main`，将本地 3 个 commit 推送到 `hhhhhhalf/WR-001` main。
+
+- 推送时间：2026-08-31 14:59
+- 本地→远程：`c178d0c..28018bc  main -> main`
+- 最新 commit：`28018bc`
+- 已确认：
+  - `git status` 无未提交改动
+  - `python -m py_compile src/agent/*.py` 通过
+  - Obsidian 第 31 章已同步
+
+### 9/1 行动清单（待用户执行）
+
+1. 群内发：`@WR-EvalBot 提交代码`
+2. 冒烟通过后，**9/1 00:00 刷新后立即**：`@WR-EvalBot 开始评测`
+3. 评测结果（分数 / 耗时 / 是否卡死）贴给 agent 继续迭代
+4. 若 9/1 00:00 前有空：本地跑 `data/benchmark_tasks.json` 看 DOM 覆盖修复效果
+
+*追加于 2026-08-31 14:59*
+
+---
+
+## 31.17 2026-08-31 15:xx 组委会「任务重置规则」公告 + 合规审计（结论：合规）
+
+用户收到新公告：①任务启动后禁止队伍自行重试/重置；②执行中异常（模型超时/截图失败/浏览器断连）只允许**当次执行内步骤级重试**，不得整体重置重跑；③系统环境问题由组委会统一重置，队伍不得自操作；④违规分数不计入有效成绩。
+
+**代码审计结论：当前已 push 代码（含 61a75e8）完全符合，不存在整任务重跑/重入队路径。**
+
+- 任务队列只在启动时空一次性 `task_queue.put(idx)`（main.py:1442）；worker 主循环取一题→处理→`continue` 取下一题，**失败任务不重新入队**（grep 全仓仅 2 处 put，皆启动期）。
+- 步骤级重试（规则允许）：
+  - 模型调用 `try_times=5`（agent.py:718/907，即公告点名的"模型调用超时步骤级重试"）；
+  - worker 启动前浏览器初始化重试 ×3（pre-task connecting 阶段）；
+  - 执行中途浏览器断连 → `reset_browser_state` 重建连接后**同一步原地续跑**（`curr_step/effect_step/dom_history` 全保留，main.py:834-854），非回起点重来。
+- `device_reset_url` 仅在防死循环命中时 `goto(起点)`（main.py:1080-1087），仍在同 task 执行体内、agent 状态/步数计数器保留，属导航纠偏非任务重执行。
+- 单题超时：Event 自愈 → FAIL + 续下一题（放弃非重置）；任务失败：写兜底 result + `continue`（不重跑）。
+
+**对团队行为的提醒**：官方平台上某题一旦开始，不要在平台侧手动重置/重触发；环境问题是组委会统一处理。代码不会自作主张重跑，但用户侧也别手动重跑。
+
+**功能性小提示（非合规问题，非必须）**：中途断连续跑时新页面可能非原页、agent 历史偏旧，那题可能因此 0 分但不违规；若要更稳，可在断连后导航回 `agent.urls[-1]` 而非仅靠历史。时间紧可不做。
+
+*追加于 2026-08-31 15:xx*
+
+## 31.18 2026-08-31 15:09 官方冒烟 v32（28018bc）失败 → 修复（61a75e8 回归）
+
+15:08 用户触发 `@WR-EvalBot 提交代码` → 静态检查过、环境装好 → **冒烟 0/3 未通过**：`NameError: name 'TASK_TIMEOUT_SECONDS' is not defined` @ `src/agent/main.py:734`，3 题 trajectory 全空、0/3 通过。
+
+**根因（61a75e8 引入的回归）**：死锁自愈那版在 worker 函数 `run_worker` 里用了 `TASK_TIMEOUT_SECONDS` / `GLOBAL_BUDGET_SECONDS`，但把这俩常量**误定义在 `main()` 函数体内**。Windows `spawn` 下 worker 子进程只继承**模块级全局变量**，函数局部变量传不到 → 子进程一进 734 行就 `NameError`。c178d0c 无这段自愈代码故冒烟曾通过；加 61a75e8 后才暴露。
+
+**修复（commit `1e63e6e`，本地已提交，ahead 1）**：
+
+1. 把两常量提到**模块级**（紧邻 `SOFT_FINISH_STEP` / `MAX_REANSWER_NUDGES`，现 51/53 行）：
+   ```python
+   TASK_TIMEOUT_SECONDS = 20 * 60      # 单题超时防卡死（worker 与主监控循环共用，必须模块级）
+   GLOBAL_BUDGET_SECONDS = 3 * 3600    # 整场 3h 保险收尾
+   ```
+2. 删除 `main()` 内原本的局部赋值（原 1453/1456 行）。
+
+**验证**：`py_compile` 通过；另写 AST 扫描 `run_worker` / `run_worker_safe` 的全部 load 名，确认除已修复者外**再无**"既非参数/局部、又非模块级/内建/导入"的真未定义名（扫描器报的 `f` / `_sdf` / `e` / `init_attempt` 均为 `with` / `except` / `for` 局部，已人工排除）。
+
+**行动**：用户需在正式环境 `git push origin main`（现 ahead 1）后重跑 `@WR-EvalBot 提交代码` 冒烟。预计 3/3 通过（仅动常量作用域，行为不变）。
+
+*追加于 2026-08-31 15:10*
+
+---
+
+## 31.19 2026-08-31 17:20 本地 benchmark 交接接手：渲染等待 hang 根因确认 + 修复（`02a34a7`）
+
+承接笔记：[[2026-08-31 本地benchmark交接-待workbuddy接手]]
+
+### 31.19.1 冒烟 v33 已通过（15:49）
+
+`1e63e6e` push 后重新触发 `@WR-EvalBot 提交代码` → **冒烟 3/3 通过**，构建健康、无崩溃回归。
+**重要边界**：8/31 的 1 次正式机会已用于那场 2 分评测（10:42→13:13 跑完 99 题），**剩余仅 9/1、9/2 两次**，取最优。
+
+### 31.19.2 benchmark 结果：本地 7/9 = 78%，但**不可外推官方 2%**
+
+交接文档记录：18 题过滤版跑到第 10 题 `t_apple_rev2024` 挂死中断，已完成 9 题 **7 PASS / 2 FAIL = 78%**（fact 6/7、ranking 1/2）。
+
+**⚠️ 关键校准——这个 78% 与官方 2/100 的鸿沟，暴露基准集本身的问题**：
+
+| | 本地基准集 | 官方题 |
+|---|---|---|
+| 语言/域 | 英文为主、8 题 Wikipedia（静态、干净） | 中文事实/排名/趋势 |
+| 站点 | Wikipedia / Forbes / Fortune 等可抓站 | 重 JS 动态站（maoyan、stats.gov.cn 类） |
+| 答案位置 | 正文/简单表格 | 表格深处、图表/canvas |
+
+→ **基准集定位必须降级为「回归检测 + 找机械性 bug」，绝不能当「官方分数预测器」。** 后续迭代**不要**以"benchmark 涨到 X%"为目标。它这次的真正价值：发现了下面这个真 bug。
+
+### 31.19.3 渲染等待 hang：根因确认（比交接里的"初步判断"更精确）
+
+交接第 6 节判断"`wait_for_rendering_complete` 缺少硬超时"——方向对，但**机制是"假保护"**：
+
+- 该函数用 `page.evaluate()` 返回 **Promise** 做"滚动高度稳定"检测（`web_controller.py` 原 1071–1092 行），外层套了 `_with_action_timeout(page, 5000, ...)`，看似有 5s 兜底。
+- 但 `_with_action_timeout` 的实现是临时下调 `context.set_default_timeout()`，而 **Playwright 的 `evaluate()` 不受 default timeout 约束**（default timeout 只作用于 action / navigation / `wait_for_*`）。→ **该兜底对 evaluate 完全无效。**
+- 后果：页面主线程卡顿、或等待期间执行上下文被销毁时，Promise 永不 resolve → `evaluate` 无限阻塞 → 整个 worker 挂死。**完美对应三条症状**（进程活着、CPU 0、无日志、非 API 超时）。
+- **全仓 grep 确认：这是唯一的 `new Promise`，即唯一一处无界等待**；其余 `evaluate` 均为同步 JS 会立即返回。位置与观测到的 3 例 hang（olympics.com 金牌榜排序、wikipedia 搜索 Bitcoin、investor.apple.com 多次点击/滚动）完全吻合。
+
+### 31.19.4 修复（commit `02a34a7`）
+
+将该检测从 `evaluate + Promise` 改为 `page.wait_for_function(polling=200, timeout=3000)`——超时由 **Playwright 客户端侧强制**，必定抛 `TimeoutError`，保证函数整体有界。
+
+修复后 `wait_for_rendering_complete` 全部有界：30s(load) / 10s(domcontentloaded) / 3s(高度稳定) / 5s(有内容) + 外层兜底 5s。全仓 `new Promise` 清零。
+
+**回归风险评估（低）**：健康页面几乎不变（原 100ms×≤6 次≈600ms；现 200ms 轮询、连续两次高度一致即返回≈200–400ms）。动态/卡死页面最多等 3s 后跳过该检测继续。**对已通过的题无负面影响，只把"挂死 = 0 分"变成"继续尝试"**——而 hang 在官方评测中同样意味着该题 0 分 + 白耗整场 4h 预算，故这是**面向所有题型**的收益。
+
+### 31.19.5 交接第 7 节三项待办的决策
+
+| 待办 | 决策 | 理由 |
+|---|---|---|
+| **7.1** 继续跑剩余题 / 先修 hang / 不跑了 | **先修 hang（已完成）→ 再跑全量 20 题** | 修完必须跑**全量 20 题（含原被过滤的 olympics / bitcoin / apple）**——这 3 题现在能否跑完，是验证修复是否生效的唯一判据 |
+| **7.2** 修 ranking/fact 精度（印度人口取到 2023、城市人口答雅加达） | **不做（推迟）** | 仅 2/9 噪声点，且属英文 Wikipedia 域、非官方题分布；盲改 prompt 有回归风险且收益无法度量。hang 修复影响所有题型，优先级远高于此 |
+| **7.3** benchmark 流程化 | **已做** | 新增 `tools/run_benchmark.py`：一键跑 agent + 评分，子进程强制 `PYTHONIOENCODING=utf-8`（根治 Windows GBK `UnicodeEncodeError`）。支持 `--score-only` 只评分 |
+
+### 31.19.6 命令（更新）
+
+```bash
+cd D:\claude-work\WR-001
+
+# 一键跑全量 20 题（验证 hang 修复）
+python tools/run_benchmark.py --input data/benchmark_tasks.json --output test_results/benchmark_full
+
+# 只评分，不重跑 agent
+python tools/run_benchmark.py --score-only test_results/benchmark_full
+```
+
+### 31.19.7 待用户执行（9/1 前）
+
+1. `git push origin main`（当前 **ahead 1 = `02a34a7`**）。
+2. 群内 `@WR-EvalBot 提交代码` → 冒烟须 **3/3**（验证 hang 修复未破坏构建）。
+3. 本地跑**全量 20 题**，确认原先 3 道 hang 题现在能完成 → 佐证修复生效。
+4. 冒烟过 → 9/1 或 9/2 `@WR-EvalBot 开始评测`（剩 2 次，取最优）。
+
+*追加于 2026-08-31 17:20*
+
+## 31.20 「滚动陷阱」重大发现 —— 疑似官方 2/100 主因
+
+### 背景
+本地基准跑到 12 题时用户暂停（8/31 18:08 已杀净进程树 30032/7924/26900/27228）。当前成绩 **9/12 = 75%**：
+fact 6/7=86%，numeric 2/3=67%，ranking 1/2=50%。
+仍未跑：特斯拉、stats.gov.cn×2、maoyan、boxofficemojo；苹果题因孤儿目录被沙箱删除 shim 拦截，须换全新输出目录重跑。
+
+### 🔴 核心机制：滚动必死的无效循环
+- `main.py:823`：`scroll_limit = 5 if args.use_dom else 10`；config 是 `use_dom: true` → **连续滚动 5 次即 `FAIL_SCROLLDOWN` 整题判死**（main.py:1145-1148）
+- `dom_extractor.py:265 extract_page_text`：用 `document.body.innerText` 取**整篇文档**再截断 `max_len=4000`，**与滚动位置无关**
+→ **滚动永远返回完全相同的文本**。模型滚一次拿到同样内容，以为「再往下滚就有」，连滚 5 次被杀。
+
+### 轨迹证据
+| 题 | 死于第几步 | 最后想法 |
+|---|---|---|
+| `t_msft_rev2024` | **19/100** | 「继续向下滚动查找财务亮点或收入报表部分」（还剩 81 步预算） |
+| `t_india_pop2024` | **7/100** | 「继续向下滚动以找到该表格」（还剩 93 步预算） |
+
+既非卡死、也非死循环、更非预算耗尽 —— 是**正在有效搜索时被硬规则腰斩**。
+
+### 修复优先级
+**P0-1 滚动陷阱**
+- **A 窗口化提取**（推荐）：让提取随滚动位置变化 → 滚动真正露出新内容，prompt 大小不变（token 中性，不加剧 4h 预算风险）
+- **B 检测「滚动无新内容」**（最小改动、性价比最高）：滚动后文本与上次相同 → 不计数也不杀题，改注入提示让模型换策略
+- **C 放宽 `scroll_limit` 5→20**：单独做不够（无效滚动会烧光 100 步），必须配 A 或 B
+
+**P0-2 `max_len` 4000 → 8000~10000**（main.py:883 / 1102 两处调用）
+⚠️ 预算约束：平台整场 4h/100 题，上轮 99 题跑 2.5h（≈1.5min/题）。**别激进到 20000+**，否则单题变慢有超 4h 风险。
+
+**P1-1 复查「提前杀题」硬规则**：`FAIL_SCROLLDOWN`(1147)、`FAIL_LOOP`(1122 同 index 无进展)、`FAIL_NO_ANSWER` → 建议改为注入纠偏提示，只有跑满 100 步才判死。
+
+**P1-2 答案精度**（tokyo 答成雅加达、india 取到 2023 年）：模型读数/年份歧义噪声，非机制 bug，赛前不建议盲改 prompt（回归风险高、收益不可度量）。
+
+### 状态
+- `02a34a7`（hang 修复：evaluate+Promise → 有界 wait_for_function）**已推**（main == origin/main）
+- ❗ 待确认：推送后是否重跑过 `@WR-EvalBot 提交代码` 冒烟
+- 9/1，**剩 2 次正式机会（9/1、9/2）**，取最优
+
+### 环境备注（勿再踩坑）
+- 能跑 benchmark 的正确解释器是**系统 Python 3.14**（`C:/Users/dfjq/AppData/Local/Programs/Python/Python314/python.exe`），依赖齐全；**不是** `.workbuddy` 托管的 3.13.14（缺 openai）。之前日志记的「沙箱跑不了 / aixforge 503」已作废。
+- Git Bash 里 `kill -0 <pid>` 对原生 Windows PID 无效（会误判为已死）；杀进程用 `taskkill /F /T /PID <pid>`。`wmic` 被安全策略禁用。
+
+*追加于 2026-09-01*
+
+## 31.20 「滚动陷阱」重大发现 —— 疑似官方 2/100 主因
+
+### 背景
+本地基准跑到 12 题时用户暂停（8/31 18:08 已杀净进程树 30032/7924/26900/27228）。当前成绩 **9/12 = 75%**：
+fact 6/7=86%，numeric 2/3=67%，ranking 1/2=50%。
+仍未跑：特斯拉、stats.gov.cn×2、maoyan、boxofficemojo；苹果题因孤儿目录被沙箱删除 shim 拦截，须换全新输出目录重跑。
+
+### 🔴 核心机制：滚动必死的无效循环
+- `main.py:823`：`scroll_limit = 5 if args.use_dom else 10`；config 是 `use_dom: true` → **连续滚动 5 次即 `FAIL_SCROLLDOWN` 整题判死**（main.py:1145-1148）
+- `dom_extractor.py:265 extract_page_text`：用 `document.body.innerText` 取**整篇文档**再截断 `max_len=4000`，**与滚动位置无关**
+→ **滚动永远返回完全相同的文本**。模型滚一次拿到同样内容，以为「再往下滚就有」，连滚 5 次被杀。
+
+### 轨迹证据
+| 题 | 死于第几步 | 最后想法 |
+|---|---|---|
+| `t_msft_rev2024` | **19/100** | 「继续向下滚动查找财务亮点或收入报表部分」（还剩 81 步预算） |
+| `t_india_pop2024` | **7/100** | 「继续向下滚动以找到该表格」（还剩 93 步预算） |
+
+既非卡死、也非死循环、更非预算耗尽 —— 是**正在有效搜索时被硬规则腰斩**。
+
+### 修复优先级
+**P0-1 滚动陷阱**
+- **A 窗口化提取**（推荐）：让提取随滚动位置变化 → 滚动真正露出新内容，prompt 大小不变（token 中性，不加剧 4h 预算风险）
+- **B 检测「滚动无新内容」**（最小改动、性价比最高）：滚动后文本与上次相同 → 不计数也不杀题，改注入提示让模型换策略
+- **C 放宽 `scroll_limit` 5→20**：单独做不够（无效滚动会烧光 100 步），必须配 A 或 B
+
+**P0-2 `max_len` 4000 → 8000~10000**（main.py:883 / 1102 两处调用）
+⚠️ 预算约束：平台整场 4h/100 题，上轮 99 题跑 2.5h（≈1.5min/题）。**别激进到 20000+**，否则单题变慢有超 4h 风险。
+
+**P1-1 复查「提前杀题」硬规则**：`FAIL_SCROLLDOWN`(1147)、`FAIL_LOOP`(1122 同 index 无进展)、`FAIL_NO_ANSWER` → 建议改为注入纠偏提示，只有跑满 100 步才判死。
+
+**P1-2 答案精度**（tokyo 答成雅加达、india 取到 2023 年）：模型读数/年份歧义噪声，非机制 bug，赛前不建议盲改 prompt（回归风险高、收益不可度量）。
+
+### 状态
+- `02a34a7`（hang 修复：evaluate+Promise → 有界 wait_for_function）**已推**（main == origin/main）
+- ❗ 待确认：推送后是否重跑过 `@WR-EvalBot 提交代码` 冒烟
+- 9/1，**剩 2 次正式机会（9/1、9/2）**，取最优
+
+### 环境备注（勿再踩坑）
+- 能跑 benchmark 的正确解释器是**系统 Python 3.14**（`C:/Users/dfjq/AppData/Local/Programs/Python/Python314/python.exe`），依赖齐全；**不是** `.workbuddy` 托管的 3.13.14（缺 openai）。之前日志记的「沙箱跑不了 / aixforge 503」已作废。
+- Git Bash 里 `kill -0 <pid>` 对原生 Windows PID 无效（会误判为已死）；杀进程用 `taskkill /F /T /PID <pid>`。`wmic` 被安全策略禁用。
+
+*追加于 2026-09-01*
+
+## 31.21 「滚动陷阱」修复已实施（commit `cec1b30`）
+
+前提：`02a34a7`（hang 修复）**冒烟已通过**，部署干净。
+
+### 修复内容（P0-1 A+B+C + P0-2）
+
+**1. 滚动窗口（`dom_extractor.py` JS）**
+按 `window.scrollY` 在整页文本上开 3000 字移动窗口 `PAGE_WINDOW(N% from top)`，插入在 dl 注入内容之后（置前以免被 `max_len` 截断）。
+> **真机实测生效**：wikipedia/India 页 —— 0% 导航菜单 / 51% 正文 / 100% 参考文献，三段文本**完全不同**。修复前三个位置返回恒相同。
+
+**2. 无效滚动检测 + 纠偏提示（`main.py`）**
+滚动后文本与上次完全相同 → 计数 + 注入提示引导换策略（点击链接/标签页、站内搜索、向上回看、或直接 `finished()`）；带来新内容则重置计数。
+> ⚠️ **关键守卫：仅在 `args.use_dom` 分支启用**。非 DOM 分支不定义 `page_text`/`elements`，若无此守卫会 NameError —— 正是 `1e63e6e` 那个坑。视觉方案分支行为一字未动。
+
+**3. `scroll_limit` 5 → 20** —— 新增模块级常量 `DOM_SCROLL_LIMIT`（main.py:58）
+**4. `max_len` 4000 → 8000** —— 新增模块级常量 `DOM_PAGE_TEXT_MAXLEN`（main.py:62），两处调用点 main.py:895 / 1114 已改
+
+### 验证（全过）
+| 项 | 结果 |
+|---|---|
+| `py_compile` | 通过 |
+| AST：新常量是否模块级 | `DOM_SCROLL_LIMIT`(58) / `DOM_PAGE_TEXT_MAXLEN`(62) 均模块级，函数内无残留局部赋值 → **无 spawn NameError 风险** |
+| JS 语法 | 抽取 `_JS_EXTRACT_STRUCTURED_TEXT` 经 `node --check` 通过 |
+| 滚动窗口功能 | 0% / 51% / 100% 文本互不相同 ✅ |
+
+新增回归测试 `tools/test_scroll_window.py`。
+
+### 有意未做
+- **P1-1**：`FAIL_LOOP`(1122) / `FAIL_NO_ANSWER` 提前杀题复查 —— 风险收益比不如本次，留待有画像数据再动
+- **P1-2**：答案精度调优（东京答成雅加达、印度取到 2023 年）—— 模型读数噪声，赛前盲改 prompt 回归风险高
+
+### 待执行
+```bash
+cd D:\claude-work\WR-001
+git push origin main          # ahead 1 = cec1b30
+# 群内：@WR-EvalBot 提交代码   → 冒烟须 3/3
+# 冒烟过 → 9/1 或 9/2：@WR-EvalBot 开始评测（剩 2 次，取最优）
+
+# 可选（推荐）本地验证：重点看微软/印度两题是否不再被 FAIL_SCROLLDOWN 杀死
+python tools/run_benchmark.py --input data/benchmark_tasks_remaining.json --output test_results/benchmark_run_fixcheck
+```
+
+*追加于 2026-09-01*
+
+## 31.21 「滚动陷阱」修复已实施（commit `cec1b30`）
+
+前提：`02a34a7`（hang 修复）**冒烟已通过**，部署干净。
+
+### 修复内容（P0-1 A+B+C + P0-2）
+
+**1. 滚动窗口（`dom_extractor.py` JS）**
+按 `window.scrollY` 在整页文本上开 3000 字移动窗口 `PAGE_WINDOW(N% from top)`，插入在 dl 注入内容之后（置前以免被 `max_len` 截断）。
+> **真机实测生效**：wikipedia/India 页 —— 0% 导航菜单 / 51% 正文 / 100% 参考文献，三段文本**完全不同**。修复前三个位置返回恒相同。
+
+**2. 无效滚动检测 + 纠偏提示（`main.py`）**
+滚动后文本与上次完全相同 → 计数 + 注入提示引导换策略（点击链接/标签页、站内搜索、向上回看、或直接 `finished()`）；带来新内容则重置计数。
+> ⚠️ **关键守卫：仅在 `args.use_dom` 分支启用**。非 DOM 分支不定义 `page_text`/`elements`，若无此守卫会 NameError —— 正是 `1e63e6e` 那个坑。视觉方案分支行为一字未动。
+
+**3. `scroll_limit` 5 → 20** —— 新增模块级常量 `DOM_SCROLL_LIMIT`（main.py:58）
+**4. `max_len` 4000 → 8000** —— 新增模块级常量 `DOM_PAGE_TEXT_MAXLEN`（main.py:62），两处调用点 main.py:895 / 1114 已改
+
+### 验证（全过）
+| 项 | 结果 |
+|---|---|
+| `py_compile` | 通过 |
+| AST：新常量是否模块级 | `DOM_SCROLL_LIMIT`(58) / `DOM_PAGE_TEXT_MAXLEN`(62) 均模块级，函数内无残留局部赋值 → **无 spawn NameError 风险** |
+| JS 语法 | 抽取 `_JS_EXTRACT_STRUCTURED_TEXT` 经 `node --check` 通过 |
+| 滚动窗口功能 | 0% / 51% / 100% 文本互不相同 ✅ |
+
+新增回归测试 `tools/test_scroll_window.py`。
+
+### 有意未做
+- **P1-1**：`FAIL_LOOP`(1122) / `FAIL_NO_ANSWER` 提前杀题复查 —— 风险收益比不如本次，留待有画像数据再动
+- **P1-2**：答案精度调优（东京答成雅加达、印度取到 2023 年）—— 模型读数噪声，赛前盲改 prompt 回归风险高
+
+### 待执行
+```bash
+cd D:\claude-work\WR-001
+git push origin main          # ahead 1 = cec1b30
+# 群内：@WR-EvalBot 提交代码   → 冒烟须 3/3
+# 冒烟过 → 9/1 或 9/2：@WR-EvalBot 开始评测（剩 2 次，取最优）
+
+# 可选（推荐）本地验证：重点看微软/印度两题是否不再被 FAIL_SCROLLDOWN 杀死
+python tools/run_benchmark.py --input data/benchmark_tasks_remaining.json --output test_results/benchmark_run_fixcheck
+```
+
+*追加于 2026-09-01*

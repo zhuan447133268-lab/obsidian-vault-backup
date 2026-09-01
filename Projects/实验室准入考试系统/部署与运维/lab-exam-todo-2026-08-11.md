@@ -106,14 +106,14 @@ const onRoleChange = () => {
 - 测试数据已清理，未污染本地库 ✅
 
 ### 附带
-- 本地库 admin（系统管理员）登录密码 = `123456`（本地库与测试库 admin 密码不同，测试库是 `bBpeIAj92Oz6`）。
+- 本地库 admin（系统管理员）登录密码 = `123456`（本地库与测试库 admin 密码不同；⚠️ 测试库 admin 密码在 2026-08-31 全量复核时被统一改为 `LabTest2026!`，恢复后仍保持此值，见 [[lab-exam-2026-08-31-testenv-full-recheck]]）。
 
 ---
 
 ## 四、账号与凭据
 
 - 测试环境：`https://lab-exam-test.oceghome.com`
-  - admin 账号：`admin` / 密码：`bBpeIAj92Oz6`
+  - admin 账号：`admin` / 密码：`LabTest2026!`（2026-08-31 全量复核后确认，见 [[lab-exam-2026-08-31-testenv-full-recheck]]）
   - 学院管理员：`100029018`（薛晓转，教育学院），密码 `oceg2026`
 - 本地库（localhost:3306/lab_exam）：root 密码 `20210406`
 - ⚠️ 注意：`lab-exam-claude-code` 会话中曾把 admin 明文密码记在 Obsidian（[[实验室准入考试管理员账号]]），安全风险，留意。
