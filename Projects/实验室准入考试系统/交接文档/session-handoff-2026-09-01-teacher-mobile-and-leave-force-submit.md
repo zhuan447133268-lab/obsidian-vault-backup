@@ -77,17 +77,26 @@ type: project
   - 截图 `gui-test-screenshots/2026-09-02-tabbar-sticky-fix/test-env-mobile-top/bottom/pc-1024.png`（本地）。
 - 待办：真机（微信 WebView/iOS Safari）最终确认；答题页 bottom-actions 一并验证。
 
-### 7. 证书页「下滑后回不到顶、上面内容显示不全」根因定案 + 修复（09-02，详见 [[lab-exam-2026-09-02-certificate-scroll-fix]]）🟡 已修未推，待部署
+### 7. ❌ 证书详情页 CertificateCard 修复 —— **已回退撤销**（09-02 用户要求核查后定论，见「结论」）
 
-- **现象**：学生证书详情页（`/student/certificates/:id`）手机上往下滑后再上滑，回不到顶部、上面内容（证书标题/学院）显示不全。
-- **根因**：`web/src/components/CertificateCard.vue` 的 `.certificate-card` 用 `aspect-ratio: 9/16` **锁死高度**（320px 宽时卡高仅 498px），而证书内容（学院/班级/考试名等校内文本 + footer 编号日期 + 印章）在窄屏自然高度约 611px → footer/印章**溢出 frame 外**（footerInside=NO / stampInside=NO，frame overflow 默认 visible）→ 溢出物顶出幽灵滚动空间（docScrollH=647 > winH=568，scrollSpace=79px）→ 上滑回顶时按幽灵空间回滚、卡片上部原本已被锁高挤压，表现即"回不到顶/上面不全"。390×844 主流视口同样失配。
-- **修复**（单文件）：移除 `.certificate-card` 的 `aspect-ratio`（高度跟随内容），`.cert-frame` 加 `overflow:hidden` 双保险。ZIP 导出（CertificateExportPanel 400px 离屏渲染）不受影响（内容完整优先）。
-- **验证**（本地构建 + IAB 320/390 视口，真实学生证书页）：
-  - 320×568 手势全链路：下滑到底 scrollY=121/121，footer/note/印章完整可见且在 frame 内；上滑回顶 scrollY=0、顶部标题可见。
-  - 390×844：整卡一屏可见（cardH=628），footer/note 在 frame 内，scrollSpace=0 无幽灵滚动。
-  - 构建产物 clean：dist 全量 CSS 扫描 aspect-ratio=0；主入口 index-CBiX_sU1.js 引用新版 CertificateCard-BS58Amnh.css（含 overflow:hidden 指纹）。
-  - 截图 `gui-test-screenshots/2026-09-02-certificate-scroll-fix/`（本地）。
-- 待办：**已修未推送**（本模块修复遵循"用户明示才推"规则）——需用户确认后 push + 触发测试环境部署，部署后 IAB/真机回归（下滑→上滑回顶 + 保存图片导出）。
+- **现象**（此前的误定位）：学生证书详情页（`/student/certificates/:id`）手机上往下滑后再上滑，回不到顶部、上面内容显示不全。
+- **历史修复**（09-02 已撤销）：移除 `.certificate-card` 的 `aspect-ratio`（高度跟随内容），`.cert-frame` 加 `overflow:hidden`。
+- **09-02 用户核查结论**：用户确认真 bug 在「我的证书」**列表页**（第 8 节），详情页卡片本就正常；且该改动有**修坏风险**（破坏 9:16 定稿证书比例、保存图片导出 PNG 比例、footer 印章不再贴底）。**已 `git restore` 完整回退，不推送、不部署**。部署后实测详情页 ratio=0.563 ≈ 9/16 正常。
+- ⚠️ **教训**：勿再在 CertificateCard 上移除 aspect-ratio；详情页「保存图片」导出（toPng 捕获卡片）依赖 9:16 定稿。
+
+### 8. 「我的证书」列表页「下滑后回不到顶、上面内容显示不全」根因定案 + 修复（09-02 二次澄清，详见 [[lab-exam-2026-09-02-list-scroll-container-fix]]）✅ 已推送 + Jenkins 部署 + 触屏回归通过
+
+- **澄清**：用户确认 bug 在「我的证书」**列表页**（`/student/certificates`，MobileLayout 下），**不是**证书详情页的图片卡片（第 7 节已回退）。
+- **根因**：`.mobile-layout { min-height:100vh }` 被内容撑破 → `.mobile-content{overflow:auto}` 从未进入内部滚动（sH==cH）→ 滚动全落 html/body → 触屏惯性滚动链冲突，上滑被截断**卡在 scrollY=50 回不到顶**。
+- **复现**：桌面模拟测不出（window.scrollTo 一切正常）；必须 Playwright `isMobile+hasTouch` + CDP touch 拖拽（iPhone UA 390×844，张凯悦 2302220248）——证书列表、**考试列表（9 卡）一并中招**（上滑卡 50）。
+- **修复**（`web/src/layouts/MobileLayout.vue` 单文件，commit `6ac5cf7`）：mobile-layout `min-height:100vh`→`height:100vh`+`height:100dvh`(@supports 防压缩器删兜底)+`overflow:hidden`；mobile-content `overflow:auto`→`overflow-y:auto;overflow-x:hidden`+`-webkit-overflow-scrolling:touch`。滚动收拢回 mobile-content 内部。
+- **部署后验证**（Jenkins 部署后触屏仿真实测，2026-09-02）：
+  - 证书列表：mcScrollTop 94→0 回顶、首卡恢复 58、html 全程不滚 ✅
+  - 考试列表（已考 9 卡 2349px 深）：连续上滑落点 960→415→0→0（第 3 次到顶；修复前 html 卡 50 不动）✅
+  - 详情页：CertificateCard 回退后 ratio=0.563 ≈ 9/16 恢复定稿 ✅
+  - PC 1024：mobile-content 内滚 170→0、window 恒 0 ✅
+  - 截图 `gui-test-screenshots/2026-09-02-list-scroll-fix/verify/` + result.json（本地）。
+- 待办：真机（微信 WebView/iOS Safari）最终确认 + 详情页「保存图片」导出 PNG 目检（9:16 已恢复）。
 
 ---
 
@@ -95,8 +104,9 @@ type: project
 
 ### 修复就绪、待用户确认部署（2026-09-02 新增）
 
-1. 🟡 **证书页滚动修复（CertificateCard.vue）**：已修+本地构建+本地实测通过，**未推送**——待用户答复后 push + 触发测试部署，部署后 IAB 回归（见上文第 7 节）。
-2. ⚠️ **切屏强制交卷 / tabbar 修复待真机最终确认**：f493105（tabbar）测试环境已过但真机（微信 WebView/iOS Safari）未验；切屏没有考试数据无法端到端。
+1. ✅ **MobileLayout 滚动容器修复（list-scroll-fix）**：commit `6ac5cf7`（仅 MobileLayout.vue）已推送 main，Jenkins 部署测试环境。**部署后触屏回归通过**（证书列表 94→0 回顶、考试列表 2349px 深 4 次上滑回 0、详情页 9:16=0.563、PC 回归）。截图 `gui-test-screenshots/2026-09-02-list-scroll-fix/verify/`。
+2. ✅ **证书详情页 CertificateCard 修改已回退撤销**（第 7 节定论：破坏 9:16 定稿/导出比例，与列表页 bug 无关；git restore 恢复原样，不推送）。
+3. ⚠️ **切屏强制交卷 / tabbar 修复待真机最终确认**：f493105（tabbar）测试环境已过但真机（微信 WebView/iOS Safari）未验；切屏没有考试数据无法端到端。
 
 ### P0：正式环境 build 后回归 ✅ 已完成（2026-09-01 实测）
 

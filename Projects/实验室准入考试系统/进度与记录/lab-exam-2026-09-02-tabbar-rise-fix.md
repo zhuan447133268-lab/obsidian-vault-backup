@@ -74,4 +74,21 @@
 - [x] 运维发布后真机回归（学生端下滑到底 tabbar 贴底不再上跑；证书/结果/我的 tab 同样检查）——测试环境 IAB 实测通过
 - [x] PC 宽屏回归（居中限宽样式不回归）——1024 实测通过
 - [ ] 真机（微信 WebView / iOS Safari）最终确认
-- [ ] 答题页（exam-paper）bottom-actions 一并验证
+- [x] 答题页（exam-paper）bottom-actions 一并验证——产物级验证（2026-09-03）：线上 CSS `@media (width>=481px)` 全文件仅 1 处且已含 `.exam-paper-page .bottom-actions`，手机端无 transform；另经路由确认考试页 `layout:'blank'` **本身不显示学生 tabbar**，老师反馈的「导航栏」只能是列表页 tabbar
+
+## 2026-09-03 二次排查收口（测试老师 09-02 再报后的定向排查）
+
+测试环境当前构建（`index-SVt7NSZO.js`，与 09-02 修复部署同产物）从五个层面排查，**全部干净，模拟器内无法复现**：
+
+1. **触屏回归（CDP 真触摸逐帧采样）**：登录→考试列表(已考，滚 1505/2349px)→证书→我的，每页连滑到底再补甩 3 次，rAF 采样 496+400+222 帧，tabbar 间隙 min=max=0、`transform:none;left:0;fixed;bottom:0`——零漂移。截图 `gui-test-screenshots/2026-09-03-focuszoom-tabbar/p3~p5`。**用户确认老师所指即此 tabbar（考试/证书/我的）后，另补往返测试**：已考列表 0→1505(底)→0(顶) 完整往返 755 帧 gap=0，p6
+2. **线上产物**：`@media (width>=481px)` 全文件仅 1 处，三个 fixed 元素（nav-bar/tabbar/bottom-actions）居中规则全在媒体查询内
+3. **代码层无残留隐患**：MobileLayout 模板 tabbar 是 `.mobile-layout` 直接子元素、App.vue/router-view 无 transition 包裹（无祖先 transform 风险）；`MobileLayout` 有 `100vh 兜底 + @supports(100dvh)`（注释明确照顾 iOS<15.4 与老微信 WebView）；考试页 bottom-actions 纯 `fixed+bottom:0`
+4. **缓存头**：index.html `Cache-Control: private, no-store, no-cache, must-revalidate`——正常浏览器不会吃到修复前旧页面（**微信离线包不受 HTTP 头约束**，仍是嫌疑）
+5. **路由确认**：考试页 `/student/exams/:id/take` 是 `layout:'blank'`，考试时无学生 tabbar——反馈所指必然是列表页
+
+**剩余候选解释（模拟器测不出，需真机信息定向）**：
+- iOS WKWebView/Safari **橡皮筋 overscroll**：猛滑到底整页（含 fixed）回弹，导航栏瞬时上移后回位——系统行为非 bug。判别：是否 ~0.5s 内自动回位、是否只发生在猛滑到底
+- **微信内置浏览器**：X5/WKWebView fixed 已知兼容问题 + 微信离线缓存。判别：同手机 Safari/Chrome 是否复现
+- 反馈时序：老师复测时间若早于 09-02 部署或未清缓存，看到的可能是旧产物
+
+**结论：代码/产物/缓存三层无可修项；需测试老师提供手机型号+系统+浏览器（是否微信内）+是否自动回位+录屏**，才能区分「系统回弹行为」与「微信内核问题」。此结论与 09-02 交接一致，本轮新增了缓存头与路由两层排除。
