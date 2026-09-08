@@ -129,3 +129,66 @@ title: 09-07 交接 — 首提渲染审查发现系统性生成失败（噪声�
 - **决策（~11:40）：放弃等待，转方案 C** —— 该实例「更多操作→关机」→「更换/保存镜像→更换镜像」为官方 `PyTorch 2.3.0 + CUDA 12.4.1 + py3.10`（小镜像分钟级）→ 开机后从零装环境：cloud_prep.sh（清缓存 → pip 后处理依赖 → 官方权重直拉约 10GB：Hunyuan3D-2mini@dit-mini + HunyuanDiT-Distilled；纹理权重 hunyuan3d-paint 暂不拉，几何保底优先）
 - 镜像仓库中的 hy3d-t2i-fixed **保留不删**（env 部分或有参考价值；其中的 ModelScope 拆包权重已判死刑，绝不复用）
 - 若更换镜像界面流程与描述不符，用户截图反馈再定
+
+## 八、（09-07 午后）P1/P2 实战记录 —— 根因修复验证成功
+
+- 极智算新实例（四川二区 node-n0068，4090，官方 PyTorch2.3.1+CUDA12.4 镜像，SSH 端口 40064）
+- 18GB 旧镜像拉取 >1.5h 未完成 → 果断释放，改官方小镜像（方案 C 执行完毕，验证正确）
+- 环境从零搭：conda python3.10.14 + torch2.3.1 cu124 可用；hy3dgen 走 git clone main(f8db630)
+- 官方权重直拉：2mini@dit-mini 子目录 ✓、HunyuanDiT-v1.1-Distilled 全仓 14.5GB ✓（hf-mirror 断流两次，断点续传+12次重试循环跑完，实测 2.5~3.6MB/s）
+- u2net 去背景模型：GitHub 直下 25KB/s 不可用 → 改用 HF 镜像仓库 Gulraiz00/u2net，**md5=60024c5c889badc19c04ad937298a77b 与 rembg 官方源码哈希一致**，裁决通过
+- 云端后处理链路冒烟（合成网格）PASS；matplotlib 用 /opt/conda/bin/python3 -m pip 装（PATH 坑：非登录 shell 无 conda）
+- **P2 冒烟 3 题（dev_con_003/dev_sma_002/dev_dec_008）全部成功**：概念图干净（理线座/海龟/海浪），3D 形状语义正确，noise_suspect 全 PASS，本地后处理全水密。单题仅 ~28 秒（mini+30steps）
+- **新增接口漂移实锤**：main 分支类名 = `Hunyuan3DDiTFlowMatchingPipeline`（FlowMatching），旧文档/旧版是 FlowMapping —— generate_hy3d.py 已改正并同步本地/云端
+- P3 dev 集 40 题彩排已启动（37 题待跑，预计 ~20 分钟）
+
+## 九、（09-07 下午）P3~P5 实战记录
+
+- P3 dev 彩排：40/40 合格 0 可疑，16.9 分钟（单题约 25 秒）
+- P4 test 全量：40/40 合格 0 可疑，18.2 分钟
+- P5 云端构建：40/40、validate 100% 全绿、audit_official exit 0、水密 40/40
+- 水密攻坚：减面会重开洞 → postprocess 三级修复链（pymeshfix→pymeshfix→manifold3d 兜底），dev 抽检 4 个失败样本复检全部水密
+- 云端环境坑（已解决）：pymeshfix 漏装；pipeline 脚本散在 /root 根目录；非登录 shell 无 conda PATH（用 /opt/conda/bin 绝对路径）；pkill 自匹配（[.] 括号转义且 kill 与后续命令分离执行）
+- P6 人工全检：40 题渲染图逐张目检完毕 —— 零噪声，全部真实物体；强匹配约 10 题（螺母座/折扇书立/行星摆件/银杏雕/窗棂架/画笔架/骰子筒/钥匙牌/陀螺座/镜头盖牌），偏弱 5~6 题（con_003 凉亭偏圆顶、con_009 印章座素盘、dec_002 等高线弱、fun_009 滑盖缺细节、sma_007 凹槽不可见），无跑题项
+- submission.zip (70MB) 已复制到 D:/文本生成3D方案赛/output_test/submission.zip，等用户 PC 端上传
+- 上传确认后再释放云实例（ssh -p 40064 root@183.222.230.10，密钥 ~/.ssh/autodl_hy3d）
+
+## 十、（09-07 傍晚）第二版提交成功 —— 初赛主战役完成
+
+- **用户已通过 PC 端成功提交 submission.zip（v2，70MB，40 题全量，全部真实物体+40/40 水密+审计满分）**
+- 今日提交额度已用完；**还剩 9/8 最后一次提交机会**（可选：完整版 Hunyuan3D-2 + 纹理提质批，需重拉纹理权重 ~10GB + 重跑 ~1.5h，用户尚未决定）
+- 成品归档：D:/文本生成3D方案赛/output_test/submission.zip + build_report.json（最终模型都在 zip 内，无需另存）
+- 云实例（ssh -p 40064 root@183.222.230.10）待用户确认后释放；释放后如明天跑提质批需重装环境 ~40 分钟（cloud_prep.sh 已验证可复现）+ 权重重拉 ~1h
+- 接下来：09-09~09-20 评测；期间可观察榜单；09-21~24 若 TOP10 交复现资料（reproduction/ 有底子）；09-30 公布入围
+- 复盘要点已固化：生成类任务必须"自动检测+人工目检"双门禁；权重只认官方仓库；产物未看过不许批量
+- 复现资料补充：已抓取云端精确环境快照 → reproduction/env_snapshot_20260907.txt（Python 3.10.14 / torch 2.3.1+cu124 / diffusers 0.31.0 / transformers 4.57.6 / trimesh 5.1.0 / pymeshfix 0.18.1 / manifold3d 3.5.2 / rembg 2.0.69 / 驱动 570.133.07，共 227 包）；TOP10 复现包定稿不依赖这台服务器，全流程（官方仓库+镜像站+md5 校验）已文档化可任意机器重建
+- 实例处置决策（待用户执行）：先关机（保留明天提质批选项，计费即停），明天不用再释放；不保存新镜像（平台恢复镜像实测极慢 + 可复现已文档化）
+
+## 十一、（09-08）提质批实战日志
+
+- 昨日实例被用户释放（按量计费正常止损，成果已本地归档）→ 今日新实例（40039，官方 PyTorch 镜像但**无 conda/无 torch**，系统 Python 3.10.12 + CUDA12.4 运行时）
+- 双通道重建：E 通道 torch2.6.0+cu124（比昨日新，冒烟验证兼容性）+ 仓库 + 后处理依赖；W 通道权重
+- **坑1**：新版 huggingface_hub 走 Xet 通道直连官方 CAS（hf-mirror 不代理）→ 401。解法：HF_HUB_DISABLE_XET=1 + 卸载 hf_xet + pin huggingface_hub<0.34
+- **坑2**：镜像无 nvcc（仅运行时）→ NVIDIA apt 源装 cuda-nvcc-12-4 + cuda-cudart-dev-12-4；编译再缺 cusparse/cublas/cusolver 头 → 补 libcusparse-dev-12-4 等；cv2 缺 libGL → apt libgl1 libglib2.0-0
+- **坑3**：differentiable_renderer 安装后模块名叫 mesh_processor（非目录名）
+- **纹理算子最终全通过**：torch 预载后 import custom_rasterizer + mesh_processor OK
+- **坑4（ZCode 自己的失误，如实记录）**：清理 tokenizer 缓存时 rm 误删整个 blobs/* → 26GB 权重清零重下，时间表 +2h。教训：rm 缓存前必须先 ls 确认路径指向，禁止在 rm 里用宽泛通配
+- **坑5**：tiktoken 缺失（t2i 分词器需要）→ pip 装即可
+- 权重 W3 循环重下中（26GB）；今日截止前流程：几何冒烟 → 纹理单题目检 → 全量40 → 构建 → 目检 → 明显优于 v2 才提交
+
+## 十一、（09-08）提质批实战日志
+
+- 昨日实例被用户释放（按量计费正常止损，成果已本地归档）→ 今日新实例（端口 40039，官方 PyTorch 镜像但无 conda/无 torch，系统 Python 3.10.12 + CUDA12.4 运行时）
+- 坑1：新版 huggingface_hub 走 Xet 通道直连官方 CAS（hf-mirror 不代理）报 401 → 解法 HF_HUB_DISABLE_XET=1 + 卸载 hf_xet + pin huggingface_hub<0.34
+- 坑2：镜像无 nvcc → NVIDIA apt 源装 cuda-nvcc-12-4/cuda-cudart-dev-12-4，再补 libcusparse-dev-12-4/libcublas-dev-12-4/libcusolver-dev-12-4；cv2 缺 libGL → apt libgl1 libglib2.0-0
+- 坑3：differentiable_renderer 安装后模块名为 mesh_processor
+- 坑4：tiktoken 缺失（t2i 分词器需要）→ pip 安装
+- 纹理算子最终全部通过：torch 预载后 import custom_rasterizer 与 mesh_processor 均 OK
+- 坑5（ZCode 重大失误，2026-09-08 用户严厉批评）：清理 tokenizer 缓存时 rm 误带 blobs/* 通配 → 26GB 权重清零重下，损失约 2 小时与对应费用
+- **危险操作纪律（对 ZCode 长期生效，用户明令）**：
+  1. 任何 rm/删除/覆盖/释放前，必须先跑只读命令（ls/du/find）确认目标确切内容与体量
+  2. 删除表达式必须精确具名，禁止宽泛通配（blobs/* 与裸 * 一律禁止），一次只删一个明确目标
+  3. 危险操作独立成步，禁止与安装/启动等意图混在同一条复合命令
+  4. 执行后必须 ls 复核删除范围与预期一致
+  5. 执行危险操作前必须自问：波及范围是什么？是否可恢复？有没有更窄的表达？
+- 权重 W3 循环重下中；今日流程：几何冒烟 → 纹理单题目检 → 全量40 → 构建 → 目检 → 明显优于 v2 才提交
