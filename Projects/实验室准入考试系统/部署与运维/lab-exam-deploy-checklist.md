@@ -30,9 +30,17 @@ type: project
 - [ ] 迁移后确认新增/修改的表已存在（`SHOW TABLES; DESC xxx;`）
 - [ ] 如果涉及数据变更，已提前备份数据库
 - [ ] 数据库连接字符串 `DATABASE_URL` 指向正确环境
+- [ ] `DATABASE_URL` **显式带连接池参数**：`?connection_limit=20~50&pool_timeout=10`（不配则走 Prisma 默认 CPU×2+1，**它就是这个应用事实上的并发上限**）
+- [ ] **数据库与应用同机房/同网**（跨网时每个考试请求有 3~7 次串行 round-trip，实测单请求 45~292ms 里绝大部分是等网络——同机房是容量提升最直接的一条）
+- [ ] 考前确认 MySQL `max_connections` ≥ 应用实例数 × 池上限（现正式库 1500，充裕）
 
 **经验教训追加（2026-08-10）：**
 > 本次生成试卷报错「The table `paper_generation_jobs` does not exist」，原因是部署时漏执行 `prisma migrate deploy`。以后新增表后必须验证表存在。
+
+**容量基线追加（2026-09-17，业务方追问"能同时多少人在线考"）：**
+> 测试环境实测（真实账号走完整考试流程 + 并发压测，测完回滚）：**现状（单实例 + 库跨网）安全 200~300 人同时在线**，500 人开始秒级延迟；**同机房 + 显式连接池后可期 1000~3000 人**。读路径 100 并发 152 req/s 零 5xx（200 并发劣化到 93）；写单请求 186~292ms；同一张卷 50 并发只有 10 req/s（行锁串行化，真实场景每人一卷不冲突）。
+> **发放正式考试前建议做一次容量预演**：自己账号 → 找 `PUBLISHED` 未结束且 `used_count < max_count` 的考试 → `start` 重考 → 压 `answers`/`events` → `submit` → 删新卷 + 恢复 `used_count`（核验卷集合/`used_count`/事件数/证书数四项残留）。完整方法与数据见 [[lab-exam-2026-09-17-capacity-concurrency-assessment]]、避坑提醒见 [[避坑指南]] #28。
+> 另注意**单实例是可用性单点**（挂了一考场人全掉线）：千级并发前评估多实例（应用无状态，唯建考 60s 幂等 `Map` 是进程内的 P3）。
 
 ---
 
@@ -121,6 +129,7 @@ type: project
 - **触发条件**：部署新增异步生成试卷功能后，教师点击生成试卷
 - **根因**：部署时未执行 Prisma 数据库迁移
 - **避免方法**：每次后端代码涉及 schema 变更，必须执行 `npx prisma migrate deploy`
+- **⚠️ 2026-09-18 更正（上面「避免方法」对这张表无效）**：`paper_generation_jobs` **从未出现在任何迁移文件里**（`git log --all -p -- server/prisma/migrations` 命中 0，迁移目录也从未被删过），它只可能来自 `prisma db push` 或手工 DDL ⇒ 当时跑 `migrate deploy` **建不出这张表**，"根因=漏跑迁移"这个记法误导人。正解：**schema 变更必须先进迁移**（`prisma migrate dev` 生成 `server/prisma/migrations/`），能进迁移的才谈得上"部署时执行 migrate deploy"；临时 `db push` 出来的表要补一条迁移，否则正式库永远缺、且账本与实际 schema 长期不一致（2026-09-18 探针实测正式库**已有**该表，即正式库确实存在账本之外的 DDL）。同类先例：2026-09-07 dev 库 `migrate deploy` 因 `created_at` 重复列漂移当场失败 → 手工 ALTER + `migrate resolve`。详见 [[lab-exam-2026-09-18-prod-500-audience-migration-missing]] §八
 
 ### 2026-08-10 生成试卷超时「timeout of 10000ms exceeded」
 - **触发条件**：教师选择较多学生生成试卷
