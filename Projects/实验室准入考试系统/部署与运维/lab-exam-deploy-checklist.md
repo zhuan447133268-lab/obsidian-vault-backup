@@ -21,12 +21,14 @@ type: project
 - [ ] 前端代码已从仓库拉取到最新（`git pull`）
 - [ ] 前端已重新 build 成功（`npm ci && npm run build`）
 - [ ] 确认没有未提交的本地改动影响部署
+- [ ] **前端构建带对认证模式**：正式/测试环境构建必须注入 `VITE_AUTH_MODE=cookie`（`VITE_AUTH_MODE=cookie npm run build`），**不要**去改仓库 `.env.production`（会连坐其他环境）；产物自检=构建出的 JS 里含 `X-CSRF-Token`（cookie 构建特征），一处都没有说明走了 bearer 默认值，登录会卡在登录页
 
 ---
 
 ## 二、数据库
 
 - [ ] 已执行 Prisma 迁移（`npx prisma migrate deploy` 或等效命令）
+- [ ] **发版前查 `_prisma_migrations` 登记数 = `server/prisma/migrations/` 目录数**（正式库 2026-09-18 已由 **0 条**补录为 **8 条**；**不足先逐条 `npx prisma migrate resolve --applied <name>` 补登记再 deploy，否则 P3009 拒绝执行此后所有迁移**）
 - [ ] 迁移后确认新增/修改的表已存在（`SHOW TABLES; DESC xxx;`）
 - [ ] 如果涉及数据变更，已提前备份数据库
 - [ ] 数据库连接字符串 `DATABASE_URL` 指向正确环境
@@ -36,6 +38,10 @@ type: project
 
 **经验教训追加（2026-08-10）：**
 > 本次生成试卷报错「The table `paper_generation_jobs` does not exist」，原因是部署时漏执行 `prisma migrate deploy`。以后新增表后必须验证表存在。
+
+**经验教训追加（2026-09-18，正式环境 500 事故）：**
+> 正式发版后证书导出页/考试管理页报「加载考试列表失败」，所有查 `exams` 的接口 500 —— 根因是**发版漏跑 `npx prisma migrate deploy`**，`exams` 缺 v0.2 的 `audience` 列（Prisma 全列查询直接炸）。**接口只回笼统 1000，真因在后端日志**：`未处理异常 … Unknown column 'exams.audience' in 'field list'`；无库权限时可用「同表 + 显式 select 只取已知列」的相邻接口做 A/B 探针（返回 200 即证明表在、缺的只是一列）。**部署后必验：`GET /api/exams` 返回 200**（考试管理页 / 证书导出页能拉到考试列表）。
+> 排查中更严重的一条：正式库 `_prisma_migrations` **整张表 0 条**（建库起即非 migrate 管理，手工 SQL / `db push` 铺底）⇒ 任何人跑 `migrate deploy` 都会从第 1 条重放全部历史迁移、撞「表已存在」→ **P3009 卡死此后所有迁移**。已用 `migrate resolve --applied` 逐条补录 8 条（只写登记不动表，`finished_at` 会是同一时间簇 = 补录特征）。另外：**交付给运维的手写 SQL 不得硬编码库名**（本次 04 脚本曾写死 `USE lab_exam;`——那是开发机库名，正式库为 `lab_exam_prod`）。详见 [[lab-exam-2026-09-18-prod-500-audience-migration-missing]]、概念卡 [[concept-prisma-migration-ledger-p3009]]、[[避坑指南]]。
 
 **容量基线追加（2026-09-17，业务方追问"能同时多少人在线考"）：**
 > 测试环境实测（真实账号走完整考试流程 + 并发压测，测完回滚）：**现状（单实例 + 库跨网）安全 200~300 人同时在线**，500 人开始秒级延迟；**同机房 + 显式连接池后可期 1000~3000 人**。读路径 100 并发 152 req/s 零 5xx（200 并发劣化到 93）；写单请求 186~292ms；同一张卷 50 并发只有 10 req/s（行锁串行化，真实场景每人一卷不冲突）。

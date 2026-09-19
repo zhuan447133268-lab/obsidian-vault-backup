@@ -1,0 +1,37 @@
+########## ACCEPTANCE 4: initial-password account is 403 on business APIs until chpwd ##########
+
+--- [4-0] bootstrap/refresh demo teacher T0002 (seed-teacher is idempotent, resets to initial password) ---
+2026/09/18 16:46:18 已创建教师账号: username=T0002 name=李老师 role=teacher（初始密码已设置，首次登录须改密）
+
+--- [4-1] login T0002 (initial password) ---
+{"code":0,"message":"ok","data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjQyLCJ1bmFtZSI6IlQwMDAyIiwicm9sZSI6InRlYWNoZXIiLCJpc3MiOiJjZXQ0NiIsInN1YiI6IjQyIiwiZXhwIjoxNzkwMzI1OTc4LCJpYXQiOjE3ODk3MjExNzh9.qi3_I82v2gAdFDraEsVvHVRI-YTSa6OOT3zdtY2EC9o","expiresIn":604800,"mustChangePwd":true,"user":{"id":42,"username":"T0002","realName":"李老师","role":"teacher","avatar":"","classId":0,"target":"4","lv":1,"streak":0,"mustChangePwd":true}}}
+[HTTP 200]
+
+--- [4-2] GET /api/admin/classes  with that token -> expect 403 / 40302 ---
+{"code":40302,"message":"首次登录须先修改初始密码","data":null}
+[HTTP 403]
+
+--- [4-3] GET /api/admin/users?keyword=2024010001  with that token -> expect 403 / 40302 ---
+{"code":40302,"message":"首次登录须先修改初始密码","data":null}
+[HTTP 403]
+
+--- [4-4] GET /api/auth/me  with that token -> expect 200 (chpwd entrance stays open) ---
+{"code":0,"message":"ok","data":{"id":42,"username":"T0002","realName":"李老师","role":"teacher","avatar":"","classId":0,"target":"4","lv":1,"streak":0,"mustChangePwd":true}}
+[HTTP 200]
+
+--- [4-5] POST /api/auth/chpwd  Teacher@123 -> Teacher@456 ---
+{"code":0,"message":"ok","data":null}
+[HTTP 200]
+
+--- [4-6] GET /api/admin/classes  SAME URL, SAME TOKEN, after chpwd -> expect 200 ---
+{"code":0,"message":"ok","data":{"items":[],"total":0}}
+[HTTP 200]
+
+--- [4-7] login T0002 with old initial password -> expect 401 ---
+{"code":40101,"message":"学号或密码错误","data":null}
+[HTTP 401]
+
+--- [4-8] login T0002 with new password -> expect 200, mustChangePwd=false ---
+{"code":0,"message":"ok","data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjQyLCJ1bmFtZSI6IlQwMDAyIiwicm9sZSI6InRlYWNoZXIiLCJpc3MiOiJjZXQ0NiIsInN1YiI6IjQyIiwiZXhwIjoxNzkwMzI1OTc5LCJpYXQiOjE3ODk3MjExNzl9.UZivl_6eS7t_Ps0vwW2TVbqWgdPOMa4LWyYRDLvxJrA","expiresIn":604800,"mustChangePwd":false,"user":{"id":42,"username":"T0002","realName":"李老师","role":"teacher","avatar":"","classId":0,"target":"4","lv":1,"streak":0,"mustChangePwd":false}}}
+[HTTP 200]
+

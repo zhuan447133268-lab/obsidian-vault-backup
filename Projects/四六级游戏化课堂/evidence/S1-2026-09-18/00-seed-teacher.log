@@ -1,0 +1,5 @@
+### 0. seed-teacher 引导
+
+2026/09/18 16:43:20 [31;1mD:/claude-work/cet46-game/server/cmd/seed-teacher/main.go:65 [35;1mrecord not found
+[0m[33m[2.005ms] [34;1m[rows:0][0m SELECT * FROM `users` WHERE username = 'T0001' ORDER BY `users`.`id` LIMIT 1
+2026/09/18 16:43:20 已创建教师账号: username=T0001 name=张老师 role=teacher（初始密码已设置，首次登录须改密）

@@ -1,0 +1,32 @@
+########## SUPPLEMENT: the same rules over HTTP (POST /api/admin/import-users) ##########
+
+--- [6-0] teacher T0002 view: student list of class 1 (only first 2 rows shown) ---
+{"code":0,"message":"ok","data":{"items":[{"id":2,"username":"2024010001","realName":"示例学生01","role":"student","avatar":"","classId":1,"target":"4","lv":1,"streak":0,"mustChangePwd":true},{"id":3,"username":"2024010002","realName":"示例学生02","role":"student","avatar":"","classId":1,"target":"4","lv":1,"streak":0,"mustChangePwd":true}],"total":40}}
+[HTTP 200]
+
+--- [6-1] class list (T0002 owns no class yet) ---
+{"code":0,"message":"ok","data":{"items":[],"total":0}}
+[HTTP 200]
+
+--- [6-2] POST /api/admin/import-users  样例-坏行3类.csv -> expect 400 + row list ---
+{"code":40002,"message":"导入中止：3 行有问题，本次未写入任何数据","data":{"classCreated":0,"classUsed":0,"created":0,"skipped":0,"total":5,"errors":[{"row":3,"username":"2024020002","reason":"班级不能为空"},{"row":4,"username":"2024020001","reason":"学号在文件内重复（第 2 行已出现）"},{"row":5,"username":"2024010003","reason":"学号已存在"}]}}
+[HTTP 400]
+
+--- [6-3] POST /api/admin/import-users  样例-坏文件-缺列.csv -> expect 400 missing column ---
+{"code":40002,"message":"导入文件缺少必需列: 姓名","data":null}
+[HTTP 400]
+
+--- [6-4] POST /api/admin/import-users  样例-1班40人.xlsx (xlsx path) -> expect 400, 40x already exists ---
+code=40002 message=导入中止：40 行有问题，本次未写入任何数据
+errors=40, first={'row': 2, 'username': '2024010001', 'reason': '学号已存在'}
+last={'row': 41, 'username': '2024010040', 'reason': '学号已存在'}
+400]
+
+--- [6-5] T0002 imports a fresh 2-person class -> expect 200 ---
+{"code":0,"message":"ok","data":{"classCreated":1,"classUsed":0,"created":2,"skipped":0,"total":2,"errors":[]}}
+[HTTP 200]
+
+--- [6-6] T0002 class list after import ---
+{"code":0,"message":"ok","data":{"items":[{"id":2,"name":"2024级英语9班","teacherId":42,"term":"","studentCount":2,"createdAt":"2026-09-18 16:46:41"}],"total":1}}
+[HTTP 200]
+

@@ -52,6 +52,6 @@
 
 ## 六、遗留（非本次缺陷）
 
-- 正式库 2001 道题 content 错位修复 SQL `03_fix_questions_prod.sql` 待运维执行（09-01 已生成校验）。
+- 正式库 2001 道题 content 错位修复 SQL `03_fix_questions_prod.sql` **已于 2026-09-02 由运维备份后执行、我独立回归通过**（判断题 754 道题干全唯一、组卷 39/39 无 1401）——**已完成，勿重跑**（见 [[session-handoff-2026-09-02-v4-fixes-prod-regression-passed]]）。
 - 学校管理员 fix-school-admin-password.sql 待拍板；BN100005453(沈春洋) 正式密码仍为 Gb$d!a$X8&eTbij4。
 - 测试环境交卷慢问题：判断为跨网络 RTT 叠加串行 round-trip，无代码问题，待用户提供实测数据继续定位（不阻塞发版）。

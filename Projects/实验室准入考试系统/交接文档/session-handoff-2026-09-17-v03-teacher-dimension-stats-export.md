@@ -52,7 +52,7 @@ tags:
 ## 六、待办 / 待拍板
 
 - 无代码待办。等测试老师/业务方对新页面观感与导出体验的最终反馈。
-- 正式环境尚未部署本次改动（`6466abb` + `fe87ad6`）；正式库仍有历史遗留：判断题题干错位修复 SQL `D:\claude-work\lab-exam\03_fix_questions_prod.sql`、学校管理员密码 SQL `fix-school-admin-password.sql` 均**待运维执行**（与本迭代无关）。
+- **正式环境已于 2026-09-18 随发版上线**本次改动（`6466abb` + `fe87ad6`）——发版当天因运维漏跑 audience 迁移引发 500，当天修复并闭环（详见 [[session-handoff-2026-09-18-prod-500-and-copy-fix-verified]]，**新 session 先读那份**）；正式库历史遗留：判断题题干错位修复 SQL **09-02 已执行（绝不可重跑）**、学校管理员密码 SQL `fix-school-admin-password.sql` **待运维执行**（与本迭代无关）。
 - 仓库当前有其他工作流的未提交改动（`server/src/modules/exam/exam.service.ts` 及其 spec、`AppFormDialog.vue`、若干管理页面），**不属于本次迭代**，勿一并提交。
 
 ## 相关

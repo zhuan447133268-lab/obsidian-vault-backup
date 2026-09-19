@@ -1,0 +1,183 @@
+{
+  "generatedAt": "2026-09-18T09:01:55.993Z",
+  "tool": "headless Chrome 153.0.8010.50 via CDP (temp harness in %TEMP%)",
+  "note": "5173 was occupied by another project (D:6准入题库web vite). CET46 dual-entry app was therefore exercised on a temporary Vite dev server on port 5199 using the same vite.config.ts (same dual-entry fallback + same /api -> 127.0.0.1:8080 proxy).",
+  "runs": [
+    {
+      "browser": "Chrome/153.0.8010.50"
+    },
+    {
+      "requestedUrl": "http://127.0.0.1:5173/t/",
+      "navigationResult": {
+        "frameId": "89BCB5E41999DFFD3F89E24307AA80BA",
+        "loaderId": "94EC4A267D1F2D58FFE5C17A243BD621",
+        "isDownload": false
+      },
+      "meta": {
+        "title": "实验室准入考试系统",
+        "url": "http://127.0.0.1:5173/t/",
+        "h1": "404",
+        "appHtmlLen": 315
+      },
+      "visibleText": "404\n\n页面不存在\n\n返回首页",
+      "health": [],
+      "consoleMessages": [
+        {
+          "type": "debug",
+          "text": "[vite] connecting..."
+        },
+        {
+          "type": "debug",
+          "text": "[vite] connected."
+        },
+        {
+          "type": "debug",
+          "text": "[vite] connecting..."
+        },
+        {
+          "type": "debug",
+          "text": "[vite] connected."
+        }
+      ],
+      "exceptions": [],
+      "logEntries": [],
+      "screenshot": "C:/Users/dfjq/AppData/Local/Temp/cet46-smoke/shot-5173-t.png",
+      "screenshotBytes": 13605
+    },
+    {
+      "requestedUrl": "http://127.0.0.1:5173/s/",
+      "navigationResult": {
+        "frameId": "0D5515B595163C686AE7101A77DBE67D",
+        "loaderId": "7E6D14881E271A0D771DCE439380869D",
+        "isDownload": false
+      },
+      "meta": {
+        "title": "实验室准入考试系统",
+        "url": "http://127.0.0.1:5173/s/",
+        "h1": "404",
+        "appHtmlLen": 315
+      },
+      "visibleText": "404\n\n页面不存在\n\n返回首页",
+      "health": [],
+      "consoleMessages": [
+        {
+          "type": "debug",
+          "text": "[vite] connecting..."
+        },
+        {
+          "type": "debug",
+          "text": "[vite] connected."
+        }
+      ],
+      "exceptions": [],
+      "logEntries": [],
+      "screenshot": "C:/Users/dfjq/AppData/Local/Temp/cet46-smoke/shot-5173-s.png",
+      "screenshotBytes": 13605
+    },
+    {
+      "browser": "Chrome/153.0.8010.50"
+    },
+    {
+      "requestedUrl": "http://127.0.0.1:5199/t/",
+      "navigationResult": {
+        "frameId": "B77857B1475D023BD78B3779428050A8",
+        "loaderId": "18955A7AAD40A2BFA99B7F29BB3C1DCD",
+        "isDownload": false
+      },
+      "meta": {
+        "title": "四六级游戏化课堂 · 教师端",
+        "url": "http://127.0.0.1:5199/t/",
+        "h1": "四六级游戏化课堂 · 教师端",
+        "appHtmlLen": 950
+      },
+      "visibleText": "四六级游戏化课堂 · 教师端\n\n骨架（S0）\n\n后端连通性\t后端正常（mysql，17 张表）\n班级看板\tS10 实现\n课中实时大屏\tS11 实现",
+      "health": [
+        {
+          "phase": "request",
+          "url": "http://127.0.0.1:5199/api/health",
+          "requestId": "13468.22"
+        },
+        {
+          "phase": "response",
+          "url": "http://127.0.0.1:5199/api/health",
+          "requestId": "13468.22",
+          "status": 200,
+          "statusText": "OK",
+          "mimeType": "application/json",
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "viaProxy": "page origin",
+          "body": "{\"code\":0,\"message\":\"ok\",\"data\":{\"status\":\"ok\",\"env\":\"development\",\"driver\":\"mysql\",\"tables\":17}}"
+        }
+      ],
+      "consoleMessages": [
+        {
+          "type": "debug",
+          "text": "[vite] connecting..."
+        },
+        {
+          "type": "debug",
+          "text": "[vite] connected."
+        }
+      ],
+      "exceptions": [],
+      "logEntries": [
+        {
+          "level": "error",
+          "source": "network",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+        }
+      ],
+      "screenshot": "C:/Users/dfjq/Documents/Obsidian Vault/Projects/四六级游戏化课堂/evidence/S1-2026-09-18/browser-t.png",
+      "screenshotBytes": 27102
+    },
+    {
+      "requestedUrl": "http://127.0.0.1:5199/s/",
+      "navigationResult": {
+        "frameId": "14D7499DDA2007885A6AA7F0876B5A67",
+        "loaderId": "58EE083A48080797C57622A9823C689A",
+        "isDownload": false
+      },
+      "meta": {
+        "title": "四六级游戏化课堂 · 学生端",
+        "url": "http://127.0.0.1:5199/s/",
+        "h1": "四六级游戏化课堂",
+        "appHtmlLen": 797
+      },
+      "visibleText": "四六级游戏化课堂\n\n学生端骨架（S0）\n\n后端连通性\n后端正常（mysql，17 张表）\n闯关地图\nS5 实现\n答题与结算\nS6 实现",
+      "health": [
+        {
+          "phase": "request",
+          "url": "http://127.0.0.1:5199/api/health",
+          "requestId": "23968.21"
+        },
+        {
+          "phase": "response",
+          "url": "http://127.0.0.1:5199/api/health",
+          "requestId": "23968.21",
+          "status": 200,
+          "statusText": "OK",
+          "mimeType": "application/json",
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "viaProxy": "page origin",
+          "body": "{\"code\":0,\"message\":\"ok\",\"data\":{\"status\":\"ok\",\"env\":\"development\",\"driver\":\"mysql\",\"tables\":17}}"
+        }
+      ],
+      "consoleMessages": [
+        {
+          "type": "debug",
+          "text": "[vite] connecting..."
+        },
+        {
+          "type": "debug",
+          "text": "[vite] connected."
+        }
+      ],
+      "exceptions": [],
+      "logEntries": [],
+      "screenshot": "C:/Users/dfjq/Documents/Obsidian Vault/Projects/四六级游戏化课堂/evidence/S1-2026-09-18/browser-s.png",
+      "screenshotBytes": 18903
+    }
+  ]
+}

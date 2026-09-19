@@ -1,0 +1,60 @@
+?   	cet46/server/cmd/import-users	[no test files]
+?   	cet46/server/cmd/migrate	[no test files]
+?   	cet46/server/cmd/seed-teacher	[no test files]
+?   	cet46/server/cmd/server	[no test files]
+ok  	cet46/server/internal/auth	1.512s
+ok  	cet46/server/internal/config	0.586s
+ok  	cet46/server/internal/database	1.081s
+?   	cet46/server/internal/dto	[no test files]
+?   	cet46/server/internal/handler	[no test files]
+?   	cet46/server/internal/middleware	[no test files]
+ok  	cet46/server/internal/model	0.596s
+?   	cet46/server/internal/pkg/apperror	[no test files]
+?   	cet46/server/internal/pkg/response	[no test files]
+ok  	cet46/server/internal/roster	0.965s
+ok  	cet46/server/internal/router	11.437s
+ok  	cet46/server/internal/service	7.154s
+?   	cet46/server/internal/testsupport	[no test files]
+=== RUN   TestAdminUsersScopedToTeachersClasses
+[GIN] 2026/09/18 - 17:37:10 | 200 |     59.3701ms |       192.0.2.1 | POST     "/api/auth/login"
+[GIN] 2026/09/18 - 17:37:10 | 200 |     62.0507ms |       192.0.2.1 | POST     "/api/auth/login"
+=== RUN   TestAdminUsersScopedToTeachersClasses/教师A只看到自己班学生
+[GIN] 2026/09/18 - 17:37:10 | 200 |      1.5176ms |       192.0.2.1 | GET      "/api/admin/users"
+=== RUN   TestAdminUsersScopedToTeachersClasses/教师A只能看到自己的班
+[GIN] 2026/09/18 - 17:37:10 | 200 |       563.3µs |       192.0.2.1 | GET      "/api/admin/users?classId=2"
+=== RUN   TestAdminUsersScopedToTeachersClasses/教师A按学号搜不到教师B的学生
+[GIN] 2026/09/18 - 17:37:10 | 200 |      1.0993ms |       192.0.2.1 | GET      "/api/admin/users?keyword=2024720001"
+[GIN] 2026/09/18 - 17:37:10 | 200 |       690.1µs |       192.0.2.1 | GET      "/api/admin/users?keyword=202472"
+[GIN] 2026/09/18 - 17:37:10 | 200 |         528µs |       192.0.2.1 | GET      "/api/admin/users?keyword=202471"
+=== RUN   TestAdminUsersScopedToTeachersClasses/教师A单查教师B的学生返回404
+[GIN] 2026/09/18 - 17:37:10 | 404 |       786.8µs |       192.0.2.1 | GET      "/api/admin/users/4"
+[GIN] 2026/09/18 - 17:37:10 | 200 |       531.1µs |       192.0.2.1 | GET      "/api/admin/users/3"
+=== RUN   TestAdminUsersScopedToTeachersClasses/教师B对称成立
+[GIN] 2026/09/18 - 17:37:10 | 200 |       539.5µs |       192.0.2.1 | GET      "/api/admin/users"
+[GIN] 2026/09/18 - 17:37:10 | 404 |       539.9µs |       192.0.2.1 | GET      "/api/admin/users/3"
+--- PASS: TestAdminUsersScopedToTeachersClasses (0.68s)
+    --- PASS: TestAdminUsersScopedToTeachersClasses/教师A只看到自己班学生 (0.00s)
+    --- PASS: TestAdminUsersScopedToTeachersClasses/教师A只能看到自己的班 (0.00s)
+    --- PASS: TestAdminUsersScopedToTeachersClasses/教师A按学号搜不到教师B的学生 (0.00s)
+    --- PASS: TestAdminUsersScopedToTeachersClasses/教师A单查教师B的学生返回404 (0.00s)
+    --- PASS: TestAdminUsersScopedToTeachersClasses/教师B对称成立 (0.00s)
+PASS
+ok  	cet46/server/internal/router	0.819s
+=== RUN   TestUserListScopedToTeacherClasses
+=== RUN   TestUserListScopedToTeacherClasses/教师A_只看到自己班
+=== RUN   TestUserListScopedToTeacherClasses/教师B_只看到自己班
+=== RUN   TestUserListScopedToTeacherClasses/教师A_显式指定教师B的班_→_空
+=== RUN   TestUserListScopedToTeacherClasses/教师A_按学号搜教师B的学生_→_空
+=== RUN   TestUserListScopedToTeacherClasses/教师A_按姓名搜教师B的学生_→_空
+=== RUN   TestUserListScopedToTeacherClasses/不传_TeacherID（内部调用）不做班级归属过滤
+--- PASS: TestUserListScopedToTeacherClasses (0.56s)
+    --- PASS: TestUserListScopedToTeacherClasses/教师A_只看到自己班 (0.00s)
+    --- PASS: TestUserListScopedToTeacherClasses/教师B_只看到自己班 (0.00s)
+    --- PASS: TestUserListScopedToTeacherClasses/教师A_显式指定教师B的班_→_空 (0.00s)
+    --- PASS: TestUserListScopedToTeacherClasses/教师A_按学号搜教师B的学生_→_空 (0.00s)
+    --- PASS: TestUserListScopedToTeacherClasses/教师A_按姓名搜教师B的学生_→_空 (0.00s)
+    --- PASS: TestUserListScopedToTeacherClasses/不传_TeacherID（内部调用）不做班级归属过滤 (0.00s)
+=== RUN   TestGetForTeacherHidesOtherTeachersStudents
+--- PASS: TestGetForTeacherHidesOtherTeachersStudents (0.52s)
+PASS
+ok  	cet46/server/internal/service	1.216s

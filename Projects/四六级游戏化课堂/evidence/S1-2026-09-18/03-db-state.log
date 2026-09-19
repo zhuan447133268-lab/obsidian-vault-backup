@@ -1,0 +1,11 @@
+=== 3 bad-row import did not write anything (expect users_total=41, classes=1) ===
+users_total	students	teachers
+41	40	1
+classes
+1
+id	name	teacher_id	student_count
+1	2024级英语1班	1	40
+id	username	real_name	role	target	class_id	hash_prefix
+1	T0001	张老师	teacher	4	NULL	init$
+2	2024010001	示例学生01	student	4	1	init$
+3	2024010002	示例学生02	student	4	1	init$

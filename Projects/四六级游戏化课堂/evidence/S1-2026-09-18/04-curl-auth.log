@@ -1,0 +1,14 @@
+########## ACCEPTANCE 3: correct password -> JWT (200), wrong password -> 401 ##########
+
+--- [3-1] POST /api/auth/login  T0001/Teacher@123  (initial password) ---
+{"code":0,"message":"ok","data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsInVuYW1lIjoiVDAwMDEiLCJyb2xlIjoidGVhY2hlciIsImlzcyI6ImNldDQ2Iiwic3ViIjoiMSIsImV4cCI6MTc5MDMyNTk1OCwiaWF0IjoxNzg5NzIxMTU4fQ.30f78kBtjSLiaw3ZgkSE5iR1xUxAM0tvTfrcXOAVjF4","expiresIn":604800,"mustChangePwd":true,"user":{"id":1,"username":"T0001","realName":"张老师","role":"teacher","avatar":"","classId":0,"target":"4","lv":1,"streak":0,"mustChangePwd":true}}}
+[HTTP 200]
+
+--- [3-2] POST /api/auth/login  T0001/wrong-password ---
+{"code":40101,"message":"学号或密码错误","data":null}
+[HTTP 401]
+
+--- [3-3] POST /api/auth/login  unknown-username/Teacher@123 ---
+{"code":40101,"message":"学号或密码错误","data":null}
+[HTTP 401]
+

@@ -1,0 +1,50 @@
+
+=== 0. 清理上次演示数据（只删本脚本造的账号/班级，保证可重复执行） ===
+
+=== 0b. 造两个教师账号（seed-teacher 幂等，重复跑会把账号重置回「首次登录改密」） ===
+2026/09/18 17:39:02 已创建教师账号: username=T8001 name=张老师 role=teacher（初始密码已设置，首次登录须改密）
+2026/09/18 17:39:02 已创建教师账号: username=T8002 name=李老师 role=teacher（初始密码已设置，首次登录须改密）
+
+=== 1. 两个教师各自登录并改密（改密前业务接口 403，改密后才拿到可用 token） ===
+--- T8001 ---
+{"code":0,"message":"ok","data":null}
+--- T8002 ---
+{"code":0,"message":"ok","data":null}
+教师A token 前缀: eyJhbGciOiJIUzI1NiIs...   教师B token 前缀: eyJhbGciOiJIUzI1NiIs...
+
+=== 2. 两个教师各建一个班，各建一名学生；再建一名「未分班」学生 ===
+教师A 建班: {"code":0,"message":"ok","data":{"id":7,"name":"补丁2-教师A的班","teacherId":53,"term":"2026-2027-1","studentCount":0,"createdAt":"2026-09-18 17:39:03"}}
+教师B 建班: {"code":0,"message":"ok","data":{"id":8,"name":"补丁2-教师B的班","teacherId":54,"term":"2026-2027-1","studentCount":0,"createdAt":"2026-09-18 17:39:03"}}
+教师A 建学生: {"code":0,"message":"ok","data":{"id":55,"username":"2026810001","realName":"A班学生","role":"student","avatar":"","classId":7,"target":"4","lv":1,"streak":0,"mustChangePwd":true}}
+教师B 建学生: {"code":0,"message":"ok","data":{"id":56,"username":"2026820001","realName":"B班学生","role":"student","avatar":"","classId":8,"target":"4","lv":1,"streak":0,"mustChangePwd":true}}
+未分班学生: {"code":0,"message":"ok","data":{"id":57,"username":"2026890001","realName":"未分班学生","role":"student","avatar":"","classId":0,"target":"4","lv":1,"streak":0,"mustChangePwd":true}}
+（便于对照）教师A班=7 学生A=55 / 教师B班=8 学生B=56 / 未分班学生=57
+
+=== 3. 教师A 拉全量名单 → 只有自己班的学生 ===
+{"code":0,"message":"ok","data":{"items":[{"id":55,"username":"2026810001","realName":"A班学生","role":"student","avatar":"","classId":7,"target":"4","lv":1,"streak":0,"mustChangePwd":true}],"total":1}}
+
+=== 4. 教师A 显式指定教师B的班 classId=8 → 空 ===
+{"code":0,"message":"ok","data":{"items":[],"total":0}}
+
+=== 5. 教师A 用学号搜索教师B的学生 2026820001 → 空 ===
+{"code":0,"message":"ok","data":{"items":[],"total":0}}
+
+=== 6. 教师A 单查教师B的学生 id=56 → 404（不用 403，避免暴露「该 id 存在」） ===
+HTTP 404
+{"code":40401,"message":"资源不存在","data":null}
+
+=== 7. 教师A 单查自己的学生 id=55 → 200 ===
+HTTP 200
+{"code":0,"message":"ok","data":{"id":55,"username":"2026810001","realName":"A班学生","role":"student","avatar":"","classId":7,"target":"4","lv":1,"streak":0,"mustChangePwd":true}}
+
+=== 8. 教师A 单查未分班学生 id=57 → 404（未分班不属于任何教师） ===
+HTTP 404
+{"code":40401,"message":"资源不存在","data":null}
+
+=== 9. 对称：教师B 拉全量名单 / 单查教师A的学生 id=55 ===
+{"code":0,"message":"ok","data":{"items":[{"id":56,"username":"2026820001","realName":"B班学生","role":"student","avatar":"","classId":8,"target":"4","lv":1,"streak":0,"mustChangePwd":true}],"total":1}}
+HTTP 404
+{"code":40401,"message":"资源不存在","data":null}
+
+=== 10. 对照：不带 token → 401 ===
+HTTP 401
