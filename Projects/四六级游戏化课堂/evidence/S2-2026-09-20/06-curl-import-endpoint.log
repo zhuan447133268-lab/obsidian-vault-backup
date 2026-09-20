@@ -1,0 +1,26 @@
+
+########## 06 验收①（接口面）：POST /api/admin/import-questions 上传 prototype-66.xlsx ##########
+--- 06-1 教师登录（seed 后的初始密码 → 首登须改密）---
+{"code":0,"message":"ok","data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsInVuYW1lIjoiVDAwMDEiLCJyb2xlIjoidGVhY2hlciIsImlzcyI6ImNldDQ2Iiwic3ViIjoiMSIsImV4cCI6MTc5MDQ4MTY3MywiaWF0IjoxNzg5ODc2ODczfQ.CQZY_8xTYHcEA1b4xMzqQGvkap31CKVeG7SlKIcARlU","expiresIn":604800,"mustChangePwd":true,"user":{"id":1,"username":"T0001","realName":"张老师","role":"teacher","avatar":"","classId":0,"target":"4","lv":1,"streak":0,"mustChangePwd":true}}}
+[HTTP 200]
+
+--- 06-2 首登未改密时，教师接口应 403/40302 ---
+{"code":40302,"message":"首次登录须先修改初始密码","data":null}
+[HTTP 403]
+
+--- 06-3 改密 Teacher@123 → Teacher@456 ---
+{"code":0,"message":"ok","data":null}
+[HTTP 200]
+
+--- 06-4 重传同一份 xlsx（应 created=0 / skipped=66，幂等）---
+{"code":0,"message":"ok","data":{"unitCreated":0,"unitUsed":1,"levelCreated":0,"levelUsed":6,"created":0,"skipped":66,"total":66,"errors":[],"enabledQuestions":66}}
+[HTTP 200]
+
+--- 06-5 下载导入模板（教师侧交付物）---
+HTTP/1.1 200 OK
+Content-Disposition: attachment; filename="question-bank-template.xlsx"
+Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+Date: Sun, 20 Sep 2026 04:01:14 GMT
+Transfer-Encoding: chunked
+
+下载文件大小：8619 字节

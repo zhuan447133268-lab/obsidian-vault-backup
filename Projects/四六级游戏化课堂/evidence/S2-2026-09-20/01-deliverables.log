@@ -1,0 +1,37 @@
+
+########## 01 交付物：模板 + 原型题库转 xlsx/csv（验收①的前半段） ##########
+模板已生成: testdata/qbank/question-bank-template.xlsx
+
+原型: D:/claude-work/cet46-game-prototype/quiz.html
+目标班级: 2024级英语1班（第 3 周 · 校园生活）
+关卡数: 6（两套题库共用）
+题目数: 四级 33 题，六级 33 题，合计 66 行
+复盘题人工归题型: 10 道（原型只标了「复盘」，不是题型枚举）
+关卡名冲突（原型为准取四级版）: 第 1 关：四级「第 1 关 · 高频词」/ 六级「第 1 关 · 六级高频词」→ 取四级版
+关卡名冲突（原型为准取四级版）: 第 6 关：四级「单元 Boss · 真题混合卷」/ 六级「单元 Boss · 六级真题混合卷」→ 取四级版
+已写出: testdata/qbank/prototype-66.xlsx
+已写出: testdata/qbank/prototype-66.csv（评审/对比用）
+
+
+--- 产物 ---
+total 92
+-rw-r--r-- 1 dfjq 197121  4946 Sep 20 10:48 README.md
+-rw-r--r-- 1 dfjq 197121  1526 Sep 20 10:36 bad-rows-sample.csv
+-rw-r--r-- 1 dfjq 197121 38083 Sep 20 12:01 prototype-66.csv
+-rw-r--r-- 1 dfjq 197121 27218 Sep 20 12:01 prototype-66.xlsx
+-rw-r--r-- 1 dfjq 197121  8619 Sep 20 12:01 question-bank-template.xlsx
+
+--- 成品按 分套/关卡/题型 汇总（对照原型 QBANK_4 / QBANK_6）---
+band=4 �ؿ�1: ��5��  vocab=5
+band=4 �ؿ�2: ��5��  grammar=5
+band=4 �ؿ�3: ��5��  reading=5
+band=4 �ؿ�4: ��5��  reading=5
+band=4 �ؿ�5: ��5��  grammar=1 vocab=4
+band=4 �ؿ�6: ��8��  grammar=2 reading=3 translation=1 vocab=2
+band=6 �ؿ�1: ��5��  vocab=5
+band=6 �ؿ�2: ��5��  grammar=5
+band=6 �ؿ�3: ��5��  reading=5
+band=6 �ؿ�4: ��5��  reading=5
+band=6 �ؿ�5: ��5��  grammar=2 vocab=3
+band=6 �ؿ�6: ��8��  grammar=2 reading=3 translation=1 vocab=2
+�ϼƣ��ļ� 33 �⣬���� 33 �⣬�� 66 ��

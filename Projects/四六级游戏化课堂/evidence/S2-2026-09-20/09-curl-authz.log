@@ -1,0 +1,48 @@
+
+########## 09 鉴权与隔离：未登录 401、学生调教师接口 403、跨教师 404、答案不泄露 ##########
+--- 09-1 未登录 GET /api/admin/questions ---
+{"code":40101,"message":"学号或密码错误","data":null}
+[HTTP 401]
+
+--- 09-2 未登录 GET /api/quiz/levels ---
+{"code":40101,"message":"学号或密码错误","data":null}
+[HTTP 401]
+
+--- 09-3 学生 token 调教师接口（应 403/40301）---
+{"code":40301,"message":"无权访问","data":null}
+[HTTP 403]
+
+--- 09-4 学生 token 调导入接口（应 403）---
+{"code":40301,"message":"无权访问","data":null}
+[HTTP 403]
+
+--- 09-5 另一个教师 T0002 看 T0001 的题库（应 200 + 空列表）---
+2026/09/20 12:01:17 已更新教师账号: username=T0002 name=李老师 role=teacher（初始密码已设置，首次登录须改密）
+{"code":0,"message":"ok","data":{"items":[],"total":0}}
+[HTTP 200]
+
+--- 09-6 T0002 按 id 直取 T0001 的题（应 404，不泄露存在性）---
+{"code":40401,"message":"资源不存在","data":null}
+[HTTP 404]
+
+--- 09-7 T0002 往 T0001 的关卡建题（应 404）---
+{"code":40401,"message":"资源不存在","data":null}
+[HTTP 404]
+
+--- 09-8 答案不泄露：学生取题响应里不得出现 answerIdx/exp/tip/knowledgeTag ---
+Traceback (most recent call last):
+  File "<string>", line 24, in <module>
+    print("���ֶ����У��� JSON ���ж��������������Ӵ�����", hit if hit else "�� \u2705")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'gbk' codec can't encode character '\u2705' in position 2: illegal multibyte sequence
+��Ӧ�壨ǰ 120 �ַ����� {"code":0,"message":"ok","data":{"items":[{"id":265,"levelId":25,"type":"vocab","stem":"We need to find ____ near the ca
+data �³��ֹ������м��� ['id', 'items', 'levelId', 'options', 'script', 'stem', 'total', 'type']
+�����ֶΣ� ['id', 'levelId', 'options', 'script', 'stem', 'type']
+�·������� 5
+���ֶ����У��� JSON ���ж��������������Ӵ����� 
+--- 09-9 未分班学生取关卡/取题（应空列表 + 404）---
+取关卡：
+{"code":0,"message":"ok","data":{"items":[],"total":0}}
+取题：
+{"code":40401,"message":"资源不存在","data":null}
+[HTTP 404]

@@ -1,0 +1,34 @@
+
+########## 08 验收③：enabled=false 的题不下发 ##########
+第 1 关 id=25，停用题目 id=265（四级第 1 题）
+
+--- 08-1 停用前：教师视角读该题（enabled=true，含答案与解析）---
+{"code":0,"message":"ok","data":{"id":265,"levelId":25,"band":"4","type":"vocab","stem":"We need to find ____ near the campus before the semester starts.","script":"","options":["accommodation","application","appointment","argument"],"answerIdx":"0","tip":"accommodation = 住宿，开学找房是校园高频场景","exp":"句意是「学期开始前，要在校园附近找住宿」。accommodation = 住宿；application 是「申请」，appointment 是「预约/约会」，argument 是「争论」，都搭不上「找地方住」的语境。","knowledgeTag":"","difficulty":1,"enabled":true,"listenSubtype":"","createdAt":"2026-09-20 12:01:10"}}
+[HTTP 200]
+
+--- 08-2 停用前：四级学生取第 1 关的题数 / 关卡列表里的可见题数 ---
+5
+5
+
+--- 08-3 PATCH /api/admin/questions/265 {"enabled": false} ---
+{"code":0,"message":"ok","data":{"id":265,"levelId":25,"band":"4","type":"vocab","stem":"We need to find ____ near the campus before the semester starts.","script":"","options":["accommodation","application","appointment","argument"],"answerIdx":"0","tip":"accommodation = 住宿，开学找房是校园高频场景","exp":"句意是「学期开始前，要在校园附近找住宿」。accommodation = 住宿；application 是「申请」，appointment 是「预约/约会」，argument 是「争论」，都搭不上「找地方住」的语境。","knowledgeTag":"","difficulty":1,"enabled":false,"listenSubtype":"","createdAt":"2026-09-20 12:01:10"}}
+[HTTP 200]
+
+--- 08-4 落库核对（enabled 列应为 0）---
+265	0
+
+--- 08-5 教师视角读回（enabled 应为 false）---
+enabled = False | answerIdx = 0 | exp �ǿ� = True
+
+--- 08-6 停用后：四级学生取题（题数 5→4，且不再含该 id）---
+total = 4
+�·���Ŀ id�� [266, 267, 268, 269]
+�Ƿ��Ժ���ͣ�õ� id=265�� False
+关卡列表里的可见题数（应为 4）：
+4
+
+--- 08-7 六级学生不受影响（同一关卡，六级题数不变）---
+5
+
+--- 08-8 恢复启用（还原现场，方便复验）---
+265	1

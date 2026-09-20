@@ -1,0 +1,40 @@
+
+########## 03 落库对账（真 MySQL） ##########
+4	33
+6	33
+1
+1	第 1 关 · 高频词	vocab	480	0	5	5
+2	第 2 关 · 语法陷阱	grammar	480	0	5	5
+3	第 3 关 · 阅读速攻	reading	540	0	5	5
+4	第 4 关 · 阅读进阶	reading	540	0	5	5
+5	第 5 关 · 词汇复盘	review	480	0	5	5
+6	单元 Boss · 真题混合卷	boss	720	1	8	8
+1	66
+
+
+########## 03b 表结构红线（任务书 §7）：questions 表结构须与开发方案 v1.0 §4 一致（含 enabled 默认值、answer_idx varchar） ##########
+*************************** 1. row ***************************
+questions
+CREATE TABLE `questions` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `level_id` bigint unsigned NOT NULL,
+  `band` varchar(1) NOT NULL DEFAULT '4',
+  `type` varchar(32) NOT NULL DEFAULT '',
+  `stem` text,
+  `script` text,
+  `options_json` text,
+  `answer_idx` varchar(255) NOT NULL DEFAULT '',
+  `tip` varchar(500) NOT NULL DEFAULT '',
+  `exp` text,
+  `knowledge_tag` varchar(128) NOT NULL DEFAULT '',
+  `difficulty` bigint NOT NULL DEFAULT '1',
+  `enabled` tinyint(1) NOT NULL DEFAULT '1',
+  `listen_subtype` varchar(32) NOT NULL DEFAULT '',
+  `created_at` datetime(3) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_questions_enabled` (`enabled`),
+  KEY `idx_questions_level_id` (`level_id`),
+  KEY `idx_questions_band_level` (`band`),
+  KEY `idx_questions_type` (`type`),
+  KEY `idx_questions_knowledge_tag` (`knowledge_tag`)
+) ENGINE=InnoDB AUTO_INCREMENT=331 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

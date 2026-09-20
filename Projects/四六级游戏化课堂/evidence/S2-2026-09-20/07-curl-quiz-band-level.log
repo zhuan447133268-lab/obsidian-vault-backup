@@ -1,0 +1,65 @@
+
+########## 07 验收②：按 band + level 取题过滤正确（接口实录） ##########
+--- 07-0 演示账号 S4001/S6001/S9001 若已存在先清掉（本脚本自己建的演示账号，无关联流水）---
+已清理（如本来不存在则影响 0 行）
+
+--- 07-1 建两个演示学生：S4001（备考四级）/ S6001（备考六级），同在 2024级英语1班 ---
+班级 2024级英语1班 id=1
+POST /api/admin/users S4001 target=4
+{"code":0,"message":"ok","data":{"id":67,"username":"S4001","realName":"演示学生S4001","role":"student","avatar":"","classId":1,"target":"4","lv":1,"streak":0,"mustChangePwd":true}}
+[HTTP 200]
+
+首登（初始密码）→ 改密 → 重新登录
+{"code":0,"message":"ok","data":null}
+[HTTP 200]
+
+学生 S4001 登录成功（已改密），token 长度 217
+
+POST /api/admin/users S6001 target=6
+{"code":0,"message":"ok","data":{"id":68,"username":"S6001","realName":"演示学生S6001","role":"student","avatar":"","classId":1,"target":"6","lv":1,"streak":0,"mustChangePwd":true}}
+[HTTP 200]
+
+首登（初始密码）→ 改密 → 重新登录
+{"code":0,"message":"ok","data":null}
+[HTTP 200]
+
+学生 S6001 登录成功（已改密），token 长度 217
+
+--- 07-2 四级学生 S4001 取关卡（GET /api/quiz/levels）---
+{"code":0,"message":"ok","data":{"items":[{"id":25,"unitId":5,"weekNo":3,"unitName":"校园生活","seq":1,"name":"第 1 关 · 高频词","type":"vocab","timeLimit":480,"isBoss":false,"questionCount":5},{"id":26,"unitId":5,"weekNo":3,"unitName":"校园生活","seq":2,"name":"第 2 关 · 语法陷阱","type":"grammar","timeLimit":480,"isBoss":false,"questionCount":5},{"id":27,"unitId":5,"weekNo":3,"unitName":"校园生活","seq":3,"name":"第 3 关 · 阅读速攻","type":"reading","timeLimit":540,"isBoss":false,"questionCount":5},{"id":28,"unitId":5,"weekNo":3,"unitName":"校园生活","seq":4,"name":"第 4 关 · 阅读进阶","type":"reading","timeLimit":540,"isBoss":false,"questionCount":5},{"id":29,"unitId":5,"weekNo":3,"unitName":"校园生活","seq":5,"name":"第 5 关 · 词汇复盘","type":"review","timeLimit":480,"isBoss":false,"questionCount":5},{"id":30,"unitId":5,"weekNo":3,"unitName":"校园生活","seq":6,"name":"单元 Boss · 真题混合卷","type":"boss","timeLimit":720,"isBoss":true,"questionCount":8}],"total":6}}
+[HTTP 200]
+
+--- 07-3 六级学生 S6001 取关卡（同班同关卡，可见题数按各自分套）---
+{"code":0,"message":"ok","data":{"items":[{"id":25,"unitId":5,"weekNo":3,"unitName":"校园生活","seq":1,"name":"第 1 关 · 高频词","type":"vocab","timeLimit":480,"isBoss":false,"questionCount":5},{"id":26,"unitId":5,"weekNo":3,"unitName":"校园生活","seq":2,"name":"第 2 关 · 语法陷阱","type":"grammar","timeLimit":480,"isBoss":false,"questionCount":5},{"id":27,"unitId":5,"weekNo":3,"unitName":"校园生活","seq":3,"name":"第 3 关 · 阅读速攻","type":"reading","timeLimit":540,"isBoss":false,"questionCount":5},{"id":28,"unitId":5,"weekNo":3,"unitName":"校园生活","seq":4,"name":"第 4 关 · 阅读进阶","type":"reading","timeLimit":540,"isBoss":false,"questionCount":5},{"id":29,"unitId":5,"weekNo":3,"unitName":"校园生活","seq":5,"name":"第 5 关 · 词汇复盘","type":"review","timeLimit":480,"isBoss":false,"questionCount":5},{"id":30,"unitId":5,"weekNo":3,"unitName":"校园生活","seq":6,"name":"单元 Boss · 真题混合卷","type":"boss","timeLimit":720,"isBoss":true,"questionCount":8}],"total":6}}
+[HTTP 200]
+
+第 1 关 id=25，Boss 关 id=30
+
+--- 07-4 四级学生取第 1 关（应 5 题，全是四级词汇题，answerIdx/exp/tip 不在响应里）---
+{"code":0,"message":"ok","data":{"items":[{"id":265,"levelId":25,"type":"vocab","stem":"We need to find ____ near the campus before the semester starts.","script":"","options":["accommodation","application","appointment","argument"]},{"id":266,"levelId":25,"type":"vocab","stem":"The professor asked us to ____ the data carefully before drawing any conclusions.","script":"","options":["analyze","apologize","announce","arrange"]},{"id":267,"levelId":25,"type":"vocab","stem":"The new rule will be ____ to all students without exception.","script":"","options":["applied","appealed","appointed","approached"]},{"id":268,"levelId":25,"type":"vocab","stem":"She gave a ____ explanation that everyone could follow.","script":"","options":["comprehensive","compulsory","consecutive","controversial"]},{"id":269,"levelId":25,"type":"vocab","stem":"The team finally ____ the project after two years of hard work.","script":"","options":["completed","competed","complained","composed"]}],"total":5}}
+[HTTP 200]
+
+--- 07-5 六级学生取同一关（应 5 题，题干与四级完全不同）---
+{"code":0,"message":"ok","data":{"items":[{"id":298,"levelId":25,"type":"vocab","stem":"The ____ of the research findings has been questioned by several leading scholars.","script":"","options":["validity","variety","velocity","vividness"]},{"id":299,"levelId":25,"type":"vocab","stem":"The company decided to ____ its operations to emerging markets in Southeast Asia.","script":"","options":["expand","expend","export","expose"]},{"id":300,"levelId":25,"type":"vocab","stem":"There is a growing ____ among experts that climate policies need urgent revision.","script":"","options":["consensus","consciousness","consequence","convenience"]},{"id":301,"levelId":25,"type":"vocab","stem":"The novel's ____ structure makes it difficult to adapt into a film.","script":"","options":["intricate","intrinsic","intimate","intense"]},{"id":302,"levelId":25,"type":"vocab","stem":"She remained ____ about the rumors and refused to make any comment.","script":"","options":["silent","silence","silently","silenced"]}],"total":5}}
+[HTTP 200]
+
+--- 07-6 四级学生取 Boss 关（应 8 题，含 1 道翻译题）---
+Traceback (most recent call last):
+  File "<string>", line 4, in <module>
+    d = json.loads(raw)["data"]
+        ~~~~~~~~~~^^^^^
+  File "C:\Users\dfjq\AppData\Local\Programs\Python\Python314\Lib\json\__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\dfjq\AppData\Local\Programs\Python\Python314\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dfjq\AppData\Local\Programs\Python\Python314\Lib\json\decoder.py", line 361, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ~~~~~~~~~~~~~~^^^^^^^^
+json.decoder.JSONDecodeError: Expecting ',' delimiter: line 1 column 808 (char 807)
+
+--- 07-7 交叉验证：同一关卡两套题库题干零重叠 ---
+�ļ� 5 �� / ���� 5 �⣬��ɽ��� 0 ��������Ϊ 0��
+�ļ����⣺ She gave a ____ explanation that everyone could follow.
+�������⣺ She remained ____ about the rumors and refused to make any comment.
