@@ -1,0 +1,171 @@
+/* ============================================================
+   Purple Night —— 深紫色渐变暗色主题
+   配合 Obsidian 深色主题使用
+   ============================================================ */
+
+/* ---------- 1. 全局深紫渐变背景 ---------- */
+.theme-dark {
+  --background-primary: transparent;
+  --background-primary-alt: transparent;
+  --background-secondary: transparent;
+  --background-secondary-alt: transparent;
+  --background-modifier-border: rgba(150, 130, 220, 0.15);
+  --text-normal: #d8d4e8;
+  --text-muted: #8882a8;
+}
+
+.workspace,
+.app-container {
+  background: linear-gradient(135deg,
+    #1a1035 0%,
+    #2a1a4e 30%,
+    #1f1a4a 60%,
+    #151238 100%) !important;
+  background-attachment: fixed;
+}
+
+/* ---------- 2. 顶部栏透明 ---------- */
+.workspace-tab-header,
+.workspace-tab-container,
+.titlebar,
+.status-bar,
+.view-header {
+  background: transparent !important;
+}
+.workspace-tab-header.is-active {
+  background: rgba(120, 90, 200, 0.25) !important;
+}
+
+/* ---------- 3. 侧边栏紫色半透明 ---------- */
+.workspace-leaf {
+  background: rgba(80, 60, 140, 0.25);
+  border-radius: 14px;
+  margin: 6px;
+}
+.workspace-leaf-content,
+.side-dock-ribbon,
+.workspace-tabs {
+  background: transparent !important;
+}
+
+/* ---------- 4. 正文深色卡片 ---------- */
+.markdown-preview-view,
+.markdown-source-view.mod-cm6 .cm-content {
+  background: rgba(35, 28, 65, 0.75) !important;
+  border-radius: 20px;
+  max-width: 1400px !important;
+  width: 100% !important;
+  margin: 28px auto !important;
+  padding: 44px 60px !important;
+  box-shadow: 0 12px 44px rgba(80, 50, 160, 0.3) !important;
+  backdrop-filter: blur(14px);
+  box-sizing: border-box;
+  color: #d8d4e8;
+}
+.markdown-preview-view .markdown-preview-sizer {
+  background: transparent !important;
+}
+
+/* ---------- 5. 标题配色 ---------- */
+.markdown-rendered h1,
+.cm-header-1 {
+  color: #c8b8ff;
+  font-weight: 700;
+  border-bottom: 2px solid rgba(150, 120, 230, 0.3);
+  padding-bottom: 0.3em;
+}
+.markdown-rendered h2,
+.cm-header-2 {
+  color: #b8a0ff;
+}
+.markdown-rendered h3,
+.cm-header-3 {
+  color: #9880e8;
+}
+
+/* ---------- 6. 链接 ---------- */
+.markdown-rendered a,
+.cm-s-obsidian .cm-link {
+  color: #8ab4f8;
+}
+
+/* ---------- 7. Callout ---------- */
+.callout {
+  border-radius: 14px;
+  border: 1px solid rgba(120, 100, 200, 0.3);
+  background: rgba(50, 40, 90, 0.6);
+}
+
+/* ---------- 8. 标签 ---------- */
+.markdown-rendered .tag {
+  background: rgba(120, 90, 200, 0.3);
+  color: #b8a0ff;
+}
+
+/* ---------- 9. 表格 ---------- */
+.markdown-rendered table {
+  border-radius: 10px;
+  background: rgba(50, 40, 90, 0.4);
+  color: #d8d4e8;
+}
+.markdown-rendered table th {
+  color: #b8a0ff;
+  background: rgba(80, 60, 140, 0.3);
+}
+.markdown-rendered table td {
+  color: #c8c4e0;
+}
+
+/* ---------- 10. 全局文字颜色覆盖 ---------- */
+.theme-dark {
+  --text-normal: #d8d4e8;
+  --text-muted: #9890b8;
+  --text-faint: #7870a0;
+  --text-on-accent: #ffffff;
+  --interactive-normal: #c8c4e0;
+  --interactive-hover: #e0dcf0;
+  --text-accent: #b8a0ff;
+  --text-accent-hover: #d0c0ff;
+}
+
+/* 侧边栏文件列表 */
+.nav-file-title,
+.nav-folder-title {
+  color: #b8b0d8 !important;
+}
+.nav-file-title.is-active {
+  color: #e0d8ff !important;
+  background: rgba(120, 90, 200, 0.25) !important;
+}
+
+/* 正文所有文字 */
+.markdown-rendered,
+.cm-editor .cm-content {
+  color: #d8d4e8 !important;
+}
+
+/* 列表、引用、代码 */
+.markdown-rendered blockquote {
+  color: #b0a8d0;
+}
+.markdown-rendered code {
+  color: #e0c0ff;
+  background: rgba(80, 60, 140, 0.4);
+}
+
+/* 元数据 / Frontmatter */
+.metadata-container,
+.frontmatter-container {
+  color: #9890b8;
+}
+
+/* 文件名标题 */
+.inline-title,
+.view-header-title {
+  color: #e0d8ff !important;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar-thumb {
+  background: rgba(120, 90, 200, 0.3);
+}

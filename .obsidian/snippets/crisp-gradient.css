@@ -1,0 +1,243 @@
+/* ============================================================
+   Crisp Gradient v3 —— 修复竖排问题：只限文字行宽，不压编辑器
+   ============================================================ */
+
+/* ---------- 1. 全局渐变背景 ---------- */
+.theme-light {
+  --background-primary: transparent;
+  --background-primary-alt: transparent;
+  --background-secondary: transparent;
+  --background-secondary-alt: transparent;
+  --background-modifier-border: rgba(150, 160, 200, 0.18);
+  --text-normal: #3d3a4a;
+}
+
+.workspace,
+.app-container {
+  background: linear-gradient(135deg,
+    #fce4ec 0%,
+    #f3e5f5 25%,
+    #e8eaf6 55%,
+    #e0f7fa 85%,
+    #e8f5e9 100%) !important;
+  background-attachment: fixed;
+}
+
+/* ---------- 2. 顶部标签栏 / 面包屑 透明化 ---------- */
+.workspace-tab-header,
+.workspace-tab-container,
+.mod-top-ribbon,
+.titlebar,
+.status-bar,
+.inline-title,
+.view-header,
+.cm-app-header {
+  background: transparent !important;
+}
+.workspace-tab-header.is-active {
+  background: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* ---------- 3. 侧边栏 ---------- */
+.workspace-leaf {
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 14px;
+  margin: 6px;
+}
+.workspace-leaf-content,
+.side-dock-ribbon,
+.workspace-tabs {
+  background: transparent !important;
+}
+
+/* ============================================================
+   4. 正文卡片（关键修复）
+   - 外层编辑/预览容器：全宽透明，不压窄
+   - 内层文字内容：限宽 880px 居中 + 半透明白卡片
+   ============================================================ */
+
+/* 阅读模式：外层透明，内层 sizer 带卡片背景 */
+.markdown-preview-view {
+  background: transparent !important;
+}
+/* 暴力覆盖：无论 Obsidian 怎么限宽，强制 1400px */
+.markdown-preview-view,
+.markdown-preview-view.is-readable-line-width,
+.markdown-preview-view .markdown-preview-sizer,
+.markdown-preview-view.is-readable-line-width .markdown-preview-sizer,
+.markdown-preview-sizer,
+.markdown-preview-view .markdown-preview-section {
+  background: rgba(255, 255, 255, 0.62) !important;
+  border-radius: 20px;
+  max-width: 1400px !important;
+  width: 100% !important;
+  margin: 28px auto !important;
+  padding: 44px 60px !important;
+  box-shadow: 0 12px 44px rgba(150, 150, 200, 0.22) !important;
+  backdrop-filter: blur(14px);
+  min-height: calc(100vh - 100px);
+  box-sizing: border-box;
+}
+/* 直接干掉可读行宽限制 */
+.markdown-preview-view.is-readable-line-width .markdown-preview-sizer,
+.markdown-source-view.is-readable-line-width .cm-content {
+  max-width: 1400px !important;
+  width: 100% !important;
+}
+
+/* 编辑模式：外层 cm-editor 全宽透明，只给 cm-content 限宽居中 */
+.markdown-source-view.mod-cm6 .cm-editor,
+.markdown-source-view.mod-cm6 .cm-scroller,
+.markdown-source-view.mod-cm6 .cm-contentContainer {
+  background: transparent !important;
+  max-width: none !important;
+}
+.markdown-source-view.mod-cm6 .cm-content,
+.markdown-source-view.is-readable-line-width .cm-content {
+  background: rgba(255, 255, 255, 0.62) !important;
+  border-radius: 20px;
+  max-width: 1400px !important;
+  width: 100% !important;
+  margin: 28px auto !important;
+  padding: 44px 60px !important;
+  box-shadow: 0 12px 44px rgba(150, 150, 200, 0.22) !important;
+  backdrop-filter: blur(14px);
+  box-sizing: border-box;
+}
+
+/* ---------- 5. 正文排版 ---------- */
+.markdown-rendered,
+.cm-editor .cm-content {
+  font-size: 16px;
+  line-height: 1.85;
+  letter-spacing: 0.2px;
+  color: #3d3a4a;
+}
+.markdown-rendered p,
+.cm-editor .cm-line {
+  margin-bottom: 0.9em;
+}
+
+/* ---------- 6. 标题配色 ---------- */
+.markdown-rendered h1,
+.cm-header-1 {
+  color: #4a3f6b;
+  font-weight: 700;
+  font-size: 2em;
+  border-bottom: 2px solid rgba(180, 160, 220, 0.3);
+  padding-bottom: 0.3em;
+}
+.markdown-rendered h2,
+.cm-header-2 {
+  color: #8e6e3a;
+  border-bottom: none;
+  margin-top: 1.8em;
+  font-size: 1.5em;
+}
+.markdown-rendered h3,
+.cm-header-3 {
+  color: #6d4c9f;
+  font-size: 1.2em;
+}
+
+/* ---------- 7. Callout ---------- */
+.callout {
+  border-radius: 14px;
+  border: 1px solid rgba(120, 160, 210, 0.25);
+  background: rgba(240, 248, 255, 0.85);
+  box-shadow: 0 4px 16px rgba(120, 150, 200, 0.12);
+  padding: 12px 18px;
+  margin: 1.2em 0;
+}
+.callout-title { font-weight: 600; }
+
+/* ---------- 8. 链接 / 标签 ---------- */
+.markdown-rendered a,
+.cm-s-obsidian .cm-link {
+  color: #5c9ded;
+  text-decoration: none;
+}
+.markdown-rendered a:hover { text-decoration: underline; }
+.markdown-rendered .tag {
+  border-radius: 999px;
+  background: rgba(180, 200, 240, 0.35);
+  padding: 2px 12px;
+  color: #6b7db3;
+}
+
+/* ---------- 9. 表格 ---------- */
+.markdown-rendered table {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(150,150,200,0.1);
+}
+
+/* ---------- 10. Frontmatter：完全透明，融入正文卡片 ---------- */
+.frontmatter-container,
+.metadata-container,
+.metadata-content,
+.frontmatter-container .frontmatter,
+.metadata-container .metadata-properties,
+.metadata-container .property-rows {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: none !important;
+  width: auto !important;
+}
+/* 让正文卡片作为唯一卡片，margin 收紧 */
+.markdown-preview-view .markdown-preview-sizer,
+.markdown-preview-sizer,
+.markdown-preview-view .markdown-preview-section {
+  margin-top: 8px !important;
+  border-radius: 20px !important;
+}
+.markdown-source-view.mod-cm6 .cm-content,
+.markdown-source-view.is-readable-line-width .cm-content {
+  border-radius: 20px !important;
+}
+
+/* ============================================================
+   11. 看板卡片样式
+   ============================================================ */
+.crisp-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+.crisp-stat-card {
+  background: rgba(255,255,255,0.7);
+  border-radius: 16px;
+  padding: 20px 24px;
+  box-shadow: 0 4px 16px rgba(150,150,200,0.12);
+  border: 1px solid rgba(180,190,220,0.2);
+}
+.crisp-stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #4a3f6b;
+  line-height: 1.2;
+}
+.crisp-stat-label {
+  font-size: 13px;
+  color: #888;
+  margin-top: 6px;
+}
+.crisp-card {
+  background: rgba(255,255,255,0.7);
+  border-radius: 16px;
+  padding: 24px;
+  margin: 20px 0;
+  box-shadow: 0 4px 16px rgba(150,150,200,0.12);
+  border: 1px solid rgba(180,190,220,0.2);
+}
+.crisp-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #4a3f6b;
+  margin-bottom: 16px;
+}

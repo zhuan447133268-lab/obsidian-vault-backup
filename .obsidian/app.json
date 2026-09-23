@@ -1,5 +1,6 @@
 {
   "alwaysUpdateLinks": true,
   "promptDelete": false,
-  "openBehavior": "file:工作台/Desk"
+  "openBehavior": "file:工作台/Desk",
+  "readableLineLength": false
 }

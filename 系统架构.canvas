@@ -1,0 +1,15 @@
+{
+	"nodes":[
+		{"id":"center","type":"text","text":"# 🧠 我的知识系统\n\nAI-native Knowledge System","x":-60,"y":-120,"width":620,"height":260,"color":"6"},
+		{"id":"tools","type":"file","file":"架构模块/工具引擎.md","x":940,"y":-530,"width":660,"height":820,"color":"6"},
+		{"id":"lifecycle","type":"file","file":"架构模块/生命周期.md","x":710,"y":400,"width":560,"height":840,"color":"5"},
+		{"id":"infra","type":"file","file":"架构模块/系统底座.md","x":-180,"y":460,"width":680,"height":900,"color":"2"},
+		{"id":"input","type":"file","file":"架构模块/全模态输入.md","x":-1000,"y":-280,"width":660,"height":980,"color":"4"}
+	],
+	"edges":[
+		{"id":"e1","fromNode":"input","fromSide":"bottom","toNode":"center","toSide":"left","color":"4","label":"输入素材"},
+		{"id":"e2","fromNode":"tools","fromSide":"bottom","toNode":"center","toSide":"right","color":"6","label":"工具支撑"},
+		{"id":"e3","fromNode":"center","fromSide":"bottom","toNode":"lifecycle","toSide":"top","color":"5","label":"知识流动"},
+		{"id":"e4","fromNode":"lifecycle","fromSide":"bottom","toNode":"infra","toSide":"top","color":"2","label":"基础设施"}
+	]
+}

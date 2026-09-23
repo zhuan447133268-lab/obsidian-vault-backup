@@ -1,0 +1,68 @@
+/* ============================================================
+   Crisp Command —— 深色指挥中心卡片样式
+   ============================================================ */
+
+/* 深色卡片容器 */
+.cmd-card {
+  background: #1e2530;
+  border-radius: 16px;
+  padding: 24px 28px;
+  margin: 16px 0;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.cmd-card-title {
+  font-size: 13px;
+  color: #7c8aa5;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+/* 统计小卡片网格 */
+.cmd-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.cmd-stat {
+  background: #161b24;
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+.cmd-stat-num {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+}
+.cmd-stat-label {
+  font-size: 12px;
+  color: #7c8aa5;
+  margin-top: 4px;
+}
+
+/* 按钮组 */
+.cmd-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 12px 0;
+}
+.cmd-btn {
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none !important;
+  display: inline-block;
+  border: none;
+}
+.cmd-btn-primary {
+  background: #e8a838;
+  color: #1a1a2e;
+  font-weight: 600;
+}
+.cmd-btn-dark {
+  background: #2a3242;
+  color: #c8d0e0;
+}

@@ -1,4 +1,8 @@
 {
   "theme": "moonstone",
-  "cssTheme": ""
+  "cssTheme": "",
+  "enabledCssSnippets": [
+    "command-center",
+    "crisp-gradient"
+  ]
 }
