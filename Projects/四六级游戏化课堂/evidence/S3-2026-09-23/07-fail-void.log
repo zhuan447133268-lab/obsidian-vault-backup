@@ -1,0 +1,27 @@
+
+########## 07 失败口径：爱心扣完 → attempt 记 failed、星级不产、得分当场作废（账本留撤销行，净得 0） ##########
+第三次闯关 attemptId = 64（前 2 题答对，后 3 题连错把爱心扣完）
+status = failed | 进度 = {'answered': 5, 'correct': 2, 'wrong': 3, 'total': 10, 'livesLeft': 0, 'streak': 0} | 回执条数 = 5 （爱心扣完当题即结束）
+结算：星级 = 0 | 710 分制 = 0 | 本次净得 = 0 | 总分 = 805
+XP 明细（含作废行）： [('答题基础分', 40), ('连击加成', 5), ('本次闯关未通过，得分作废', -45)]
+[CHECK] 爱心扣完 → status=failed ✅ 期望=failed 实际=failed
+[CHECK] 失败本次净得 0 ✅ 期望=0 实际=0
+[CHECK] 失败后总分不变（805） ✅ 期望=805 实际=805
+[CHECK] 失败 attempt 星级 0 ✅ 期望=0 实际=0
+
+--- 07-1 落库：failed 行 + 账本净额 0（撤销行看得见，账本只增不删）---
+64	2	10	0	0	0	failed	2026-09-24 09:38:56.377
+172	40	answer_base	attempt	64
+173	5	answer_combo	attempt	64
+174	-45	attempt_voided	attempt	64
+0
+[CHECK] 失败 attempt 落 status=failed ✅ 期望=failed 实际=failed
+[CHECK] 失败 attempt xp_earned=0 ✅ 期望=0 实际=0
+[CHECK] 失败本次账本净额 0 ✅ 期望=0 实际=0
+[CHECK] 撤销行已落库 1 条 ✅ 期望=1 实际=1
+
+--- 07-2 失败不覆盖历史：星级仍 3、首刷仍第一次那条 ---
+该关：通关 = True | 星级 = 3 | 打过 = 3 次 | 首刷 = {'attemptId': 62, 'correct': 8, 'total': 10, 'stars': 2, 'finishedAt': '2026-09-24T09:38:51+08:00'} | xpTotal = 805
+[CHECK] 失败后星级仍 3 ✅ 期望=3 实际=3
+[CHECK] 失败后首刷仍是第一条 ✅ 期望=62 实际=62
+[CHECK] 失败后总分仍 805 ✅ 期望=805 实际=805

@@ -1,0 +1,35 @@
+
+########## 09 验收⑤：模板下载（19 列，含「听力原文」）+ 导出 xlsx 往返 + 导入侧举证（08 已实跑） ##########
+[HTTP 200]
+模板落盘：fixture-template.xlsx（8975 字节）
+工作表 = ['题库', '填写说明']
+模板表头（19 列）= ['班级', '单元序号', '单元名称', '关卡序号', '关卡名称', '关卡类型', '限时(分钟)', '是否Boss', '备考目标', '题型', '题干', '选项', '正确答案', '考点', '解析', '听力原文', '知识点', '难度', '启用']
+与 qbank.TemplateHeaders 期望列序一致：是 ✅
+「听力原文」在第 16 列（1 基）
+填写说明里提到「听力原文」的行：
+    听力原文 | 选填 | 听力原文（听力题的录音文稿）。学生答题前不下发，答完随解析一起展示；老模板没有这一列也能导入。如果解析列以「【听力原文】…【解析】…」开头，导入时会自动把前一段挪到这一列，解析只留解析。
+[CHECK] 模板 19 列且列序与 qbank.TemplateHeaders 一致 ✅ 期望=19|是 实际=19|是
+[CHECK] 「听力原文」列在模板第 16 列（解析列之后） ✅ 期望=16 实际=16
+[CHECK] 我的 fixture CSV 表头 == 模板表头（导入导出同列序） ✅ 期望=一致 实际=一致
+
+--- 09-1 导出侧（qbank.WriteXLSX 往返）与老文件兼容的 Go 单测举证 ---
+=== RUN   TestAnswerIndexesHandlesLetterAndMultiBlank
+--- PASS: TestAnswerIndexesHandlesLetterAndMultiBlank (0.00s)
+=== RUN   TestTemplateIsParsableAndDocumentsEnums
+--- PASS: TestTemplateIsParsableAndDocumentsEnums (0.01s)
+=== RUN   TestTemplateLegacy18ColumnsStillParse
+--- PASS: TestTemplateLegacy18ColumnsStillParse (0.00s)
+=== RUN   TestScriptColumnAliases
+--- PASS: TestScriptColumnAliases (0.00s)
+=== RUN   TestScriptSplitOutOfExp
+=== RUN   TestScriptSplitOutOfExp/真题切片的老写法
+=== RUN   TestScriptSplitOutOfExp/只有原文没有解析：原样留着，不制造空解析
+=== RUN   TestScriptSplitOutOfExp/解析里没有原文块：不动
+--- PASS: TestScriptSplitOutOfExp (0.00s)
+=== RUN   TestScriptColumnWinsOverExpBlock
+--- PASS: TestScriptColumnWinsOverExpBlock (0.00s)
+ok  	cet46/server/internal/qbank	(cached)
+[CHECK] qbank 模板/script/答案序列用例全绿 ✅ 期望=0 实际=0
+--- PASS: TestImportWritesScriptAndChecksNewTypeShapes (0.35s)
+--- PASS: TestImportAcceptsLongMatchStem (0.32s)
+[CHECK] 导入服务：script 落库 + 老 18 列兼容 + 长文放行（2 条用例） ✅ 期望=2 实际=2

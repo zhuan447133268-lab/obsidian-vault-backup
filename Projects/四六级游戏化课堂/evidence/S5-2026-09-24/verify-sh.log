@@ -1,0 +1,83 @@
+
+==================================================
+== server: gofmt 检查
+==================================================
+gofmt 通过（无未格式化文件）
+
+==================================================
+== server: go vet
+==================================================
+
+==================================================
+== server: go test
+==================================================
+?   	cet46/server/cmd/import-users	[no test files]
+?   	cet46/server/cmd/migrate	[no test files]
+?   	cet46/server/cmd/qbank	[no test files]
+?   	cet46/server/cmd/seed-teacher	[no test files]
+?   	cet46/server/cmd/server	[no test files]
+ok  	cet46/server/internal/auth	(cached)
+ok  	cet46/server/internal/config	(cached)
+ok  	cet46/server/internal/database	(cached)
+?   	cet46/server/internal/dto	[no test files]
+ok  	cet46/server/internal/exam	(cached)
+?   	cet46/server/internal/handler	[no test files]
+?   	cet46/server/internal/middleware	[no test files]
+ok  	cet46/server/internal/model	(cached)
+?   	cet46/server/internal/pkg/apperror	[no test files]
+?   	cet46/server/internal/pkg/response	[no test files]
+ok  	cet46/server/internal/qbank	(cached)
+ok  	cet46/server/internal/quiz	(cached)
+ok  	cet46/server/internal/roster	(cached)
+ok  	cet46/server/internal/router	(cached)
+ok  	cet46/server/internal/service	(cached)
+?   	cet46/server/internal/testsupport	[no test files]
+
+==================================================
+== server: go build
+==================================================
+
+==================================================
+== web: eslint
+==================================================
+
+==================================================
+== web: 构建（含 typecheck）
+==================================================
+
+> cet46-web@0.1.0 build
+> npm run typecheck && vite build
+
+
+> cet46-web@0.1.0 typecheck
+> vue-tsc --noEmit
+
+[36mvite v7.3.6 [32mbuilding client environment for production...[36m[39m
+transforming...
+[32m✓[39m 1985 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[32mindex.html                                    [39m[1m[2m  0.36 kB[22m[1m[22m[2m │ gzip:   0.27 kB[22m
+[2mdist/[22m[32mt.html                                        [39m[1m[2m  0.59 kB[22m[1m[22m[2m │ gzip:   0.38 kB[22m
+[2mdist/[22m[32ms.html                                        [39m[1m[2m  0.62 kB[22m[1m[22m[2m │ gzip:   0.41 kB[22m
+[2mdist/[22m[35massets/ChangePasswordView-BoOBJgab.css        [39m[1m[2m  1.04 kB[22m[1m[22m[2m │ gzip:   0.46 kB[22m
+[2mdist/[22m[35massets/LoginView-FrclLPBZ.css                 [39m[1m[2m  1.13 kB[22m[1m[22m[2m │ gzip:   0.47 kB[22m
+[2mdist/[22m[35massets/MapView-CiDQwWc0.css                   [39m[1m[2m  5.49 kB[22m[1m[22m[2m │ gzip:   1.54 kB[22m
+[2mdist/[22m[35massets/s-CO-VnpNk.css                         [39m[1m[2m203.38 kB[22m[1m[22m[2m │ gzip:  54.43 kB[22m
+[2mdist/[22m[35massets/t-CO82fVIg.css                         [39m[1m[2m361.04 kB[22m[1m[22m[2m │ gzip:  48.20 kB[22m
+[2mdist/[22m[36massets/_plugin-vue_export-helper-DlAUqK2U.js  [39m[1m[2m  0.09 kB[22m[1m[22m[2m │ gzip:   0.10 kB[22m
+[2mdist/[22m[36massets/LoginView-Ph9vTGkY.js                  [39m[1m[2m  1.67 kB[22m[1m[22m[2m │ gzip:   1.04 kB[22m
+[2mdist/[22m[36massets/ChangePasswordView-DvsGaazh.js         [39m[1m[2m  2.07 kB[22m[1m[22m[2m │ gzip:   1.17 kB[22m
+[2mdist/[22m[36massets/MapView-D174M5b5.js                    [39m[1m[2m  8.64 kB[22m[1m[22m[2m │ gzip:   4.12 kB[22m
+[2mdist/[22m[36massets/vue-router-CcknY0k1.js                 [39m[1m[2m165.00 kB[22m[1m[22m[2m │ gzip:  63.41 kB[22m
+[2mdist/[22m[36massets/s-BbYfjHQI.js                          [39m[1m[2m224.91 kB[22m[1m[22m[2m │ gzip:  80.61 kB[22m
+[2mdist/[22m[36massets/t-B2RhxfAC.js                          [39m[1m[33m917.34 kB[39m[22m[2m │ gzip: 295.96 kB[22m
+[33m
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[32m✓ built in 11.33s[39m
+
+==== 全部检查通过 ====
+VERIFY_EXIT=0

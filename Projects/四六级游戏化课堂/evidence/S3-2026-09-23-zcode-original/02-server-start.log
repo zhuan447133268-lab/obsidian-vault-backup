@@ -1,0 +1,112 @@
+
+########## 02 启动 Go 服务（真 MySQL 3307），供接口实录 ##########
+2026/09/23 18:29:43 表结构自检通过：17/17 张表齐备
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /api/health               --> cet46/server/internal/handler.(*HealthHandler).Get-fm (3 handlers)
+[GIN-debug] POST   /api/auth/login           --> cet46/server/internal/handler.(*AuthHandler).Login-fm (3 handlers)
+[GIN-debug] GET    /api/auth/me              --> cet46/server/internal/handler.(*AuthHandler).Me-fm (4 handlers)
+[GIN-debug] POST   /api/auth/chpwd           --> cet46/server/internal/handler.(*AuthHandler).ChangePassword-fm (4 handlers)
+[GIN-debug] GET    /api/admin/classes        --> cet46/server/internal/handler.(*ClassHandler).List-fm (6 handlers)
+[GIN-debug] POST   /api/admin/classes        --> cet46/server/internal/handler.(*ClassHandler).Create-fm (6 handlers)
+[GIN-debug] GET    /api/admin/classes/:id    --> cet46/server/internal/handler.(*ClassHandler).Get-fm (6 handlers)
+[GIN-debug] PATCH  /api/admin/classes/:id    --> cet46/server/internal/handler.(*ClassHandler).Update-fm (6 handlers)
+[GIN-debug] DELETE /api/admin/classes/:id    --> cet46/server/internal/handler.(*ClassHandler).Delete-fm (6 handlers)
+[GIN-debug] GET    /api/admin/users          --> cet46/server/internal/handler.(*UserHandler).List-fm (6 handlers)
+[GIN-debug] POST   /api/admin/users          --> cet46/server/internal/handler.(*UserHandler).Create-fm (6 handlers)
+[GIN-debug] GET    /api/admin/users/:id      --> cet46/server/internal/handler.(*UserHandler).Get-fm (6 handlers)
+[GIN-debug] PATCH  /api/admin/users/:id      --> cet46/server/internal/handler.(*UserHandler).Update-fm (6 handlers)
+[GIN-debug] DELETE /api/admin/users/:id      --> cet46/server/internal/handler.(*UserHandler).Delete-fm (6 handlers)
+[GIN-debug] POST   /api/admin/users/:id/reset-pwd --> cet46/server/internal/handler.(*UserHandler).ResetPassword-fm (6 handlers)
+[GIN-debug] POST   /api/admin/import-users   --> cet46/server/internal/handler.(*ImportHandler).ImportUsers-fm (6 handlers)
+[GIN-debug] GET    /api/admin/units          --> cet46/server/internal/handler.(*ContentHandler).ListUnits-fm (6 handlers)
+[GIN-debug] POST   /api/admin/units          --> cet46/server/internal/handler.(*ContentHandler).CreateUnit-fm (6 handlers)
+[GIN-debug] GET    /api/admin/units/:id      --> cet46/server/internal/handler.(*ContentHandler).GetUnit-fm (6 handlers)
+[GIN-debug] PATCH  /api/admin/units/:id      --> cet46/server/internal/handler.(*ContentHandler).UpdateUnit-fm (6 handlers)
+[GIN-debug] DELETE /api/admin/units/:id      --> cet46/server/internal/handler.(*ContentHandler).DeleteUnit-fm (6 handlers)
+[GIN-debug] GET    /api/admin/levels         --> cet46/server/internal/handler.(*ContentHandler).ListLevels-fm (6 handlers)
+[GIN-debug] POST   /api/admin/levels         --> cet46/server/internal/handler.(*ContentHandler).CreateLevel-fm (6 handlers)
+[GIN-debug] GET    /api/admin/levels/:id     --> cet46/server/internal/handler.(*ContentHandler).GetLevel-fm (6 handlers)
+[GIN-debug] PATCH  /api/admin/levels/:id     --> cet46/server/internal/handler.(*ContentHandler).UpdateLevel-fm (6 handlers)
+[GIN-debug] DELETE /api/admin/levels/:id     --> cet46/server/internal/handler.(*ContentHandler).DeleteLevel-fm (6 handlers)
+[GIN-debug] GET    /api/admin/questions      --> cet46/server/internal/handler.(*ContentHandler).ListQuestions-fm (6 handlers)
+[GIN-debug] POST   /api/admin/questions      --> cet46/server/internal/handler.(*ContentHandler).CreateQuestion-fm (6 handlers)
+[GIN-debug] GET    /api/admin/questions/:id  --> cet46/server/internal/handler.(*ContentHandler).GetQuestion-fm (6 handlers)
+[GIN-debug] PATCH  /api/admin/questions/:id  --> cet46/server/internal/handler.(*ContentHandler).UpdateQuestion-fm (6 handlers)
+[GIN-debug] DELETE /api/admin/questions/:id  --> cet46/server/internal/handler.(*ContentHandler).DeleteQuestion-fm (6 handlers)
+[GIN-debug] POST   /api/admin/import-questions --> cet46/server/internal/handler.(*QuestionImportHandler).ImportQuestions-fm (6 handlers)
+[GIN-debug] GET    /api/admin/import-questions/template --> cet46/server/internal/handler.(*QuestionImportHandler).Template-fm (6 handlers)
+[GIN-debug] GET    /api/quiz/levels          --> cet46/server/internal/handler.(*QuizHandler).Levels-fm (5 handlers)
+[GIN-debug] GET    /api/quiz/questions       --> cet46/server/internal/handler.(*QuizHandler).Questions-fm (5 handlers)
+[GIN-debug] GET    /api/quiz/paper           --> cet46/server/internal/handler.(*QuizHandler).Paper-fm (5 handlers)
+[GIN-debug] POST   /api/quiz/submit          --> cet46/server/internal/handler.(*QuizHandler).Submit-fm (5 handlers)
+[GIN-debug] GET    /api/diag/paper           --> cet46/server/internal/handler.(*DiagHandler).Paper-fm (5 handlers)
+[GIN-debug] POST   /api/diag/submit          --> cet46/server/internal/handler.(*DiagHandler).Submit-fm (5 handlers)
+2026/09/23 18:29:43 cet46 server 启动于 :8080（driver=mysql, env=development）
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN] 2026/09/23 - 18:29:43 | 200 |      2.7509ms |       127.0.0.1 | GET      "/api/health"
+[GIN] 2026/09/23 - 18:29{"code":0,"message":"ok","data":{"status":"ok","env":"development","d[GIN] 2026/09/23 - 18:29:44 | 200 |     54.6312ms |       127.0.0.1 | POST     "/api/auth/login"
+[GIN] 2026/09/23 - 18:29:44 | 200 |    117.8675ms |       127.0.0.1 | POST     "/api/auth/chpwd"
+[GIN] 2026/09/23 - 18:29:44 | 200 |     53.0741ms |       127.0.0.1 | POST     "/api/auth/login"
+[GIN] 2026/09/23 - 18:29:44 | 200 |     57.7071ms |       127.0.0.1 | POST     "/api/admin/users"
+[GIN] 2026/09/23 - 18:29:44 | 200 |     55.2818ms |       127.0.0.1 | POST     "/api/auth/login"
+[GIN] 2026/09/23 - 18:29:45 | 200 |    116.1603ms |       127.0.0.1 | POST     "/api/auth/chpwd"
+[GIN] 2026/09/23 - 18:29:45 | 200 |      55.054ms |       127.0.0.1 | POST     "/api/auth/login"
+[GIN] 2026/09/23 - 18:29:45 | 200 |     61.7355ms |       127.0.0.1 | POST     "/api/admin/users"
+[GIN] 2026/09/23 - 18:29:45 | 200 |     57.3578ms |       127.0.0.1 | POST     "/api/auth/login"
+[GIN] 2026/09/23 - 18:29:45 | 200 |    112.7347ms |       127.0.0.1 | POST     "/api/auth/chpwd"
+[GIN] 2026/09/23 - 18:29:45 | 200 |     53.5823ms |       127.0.0.1 | POST     "/api/auth/login"
+[GIN] 2026/09/23 - 18:29:46 | 200 |      6.3634ms |       127.0.0.1 | GET      "/api/quiz/paper?level=25"
+[GIN] 2026/09/23 - 18:29:46 | 200 |      2.5859ms |       127.0.0.1 | GET      "/api/quiz/paper?level=25"
+[GIN] 2026/09/23 - 18:29:47 | 200 |      5.8256ms |       127.0.0.1 | POST     "/api/quiz/submit"
+[GIN] 2026/09/23 - 18:29:47 | 200 |      3.1409ms |       127.0.0.1 | GET      "/api/quiz/paper?level=25"
+[GIN] 2026/09/23 - 18:29:47 | 200 |      4.0006ms |       127.0.0.1 | GET      "/api/quiz/levels"
+[GIN] 2026/09/23 - 18:29:47 | 200 |      2.9112ms |       127.0.0.1 | GET      "/api/quiz/levels"
+[GIN] 2026/09/23 - 18:29:49 | 200 |      6.3647ms |       127.0.0.1 | GET      "/api/quiz/paper?level=37"
+[GIN] 2026/09/23 - 18:29:49 | 200 |     10.1354ms |       127.0.0.1 | POST     "/api/quiz/submit"
+[GIN] 2026/09/23 - 18:29:50 | 200 |      3.2881ms |       127.0.0.1 | GET      "/api/quiz/levels"
+[GIN] 2026/09/23 - 18:29:51 | 200 |      2.3726ms |       127.0.0.1 | GET      "/api/quiz/levels"
+[GIN] 2026/09/23 - 18:29:51 | 200 |      3.3622ms |       127.0.0.1 | GET      "/api/quiz/levels"
+[GIN] 2026/09/23 - 18:29:51 | 200 |      3.0672ms |       127.0.0.1 | GET      "/api/quiz/levels"
+[GIN] 2026/09/23 - 18:29:52 | 200 |       10.71ms |       127.0.0.1 | GET      "/api/quiz/paper?level=37"
+[GIN] 2026/09/23 - 18:29:52 | 200 |     11.5542ms |       127.0.0.1 | POST     "/api/quiz/submit"
+[GIN] 2026/09/23 - 18:29:53 | 200 |      2.4712ms |       127.0.0.1 | GET      "/api/quiz/levels"
+[GIN] 2026/09/23 - 18:29:53 | 200 |      7.1595ms |       127.0.0.1 | GET      "/api/quiz/paper?level=37"
+[GIN] 2026/09/23 - 18:29:54 | 200 |      9.4266ms |       127.0.0.1 | POST     "/api/quiz/submit"
+[GIN] 2026/09/23 - 18:29:54 | 200 |      4.0058ms |       127.0.0.1 | GET      "/api/quiz/levels"
+[GIN] 2026/09/23 - 18:29:55 | 200 |      3.3732ms |       127.0.0.1 | GET      "/api/quiz/levels"
+[GIN] 2026/09/23 - 18:29:55 | 200 |      4.0977ms |       127.0.0.1 | GET      "/api/diag/paper"
+[GIN] 2026/09/23 - 18:29:56 | 200 |     13.1259ms |       127.0.0.1 | POST     "/api/diag/submit"
+[GIN] 2026/09/23 - 18:29:56 | 200 |       2.492ms |       127.0.0.1 | GET      "/api/quiz/levels"
+[GIN] 2026/09/23 - 18:29:57 | 200 |     10.5035ms |       127.0.0.1 | POST     "/api/admin/units"
+[GIN] 2026/09/23 - 18:29:57 | 200 |      4.8024ms |       127.0.0.1 | POST     "/api/admin/levels"
+[GIN] 2026/09/23 - 18:29:57 | 200 |      5.4985ms |       127.0.0.1 | POST     "/api/admin/levels"
+[GIN] 2026/09/23 - 18:29:57 | 200 |       3.514ms |       127.0.0.1 | POST     "/api/admin/questions"
+[GIN] 2026/09/23 - 18:29:57 | 200 |      4.3481ms |       127.0.0.1 | POST     "/api/admin/questions"
+[GIN] 2026/09/23 - 18:29:57 | 200 |      4.3025ms |       127.0.0.1 | POST     "/api/admin/questions"
+[GIN] 2026/09/23 - 18:29:57 | 200 |      3.9291ms |       127.0.0.1 | POST     "/api/admin/questions"
+[GIN] 2026/09/23 - 18:29:57 | 200 |      4.3112ms |       127.0.0.1 | POST     "/api/admin/questions"
+[GIN] 2026/09/23 - 18:29:57 | 200 |      5.1836ms |       127.0.0.1 | POST     "/api/admin/questions"
+[GIN] 2026/09/23 - 18:29:57 | 200 |      4.3148ms |       127.0.0.1 | POST     "/api/admin/questions"
+[GIN] 2026/09/23 - 18:29:57 | 200 |      4.5338ms |       127.0.0.1 | POST     "/api/admin/questions"
+[GIN] 2026/09/23 - 18:29:57 | 200 |      3.8531ms |       127.0.0.1 | POST     "/api/admin/questions"
+[GIN] 2026/09/23 - 18:29:57 | 200 |      4.9979ms |       127.0.0.1 | POST     "/api/admin/questions"
+[GIN] 2026/09/23 - 18:29:58 | 200 |      4.6021ms |       127.0.0.1 | POST     "/api/admin/questions"
+[GIN] 2026/09/23 - 18:29:58 | 200 |      4.4266ms |       127.0.0.1 | POST     "/api/admin/questions"
+[GIN] 2026/09/23 - 18:29:58 | 200 |      3.9701ms |       127.0.0.1 | POST     "/api/admin/questions"
+[GIN] 2026/09/23 - 18:29:58 | 200 |      2.2758ms |       127.0.0.1 | GET      "/api/quiz/levels"
+[GIN] 2026/09/23 - 18:29:58 | 200 |      5.4885ms |       127.0.0.1 | GET      "/api/quiz/paper?level=57"
+[GIN] 2026/09/23 - 18:29:59 | 200 |      8.5756ms |       127.0.0.1 | POST     "/api/quiz/submit"
+[GIN] 2026/09/23 - 18:29:59 | 200 |      3.9904ms |       127.0.0.1 | GET      "/api/quiz/levels"
+[GIN] 2026/09/23 - 18:29:59 | 200 |      8.0661ms |       127.0.0.1 | GET      "/api/quiz/paper?level=58"
+[GIN] 2026/09/23 - 18:30:00 | 200 |      8.6145ms |       127.0.0.1 | POST     "/api/quiz/submit"
+[GIN] 2026/09/23 - 18:30:00 | 200 |      6.5174ms |       127.0.0.1 | GET      "/api/quiz/paper?level=58"
+[GIN] 2026/09/23 - 18:30:00 | 200 |       9.113ms |       127.0.0.1 | POST     "/api/quiz/submit"
+[GIN] 2026/09/23 - 18:30:01 | 200 |      4.0107ms |       127.0.0.1 | GET      "/api/quiz/levels"
+[GIN] 2026/09/23 - 18:30:35 | 200 |      6.1259ms |       127.0.0.1 | DELETE   "/api/admin/units/13"
+exit status 143
+�（PID 632297）---

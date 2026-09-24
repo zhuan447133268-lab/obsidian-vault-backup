@@ -1,0 +1,32 @@
+
+########## 07 整篇形态（3 空一题）+ 半对口径实测：对 2 空错 1 空 → 判不对、0 分、但回执回报 2/3 ##########
+--- 07-0 教师建演示关（第 13 周演示单元第 3 关）+ 一道整篇 3 空选词填空 ---
+[CHECK] 教师建整篇选词填空题 200（格式校验放行合法序列） ✅ 期望=[HTTP 200] 实际=[HTTP 200]
+
+--- 07-1 学生取卷：整篇形态的 cloze 视图（blankNo=0、blankSpan=3）---
+blankNo = 0 | blankSpan = 3 | blanks = [26, 27, 28] | 词表 15 项
+passage = 'The team (26) the village and the road had been (27) by the storm, so trucks had'
+[CHECK] 整篇形态视图：blankNo=0 / blankSpan=3 / blanks=[26,27,28] ✅ 期望=0/3/[26, 27, 28] 实际=0/3/[26, 27, 28]
+
+--- 07-2 半对提交：[对,对,错] → isCorrect=false、matched=2/3、XP 全 0 ---
+提交（展示坐标）= [12, 5, 2] 正确（展示坐标）= [12, 5, 1]
+期望落库（题库坐标|对错）： 633|0,1,10|0
+status = finished | isCorrect = False | 对了几空 = 2 / 3 | XP = {'base': 0, 'speed': 0, 'combo': 0} | 结算 = {'isBoss': False, 'correct': 0, 'total': 1, 'ratio': 0, 'stars': 1, 'score710': 0, 'xpRows': [{'reason': 'level_clear', 'label': '通关奖励', 'delta': 30}], 'xpTotal': 30, 'xpTotalAll': 120, 'firstClear': True, 'replay': False}
+我还剩的爱心 = 2 （半对算错，扣 1 颗）
+[CHECK] 半对：判不对（isCorrect=false） ✅ 期望=False 实际=False
+[CHECK] 半对：回执如实回报 2/3（前端可显示「10 空对了 7 空」） ✅ 期望=2/3 实际=2/3
+[CHECK] 半对：0 分（基础/速度/连击全 0） ✅ 期望=0/0/0 实际=0/0/0
+[CHECK] 半对落库：attempt_answers 存题库坐标序列（三个空一行） ✅ 期望=633|0,1,10|0 实际=633|0,1,10|0
+[CHECK] 半对进错题本（累计 4 行） ✅ 期望=4 实际=4
+[CHECK] 半对本题 0 分入账（本关答完按 S3「完成即通关」另结 30，总分 90+30=120） ✅ 期望=120 实际=120
+
+--- 07-3 同一题全对：matched=3/3、+20 分、本关 1/1 通关给通关 30 + 三星 20（通关奖励 = S3 既有口径：非 Boss 关每次结算都发，含 0 对通关与重刷）---
+全对提交（展示坐标）= [9, 4, 2] | 二次取卷 attemptId = 76 | resumed = False
+status = finished | isCorrect = True | 对了几空 = 3 / 3 | XP = {'base': 20, 'speed': 0, 'combo': 0}
+结算：星级 = 3 | 正确率 = 1 | 本次 XP = 70 | 总分 = 190 | 首刷 = False | 明细 = [('答题基础分', 20), ('通关奖励', 30), ('三星奖励', 20)]
+[CHECK] 全对：matched=3/3 ✅ 期望=True/3/3 实际=True/3/3
+[CHECK] 全对：本题 +20（基础 20、速度 0、连击 0） ✅ 期望=20/0/0 实际=20/0/0
+[CHECK] 本关 1/1 通关：本次入账 20+30+20=70（二次结算仍按 S3 口径发通关 30），总分 120+70=190 ✅ 期望=70/190 实际=70/190
+[CHECK] 账本求和 == 回执总分（权威口径） ✅ 期望=190 实际=190
+[CHECK] 全对之后该题仍是错题（不会自动移出错题本，答对才置已掌握） ✅ 期望=1 实际=1
+[CHECK] 错题本里该题已标记掌握（mastered=1） ✅ 期望=1 实际=1

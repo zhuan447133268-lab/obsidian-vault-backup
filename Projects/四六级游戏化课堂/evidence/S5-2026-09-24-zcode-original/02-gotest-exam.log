@@ -1,0 +1,78 @@
+
+########## 02 验收④ 考试倒计时的程序计算与单测（internal/exam） ##########
+--- 用例表：先用 grep 把「给定今天 → 下次考试日」的断言表原样贴出来 ---
+（表来自 server/internal/exam/exam_test.go，行号为该文件行号）
+22:		want time.Time
+24:		{2024, day(2024, time.December, 14)}, // 12/1 周日 → 第一个周六 7 日
+25:		{2025, day(2025, time.December, 13)},
+26:		{2026, day(2026, time.December, 12)}, // 12/1 周二 → 第一个周六 5 日
+27:		{2027, day(2027, time.December, 11)},
+28:		{2028, day(2028, time.December, 9)},  // 闰年不影响 12 月
+29:		{2029, day(2029, time.December, 8)},  // 12/1 就是周六 → 第二个周六 8 日（最容易错的一档）
+30:		{2030, day(2030, time.December, 14)}, // 12/1 周日 → 14 日（区间上界）
+50:		today time.Time
+53:		{"学期中（S5 交卷日）", day(2026, time.September, 24), day(2026, time.December, 12)},
+54:		{"年初", day(2026, time.January, 1), day(2026, time.December, 12)},
+55:		{"考试前一天", day(2026, time.December, 11), day(2026, time.December, 12)},
+56:		{"考试当天（倒计时 0 天）", day(2026, time.December, 12), day(2026, time.December, 12)},
+57:		{"考试次日 → 滚动到下一年", day(2026, time.December, 13), day(2027, time.December, 11)},
+58:		{"跨年前一天", day(2026, time.December, 31), day(2027, time.December, 11)},
+59:		{"12/1 即周六的年份", day(2029, time.December, 2), day(2029, time.December, 8)},
+60:		{"冬令时结束后的日期（时区无关）", day(2027, time.November, 15), day(2027, time.December, 11)},
+85:		{"当天 00:00", day(2026, time.December, 12), day(2026, time.December, 12), 0, ""},
+86:		{"当天 23:59:59", time.Date(2026, time.December, 12, 23, 59, 59, 0, time.UTC), day(2026, time.December, 12), 0, ""},
+87:		{"提前一天", day(2026, time.December, 11), day(2026, time.December, 12), 1, ""},
+88:		{"提前 79 天（9/24 → 12/12）", day(2026, time.September, 24), day(2026, time.December, 12), 79, ""},
+89:		{"跨月", day(2026, time.November, 30), day(2026, time.December, 12), 12, ""},
+100:	examDay := day(2026, time.December, 12)
+
+--- go test ./internal/exam/ -v ---
+=== RUN   TestSecondSaturdayDecember
+--- PASS: TestSecondSaturdayDecember (0.00s)
+=== RUN   TestNext
+=== RUN   TestNext/学期中（S5_交卷日）
+=== RUN   TestNext/年初
+=== RUN   TestNext/考试前一天
+=== RUN   TestNext/考试当天（倒计时_0_天）
+=== RUN   TestNext/考试次日_→_滚动到下一年
+=== RUN   TestNext/跨年前一天
+=== RUN   TestNext/12/1_即周六的年份
+=== RUN   TestNext/冬令时结束后的日期（时区无关）
+--- PASS: TestNext (0.00s)
+    --- PASS: TestNext/学期中（S5_交卷日） (0.00s)
+    --- PASS: TestNext/年初 (0.00s)
+    --- PASS: TestNext/考试前一天 (0.00s)
+    --- PASS: TestNext/考试当天（倒计时_0_天） (0.00s)
+    --- PASS: TestNext/考试次日_→_滚动到下一年 (0.00s)
+    --- PASS: TestNext/跨年前一天 (0.00s)
+    --- PASS: TestNext/12/1_即周六的年份 (0.00s)
+    --- PASS: TestNext/冬令时结束后的日期（时区无关） (0.00s)
+=== RUN   TestDaysLeft
+=== RUN   TestDaysLeft/当天_00:00
+=== RUN   TestDaysLeft/当天_23:59:59
+=== RUN   TestDaysLeft/提前一天
+=== RUN   TestDaysLeft/提前_79_天（9/24_→_12/12）
+=== RUN   TestDaysLeft/跨月
+--- PASS: TestDaysLeft (0.00s)
+    --- PASS: TestDaysLeft/当天_00:00 (0.00s)
+    --- PASS: TestDaysLeft/当天_23:59:59 (0.00s)
+    --- PASS: TestDaysLeft/提前一天 (0.00s)
+    --- PASS: TestDaysLeft/提前_79_天（9/24_→_12/12） (0.00s)
+    --- PASS: TestDaysLeft/跨月 (0.00s)
+=== RUN   TestTargetRules
+--- PASS: TestTargetRules (0.00s)
+PASS
+ok  	cet46/server/internal/exam	0.812s
+
+--- 断言 ---
+[CHECK] exam 包顶层用例 4 条全绿（规则/下次考试日/倒计时/目标校验） ✅ 期望=4 实际=4
+[CHECK] exam 包零失败 ✅ 期望=0 实际=0
+[CHECK] TestNext 子用例 8 条全绿（含考试次日→跨年滚动） ✅ 期望=8 实际=8
+[CHECK] TestDaysLeft 子用例 5 条全绿（含 9/24→12/12 共 79 天） ✅ 期望=5 实际=5
+
+验收④点名的那条：给定今天=2026-09-24，断言下次考试日=2026-12-12 —— 用例表里在：
+[CHECK] 用例表含「2026-09-24 → 2026-12-12」（S5 交卷日；TestNext 与 TestDaysLeft 各一条） ✅ 期望=2 实际=2
+[CHECK] 用例表含「考试次日 2026-12-13 → 2027-12-11」（跨年滚动） ✅ 期望=1 实际=1
+[CHECK] 用例表含 12/1 即周六的年份 2029-12-08（规则表与滚动表各一条） ✅ 期望=2 实际=2
+[CHECK] 用例表含区间上界 2030-12-14 ✅ 期望=1 实际=1
+[CHECK] 倒计时 79 天的用例在表里 ✅ 期望=1 实际=1

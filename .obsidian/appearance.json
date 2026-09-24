@@ -4,5 +4,6 @@
   "enabledCssSnippets": [
     "command-center",
     "crisp-gradient"
-  ]
+  ],
+  "accentColor": ""
 }

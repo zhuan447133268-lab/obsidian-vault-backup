@@ -1,0 +1,29 @@
+
+########## 00 前置：MySQL 3307 现状 + 17 张表红线 + 第 10 周真题指纹 + 幂等清理 ##########
+8.4.8
+--- 幂等清理：先删上一轮可能残留的演示学生及其进度，再算底账 ---
+（顺序要紧：底账必须「先清后算」。否则复跑时底账里还含上一轮的演示学生，
+  99 号回归会拿「含残留的基线」去比「清干净后的现状」，比出一堆假差值。）
+[CHECK] 清理后无残留演示学生 ✅ 期望=0 实际=0
+[CHECK] 清理后演示账号不占 attempts ✅ 期望=0 实际=0
+
+--- 动库前的底账（已清掉演示学生，复跑可复现）---
+52	4	4	24	206	0	0	0	0	0
+底账（users/units/levels/questions/attempts/attempt_answers/xp_ledger）= 52/4/24/206/0/0/0
+
+--- 表清单与列数（§7 红线：17 张表；S5 是只读加接口，不加表不改列）---
+attempt_answers,attempts,audit_log,classes,coupon_redeems,coupons,diagnoses,levels,questions,reminders,seasons,team_members,teams,units,users,wrong_book,xp_ledger
+[CHECK] 表名清单与 17 张红线一致（S5 未加表） ✅ 期望=attempt_answers,attempts,audit_log,classes,coupon_redeems,coupons,diagnoses,levels,questions,reminders,seasons,team_members,teams,units,users,wrong_book,xp_ledger 实际=attempt_answers,attempts,audit_log,classes,coupon_redeems,coupons,diagnoses,levels,questions,reminders,seasons,team_members,teams,units,users,wrong_book,xp_ledger
+[CHECK] 表数 17 ✅ 期望=17 实际=17
+[CHECK] 列数基线 128（S5 未改列；99 号再算一次比对） ✅ 期望=128 实际=128
+
+--- 题库与分套底账（S5 的地图题量必须与这里逐关对账）---
+4	173
+6	33
+3	6	33	33
+9	7	55	0
+10	7	55	0
+11	4	30	0
+
+--- 第 10 周真题指纹（只读；99 号再算一次比对，证明 S5 没碰题库）---
+第 10 周 20 道阅读真题指纹 = 37a1cac53c9c5111ee7efd5d8d0c3e38

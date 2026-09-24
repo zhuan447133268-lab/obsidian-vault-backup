@@ -1,0 +1,19 @@
+
+########## 99 清理演示数据 + 回归对账（做题库、真题、账号一律恢复原样） ##########
+--- 99-1 删演示学生（连带 attempts/attempt_answers/xp_ledger）---
+[CHECK] 演示学生已删净 ✅ 期望=0 实际=0
+[CHECK] 演示进度已删净（attempts/attempt_answers/xp_ledger 三张表按本学生清零） ✅ 期望=0/0/0 实际=0/0/0
+[CHECK] 五张学生产表回到动库前（attempts/attempt_answers/xp_ledger/wrong_book/diagnoses） ✅ 期望=0/0/0/0/0 实际=0/0/0/0/0
+
+--- 99-2 题库与账号回归 ---
+[CHECK] 底账回到动库前（users/units/levels/questions/attempts/attempt_answers/xp_ledger） ✅ 期望=52/4/24/206/0/0/0 实际=52/4/24/206/0/0/0
+[CHECK] 单元数 4 ✅ 期望=4 实际=4
+[CHECK] 关卡数 24 ✅ 期望=24 实际=24
+[CHECK] 题目数 206 ✅ 期望=206 实际=206
+[CHECK] 表数仍是 17（S5 没加表） ✅ 期望=17 实际=17
+[CHECK] 列数仍是 128（S5 没改列） ✅ 期望=128 实际=128
+
+--- 99-3 真题指纹回归：第 10 周 20 道阅读真题与 00 号比对 ---
+00 号基线 = 37a1cac53c9c5111ee7efd5d8d0c3e38
+99 号现况 = 37a1cac53c9c5111ee7efd5d8d0c3e38
+[CHECK] 第 10 周真题未被 S5 验收改动（题量/题干/答案/选项指纹逐位一致） ✅ 期望=37a1cac53c9c5111ee7efd5d8d0c3e38 实际=37a1cac53c9c5111ee7efd5d8d0c3e38

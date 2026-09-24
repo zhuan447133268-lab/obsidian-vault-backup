@@ -1,0 +1,110 @@
+
+########## 01 验收①：§6 数值表逐条 Go 单测（含速度加成三组边界：秒答 / 压线 / 超时） ##########
+=== RUN   TestSpeedBonusBoundaries
+=== RUN   TestSpeedBonusBoundaries/秒答（耗时_0）拿满_10
+=== RUN   TestSpeedBonusBoundaries/压线（耗时=限时）得_0
+=== RUN   TestSpeedBonusBoundaries/超时线（耗时超限时）夹到_0，不倒扣
+=== RUN   TestSpeedBonusBoundaries/中点（耗时为限时一半）得_5
+=== RUN   TestSpeedBonusBoundaries/四舍五入向上：9.5_→_10（与_JS_Math.round_一致）
+=== RUN   TestSpeedBonusBoundaries/四舍五入向下：0.17_→_0
+=== RUN   TestSpeedBonusBoundaries/四舍五入：0.5_→_1
+=== RUN   TestSpeedBonusBoundaries/未上报耗时不算满分
+=== RUN   TestSpeedBonusBoundaries/不限时的关卡没有速度分
+=== RUN   TestSpeedBonusBoundaries/耗时是负数（脏数据）按_0_分
+=== RUN   TestSpeedBonusBoundaries/每题限时_1_秒：0.5_秒得_5
+--- PASS: TestSpeedBonusBoundaries (0.00s)
+=== RUN   TestPerQuestionLimitSec
+=== RUN   TestPerQuestionLimitSec/整关_480_秒_10_题_→_每题_48_秒
+=== RUN   TestPerQuestionLimitSec/除不尽向下取整（600/7）
+=== RUN   TestPerQuestionLimitSec/不限时的关卡返回_0
+=== RUN   TestPerQuestionLimitSec/没有题目返回_0
+=== RUN   TestPerQuestionLimitSec/限时比题数还少，至少_1_秒
+--- PASS: TestPerQuestionLimitSec (0.00s)
+=== RUN   TestComboBonus
+=== RUN   TestComboBonus/0
+=== RUN   TestComboBonus/1
+=== RUN   TestComboBonus/2
+=== RUN   TestComboBonus/3
+=== RUN   TestComboBonus/5
+=== RUN   TestComboBonus/:
+--- PASS: TestComboBonus (0.00s)
+=== RUN   TestScoreAnswerMatchesPrototypeFormula
+--- PASS: TestScoreAnswerMatchesPrototypeFormula (0.00s)
+=== RUN   TestScoreAnswerWrongIsZero
+--- PASS: TestScoreAnswerWrongIsZero (0.00s)
+=== RUN   TestStars
+=== RUN   TestStars/满对三星
+=== RUN   TestStars/90%_压线三星
+=== RUN   TestStars/89%_只有两星
+=== RUN   TestStars/60%_压线两星
+=== RUN   TestStars/59%_一星
+=== RUN   TestStars/全错一星
+--- PASS: TestStars (0.00s)
+=== RUN   TestRoundScore710
+=== RUN   TestRoundScore710/0
+=== RUN   TestRoundScore710/6
+=== RUN   TestRoundScore710/5
+=== RUN   TestRoundScore710/7
+=== RUN   TestRoundScore710/0#01
+--- PASS: TestRoundScore710 (0.00s)
+=== RUN   TestClearFailed
+--- PASS: TestClearFailed (0.00s)
+=== RUN   TestSettleNormalLevel
+--- PASS: TestSettleNormalLevel (0.00s)
+=== RUN   TestSettleWithoutStar3
+--- PASS: TestSettleWithoutStar3 (0.00s)
+=== RUN   TestSettleDropsZeroRows
+--- PASS: TestSettleDropsZeroRows (0.00s)
+=== RUN   TestSettleBoss
+--- PASS: TestSettleBoss (0.00s)
+=== RUN   TestSettleBossNotPerfect
+--- PASS: TestSettleBossNotPerfect (0.00s)
+=== RUN   TestJudge
+=== RUN   TestJudge/单选答对
+=== RUN   TestJudge/单选答错
+=== RUN   TestJudge/多空全对
+=== RUN   TestJudge/多空半对（一位不同）算全错
+=== RUN   TestJudge/多空顺序错也算错
+=== RUN   TestJudge/多空少填
+=== RUN   TestJudge/答案为空按错处理
+--- PASS: TestJudge (0.00s)
+=== RUN   TestParseIndexSeq
+--- PASS: TestParseIndexSeq (0.00s)
+=== RUN   TestEncodeIndexSeq
+--- PASS: TestEncodeIndexSeq (0.00s)
+=== RUN   TestPermDeterministic
+--- PASS: TestPermDeterministic (0.00s)
+=== RUN   TestPermEdgeCases
+--- PASS: TestPermEdgeCases (0.00s)
+=== RUN   TestOptionSeedDiffersPerQuestion
+--- PASS: TestOptionSeedDiffersPerQuestion (0.00s)
+=== RUN   TestApplyAndReverse
+--- PASS: TestApplyAndReverse (0.00s)
+=== RUN   TestEstimatedMinutes
+--- PASS: TestEstimatedMinutes (0.00s)
+=== RUN   TestNumericTableConstants
+--- PASS: TestNumericTableConstants (0.00s)
+=== RUN   TestAnswerRowsPlusRewardRowsEqualsSettle
+--- PASS: TestAnswerRowsPlusRewardRowsEqualsSettle (0.00s)
+=== RUN   TestAnswerRowsNonBossThreeParts
+--- PASS: TestAnswerRowsNonBossThreeParts (0.00s)
+=== RUN   TestAnswerRowsBossUsesPerCorrectOnly
+--- PASS: TestAnswerRowsBossUsesPerCorrectOnly (0.00s)
+=== RUN   TestAnswerRowsDropsZero
+--- PASS: TestAnswerRowsDropsZero (0.00s)
+=== RUN   TestSettlementRewardRows
+--- PASS: TestSettlementRewardRows (0.00s)
+=== RUN   TestSortRowsPutsVoidLastAndKeepsOrder
+--- PASS: TestSortRowsPutsVoidLastAndKeepsOrder (0.00s)
+ok  	cet46/server/internal/quiz	(cached)
+
+--- 速度加成三组边界（同一条用例里锁死：秒答 0ms→+10、压线 60000ms→0、超时 90000ms→0）---
+--- PASS: TestSpeedBonusBoundaries (0.00s)
+--- PASS: TestScoreAnswerMatchesPrototypeFormula (0.00s)
+--- PASS: TestScoreAnswerWrongIsZero (0.00s)
+--- PASS: TestSettleNormalLevel (0.00s)
+--- PASS: TestSettleWithoutStar3 (0.00s)
+--- PASS: TestSettleDropsZeroRows (0.00s)
+--- PASS: TestSettleBoss (0.00s)
+--- PASS: TestSettleBossNotPerfect (0.00s)
+--- PASS: TestSettlementRewardRows (0.00s)

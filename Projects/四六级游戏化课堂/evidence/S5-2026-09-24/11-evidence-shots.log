@@ -1,0 +1,44 @@
+
+########## 11 验收① 视觉实录清单与尺寸校验（与原型并排的两张 + 流程截图） ##########
+--- 11-1 浏览器实录产物 ---
+/c/Users/dfjq/Documents/Obsidian Vault/Projects/四六级游戏化课堂/evidence/S5-2026-09-24/cmp-1440x900.png
+/c/Users/dfjq/Documents/Obsidian Vault/Projects/四六级游戏化课堂/evidence/S5-2026-09-24/cmp-390x844.png
+/c/Users/dfjq/Documents/Obsidian Vault/Projects/四六级游戏化课堂/evidence/S5-2026-09-24/proto-1440x900.png
+/c/Users/dfjq/Documents/Obsidian Vault/Projects/四六级游戏化课堂/evidence/S5-2026-09-24/proto-390x844.png
+/c/Users/dfjq/Documents/Obsidian Vault/Projects/四六级游戏化课堂/evidence/S5-2026-09-24/shot-01-login-redirect-390x844.png
+/c/Users/dfjq/Documents/Obsidian Vault/Projects/四六级游戏化课堂/evidence/S5-2026-09-24/shot-02-target-overlay-390x844.png
+/c/Users/dfjq/Documents/Obsidian Vault/Projects/四六级游戏化课堂/evidence/S5-2026-09-24/shot-03-map-lv3-390x844.png
+/c/Users/dfjq/Documents/Obsidian Vault/Projects/四六级游戏化课堂/evidence/S5-2026-09-24/shot-04-map-pc-1440x900.png
+/c/Users/dfjq/Documents/Obsidian Vault/Projects/四六级游戏化课堂/evidence/S5-2026-09-24/shot-05-unit-cleared-banner-390x844.png
+/c/Users/dfjq/Documents/Obsidian Vault/Projects/四六级游戏化课堂/evidence/S5-2026-09-24/shot-06-unit6-switch-folded-390x844.png
+/c/Users/dfjq/Documents/Obsidian Vault/Projects/四六级游戏化课堂/evidence/S5-2026-09-24/shot-07-empty-levels-grey-390x844.png
+/c/Users/dfjq/Documents/Obsidian Vault/Projects/四六级游戏化课堂/evidence/S5-2026-09-24/shot-08-chpwd-first-login-390x844.png
+/c/Users/dfjq/Documents/Obsidian Vault/Projects/四六级游戏化课堂/evidence/S5-2026-09-24/shot-09-map-mid-900x760.png
+
+--- 11-2 尺寸逐张核对（PNG 头里的真实尺寸，不是文件名说了算）---
+shot-01-login-redirect-390x844.png         (390, 844)
+shot-02-target-overlay-390x844.png         (390, 844)
+shot-03-map-lv3-390x844.png                (390, 844)
+shot-04-map-pc-1440x900.png                (1440, 900)
+shot-05-unit-cleared-banner-390x844.png    (390, 844)
+shot-06-unit6-switch-folded-390x844.png    (390, 844)
+shot-07-empty-levels-grey-390x844.png      (390, 844)
+shot-08-chpwd-first-login-390x844.png      (390, 844)
+shot-09-map-mid-900x760.png                (900, 760)
+proto-390x844.png                          (390, 844)
+proto-1440x900.png                         (1440, 900)
+cmp-390x844.png                            (852, 888)
+cmp-1440x900.png                           (2952, 944)
+OK
+[CHECK] 13 张实录图全部存在且尺寸是真实视口尺寸 ✅ 期望=OK 实际=OK
+
+--- 11-3 两张并排图的构成（左=真数据实录，右=原型 index.html）---
+cmp-390x844.png                              307735 bytes  md5=67295f63f3be
+cmp-1440x900.png                             857223 bytes  md5=b01569480e0a
+shot-03-map-lv3-390x844.png                  156864 bytes  md5=dc629da7ff5e
+shot-04-map-pc-1440x900.png                  490397 bytes  md5=1e7a42f2fbcc
+proto-390x844.png                            150388 bytes  md5=c6312f053b72
+proto-1440x900.png                           482700 bytes  md5=a90fd8942e92
+shot-05-unit-cleared-banner-390x844.png      159556 bytes  md5=a8d278317085
+shot-06-unit6-switch-folded-390x844.png      148483 bytes  md5=99bf79cf715d
+shot-07-empty-levels-grey-390x844.png        135154 bytes  md5=d62aad47f1b5

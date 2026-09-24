@@ -1,0 +1,91 @@
+
+########## 09 红线核对：S3 涉及的五张表列定义必须与开发方案 v1.0 §4 一致（未加表、未改字段） ##########
+*************************** 1. row ***************************
+attempts
+CREATE TABLE `attempts` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint unsigned NOT NULL,
+  `level_id` bigint unsigned NOT NULL,
+  `unit_id` bigint unsigned NOT NULL DEFAULT '0',
+  `correct` bigint NOT NULL DEFAULT '0',
+  `total` bigint NOT NULL DEFAULT '0',
+  `stars` bigint NOT NULL DEFAULT '0',
+  `score710` bigint NOT NULL DEFAULT '0',
+  `xp_earned` bigint NOT NULL DEFAULT '0',
+  `shuffle_seed` bigint NOT NULL DEFAULT '0',
+  `status` varchar(16) NOT NULL DEFAULT 'in_progress',
+  `started_at` datetime(3) DEFAULT NULL,
+  `finished_at` datetime(3) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_attempts_level_id` (`level_id`),
+  KEY `idx_attempts_status` (`status`),
+  KEY `idx_attempts_user_id` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+*************************** 1. row ***************************
+attempt_answers
+CREATE TABLE `attempt_answers` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `attempt_id` bigint unsigned NOT NULL,
+  `question_id` bigint unsigned NOT NULL,
+  `picked_idx` varchar(255) NOT NULL DEFAULT '',
+  `is_correct` tinyint(1) NOT NULL DEFAULT '0',
+  `created_at` datetime(3) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_attempt_answers_is_correct` (`is_correct`),
+  KEY `idx_attempt_answers_attempt_id` (`attempt_id`),
+  KEY `idx_attempt_answers_question_id` (`question_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=450 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+*************************** 1. row ***************************
+xp_ledger
+CREATE TABLE `xp_ledger` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint unsigned NOT NULL,
+  `delta` bigint NOT NULL DEFAULT '0',
+  `reason` varchar(32) NOT NULL DEFAULT '',
+  `ref_type` varchar(32) NOT NULL DEFAULT '',
+  `ref_id` bigint unsigned NOT NULL DEFAULT '0',
+  `created_at` datetime(3) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_xp_ledger_user_id` (`user_id`),
+  KEY `idx_xp_ledger_created_at` (`created_at`)
+) ENGINE=InnoDB AUTO_INCREMENT=183 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+*************************** 1. row ***************************
+wrong_book
+CREATE TABLE `wrong_book` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint unsigned NOT NULL,
+  `question_id` bigint unsigned NOT NULL,
+  `wrong_count` bigint NOT NULL DEFAULT '1',
+  `last_at` datetime(3) DEFAULT NULL,
+  `mastered` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `idx_wrong_book_question_id` (`question_id`),
+  KEY `idx_wrong_book_mastered` (`mastered`),
+  KEY `idx_wrong_book_user_id` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+*************************** 1. row ***************************
+diagnoses
+CREATE TABLE `diagnoses` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint unsigned NOT NULL,
+  `result_json` text,
+  `start_level` bigint unsigned NOT NULL DEFAULT '0',
+  `created_at` datetime(3) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_diagnoses_user_id` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+--- 逐表列清单对照（脚本内置期望值，来自开发方案 §4）---
+  attempts : ✅ 一致
+      实际 = ['id', 'user_id', 'level_id', 'unit_id', 'correct', 'total', 'stars', 'score710', 'xp_earned', 'shuffle_seed', 'status', 'started_at', 'finished_at']
+  attempt_answers : ✅ 一致
+      实际 = ['id', 'attempt_id', 'question_id', 'picked_idx', 'is_correct', 'created_at']
+  xp_ledger : ✅ 一致
+      实际 = ['id', 'user_id', 'delta', 'reason', 'ref_type', 'ref_id', 'created_at']
+  wrong_book : ✅ 一致
+      实际 = ['id', 'user_id', 'question_id', 'wrong_count', 'last_at', 'mastered']
+  diagnoses : ✅ 一致
+      实际 = ['id', 'user_id', 'result_json', 'start_level', 'created_at']
+红线核对结果：全部一致 ✅
+exit=0
+[CHECK] 五张表列定义与开发方案 §4 完全一致（未加表、未改字段） ✅ 期望=exit=0 实际=exit=0

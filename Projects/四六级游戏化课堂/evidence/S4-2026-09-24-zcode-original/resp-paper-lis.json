@@ -1,0 +1,2 @@
+{"code":0,"message":"ok","data":{"attemptId":77,"level":{"id":76,"unitId":21,"weekNo":14,"unitName":"S4听力演示单元","seq":1,"name":"听力 · 脚本演示","type":"reading","timeLimit":480,"isBoss":false,"questionCount":1,"unlocked":false,"cleared":false,"stars":0,"attempts":0,"firstResult":null,"estimatedMinutes":4},"shuffleSeed":675297698781418778,"lives":3,"resumed":false,"questions":[{"id":634,"type":"listening","stem":"What does the woman want to do?","options":["Close her account","Open a savings account","Change her address","Ask for a loan"]}],"answered":[]}}
+[HTTP 200]

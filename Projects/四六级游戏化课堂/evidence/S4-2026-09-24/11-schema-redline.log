@@ -1,0 +1,58 @@
+
+########## 11 红线核对：§7 的 17 张表一张不多；questions 列定义与开发方案 §4 一致（S4 靠已有 script 列，不加列） ##########
+*************************** 1. row ***************************
+questions
+CREATE TABLE `questions` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `level_id` bigint unsigned NOT NULL,
+  `band` varchar(1) NOT NULL DEFAULT '4',
+  `type` varchar(32) NOT NULL DEFAULT '',
+  `stem` text,
+  `script` text,
+  `options_json` text,
+  `answer_idx` varchar(255) NOT NULL DEFAULT '',
+  `tip` varchar(500) NOT NULL DEFAULT '',
+  `exp` text,
+  `knowledge_tag` varchar(128) NOT NULL DEFAULT '',
+  `difficulty` bigint NOT NULL DEFAULT '1',
+  `enabled` tinyint(1) NOT NULL DEFAULT '1',
+  `listen_subtype` varchar(32) NOT NULL DEFAULT '',
+  `created_at` datetime(3) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_questions_enabled` (`enabled`),
+  KEY `idx_questions_level_id` (`level_id`),
+  KEY `idx_questions_band_level` (`band`),
+  KEY `idx_questions_type` (`type`),
+  KEY `idx_questions_knowledge_tag` (`knowledge_tag`)
+) ENGINE=InnoDB AUTO_INCREMENT=663 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+*************************** 1. row ***************************
+levels
+CREATE TABLE `levels` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `unit_id` bigint unsigned NOT NULL,
+  `seq` bigint NOT NULL DEFAULT '0',
+  `name` varchar(100) NOT NULL,
+  `type` varchar(32) NOT NULL DEFAULT '',
+  `time_limit` bigint NOT NULL DEFAULT '0',
+  `is_boss` tinyint(1) NOT NULL DEFAULT '0',
+  `created_at` datetime(3) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_levels_unit_id` (`unit_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+*************************** 1. row ***************************
+units
+CREATE TABLE `units` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `class_id` bigint unsigned NOT NULL,
+  `week_no` bigint NOT NULL DEFAULT '0',
+  `name` varchar(100) NOT NULL,
+  `created_at` datetime(3) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_units_class_id` (`class_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+--- 表清单对照（脚本内置期望）---
+17 张表与开发方案 §4 完全一致 ✅
+[CHECK] 表清单：17 张，一张不多一张不少 ✅ 期望=17 张表与开发方案 §4 完全一致 ✅ 实际=17 张表与开发方案 §4 完全一致 ✅
+questions 列定义与 §4 一致（含已有 script 列）✅
+[CHECK] questions 列定义一致（S4 未加列，script 是既有字段） ✅ 期望=questions 列定义与 §4 一致（含已有 script 列）✅ 实际=questions 列定义与 §4 一致（含已有 script 列）✅

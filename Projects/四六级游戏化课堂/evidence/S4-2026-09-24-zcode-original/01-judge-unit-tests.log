@@ -1,0 +1,56 @@
+
+########## 01 验收①：两题型各 3 组判分单测（全对 / 半对 / 全错）+ 形状解析 + 格式校验 ##########
+=== RUN   TestJudge
+=== RUN   TestJudge/单选答对
+=== RUN   TestJudge/单选答错
+=== RUN   TestJudge/多空全对
+=== RUN   TestJudge/多空半对（一位不同）算全错
+=== RUN   TestJudge/多空顺序错也算错
+=== RUN   TestJudge/多空少填
+=== RUN   TestJudge/答案为空按错处理
+--- PASS: TestJudge (0.00s)
+=== RUN   TestJudgeClozeAllCorrect
+--- PASS: TestJudgeClozeAllCorrect (0.00s)
+=== RUN   TestJudgeClozeHalfCorrect
+--- PASS: TestJudgeClozeHalfCorrect (0.00s)
+=== RUN   TestJudgeClozeAllWrong
+--- PASS: TestJudgeClozeAllWrong (0.00s)
+=== RUN   TestJudgeClozeShorterPicked
+--- PASS: TestJudgeClozeShorterPicked (0.00s)
+=== RUN   TestJudgeMatchAllCorrect
+--- PASS: TestJudgeMatchAllCorrect (0.00s)
+=== RUN   TestJudgeMatchHalfCorrect
+--- PASS: TestJudgeMatchHalfCorrect (0.00s)
+=== RUN   TestJudgeMatchAllWrong
+--- PASS: TestJudgeMatchAllWrong (0.00s)
+ok  	cet46/server/internal/quiz	(cached)
+
+--- 判分三组逐一列出（cloze 3 组 + match 3 组）---
+--- PASS: TestJudge (0.00s)
+--- PASS: TestJudgeClozeAllCorrect (0.00s)
+--- PASS: TestJudgeClozeHalfCorrect (0.00s)
+--- PASS: TestJudgeClozeAllWrong (0.00s)
+--- PASS: TestJudgeClozeShorterPicked (0.00s)
+--- PASS: TestJudgeMatchAllCorrect (0.00s)
+--- PASS: TestJudgeMatchHalfCorrect (0.00s)
+--- PASS: TestJudgeMatchAllWrong (0.00s)
+
+--- 半对明细用例（matched 回报对了几个空，但 isCorrect=false、XP=0）---
+--- PASS: TestJudgeClozeHalfCorrect (0.00s)
+--- PASS: TestJudgeClozeShorterPicked (0.00s)
+--- PASS: TestJudgeMatchHalfCorrect (0.00s)
+
+--- 形状解析与格式校验（标记形态①/整篇形态②/越界/重复词/空答案）---
+--- PASS: TestParseClozeSingleBlankShape (0.00s)
+--- PASS: TestParseClozeWholePassageShape (0.00s)
+--- PASS: TestParseMatchTitleParagraphsAndStatement (0.00s)
+--- PASS: TestParseMatchMultilineParagraph (0.00s)
+--- PASS: TestParseTypesOnPlainStem (0.00s)
+--- PASS: TestShapeErrorRules (0.00s)
+
+--- 断言 ---
+（-run TestJudge 命中 8 条：S3 既有引擎用例 TestJudge 1 条 + S4 新题型 7 条；
+  S4 的 7 条 = cloze 全对/半对/全错/短提交 + match 全对/半对/全错，验收①要求的两题型各 3 组都在其中）
+[CHECK] 判分用例全绿（S3 引擎 1 + S4 新题型 7 = 8 条，零失败） ✅ 期望=8/0 实际=8/0
+[CHECK] 半对用例两题型各一条（in 上一步的 8 条里） ✅ 期望=2 实际=2
+[CHECK] 形状解析 + 格式校验用例全绿 ✅ 期望=0 实际=0

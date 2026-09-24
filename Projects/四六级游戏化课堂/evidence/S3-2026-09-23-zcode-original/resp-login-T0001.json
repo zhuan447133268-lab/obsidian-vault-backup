@@ -1,0 +1,2 @@
+{"code":0,"message":"ok","data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsInVuYW1lIjoiVDAwMDEiLCJyb2xlIjoidGVhY2hlciIsImlzcyI6ImNldDQ2Iiwic3ViIjoiMSIsImV4cCI6MTc5MDc2NDE4NCwiaWF0IjoxNzkwMTU5Mzg0fQ.ByLyPjQJZh38LooHevIchC5TX7aceso_S2wO23JA1Ds","expiresIn":604800,"mustChangePwd":false,"user":{"id":1,"username":"T0001","realName":"张老师","role":"teacher","avatar":"","classId":0,"target":"4","lv":1,"streak":0,"mustChangePwd":false}}}
+[HTTP 200]

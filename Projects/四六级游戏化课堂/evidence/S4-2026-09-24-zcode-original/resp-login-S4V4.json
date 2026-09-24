@@ -1,0 +1,2 @@
+{"code":0,"message":"ok","data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjkzLCJ1bmFtZSI6IlM0VjQiLCJyb2xlIjoic3R1ZGVudCIsImlzcyI6ImNldDQ2Iiwic3ViIjoiOTMiLCJleHAiOjE3OTA4MjA1MTQsImlhdCI6MTc5MDIxNTcxNH0.8b1Cb0NDcXZmlEWT6jln8FJ6hfhWj9sTbWAMk0GUjTw","expiresIn":604800,"mustChangePwd":false,"user":{"id":93,"username":"S4V4","realName":"S4演示学生","role":"student","avatar":"","classId":1,"target":"4","lv":1,"streak":0,"mustChangePwd":false}}}
+[HTTP 200]

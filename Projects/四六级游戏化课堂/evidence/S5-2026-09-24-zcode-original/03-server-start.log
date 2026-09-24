@@ -1,0 +1,83 @@
+
+########## 03 启动 Go 服务（真 MySQL 3307），供接口实录 ##########
+2026/09/24 12:05:53 表结构自检通过：17/17 张表齐备
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /api/health               --> cet46/server/internal/handler.(*HealthHandler).Get-fm (3 handlers)
+[GIN-debug] POST   /api/auth/login           --> cet46/server/internal/handler.(*AuthHandler).Login-fm (3 handlers)
+[GIN-debug] GET    /api/auth/me              --> cet46/server/internal/handler.(*AuthHandler).Me-fm (4 handlers)
+[GIN-debug] POST   /api/auth/chpwd           --> cet46/server/internal/handler.(*AuthHandler).ChangePassword-fm (4 handlers)
+[GIN-debug] PATCH  /api/auth/target          --> cet46/server/internal/handler.(*AuthHandler).UpdateTarget-fm (5 handlers)
+[GIN-debug] GET    /api/admin/classes        --> cet46/server/internal/handler.(*ClassHandler).List-fm (6 handlers)
+[GIN-debug] POST   /api/admin/classes        --> cet46/server/internal/handler.(*ClassHandler).Create-fm (6 handlers)
+[GIN-debug] GET    /api/admin/classes/:id    --> cet46/server/internal/handler.(*ClassHandler).Get-fm (6 handlers)
+[GIN-debug] PATCH  /api/admin/classes/:id    --> cet46/server/internal/handler.(*ClassHandler).Update-fm (6 handlers)
+[GIN-debug] DELETE /api/admin/classes/:id    --> cet46/server/internal/handler.(*ClassHandler).Delete-fm (6 handlers)
+[GIN-debug] GET    /api/admin/users          --> cet46/server/internal/handler.(*UserHandler).List-fm (6 handlers)
+[GIN-debug] POST   /api/admin/users          --> cet46/server/internal/handler.(*UserHandler).Create-fm (6 handlers)
+[GIN-debug] GET    /api/admin/users/:id      --> cet46/server/internal/handler.(*UserHandler).Get-fm (6 handlers)
+[GIN-debug] PATCH  /api/admin/users/:id      --> cet46/server/internal/handler.(*UserHandler).Update-fm (6 handlers)
+[GIN-debug] DELETE /api/admin/users/:id      --> cet46/server/internal/handler.(*UserHandler).Delete-fm (6 handlers)
+[GIN-debug] POST   /api/admin/users/:id/reset-pwd --> cet46/server/internal/handler.(*UserHandler).ResetPassword-fm (6 handlers)
+[GIN-debug] POST   /api/admin/import-users   --> cet46/server/internal/handler.(*ImportHandler).ImportUsers-fm (6 handlers)
+[GIN-debug] GET    /api/admin/units          --> cet46/server/internal/handler.(*ContentHandler).ListUnits-fm (6 handlers)
+[GIN-debug] POST   /api/admin/units          --> cet46/server/internal/handler.(*ContentHandler).CreateUnit-fm (6 handlers)
+[GIN-debug] GET    /api/admin/units/:id      --> cet46/server/internal/handler.(*ContentHandler).GetUnit-fm (6 handlers)
+[GIN-debug] PATCH  /api/admin/units/:id      --> cet46/server/internal/handler.(*ContentHandler).UpdateUnit-fm (6 handlers)
+[GIN-debug] DELETE /api/admin/units/:id      --> cet46/server/internal/handler.(*ContentHandler).DeleteUnit-fm (6 handlers)
+[GIN-debug] GET    /api/admin/levels         --> cet46/server/internal/handler.(*ContentHandler).ListLevels-fm (6 handlers)
+[GIN-debug] POST   /api/admin/levels         --> cet46/server/internal/handler.(*ContentHandler).CreateLevel-fm (6 handlers)
+[GIN-debug] GET    /api/admin/levels/:id     --> cet46/server/internal/handler.(*ContentHandler).GetLevel-fm (6 handlers)
+[GIN-debug] PATCH  /api/admin/levels/:id     --> cet46/server/internal/handler.(*ContentHandler).UpdateLevel-fm (6 handlers)
+[GIN-debug] DELETE /api/admin/levels/:id     --> cet46/server/internal/handler.(*ContentHandler).DeleteLevel-fm (6 handlers)
+[GIN-debug] GET    /api/admin/questions      --> cet46/server/internal/handler.(*ContentHandler).ListQuestions-fm (6 handlers)
+[GIN-debug] POST   /api/admin/questions      --> cet46/server/internal/handler.(*ContentHandler).CreateQuestion-fm (6 handlers)
+[GIN-debug] GET    /api/admin/questions/:id  --> cet46/server/internal/handler.(*ContentHandler).GetQuestion-fm (6 handlers)
+[GIN-debug] PATCH  /api/admin/questions/:id  --> cet46/server/internal/handler.(*ContentHandler).UpdateQuestion-fm (6 handlers)
+[GIN-debug] DELETE /api/admin/questions/:id  --> cet46/server/internal/handler.(*ContentHandler).DeleteQuestion-fm (6 handlers)
+[GIN-debug] POST   /api/admin/import-questions --> cet46/server/internal/handler.(*QuestionImportHandler).ImportQuestions-fm (6 handlers)
+[GIN-debug] GET    /api/admin/import-questions/template --> cet46/server/internal/handler.(*QuestionImportHandler).Template-fm (6 handlers)
+[GIN-debug] GET    /api/quiz/levels          --> cet46/server/internal/handler.(*QuizHandler).Levels-fm (5 handlers)
+[GIN-debug] GET    /api/quiz/questions       --> cet46/server/internal/handler.(*QuizHandler).Questions-fm (5 handlers)
+[GIN-debug] GET    /api/quiz/paper           --> cet46/server/internal/handler.(*QuizHandler).Paper-fm (5 handlers)
+[GIN-debug] POST   /api/quiz/submit          --> cet46/server/internal/handler.(*QuizHandler).Submit-fm (5 handlers)
+[GIN-debug] GET    /api/diag/paper           --> cet46/server/internal/handler.(*DiagHandler).Paper-fm (5 handlers)
+[GIN-debug] POST   /api/diag/submit          --> cet46/server/internal/handler.(*DiagHandler).Submit-fm (5 handlers)
+[GIN-debug] GET    /api/exam/next            --> cet46/server/internal/handler.(*ExamHandler).Next-fm (5 handlers)
+2026/09/24 12:05:53 cet46 server 启动于 :8080（driver=mysql, env=development）
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN] 2026/09/24 - 12:05:53 | 200 |     36.1146ms |       127.0.0.1 | GET      "/api/health"
+[GIN] 2026/09/24 - 12:05{"code":0,"message":"ok","data":{"status":"ok","env":"development","d[GIN] 2026/09/24 - 12:05:55 | 200 |     66.5273ms |       127.0.0.1 | POST     "/api/auth/login"
+[GIN] 2026/09/24 - 12:05:55 | 403 |      1.6942ms |       127.0.0.1 | GET      "/api/admin/users"
+[GIN] 2026/09/24 - 12:05:56 | 200 |     122.326ms |       127.0.0.1 | POST     "/api/auth/chpwd"
+[GIN] 2026/09/24 - 12:05:56 | 200 |     63.5995ms |       127.0.0.1 | POST     "/api/auth/login"
+[GIN] 2026/09/24 - 12:05:56 | 200 |      3.2596ms |       127.0.0.1 | GET      "/api/admin/users"
+[GIN] 2026/09/24 - 12:05:56 | 200 |     67.1203ms |       127.0.0.1 | POST     "/api/admin/users"
+[GIN] 2026/09/24 - 12:05:57 | 200 |     63.0859ms |       127.0.0.1 | POST     "/api/auth/login"
+[GIN] 2026/09/24 - 12:05:57 | 403 |         674µs |       127.0.0.1 | GET      "/api/quiz/levels"
+[GIN] 2026/09/24 - 12:05:57 | 403 |       667.1µs |       127.0.0.1 | GET      "/api/exam/next"
+[GIN] 2026/09/24 - 12:05:58 | 200 |     163.187ms |       127.0.0.1 | POST     "/api/auth/chpwd"
+[GIN] 2026/09/24 - 12:05:58 | 200 |     65.4585ms |       127.0.0.1 | POST     "/api/auth/login"
+[GIN] 2026/09/24 - 12:05:58 | 200 |      5.3693ms |       127.0.0.1 | GET      "/api/quiz/levels"
+[GIN] 2026/09/24 - 12:05:58 | 200 |       996.2µs |       127.0.0.1 | GET      "/api/exam/next"
+[GIN] 2026/09/24 - 12:06:00 | 200 |       9.363ms |       127.0.0.1 | PATCH    "/api/auth/target"
+[GIN] 2026/09/24 - 12:06:00 | 200 |       593.4µs |       127.0.0.1 | GET      "/api/exam/next"
+[GIN] 2026/09/24 - 12:06:01 | 400 |       698.1µs |       127.0.0.1 | PATCH    "/api/auth/target"
+[GIN] 2026/09/24 - 12:06:01 | 400 |       608.9µs |       127.0.0.1 | PATCH    "/api/auth/target"
+[GIN] 2026/09/24 - 12:06:01 | 400 |       699.3µs |       127.0.0.1 | PATCH    "/api/auth/target"
+[GIN] 2026/09/24 - 12:06:02 | 400 |      1.1214ms |       127.0.0.1 | PATCH    "/api/auth/target"
+[GIN] 2026/09/24 - 12:06:02 | 200 |      4.9147ms |       127.0.0.1 | PATCH    "/api/auth/target"
+[GIN] 2026/09/24 - 12:06:05 | 200 |      6.9979ms |       127.0.0.1 | GET      "/api/quiz/levels"
+[GIN] 2026/09/24 - 12:06:08 | 200 |      4.3553ms |       127.0.0.1 | GET      "/api/quiz/levels"
+[GIN] 2026/09/24 - 12:06:09 | 200 |      4.5665ms |       127.0.0.1 | PATCH    "/api/auth/target"
+[GIN] 2026/09/24 - 12:06:37 | 401 |            0s |       127.0.0.1 | GET      "/api/quiz/levels"
+[GIN] 2026/09/24 - 12:06:37 | 401 |            0s |       127.0.0.1 | GET      "/api/exam/next"
+[GIN] 2026/09/24 - 12:06:38 | 401 |            0s |       127.0.0.1 | GET      "/api/auth/me"
+[GIN] 2026/09/24 - 12:06:38 | 401 |            0s |       127.0.0.1 | GET      "/api/quiz/levels"
+[GIN] 2026/09/24 - 12:06:38 | 401 |            0s |       127.0.0.1 | PATCH    "/api/auth/target"
+exit status 143
+�（PID 736043）---

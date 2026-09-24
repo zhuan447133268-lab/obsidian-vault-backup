@@ -1,0 +1,17 @@
+
+########## 10 验收③ 未登录访问：服务端一律 401/40101（前端跳转见 11 号截图） ##########
+[CHECK] 不带 token 访问 /api/quiz/levels：HTTP 401 ✅ 期望=401 实际=401
+[CHECK] 不带 token 访问 /api/quiz/levels：业务码 40101 ✅ 期望=40101 实际=40101
+[CHECK] 不带 token 访问 /api/exam/next：HTTP 401 ✅ 期望=401 实际=401
+[CHECK] 不带 token 访问 /api/exam/next：业务码 40101 ✅ 期望=40101 实际=40101
+[CHECK] 不带 token 访问 /api/auth/me：HTTP 401 ✅ 期望=401 实际=401
+[CHECK] 不带 token 访问 /api/auth/me：业务码 40101 ✅ 期望=40101 实际=40101
+[CHECK] 伪造 token 访问地图：HTTP 401 + 40101 ✅ 期望=401/40101 实际=401/40101
+[CHECK] 不带 token 切目标：HTTP 401 + 40101 ✅ 期望=401/40101 实际=401/40101
+
+--- 学生端路由守卫（源码三道路径，构建产物同源）---
+19:      meta: { public: true },
+25:      meta: { allowUnchangedPwd: true },
+42:    return { name: 'login', query: { redirect: to.fullPath } }
+55:  if (session.user?.mustChangePwd && !to.meta.allowUnchangedPwd) {
+58:  if (!session.user?.mustChangePwd && to.name === 'chpwd') {

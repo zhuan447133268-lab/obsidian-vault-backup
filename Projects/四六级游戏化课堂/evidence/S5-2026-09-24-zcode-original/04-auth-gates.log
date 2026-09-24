@@ -1,0 +1,21 @@
+
+########## 04 登录态：教师建号 → 学生首登必须改密（40302）→ 改密后进门 ##########
+--- 04-1 教师：初始密码能登录，但业务接口被 40302 拦（首登未改密）---
+[CHECK] 教师用初始密码登录成功（拿到 token） ✅ 期望=yes 实际=yes
+[CHECK] 教师登录态下 mustChangePwd=true（前端据此跳改密页） ✅ 期望=True 实际=True
+[CHECK] 未改密教师访问 /api/admin/users：HTTP 403 ✅ 期望=403 实际=403
+[CHECK] 未改密教师访问 /api/admin/users：业务码 40302 ✅ 期望=40302 实际=40302
+[CHECK] 改密后再登录：mustChangePwd=false ✅ 期望=False 实际=False
+[CHECK] 改密后教师能进后台：HTTP 200 + code 0 ✅ 期望=200/0 实际=200/0
+
+--- 04-2 学生：新建 → 初始密码登录成功但地图接口被 40302 拦 → 改密后放行 ---
+[CHECK] 教师建演示学生：HTTP 200 + code 0 ✅ 期望=200/0 实际=200/0
+[CHECK] 演示学生落在 2024级英语1班 ✅ 期望=1 实际=1
+[CHECK] 学生用初始密码登录成功 ✅ 期望=yes 实际=yes
+[CHECK] 学生登录态下 mustChangePwd=true ✅ 期望=True 实际=True
+[CHECK] 未改密学生取地图：HTTP 403 ✅ 期望=403 实际=403
+[CHECK] 未改密学生取地图：业务码 40302 ✅ 期望=40302 实际=40302
+[CHECK] 未改密学生取倒计时：业务码 40302 ✅ 期望=40302 实际=40302
+[CHECK] 改密后再登录：mustChangePwd=false ✅ 期望=False 实际=False
+[CHECK] 改密后取地图：HTTP 200 + code 0 ✅ 期望=200/0 实际=200/0
+[CHECK] 改密后取倒计时：HTTP 200 + code 0 ✅ 期望=200/0 实际=200/0

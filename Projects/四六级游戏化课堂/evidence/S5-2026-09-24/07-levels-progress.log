@@ -1,0 +1,43 @@
+
+########## 07 验收② 有进度时的通关/星标/首刷口径 + 验收③ 真实 XP 与等级 ##########
+--- 07-1 造演示进度：unit3 第 1/2/3 关通关（第 2 关先 2 星再 3 星，验证「星级取历史最好」）---
+库里现在的 attempts / xp_ledger：
+99	25	5	5	3	finished	999999
+100	26	4	5	2	finished	0
+101	26	5	5	3	finished	0
+102	27	5	5	3	finished	0
+103	25	1	5	0	in_progress	0
+224	740	s5_demo_seed	attempt	99
+
+--- 07-2 重新取地图 ---
+[CHECK] 取地图：HTTP 200 + code 0 ✅ 期望=200/0 实际=200/0
+
+--- 07-3 通关与星标 ---
+[CHECK] 第 1/2/3 关 cleared=true ✅ 期望=True/True/True 实际=True/True/True
+[CHECK] 星级取历史最好（第 2 关先 2 星后 3 星 → 展示 3 星） ✅ 期望=3/3/3 实际=3/3/3
+[CHECK] 第 4 关 unlocked=true（上一关通关后自动解锁） ✅ 期望=True 实际=True
+[CHECK] 第 5 关仍锁着 ✅ 期望=False 实际=False
+[CHECK] 单元 Boss 仍锁着 ✅ 期望=False 实际=False
+[CHECK] 推荐起点推进到第 4 关 ✅ 期望=28 实际=28
+
+--- 07-4 首刷口径：firstResult = 该关第一条 finished（不是最好成绩、也不是最后一次）---
+[CHECK] 第 2 关 firstResult.attemptId = 首刷那条 attempt ✅ 期望=100 实际=100
+[CHECK] 首刷成绩如实是 4/5、2 星（不是被 3 星覆盖后的样子） ✅ 期望=4/5/2 实际=4/5/2
+[CHECK] 没通关的关 firstResult 为空（第 4 关） ✅ 期望=True 实际=True
+
+--- 07-5 attempts 计数（含没打完的那条 in_progress）---
+[CHECK] 第 1/2/3 关 attempts=2/2/1（第 1 关多出来那条是 in_progress） ✅ 期望=2/2/1 实际=2/2/1
+
+--- 07-6 验收③ 真实 XP：只认账本聚合，attempts.xp_earned 里塞的 999999 不许算数 ---
+[CHECK] XP = SELECT SUM(delta) FROM xp_ledger = 740 ✅ 期望=740 实际=740
+[CHECK] 账本聚合也确实等于 740 ✅ 期望=740 实际=740
+[CHECK] attempts.xp_earned 里那个 999999 被忽略（否则 XP 会变成 1000739） ✅ 期望=740 实际=740
+[CHECK] 等级=Lv3（740 = 2×300 + 140） ✅ 期望=3 实际=3
+[CHECK] 本级进度=140 ✅ 期望=140 实际=140
+[CHECK] 本级上限=300 ✅ 期望=300 实际=300
+（users.lv 列故意不动，等级一律由账本折算——地图上的 LV 徽标与进度条同源）
+[CHECK] 库里 users.lv 仍是 1（S5 不写这个列） ✅ 期望=1 实际=1
+
+--- 07-7 单元合计也跟着动 ---
+[CHECK] unit3 clearedCount=3 ✅ 期望=3 实际=3
+[CHECK] 拟毕业标记：本单元 6 个可玩关里通了 3 个（前端由此判定是否显示毕业横幅） ✅ 期望=6 实际=6

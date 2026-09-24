@@ -1,0 +1,44 @@
+
+########## 04 验收③：paper 接口下发 JSON 结构（选词填空整篇形态 + 段落匹配），并证明取题往返无损 ##########
+--- 04-0 学生取选词填空关（level=79）---
+[CHECK] 取卷 200 ✅ 期望=[HTTP 200] 实际=[HTTP 200]
+
+--- 04-1 cloze 视图样例（前端拿到的就是这一份）---
+attemptId = 78 | shuffleSeed = 6084322036469365536 | 题数 = 10
+题目键 = ['id', 'type', 'stem', 'options', 'cloze']
+cloze.passage 开头 120 字 = "It may sound surprising, but people who are supersensitive to coffee's bitter taste actually drink more of it, a new stu"
+cloze.passage 结尾 60 字  = 's and those found in green vegetables tended to (35) coffee.'
+cloze.blankNo = 26 | blankSpan = 1 | blanks = [26, 27, 28, 29, 30, 31, 32, 33, 34, 35]
+cloze.wordBank[0..2] = [{"idx": 0, "label": "A", "text": "avoid"}, {"idx": 1, "label": "B", "text": "perceive"}, {"idx": 2, "label": "C", "text": "opposite"}]
+cloze.wordBank 末项 = {"idx": 14, "label": "O", "text": "heightened"} （共 15 项）
+options（展示序，前端直接渲染）=  ["avoid", "perceive", "opposite", "convince", "omission", "simply", "converted", "addition", "reinforcement", "approximately", "prospect", "separately", "targeted", "consumption", "heightened"]
+stem 尾 40 字 = 's tended to (35) coffee.\n\n【本题第 26 空】(26)'
+
+--- 04-2 取卷侧断言：视图字段、卷面不泄露答案、不提前下发听力原文 ---
+选词填空 10 题的 cloze 视图检查：全部符合
+blankNo 序列 = [26, 27, 28, 29, 30, 31, 32, 33, 34, 35]
+[CHECK] 选词填空 10 题的 cloze 视图全部符合（A..O 词表 / 空号 26..35 / 词表=展示序） ✅ 期望=全部符合 实际=全部符合
+[CHECK] 卷面不含答案字段（answerIdx / correctIdx / exp） ✅ 期望=0 实际=0
+[CHECK] 卷面不含听力原文（S4 起 script 只在提交回执里给） ✅ 期望=0 实际=0
+
+--- 04-3 学生取段落匹配关（level=80）：match 视图 + 段号带语义不洗牌 ---
+[CHECK] 取卷 200 ✅ 期望=[HTTP 200] 实际=[HTTP 200]
+attemptId = 79 | 题数 = 10
+题目键 = ['id', 'type', 'stem', 'options', 'match']
+match.title     = 'Exercise and Dementia'
+match.statement = 'It is typical for dementia to worsen with the passage of time.' | statementNo = 36
+match.paragraphs 共 16 段；第 1 段 = {"idx": 0, "label": "A", "text": "If this doesn't encourage you to squeeze in a workout today, nothing will: a new study from Sweden shows that women who were highly fit in mid-life were nearly 90% less likely to get dem …
+段落标号序列 = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P']
+段落 idx 序列 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+options（展示序）=  ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P"]
+stem 尾 90 字 = ' more good years.”\n\n【第 36 题】It is typical for dementia to worsen with the passage of time.'
+[CHECK] 段落匹配 10 题的 match 视图全部符合（标题/16 段/陈述句） ✅ 期望=全部符合 实际=全部符合
+[CHECK] match 不洗选项（展示序 == 题库序 A..P） ✅ 期望=A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P 实际=A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P
+[CHECK] 卷面不含听力原文 ✅ 期望=0 实际=0
+
+--- 04-4 验收④取题侧：下发的 20 条题干 MD5 与第 10 周真题逐条相等（往返无损）---
+选词填空 10 条题干 MD5 集合比对：一致
+段落匹配 10 条题干 MD5 集合比对：一致
+[CHECK] 选词填空：卷面题干与真题逐条一致 ✅ 期望=一致 实际=一致
+[CHECK] 段落匹配：卷面题干与真题逐条一致（含 6380 字长文） ✅ 期望=一致 实际=一致
+[CHECK] 卷面最长题干 = 真题最长题干（6380 字） ✅ 期望=6380 实际=6380

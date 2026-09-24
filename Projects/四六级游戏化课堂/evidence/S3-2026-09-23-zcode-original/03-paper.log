@@ -1,0 +1,45 @@
+
+########## 03 验收③：同一 attempt 反复取卷，seed 与题目顺序不变；选项洗牌真的在洗；答案零泄露 ##########
+--- 03-0 演示学生 S3V4（四级）第 1 次取第 3 周第 1 关（vocab 5 题，选项会洗序）---
+attemptId = 33 | shuffleSeed = 17884262316389496 | resumed = False | 爱心 = 3
+关内题目 id 顺序 = [265, 266, 267, 268, 269]
+每题的选项展示顺序（前 3 个选项的前 24 字）：
+  题 265 ( vocab )： ['appointment', 'accommodation', 'argument'] …共 4 项
+  题 266 ( vocab )： ['apologize', 'arrange', 'announce'] …共 4 项
+  题 267 ( vocab )： ['appealed', 'applied', 'appointed'] …共 4 项
+  题 268 ( vocab )： ['consecutive', 'controversial', 'comprehensive'] …共 4 项
+  题 269 ( vocab )： ['competed', 'completed', 'complained'] …共 4 项
+题干开头： We need to find ____ near the campus before the semester sta
+
+--- 03-1 第 2 次取同一关（应复用 attempt=33、seed=17884262316389496、题序一致）---
+attemptId = 33 | shuffleSeed = 17884262316389496 | resumed = True
+关内题目 id 顺序 = [265, 266, 267, 268, 269]
+[CHECK] 两次取卷复用同一 attempt ✅ 期望=33 实际=33
+[CHECK] 两次取卷 seed 一致 ✅ 期望=17884262316389496 实际=17884262316389496
+[CHECK] 两次取卷题目顺序一致（id 序列） ✅ 期望=265,266,267,268,269 实际=265,266,267,268,269
+
+--- 03-2 选项洗牌举证：把下发选项跟题库 options_json 逐题比序 ---
+  题 265 类型= vocab 展示序==题库序： False （ 4 项）
+  题 266 类型= vocab 展示序==题库序： False （ 4 项）
+  题 267 类型= vocab 展示序==题库序： False （ 4 项）
+  题 268 类型= vocab 展示序==题库序： False （ 4 项）
+  题 269 类型= vocab 展示序==题库序： False （ 4 项）
+结论：0 题同序 / 5 题被洗过（vocab 会洗、match 不洗）
+
+--- 03-3 断点续答：先交 1 题（只看现场是否保住；选项被洗过、正确项下标不可预知，
+        所以故意给单选题报 4 个下标——判分要求序列等长，这题必然判错、必然 0 XP，
+        后面的绝对分值（330 / 805）才不会被这次探针的随机对错污染）---
+status = in_progress | 进度 = {'answered': 1, 'correct': 0, 'wrong': 1, 'total': 5, 'livesLeft': 2, 'streak': 0} | 本题对错 = False | 正确项展示下标 = 1 | 本题 XP = {'base': 0, 'speed': 0, 'combo': 0}
+[CHECK] 探针这块答错 = 0 分（答错不倒扣） ✅ 期望=0 实际=0
+[CHECK] 探针后账本仍为 0（答错不落任何流水） ✅ 期望=0 实际=0
+
+--- 03-4 再取一次卷：应 resumed=true，seed 与题序仍不变，且带回答回执 ---
+attemptId = 33 | shuffleSeed = 17884262316389496 | resumed = True
+已回答回执 = [{'questionId': 265, 'pickedIdx': '0,1,2,3', 'isCorrect': False}]
+题目 id 顺序 = [265, 266, 267, 268, 269]
+[CHECK] 断点续答 resumed=true ✅ 期望=True 实际=True
+[CHECK] 断点续答 seed 不变 ✅ 期望=17884262316389496 实际=17884262316389496
+
+--- 03-5 答案零泄露：取卷响应里不得出现 answerIdx / exp / tip / knowledgeTag ---
+data 下出现过的键： ['answered', 'attemptId', 'attempts', 'cleared', 'estimatedMinutes', 'firstResult', 'id', 'isBoss', 'isCorrect', 'level', 'lives', 'name', 'options', 'pickedIdx', 'questionCount', 'questionId', 'questions', 'resumed', 'script', 'seq', 'shuffleSeed', 'stars', 'stem', 'timeLimit', 'type', 'unitId', 'unitName', 'unlocked', 'weekNo']
+禁字段命中（按 JSON 键判定）： 无 ✅

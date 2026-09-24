@@ -1,0 +1,19 @@
+
+########## 00 前置：MySQL 3307 现状 + 本阶段要动的表起点 + 第 10 周真题指纹 ##########
+8.4.8
+52	4	4	24	206	0	0	0	0	0
+
+--- 表清单（§7 红线：17 张，S4 不加表不改列）---
+17
+attempt_answers attempts audit_log classes coupon_redeems coupons diagnoses levels questions reminders seasons team_members teams units users wrong_book xp_ledger 
+--- 第 10 周真题底账：本次要读出来做「入库+取题往返」的样题来源（只读）---
+cloze	10	1584	1584	15	15
+match	10	6284	6380	16	16
+第 10 周 20 道阅读真题的题库指纹（题号/题型/题干长度/题干 MD5/答案/选项 MD5 一起算）= 37a1cac53c9c5111ee7efd5d8d0c3e38
+
+--- 幂等清理：删上一轮可能残留的演示学生与新建的演示单元（真题与真实账号一律不动）---
+
+--- 清理断言 ---
+[CHECK] 演示学生已删净 ✅ 期望=0 实际=0
+[CHECK] 基线：单元/关卡/题目 ✅ 期望=4/24/206 实际=4/24/206
+[CHECK] 第 10 周真题指纹已记录（32 位 MD5） ✅ 期望=32 实际=32

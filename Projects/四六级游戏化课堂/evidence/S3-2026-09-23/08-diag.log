@@ -1,0 +1,36 @@
+
+########## 08 诊断卷：下发（10 题 / 按题型抽样）→ 判分 → 学情画像 → 推荐起点；不建 attempt、不改进度 ##########
+--- 08-0 诊断前：关卡列表的解锁状态快照（诊断后要比对不变）---
+解锁快照： [(3, 1, True, False), (3, 2, False, False), (3, 3, False, False), (3, 4, False, False), (3, 5, False, False), (3, 6, False, False), (9, 1, True, False), (9, 2, False, False), (9, 3, False, False), (9, 4, False, False), (9, 5, False, True), (9, 6, True, False), (9, 7, False, False), (10, 1, True, False), (10, 2, False, False), (10, 3, False, False), (10, 4, False, False), (10, 5, False, False), (10, 6, False, False), (10, 7, False, False), (11, 1, True, False), (11, 2, False, False), (11, 3, False, False), (11, 4, False, False)]
+recommendedLevelId = 25
+
+--- 08-1 取诊断卷 ---
+seed = 238919479413 | 题数 = 10 | 预告分钟 = 10
+抽样构成（按题型）： [('reading', 3), ('vocab', 4), ('grammar', 3)]
+题型分布（实到）： {'reading': 3, 'vocab': 4, 'grammar': 3}
+题目 id： [461, 265, 276, 269, 287, 288, 285, 274, 271, 278]
+首题题干（前 70 字）： People who systematically underestimate themselves and their own perfo
+[CHECK] 诊断卷 10 题 ✅ 期望=10 实际=10
+[CHECK] 诊断卷预告 10 分钟 ✅ 期望=10 实际=10
+[CHECK] 抽样构成按权重收口：词汇 4 / 语法 3 / 阅读 3（权重是下限，缺口才走补齐池） ✅ 期望=grammar=3,reading=3,vocab=4 实际=grammar=3,reading=3,vocab=4
+诊断卷响应禁字段命中： 无 ✅
+
+--- 08-2 交诊断卷（脚本按展示序第 0 项作答：判分正确性由 router 测试 TestDiagPaperProfileAndRecommendation 保证，这里实录完整链路）---
+判分： 1 / 10 正确率 = 0.1 | 学情档次 = 待加强
+按题型： {'grammar': (1, 3, 0.33), 'reading': (0, 3, 0), 'vocab': (0, 4, 0)}
+按知识点： {'四级真题·阅读-仔细阅读': (0, 1, 0)}
+推荐起点 levelId = 25 | 建议起跳 = 25
+推荐说明： 先从第 1 关开始打基础，按地图解锁节奏一关关来
+诊断记录 id = 10 | 回执条数 = 10
+[CHECK] 诊断判分题数 = 10 ✅ 期望=10 实际=10
+
+--- 08-3 落库：diagnoses 一行（result_json 含画像/抽样/推荐），且不新增 attempt ---
+10	90	25	427	2026-09-24 09:38:59.139
+0.1	"待加强"	NULL	先从第 1 关开始打基础，按地图解锁节奏一关关来
+[CHECK] 诊断不建 attempt ✅ 期望=4 实际=4
+
+--- 08-4 诊断前后解锁链/进度不变（推荐制，不强制起始关卡）---
+解锁快照： [(3, 1, True, False), (3, 2, False, False), (3, 3, False, False), (3, 4, False, False), (3, 5, False, False), (3, 6, False, False), (9, 1, True, False), (9, 2, False, False), (9, 3, False, False), (9, 4, False, False), (9, 5, False, True), (9, 6, True, False), (9, 7, False, False), (10, 1, True, False), (10, 2, False, False), (10, 3, False, False), (10, 4, False, False), (10, 5, False, False), (10, 6, False, False), (10, 7, False, False), (11, 1, True, False), (11, 2, False, False), (11, 3, False, False), (11, 4, False, False)]
+recommendedLevelId = 25 | xpTotal = 805
+[CHECK] 诊断后解锁状态不变 ✅ 期望=[(3, 1, True, False), (3, 2, False, False), (3, 3, False, False), (3, 4, False, False), (3, 5, False, False), (3, 6, False, False), (9, 1, True, False), (9, 2, False, False), (9, 3, False, False), (9, 4, False, False), (9, 5, False, True), (9, 6, True, False), (9, 7, False, False), (10, 1, True, False), (10, 2, False, False), (10, 3, False, False), (10, 4, False, False), (10, 5, False, False), (10, 6, False, False), (10, 7, False, False), (11, 1, True, False), (11, 2, False, False), (11, 3, False, False), (11, 4, False, False)] 实际=[(3, 1, True, False), (3, 2, False, False), (3, 3, False, False), (3, 4, False, False), (3, 5, False, False), (3, 6, False, False), (9, 1, True, False), (9, 2, False, False), (9, 3, False, False), (9, 4, False, False), (9, 5, False, True), (9, 6, True, False), (9, 7, False, False), (10, 1, True, False), (10, 2, False, False), (10, 3, False, False), (10, 4, False, False), (10, 5, False, False), (10, 6, False, False), (10, 7, False, False), (11, 1, True, False), (11, 2, False, False), (11, 3, False, False), (11, 4, False, False)]
+[CHECK] 诊断不改总分 ✅ 期望=805 实际=805

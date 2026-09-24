@@ -1,0 +1,32 @@
+
+########## 01 全仓单测（go test ./... -count=1 -v）：S5 改动不许碰坏 S0~S4 ##########
+[build] go build ./... 退出码 0
+
+--- go test ./... -v -count=1 （-v 是为了数用例条数；包级结果在最后）---
+?   	cet46/server/cmd/import-users	[no test files]
+?   	cet46/server/cmd/migrate	[no test files]
+?   	cet46/server/cmd/qbank	[no test files]
+?   	cet46/server/cmd/seed-teacher	[no test files]
+?   	cet46/server/cmd/server	[no test files]
+ok  	cet46/server/internal/auth	2.439s
+ok  	cet46/server/internal/config	0.995s
+ok  	cet46/server/internal/database	2.360s
+?   	cet46/server/internal/dto	[no test files]
+ok  	cet46/server/internal/exam	1.106s
+?   	cet46/server/internal/handler	[no test files]
+?   	cet46/server/internal/middleware	[no test files]
+ok  	cet46/server/internal/model	1.126s
+?   	cet46/server/internal/pkg/apperror	[no test files]
+?   	cet46/server/internal/pkg/response	[no test files]
+ok  	cet46/server/internal/qbank	1.612s
+ok  	cet46/server/internal/quiz	1.320s
+ok  	cet46/server/internal/roster	1.486s
+ok  	cet46/server/internal/router	37.822s
+ok  	cet46/server/internal/service	14.884s
+?   	cet46/server/internal/testsupport	[no test files]
+
+--- 断言 ---
+[CHECK] 用例通过条数（S4 是 160，S5 新增 9 条：exam 4 + quiz level 2 + 路由 3） ✅ 期望=169 实际=169
+[CHECK] 用例失败条数 0 ✅ 期望=0 实际=0
+[CHECK] ok 包数 10 ✅ 期望=10 实际=10
+[CHECK] 失败包 0 ✅ 期望=0 实际=0

@@ -1,0 +1,2 @@
+{"code":0,"message":"ok","data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEwMCwidW5hbWUiOiJTNVY1Iiwicm9sZSI6InN0dWRlbnQiLCJpc3MiOiJjZXQ0NiIsInN1YiI6IjEwMCIsImV4cCI6MTc5MDgyODE2MCwiaWF0IjoxNzkwMjIzMzYwfQ.eVg2zgOw3hQqKMqjoVTIHOy6tAJ2mro7eFKes-mot6w","expiresIn":604800,"mustChangePwd":false,"user":{"id":100,"username":"S5V5","realName":"S5演示学生","role":"student","avatar":"","classId":1,"target":"4","lv":1,"streak":0,"mustChangePwd":false}}}
+[HTTP 200]

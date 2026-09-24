@@ -1,0 +1,2 @@
+{"code":0,"message":"ok","data":{"id":633,"levelId":75,"band":"4","type":"cloze","stem":"The team (26) the village and the road had been (27) by the storm, so trucks had to (28) a longer route.","script":"","options":["village","reached","blocked","take","damaged","seen","decided","supplies","cleared","appeared","taught","became","rose","told","found"],"answerIdx":"0,1,2","tip":"演示用考点","exp":"演示用解析：整篇形态（无中文标记）一次答 3 空，答案序列按空号顺序。","knowledgeTag":"演示考点","difficulty":1,"enabled":true,"listenSubtype":"","createdAt":"2026-09-24 10:08:43"}}
+[HTTP 200]
