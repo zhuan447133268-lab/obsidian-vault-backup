@@ -1,0 +1,368 @@
+{
+ "tag": "wrong",
+ "user": "S6V6B",
+ "answer": "wrong",
+ "levels": [
+  {
+   "levelId": 25,
+   "levelName": "第 1 关 · 高频词",
+   "isBoss": false,
+   "questionCount": 5,
+   "estimatedMinutes": 7,
+   "shots": [
+    "shot-wrong-L25-preview.png",
+    "shot-wrong-L25-question.png",
+    "shot-wrong-L25-feedback-no.png",
+    "shot-wrong-L25-settlement-fail.png"
+   ],
+   "previewText": "🎯 四级 · 第 1 关 · 高频词 校园生活 · 词汇 5 本关题数 7 约几分钟 08:00 限时 3 颗爱心 本关 5 题 · 约 7 分钟；答错 3 题本次闯关结束。 开始答题 → 返回地图 🗺️",
+   "attemptId": 180,
+   "resumed": false,
+   "shuffleSeed": 1012118449701915820,
+   "questionIds": [
+    265,
+    266,
+    267,
+    268,
+    269
+   ],
+   "livesOnPaper": 3,
+   "bands": [
+    "4"
+   ],
+   "submits": [
+    {
+     "no": 1,
+     "questionId": 265,
+     "pickedIdx": "3",
+     "isCorrect": false,
+     "correctIdx": "2",
+     "xp": {
+      "base": 0,
+      "speed": 0,
+      "combo": 0
+     },
+     "streak": 0,
+     "livesLeft": 2,
+     "matched": 0,
+     "seqLen": 1,
+     "type": "vocab",
+     "tip": "accommodation = 住宿，开学找房是校园高频场景",
+     "exp": "句意是「学期开始前，要在校园附近找住宿」。accommodation = 住宿；application 是「申请」，appointment 是「预约/约会」，argument 是「争论」，都搭不上「找地方住」的语境。",
+     "progress": {
+      "answered": 1,
+      "correct": 0,
+      "wrong": 1,
+      "total": 5,
+      "livesLeft": 2,
+      "streak": 0
+     },
+     "status": "in_progress"
+    },
+    {
+     "no": 2,
+     "questionId": 266,
+     "pickedIdx": "1",
+     "isCorrect": false,
+     "correctIdx": "0",
+     "xp": {
+      "base": 0,
+      "speed": 0,
+      "combo": 0
+     },
+     "streak": 0,
+     "livesLeft": 1,
+     "matched": 0,
+     "seqLen": 1,
+     "type": "vocab",
+     "tip": "analyze data = 分析数据，论文高频动词",
+     "exp": "后面 before drawing any conclusions（下任何结论之前）提示动作是「分析数据」：analyze the data。apologize 道歉、announce 宣布、arrange 安排，都不能接 data 表达这个意思。",
+     "progress": {
+      "answered": 2,
+      "correct": 0,
+      "wrong": 2,
+      "total": 5,
+      "livesLeft": 1,
+      "streak": 0
+     },
+     "status": "in_progress"
+    },
+    {
+     "no": 3,
+     "questionId": 267,
+     "pickedIdx": "2",
+     "isCorrect": false,
+     "correctIdx": "1",
+     "xp": {
+      "base": 0,
+      "speed": 0,
+      "combo": 0
+     },
+     "streak": 0,
+     "livesLeft": 0,
+     "matched": 0,
+     "seqLen": 1,
+     "type": "vocab",
+     "tip": "apply to = 适用于；be applied to 被动",
+     "exp": "apply to = 适用于，规定「适用于」所有人，且要用被动 be applied to；appeal to 是「呼吁/吸引」，appoint 是「任命」，approach 是「接近」，意思都不沾边。这组是 apply 家族形近词辨析。",
+     "progress": {
+      "answered": 3,
+      "correct": 0,
+      "wrong": 3,
+      "total": 5,
+      "livesLeft": 0,
+      "streak": 0
+     },
+     "status": "failed"
+    }
+   ],
+   "startIdx": 0,
+   "answeredBefore": [],
+   "settlement": {
+    "isBoss": false,
+    "correct": 0,
+    "total": 5,
+    "ratio": 0,
+    "stars": 0,
+    "score710": 0,
+    "xpRows": [],
+    "xpTotal": 0,
+    "xpTotalAll": 0,
+    "firstClear": false,
+    "replay": false,
+    "review": [
+     {
+      "no": 1,
+      "questionId": 265,
+      "type": "vocab",
+      "tip": "accommodation = 住宿，开学找房是校园高频场景",
+      "isCorrect": false
+     },
+     {
+      "no": 2,
+      "questionId": 266,
+      "type": "vocab",
+      "tip": "analyze data = 分析数据，论文高频动词",
+      "isCorrect": false
+     },
+     {
+      "no": 3,
+      "questionId": 267,
+      "type": "vocab",
+      "tip": "apply to = 适用于；be applied to 被动",
+      "isCorrect": false
+     }
+    ]
+   },
+   "settleStatus": "failed",
+   "failedAt": 3,
+   "overlay": "fail",
+   "overlayText": "💫 差一点点！ 爱心用完了。别灰心——错题已经收进复盘关， 升级打怪本来就要二刷。 本次得分 0（已作废） 原地复活，再来一次 🔁 先回地图 🗺️",
+   "overlayStars": "",
+   "overlayXpDetail": [],
+   "overlayReview": [],
+   "overlayScore710": ""
+  }
+ ],
+ "targetBefore": "英语四级 · 冲关中 · 切换",
+ "shots": [],
+ "checks": [
+  {
+   "desc": "L25 进关预告写明「本关 X 题」",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L25 进关预告写明「约 X 分钟」",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L25 卷面题数 == 进关预告题数",
+   "want": "5",
+   "got": "5",
+   "ok": true
+  },
+  {
+   "desc": "L25 卷面不下发答案/解析/原文",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L25 库里作答行数 == 卷面 answered 数（无脚本外写入）",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "L25 第1题 反馈条样式与判分一致（fbno）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L25 第1题 反馈条带 💡 解析",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L25 第1题 反馈条解析与服务端回执逐字一致",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L25 第1题 答错回执带正确项展示坐标 C",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L25 第1题 爱心文案 == 服务端 livesLeft",
+   "want": "❤️ 2",
+   "got": "❤️ 2",
+   "ok": true
+  },
+  {
+   "desc": "L25 第1题 答错扣一颗心（❤️ 3 → ❤️ 2）",
+   "want": "2",
+   "got": "2",
+   "ok": true
+  },
+  {
+   "desc": "L25 第1题 无连击文案",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L25 第2题 反馈条样式与判分一致（fbno）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L25 第2题 反馈条带 💡 解析",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L25 第2题 反馈条解析与服务端回执逐字一致",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L25 第2题 答错回执带正确项展示坐标 A",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L25 第2题 爱心文案 == 服务端 livesLeft",
+   "want": "❤️ 1",
+   "got": "❤️ 1",
+   "ok": true
+  },
+  {
+   "desc": "L25 第2题 答错扣一颗心（❤️ 2 → ❤️ 1）",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "L25 第2题 无连击文案",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L25 第3题 反馈条样式与判分一致（fbno）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L25 第3题 反馈条带 💡 解析",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L25 第3题 反馈条解析与服务端回执逐字一致",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L25 第3题 答错回执带正确项展示坐标 B",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L25 第3题 爱心文案 == 服务端 livesLeft",
+   "want": "❤️ 0",
+   "got": "❤️ 0",
+   "ok": true
+  },
+  {
+   "desc": "L25 第3题 答错扣一颗心（❤️ 1 → ❤️ 0）",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "L25 第3题 无连击文案",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L25 通关后作答行数 == 卷面已答 + 本次脚本提交数",
+   "want": "3",
+   "got": "3",
+   "ok": true
+  },
+  {
+   "desc": "L25 结算层类型 == 服务端回执推导",
+   "want": "fail",
+   "got": "fail",
+   "ok": true
+  },
+  {
+   "desc": "L25 失败层不列逐题回顾（与原型 failOverlay 一致）",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "L25 失败层不列 XP 明细三列（与原型 failOverlay 一致）",
+   "want": "[]",
+   "got": "[]",
+   "ok": true
+  },
+  {
+   "desc": "L25 失败层写明本次得分已作废（净得 0）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  }
+ ],
+ "fails": [],
+ "log": [
+  "== 登录 S6V6B ==",
+  "  · 首进必选：已选英语四级",
+  "  · 顶栏：英语四级 · 冲关中 · 切换",
+  "== 关卡 25 第 1 关 · 高频词（5 题）==",
+  "  [进关预告] 🎯 四级 · 第 1 关 · 高频词 校园生活 · 词汇 5 本关题数 7 约几分钟 08:00 限时 3 颗爱心 本关 5 题 · 约 7 分钟；答错 3 题本次闯关结束。 开始答题 → 返回地图 🗺️",
+  "  [卷面] attempt=180 seed=1012118449701915820 题数=5 band=['4'] 首题=265 vocab",
+  "  [爱心扣完] 第 3 题答错后归零，点「继续」进失败结算",
+  "  [结算] type=fail stars= 710= 明细=[]"
+ ]
+}

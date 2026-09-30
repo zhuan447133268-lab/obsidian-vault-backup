@@ -1,0 +1,24 @@
+
+########## 11 验收③ 390px 并排图（左=真机实录 · 右=原型 quiz.html）+ 尺寸逐张核对 ##########
+cmp-390-question.png: (390, 844) | (480, 1000) -> (942, 1044)
+  左=shots\shot-chain-L25-question.png  右=shots\proto-question.png
+cmp-390-feedback-ok.png: (390, 844) | (480, 1000) -> (942, 1044)
+  左=shots\shot-chain-L25-feedback-ok.png  右=shots\proto-feedback-ok.png
+cmp-390-feedback-no.png: (390, 844) | (480, 1000) -> (942, 1044)
+  左=shots\shot-failmixed-L25-feedback-no.png  右=shots\proto-feedback-no.png
+cmp-390-settlement.png: (390, 844) | (480, 1000) -> (942, 1044)
+  左=shots\shot-chain-L25-settlement-clear.png  右=shots\proto-settlement-clear.png
+cmp-390-fail.png: (390, 844) | (480, 1000) -> (942, 1044)
+  左=shots\shot-failmixed-L25-settlement-fail.png  右=shots\proto-settlement-fail.png
+cmp-390-boss.png: (390, 844) | (480, 1000) -> (942, 1044)
+  左=shots\shot-chain-L30-settlement-boss.png  右=shots\proto-settlement-boss.png
+
+--- 11-2 尺寸逐张核对（PNG 头里的真实尺寸，不是文件名说了算）---
+shots/shot-chain-L25-question.png                    (390, 844)
+shots/shot-chain-L25-feedback-ok.png                 (390, 844)
+shots/shot-failmixed-L25-feedback-no.png             (390, 844)
+shots/shot-chain-L25-settlement-clear.png            (390, 844)
+shots/shot-failmixed-L25-settlement-fail.png         (390, 844)
+shots/shot-chain-L30-settlement-boss.png             (390, 844)
+OK
+[CHECK] 六张真机截图都是 390×844（验收③的 390px 口径） ✅ 期望=OK 实际=OK

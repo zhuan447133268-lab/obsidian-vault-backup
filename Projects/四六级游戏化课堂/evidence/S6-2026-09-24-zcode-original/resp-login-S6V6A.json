@@ -1,0 +1,2 @@
+{"code":0,"message":"ok","data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEwMSwidW5hbWUiOiJTNlY2QSIsInJvbGUiOiJzdHVkZW50IiwiaXNzIjoiY2V0NDYiLCJzdWIiOiIxMDEiLCJleHAiOjE3OTA4NDMxNzQsImlhdCI6MTc5MDIzODM3NH0.s7COe3JlPAZWjBgkQUz97cY1PtvI53KIVVZKlTZqTA8","expiresIn":604800,"mustChangePwd":false,"user":{"id":101,"username":"S6V6A","realName":"S6演示学生","role":"student","avatar":"","classId":1,"target":"4","lv":1,"streak":0,"mustChangePwd":false}}}
+[HTTP 200]

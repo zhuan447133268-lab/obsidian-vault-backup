@@ -1,0 +1,120 @@
+
+########## 09 验收④ 结算 XP 明细 ↔ xp_ledger 对账（基础+速度逐条一致 · 净得=账本净额 · XP 唯一权威=SUM(delta)） ##########
+[LEDGER] 账本对账：用户 S6V6A 在 users 表里（e2e-chain.json） ✅ 期望=True 实际=True
+[LEDGER] S6V6A L25 attempt 171 账本 reason 集合 == 结算明细 ✅ 期望=['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus'] 实际=['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus']
+[LEDGER] S6V6A L25 attempt 171 账本 answer_base 金额 == 结算明细 ✅ 期望=100 实际=100
+[LEDGER] S6V6A L25 attempt 171 账本 answer_combo 金额 == 结算明细 ✅ 期望=50 实际=50
+[LEDGER] S6V6A L25 attempt 171 账本 answer_speed 金额 == 结算明细 ✅ 期望=50 实际=50
+[LEDGER] S6V6A L25 attempt 171 账本 level_clear 金额 == 结算明细 ✅ 期望=30 实际=30
+[LEDGER] S6V6A L25 attempt 171 账本 star3_bonus 金额 == 结算明细 ✅ 期望=20 实际=20
+[LEDGER] S6V6A L25 attempt 171 验收④ 结算「基础分」行 == 账本 answer_base 合计 ✅ 期望=100 实际=100
+[LEDGER] S6V6A L25 attempt 171 验收④ 结算「速度加成」行 == 账本 answer_speed 合计 ✅ 期望=50 实际=50
+[LEDGER] S6V6A L25 attempt 171 账本基础分逐题 20（5 条 == 答对 5 题） ✅ 期望=[20, 20, 20, 20, 20] 实际=[20, 20, 20, 20, 20]
+[LEDGER] S6V6A L25 attempt 171 账本速度加成逐题 0..10 ✅ 期望=True 实际=True
+[LEDGER] S6V6A L25 attempt 171 结算净得 == 账本净额 ✅ 期望=250 实际=250
+[LEDGER] S6V6A L26 attempt 172 账本 reason 集合 == 结算明细 ✅ 期望=['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus'] 实际=['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus']
+[LEDGER] S6V6A L26 attempt 172 账本 answer_base 金额 == 结算明细 ✅ 期望=100 实际=100
+[LEDGER] S6V6A L26 attempt 172 账本 answer_combo 金额 == 结算明细 ✅ 期望=50 实际=50
+[LEDGER] S6V6A L26 attempt 172 账本 answer_speed 金额 == 结算明细 ✅ 期望=50 实际=50
+[LEDGER] S6V6A L26 attempt 172 账本 level_clear 金额 == 结算明细 ✅ 期望=30 实际=30
+[LEDGER] S6V6A L26 attempt 172 账本 star3_bonus 金额 == 结算明细 ✅ 期望=20 实际=20
+[LEDGER] S6V6A L26 attempt 172 验收④ 结算「基础分」行 == 账本 answer_base 合计 ✅ 期望=100 实际=100
+[LEDGER] S6V6A L26 attempt 172 验收④ 结算「速度加成」行 == 账本 answer_speed 合计 ✅ 期望=50 实际=50
+[LEDGER] S6V6A L26 attempt 172 账本基础分逐题 20（5 条 == 答对 5 题） ✅ 期望=[20, 20, 20, 20, 20] 实际=[20, 20, 20, 20, 20]
+[LEDGER] S6V6A L26 attempt 172 账本速度加成逐题 0..10 ✅ 期望=True 实际=True
+[LEDGER] S6V6A L26 attempt 172 结算净得 == 账本净额 ✅ 期望=250 实际=250
+[LEDGER] S6V6A L27 attempt 173 账本 reason 集合 == 结算明细 ✅ 期望=['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus'] 实际=['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus']
+[LEDGER] S6V6A L27 attempt 173 账本 answer_base 金额 == 结算明细 ✅ 期望=100 实际=100
+[LEDGER] S6V6A L27 attempt 173 账本 answer_combo 金额 == 结算明细 ✅ 期望=50 实际=50
+[LEDGER] S6V6A L27 attempt 173 账本 answer_speed 金额 == 结算明细 ✅ 期望=50 实际=50
+[LEDGER] S6V6A L27 attempt 173 账本 level_clear 金额 == 结算明细 ✅ 期望=30 实际=30
+[LEDGER] S6V6A L27 attempt 173 账本 star3_bonus 金额 == 结算明细 ✅ 期望=20 实际=20
+[LEDGER] S6V6A L27 attempt 173 验收④ 结算「基础分」行 == 账本 answer_base 合计 ✅ 期望=100 实际=100
+[LEDGER] S6V6A L27 attempt 173 验收④ 结算「速度加成」行 == 账本 answer_speed 合计 ✅ 期望=50 实际=50
+[LEDGER] S6V6A L27 attempt 173 账本基础分逐题 20（5 条 == 答对 5 题） ✅ 期望=[20, 20, 20, 20, 20] 实际=[20, 20, 20, 20, 20]
+[LEDGER] S6V6A L27 attempt 173 账本速度加成逐题 0..10 ✅ 期望=True 实际=True
+[LEDGER] S6V6A L27 attempt 173 结算净得 == 账本净额 ✅ 期望=250 实际=250
+[LEDGER] S6V6A L28 attempt 174 账本 reason 集合 == 结算明细 ✅ 期望=['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus'] 实际=['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus']
+[LEDGER] S6V6A L28 attempt 174 账本 answer_base 金额 == 结算明细 ✅ 期望=100 实际=100
+[LEDGER] S6V6A L28 attempt 174 账本 answer_combo 金额 == 结算明细 ✅ 期望=50 实际=50
+[LEDGER] S6V6A L28 attempt 174 账本 answer_speed 金额 == 结算明细 ✅ 期望=50 实际=50
+[LEDGER] S6V6A L28 attempt 174 账本 level_clear 金额 == 结算明细 ✅ 期望=30 实际=30
+[LEDGER] S6V6A L28 attempt 174 账本 star3_bonus 金额 == 结算明细 ✅ 期望=20 实际=20
+[LEDGER] S6V6A L28 attempt 174 验收④ 结算「基础分」行 == 账本 answer_base 合计 ✅ 期望=100 实际=100
+[LEDGER] S6V6A L28 attempt 174 验收④ 结算「速度加成」行 == 账本 answer_speed 合计 ✅ 期望=50 实际=50
+[LEDGER] S6V6A L28 attempt 174 账本基础分逐题 20（5 条 == 答对 5 题） ✅ 期望=[20, 20, 20, 20, 20] 实际=[20, 20, 20, 20, 20]
+[LEDGER] S6V6A L28 attempt 174 账本速度加成逐题 0..10 ✅ 期望=True 实际=True
+[LEDGER] S6V6A L28 attempt 174 结算净得 == 账本净额 ✅ 期望=250 实际=250
+[LEDGER] S6V6A L29 attempt 175 账本 reason 集合 == 结算明细 ✅ 期望=['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus'] 实际=['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus']
+[LEDGER] S6V6A L29 attempt 175 账本 answer_base 金额 == 结算明细 ✅ 期望=100 实际=100
+[LEDGER] S6V6A L29 attempt 175 账本 answer_combo 金额 == 结算明细 ✅ 期望=50 实际=50
+[LEDGER] S6V6A L29 attempt 175 账本 answer_speed 金额 == 结算明细 ✅ 期望=50 实际=50
+[LEDGER] S6V6A L29 attempt 175 账本 level_clear 金额 == 结算明细 ✅ 期望=30 实际=30
+[LEDGER] S6V6A L29 attempt 175 账本 star3_bonus 金额 == 结算明细 ✅ 期望=20 实际=20
+[LEDGER] S6V6A L29 attempt 175 验收④ 结算「基础分」行 == 账本 answer_base 合计 ✅ 期望=100 实际=100
+[LEDGER] S6V6A L29 attempt 175 验收④ 结算「速度加成」行 == 账本 answer_speed 合计 ✅ 期望=50 实际=50
+[LEDGER] S6V6A L29 attempt 175 账本基础分逐题 20（5 条 == 答对 5 题） ✅ 期望=[20, 20, 20, 20, 20] 实际=[20, 20, 20, 20, 20]
+[LEDGER] S6V6A L29 attempt 175 账本速度加成逐题 0..10 ✅ 期望=True 实际=True
+[LEDGER] S6V6A L29 attempt 175 结算净得 == 账本净额 ✅ 期望=250 实际=250
+[LEDGER] S6V6A L30 attempt 176 账本 reason 集合 == 结算明细 ✅ 期望=['boss_correct', 'boss_perfect'] 实际=['boss_correct', 'boss_perfect']
+[LEDGER] S6V6A L30 attempt 176 账本 boss_correct 金额 == 结算明细 ✅ 期望=200 实际=200
+[LEDGER] S6V6A L30 attempt 176 账本 boss_perfect 金额 == 结算明细 ✅ 期望=50 实际=50
+[LEDGER] S6V6A L30 attempt 176 验收④ 结算「基础分」行 == 账本 answer_base 合计 ✅ 期望=0 实际=0
+[LEDGER] S6V6A L30 attempt 176 验收④ 结算「速度加成」行 == 账本 answer_speed 合计 ✅ 期望=0 实际=0
+[LEDGER] S6V6A L30 attempt 176 账本 Boss 每题答对 25（8 条 == 答对 8 题） ✅ 期望=[25, 25, 25, 25, 25, 25, 25, 25] 实际=[25, 25, 25, 25, 25, 25, 25, 25]
+[LEDGER] S6V6A L30 attempt 176 结算净得 == 账本净额 ✅ 期望=250 实际=250
+[LEDGER] 账本对账：用户 S6V6A 在 users 表里（e2e-replay.json） ✅ 期望=True 实际=True
+[LEDGER] S6V6A L25 attempt 177 账本 reason 集合 == 结算明细 ✅ 期望=['answer_base', 'answer_combo', 'answer_speed'] 实际=['answer_base', 'answer_combo', 'answer_speed']
+[LEDGER] S6V6A L25 attempt 177 账本 answer_base 金额 == 结算明细 ✅ 期望=100 实际=100
+[LEDGER] S6V6A L25 attempt 177 账本 answer_combo 金额 == 结算明细 ✅ 期望=50 实际=50
+[LEDGER] S6V6A L25 attempt 177 账本 answer_speed 金额 == 结算明细 ✅ 期望=50 实际=50
+[LEDGER] S6V6A L25 attempt 177 验收④ 结算「基础分」行 == 账本 answer_base 合计 ✅ 期望=100 实际=100
+[LEDGER] S6V6A L25 attempt 177 验收④ 结算「速度加成」行 == 账本 answer_speed 合计 ✅ 期望=50 实际=50
+[LEDGER] S6V6A L25 attempt 177 账本基础分逐题 20（5 条 == 答对 5 题） ✅ 期望=[20, 20, 20, 20, 20] 实际=[20, 20, 20, 20, 20]
+[LEDGER] S6V6A L25 attempt 177 账本速度加成逐题 0..10 ✅ 期望=True 实际=True
+[LEDGER] S6V6A L25 attempt 177 结算净得 == 账本净额 ✅ 期望=200 实际=200
+[LEDGER] 账本对账：用户 S6V6A 在 users 表里（e2e-realpaper.json） ✅ 期望=True 实际=True
+[LEDGER] S6V6A L38 attempt 178 账本 reason 集合 == 结算明细 ✅ 期望=['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus'] 实际=['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus']
+[LEDGER] S6V6A L38 attempt 178 账本 answer_base 金额 == 结算明细 ✅ 期望=200 实际=200
+[LEDGER] S6V6A L38 attempt 178 账本 answer_combo 金额 == 结算明细 ✅ 期望=225 实际=225
+[LEDGER] S6V6A L38 attempt 178 账本 answer_speed 金额 == 结算明细 ✅ 期望=99 实际=99
+[LEDGER] S6V6A L38 attempt 178 账本 level_clear 金额 == 结算明细 ✅ 期望=30 实际=30
+[LEDGER] S6V6A L38 attempt 178 账本 star3_bonus 金额 == 结算明细 ✅ 期望=20 实际=20
+[LEDGER] S6V6A L38 attempt 178 验收④ 结算「基础分」行 == 账本 answer_base 合计 ✅ 期望=200 实际=200
+[LEDGER] S6V6A L38 attempt 178 验收④ 结算「速度加成」行 == 账本 answer_speed 合计 ✅ 期望=99 实际=99
+[LEDGER] S6V6A L38 attempt 178 账本基础分逐题 20（10 条 == 答对 10 题） ✅ 期望=[20, 20, 20, 20, 20, 20, 20, 20, 20, 20] 实际=[20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+[LEDGER] S6V6A L38 attempt 178 账本速度加成逐题 0..10 ✅ 期望=True 实际=True
+[LEDGER] S6V6A L38 attempt 178 结算净得 == 账本净额 ✅ 期望=574 实际=574
+[LEDGER] S6V6A L39 attempt 179 账本 reason 集合 == 结算明细 ✅ 期望=['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus'] 实际=['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus']
+[LEDGER] S6V6A L39 attempt 179 账本 answer_base 金额 == 结算明细 ✅ 期望=200 实际=200
+[LEDGER] S6V6A L39 attempt 179 账本 answer_combo 金额 == 结算明细 ✅ 期望=225 实际=225
+[LEDGER] S6V6A L39 attempt 179 账本 answer_speed 金额 == 结算明细 ✅ 期望=100 实际=100
+[LEDGER] S6V6A L39 attempt 179 账本 level_clear 金额 == 结算明细 ✅ 期望=30 实际=30
+[LEDGER] S6V6A L39 attempt 179 账本 star3_bonus 金额 == 结算明细 ✅ 期望=20 实际=20
+[LEDGER] S6V6A L39 attempt 179 验收④ 结算「基础分」行 == 账本 answer_base 合计 ✅ 期望=200 实际=200
+[LEDGER] S6V6A L39 attempt 179 验收④ 结算「速度加成」行 == 账本 answer_speed 合计 ✅ 期望=100 实际=100
+[LEDGER] S6V6A L39 attempt 179 账本基础分逐题 20（10 条 == 答对 10 题） ✅ 期望=[20, 20, 20, 20, 20, 20, 20, 20, 20, 20] 实际=[20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+[LEDGER] S6V6A L39 attempt 179 账本速度加成逐题 0..10 ✅ 期望=True 实际=True
+[LEDGER] S6V6A L39 attempt 179 结算净得 == 账本净额 ✅ 期望=575 实际=575
+[LEDGER] 账本对账：用户 S6V6B 在 users 表里（e2e-wrong.json） ✅ 期望=True 实际=True
+[LEDGER] S6V6B L25 attempt 180 账本 reason 集合 == 结算明细 ✅ 期望=[] 实际=[]
+[LEDGER] S6V6B L25 attempt 180 结算净得 == 账本净额 ✅ 期望=0 实际=0
+[LEDGER] S6V6B L25 attempt 180 失败层账本净额归零（撤销行冲回已入账得分） ✅ 期望=0 实际=0
+[LEDGER] S6V6B L25 attempt 180 失败层不写通关/三星奖励行 ✅ 期望=[] 实际=[]
+[LEDGER] 账本对账：用户 S6V6B 在 users 表里（e2e-failmixed.json） ✅ 期望=True 实际=True
+[LEDGER] S6V6B L25 attempt 181 账本 reason 集合 == 结算明细 ✅ 期望=['answer_base', 'answer_combo', 'answer_speed', 'attempt_voided'] 实际=['answer_base', 'answer_combo', 'answer_speed', 'attempt_voided']
+[LEDGER] S6V6B L25 attempt 181 账本 answer_base 金额 == 结算明细 ✅ 期望=40 实际=40
+[LEDGER] S6V6B L25 attempt 181 账本 answer_combo 金额 == 结算明细 ✅ 期望=5 实际=5
+[LEDGER] S6V6B L25 attempt 181 账本 answer_speed 金额 == 结算明细 ✅ 期望=20 实际=20
+[LEDGER] S6V6B L25 attempt 181 账本 attempt_voided 金额 == 结算明细 ✅ 期望=-65 实际=-65
+[LEDGER] S6V6B L25 attempt 181 结算净得 == 账本净额 ✅ 期望=0 实际=0
+[LEDGER] S6V6B L25 attempt 181 失败层账本净额归零（撤销行冲回已入账得分） ✅ 期望=0 实际=0
+[LEDGER] S6V6B L25 attempt 181 失败层已入账被显式冲回（65 → -65） ✅ 期望=-65 实际=-65
+[LEDGER] S6V6B L25 attempt 181 失败层不写通关/三星奖励行 ✅ 期望=[] 实际=[]
+[LEDGER] 账本对账：用户 S6V6C 在 users 表里（e2e-target6.json） ✅ 期望=True 实际=True
+[LEDGER] S6V6C 切换后 users.target 落库为 6 ✅ 期望=6 实际=6
+[LEDGER] S6V6A 结算累计 XP == SELECT SUM(delta)（attempt 179 结算口径） ✅ 期望=2849 实际=2849
+[LEDGER] S6V6B 结算累计 XP == SELECT SUM(delta)（attempt 181 结算口径） ✅ 期望=0 实际=0
+[LEDGER] L25 四级卷与六级卷题目集合不相交 ✅ 期望=0 实际=0
+
+【账本对账汇总】共对账 11 次结算 · 116 条断言 · 失败 0 条

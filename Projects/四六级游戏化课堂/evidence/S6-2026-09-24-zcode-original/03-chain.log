@@ -1,0 +1,356 @@
+
+########## 03 验收① E2E 一镜到底（对路）：四级 L25→L30，进关预告→答题→结算→下一关 ##########
+== 登录 S6V6A ==
+  · 首进必选：已选英语四级
+  · 顶栏：英语四级 · 冲关中 · 切换
+== 关卡 25 第 1 关 · 高频词（5 题）==
+  [进关预告] 🎯 四级 · 第 1 关 · 高频词 校园生活 · 词汇 5 本关题数 7 约几分钟 08:00 限时 3 颗爱心 本关 5 题 · 约 7 分钟；答错 3 题本次闯关结束。 开始答题 → 返回地图 🗺️
+[CHECK] L25 进关预告写明「本关 X 题」 ✅ 期望=True 实际=True
+[CHECK] L25 进关预告写明「约 X 分钟」 ✅ 期望=True 实际=True
+    · 截图 shot-chain-L25-preview.png
+[CHECK] L25 卷面题数 == 进关预告题数 ✅ 期望=5 实际=5
+[CHECK] L25 卷面不下发答案/解析/原文 ✅ 期望=True 实际=True
+  [卷面] attempt=171 seed=6934894859079747229 题数=5 band=['4'] 首题=265 vocab
+    · 截图 shot-chain-L25-question.png
+[CHECK] L25 库里作答行数 == 卷面 answered 数（无脚本外写入） ✅ 期望=0 实际=0
+[CHECK] L25 第1题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L25 第1题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L25 第1题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L25 第1题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L25 第1题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L25 第1题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L25 第1题 无连击文案 ✅ 期望=True 实际=True
+    · 截图 shot-chain-L25-feedback-ok.png
+[CHECK] L25 第2题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L25 第2题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L25 第2题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L25 第2题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L25 第2题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L25 第2题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L25 第2题 连击文案（🔥 2 连击） ✅ 期望=True 实际=True
+[CHECK] L25 第3题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L25 第3题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L25 第3题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L25 第3题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L25 第3题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L25 第3题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L25 第3题 连击文案（🔥 3 连击） ✅ 期望=True 实际=True
+[CHECK] L25 第4题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L25 第4题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L25 第4题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L25 第4题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L25 第4题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L25 第4题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L25 第4题 连击文案（🔥 4 连击） ✅ 期望=True 实际=True
+[CHECK] L25 第5题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L25 第5题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L25 第5题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L25 第5题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L25 第5题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L25 第5题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L25 第5题 连击文案（🔥 5 连击） ✅ 期望=True 实际=True
+    · 截图 shot-chain-L25-settlement-clear.png
+  [结算] type=clear stars=★★★ 710= 明细=['答题基础分 +100', '速度加成 +50', '连击加成 +50', '通关奖励 +30', '三星奖励 +20']
+[CHECK] L25 通关后作答行数 == 卷面已答 + 本次脚本提交数 ✅ 期望=5 实际=5
+[CHECK] L25 结算层类型 == 服务端回执推导 ✅ 期望=clear 实际=clear
+[CHECK] L25 结算明细三列 == 服务端 xpRows（答题基础分 +100/速度加成 +50/连击加成 +50/通关奖励 +30/三星奖励 +20） ✅ 期望=['答题基础分 +100', '速度加成 +50', '连击加成 +50', '通关奖励 +30', '三星奖励 +20'] 实际=['答题基础分 +100', '速度加成 +50', '连击加成 +50', '通关奖励 +30', '三星奖励 +20']
+[CHECK] L25 结算逐题回顾行数 == 服务端 review 行数 ✅ 期望=5 实际=5
+[CHECK] L25 结算星级 == 服务端 stars ✅ 期望=★★★ 实际=★★★
+[CHECK] L25 结算页有「下一关」按钮 ✅ 期望=next 实际=next
+[CHECK] 下一关落到 L26 第 2 关 · 语法陷阱 ✅ 期望=True 实际=True
+== 关卡 26 第 2 关 · 语法陷阱（5 题）==
+  [进关预告] 🎯 四级 · 第 2 关 · 语法陷阱 校园生活 · 语法 5 本关题数 7 约几分钟 08:00 限时 3 颗爱心 本关 5 题 · 约 7 分钟；答错 3 题本次闯关结束。 开始答题 → 返回地图 🗺️
+[CHECK] L26 进关预告写明「本关 X 题」 ✅ 期望=True 实际=True
+[CHECK] L26 进关预告写明「约 X 分钟」 ✅ 期望=True 实际=True
+    · 截图 shot-chain-L26-preview.png
+[CHECK] L26 卷面题数 == 进关预告题数 ✅ 期望=5 实际=5
+[CHECK] L26 卷面不下发答案/解析/原文 ✅ 期望=True 实际=True
+  [卷面] attempt=172 seed=2802295921233450288 题数=5 band=['4'] 首题=270 grammar
+    · 截图 shot-chain-L26-question.png
+[CHECK] L26 库里作答行数 == 卷面 answered 数（无脚本外写入） ✅ 期望=0 实际=0
+[CHECK] L26 第1题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L26 第1题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L26 第1题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L26 第1题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L26 第1题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L26 第1题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L26 第1题 无连击文案 ✅ 期望=True 实际=True
+    · 截图 shot-chain-L26-feedback-ok.png
+[CHECK] L26 第2题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L26 第2题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L26 第2题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L26 第2题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L26 第2题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L26 第2题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L26 第2题 连击文案（🔥 2 连击） ✅ 期望=True 实际=True
+[CHECK] L26 第3题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L26 第3题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L26 第3题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L26 第3题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L26 第3题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L26 第3题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L26 第3题 连击文案（🔥 3 连击） ✅ 期望=True 实际=True
+[CHECK] L26 第4题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L26 第4题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L26 第4题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L26 第4题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L26 第4题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L26 第4题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L26 第4题 连击文案（🔥 4 连击） ✅ 期望=True 实际=True
+[CHECK] L26 第5题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L26 第5题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L26 第5题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L26 第5题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L26 第5题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L26 第5题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L26 第5题 连击文案（🔥 5 连击） ✅ 期望=True 实际=True
+    · 截图 shot-chain-L26-settlement-clear.png
+  [结算] type=clear stars=★★★ 710= 明细=['答题基础分 +100', '速度加成 +50', '连击加成 +50', '通关奖励 +30', '三星奖励 +20']
+[CHECK] L26 通关后作答行数 == 卷面已答 + 本次脚本提交数 ✅ 期望=5 实际=5
+[CHECK] L26 结算层类型 == 服务端回执推导 ✅ 期望=clear 实际=clear
+[CHECK] L26 结算明细三列 == 服务端 xpRows（答题基础分 +100/速度加成 +50/连击加成 +50/通关奖励 +30/三星奖励 +20） ✅ 期望=['答题基础分 +100', '速度加成 +50', '连击加成 +50', '通关奖励 +30', '三星奖励 +20'] 实际=['答题基础分 +100', '速度加成 +50', '连击加成 +50', '通关奖励 +30', '三星奖励 +20']
+[CHECK] L26 结算逐题回顾行数 == 服务端 review 行数 ✅ 期望=5 实际=5
+[CHECK] L26 结算星级 == 服务端 stars ✅ 期望=★★★ 实际=★★★
+[CHECK] L26 结算页有「下一关」按钮 ✅ 期望=next 实际=next
+[CHECK] 下一关落到 L27 第 3 关 · 阅读速攻 ✅ 期望=True 实际=True
+== 关卡 27 第 3 关 · 阅读速攻（5 题）==
+  [进关预告] 🎯 四级 · 第 3 关 · 阅读速攻 校园生活 · 阅读 5 本关题数 7 约几分钟 09:00 限时 3 颗爱心 本关 5 题 · 约 7 分钟；答错 3 题本次闯关结束。 开始答题 → 返回地图 🗺️
+[CHECK] L27 进关预告写明「本关 X 题」 ✅ 期望=True 实际=True
+[CHECK] L27 进关预告写明「约 X 分钟」 ✅ 期望=True 实际=True
+    · 截图 shot-chain-L27-preview.png
+[CHECK] L27 卷面题数 == 进关预告题数 ✅ 期望=5 实际=5
+[CHECK] L27 卷面不下发答案/解析/原文 ✅ 期望=True 实际=True
+  [卷面] attempt=173 seed=1168919517933714153 题数=5 band=['4'] 首题=275 reading
+    · 截图 shot-chain-L27-question.png
+[CHECK] L27 库里作答行数 == 卷面 answered 数（无脚本外写入） ✅ 期望=0 实际=0
+[CHECK] L27 第1题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L27 第1题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L27 第1题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L27 第1题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L27 第1题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L27 第1题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L27 第1题 无连击文案 ✅ 期望=True 实际=True
+    · 截图 shot-chain-L27-feedback-ok.png
+[CHECK] L27 第2题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L27 第2题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L27 第2题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L27 第2题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L27 第2题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L27 第2题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L27 第2题 连击文案（🔥 2 连击） ✅ 期望=True 实际=True
+[CHECK] L27 第3题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L27 第3题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L27 第3题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L27 第3题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L27 第3题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L27 第3题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L27 第3题 连击文案（🔥 3 连击） ✅ 期望=True 实际=True
+[CHECK] L27 第4题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L27 第4题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L27 第4题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L27 第4题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L27 第4题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L27 第4题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L27 第4题 连击文案（🔥 4 连击） ✅ 期望=True 实际=True
+[CHECK] L27 第5题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L27 第5题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L27 第5题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L27 第5题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L27 第5题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L27 第5题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L27 第5题 连击文案（🔥 5 连击） ✅ 期望=True 实际=True
+    · 截图 shot-chain-L27-settlement-clear.png
+  [结算] type=clear stars=★★★ 710= 明细=['答题基础分 +100', '速度加成 +50', '连击加成 +50', '通关奖励 +30', '三星奖励 +20']
+[CHECK] L27 通关后作答行数 == 卷面已答 + 本次脚本提交数 ✅ 期望=5 实际=5
+[CHECK] L27 结算层类型 == 服务端回执推导 ✅ 期望=clear 实际=clear
+[CHECK] L27 结算明细三列 == 服务端 xpRows（答题基础分 +100/速度加成 +50/连击加成 +50/通关奖励 +30/三星奖励 +20） ✅ 期望=['答题基础分 +100', '速度加成 +50', '连击加成 +50', '通关奖励 +30', '三星奖励 +20'] 实际=['答题基础分 +100', '速度加成 +50', '连击加成 +50', '通关奖励 +30', '三星奖励 +20']
+[CHECK] L27 结算逐题回顾行数 == 服务端 review 行数 ✅ 期望=5 实际=5
+[CHECK] L27 结算星级 == 服务端 stars ✅ 期望=★★★ 实际=★★★
+[CHECK] L27 结算页有「下一关」按钮 ✅ 期望=next 实际=next
+[CHECK] 下一关落到 L28 第 4 关 · 阅读进阶 ✅ 期望=True 实际=True
+== 关卡 28 第 4 关 · 阅读进阶（5 题）==
+  [进关预告] 🎯 四级 · 第 4 关 · 阅读进阶 校园生活 · 阅读 5 本关题数 7 约几分钟 09:00 限时 3 颗爱心 本关 5 题 · 约 7 分钟；答错 3 题本次闯关结束。 开始答题 → 返回地图 🗺️
+[CHECK] L28 进关预告写明「本关 X 题」 ✅ 期望=True 实际=True
+[CHECK] L28 进关预告写明「约 X 分钟」 ✅ 期望=True 实际=True
+    · 截图 shot-chain-L28-preview.png
+[CHECK] L28 卷面题数 == 进关预告题数 ✅ 期望=5 实际=5
+[CHECK] L28 卷面不下发答案/解析/原文 ✅ 期望=True 实际=True
+  [卷面] attempt=174 seed=2601657746969661697 题数=5 band=['4'] 首题=280 reading
+    · 截图 shot-chain-L28-question.png
+[CHECK] L28 库里作答行数 == 卷面 answered 数（无脚本外写入） ✅ 期望=0 实际=0
+[CHECK] L28 第1题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L28 第1题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L28 第1题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L28 第1题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L28 第1题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L28 第1题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L28 第1题 无连击文案 ✅ 期望=True 实际=True
+    · 截图 shot-chain-L28-feedback-ok.png
+[CHECK] L28 第2题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L28 第2题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L28 第2题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L28 第2题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L28 第2题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L28 第2题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L28 第2题 连击文案（🔥 2 连击） ✅ 期望=True 实际=True
+[CHECK] L28 第3题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L28 第3题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L28 第3题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L28 第3题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L28 第3题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L28 第3题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L28 第3题 连击文案（🔥 3 连击） ✅ 期望=True 实际=True
+[CHECK] L28 第4题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L28 第4题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L28 第4题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L28 第4题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L28 第4题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L28 第4题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L28 第4题 连击文案（🔥 4 连击） ✅ 期望=True 实际=True
+[CHECK] L28 第5题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L28 第5题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L28 第5题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L28 第5题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L28 第5题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L28 第5题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L28 第5题 连击文案（🔥 5 连击） ✅ 期望=True 实际=True
+    · 截图 shot-chain-L28-settlement-clear.png
+  [结算] type=clear stars=★★★ 710= 明细=['答题基础分 +100', '速度加成 +50', '连击加成 +50', '通关奖励 +30', '三星奖励 +20']
+[CHECK] L28 通关后作答行数 == 卷面已答 + 本次脚本提交数 ✅ 期望=5 实际=5
+[CHECK] L28 结算层类型 == 服务端回执推导 ✅ 期望=clear 实际=clear
+[CHECK] L28 结算明细三列 == 服务端 xpRows（答题基础分 +100/速度加成 +50/连击加成 +50/通关奖励 +30/三星奖励 +20） ✅ 期望=['答题基础分 +100', '速度加成 +50', '连击加成 +50', '通关奖励 +30', '三星奖励 +20'] 实际=['答题基础分 +100', '速度加成 +50', '连击加成 +50', '通关奖励 +30', '三星奖励 +20']
+[CHECK] L28 结算逐题回顾行数 == 服务端 review 行数 ✅ 期望=5 实际=5
+[CHECK] L28 结算星级 == 服务端 stars ✅ 期望=★★★ 实际=★★★
+[CHECK] L28 结算页有「下一关」按钮 ✅ 期望=next 实际=next
+[CHECK] 下一关落到 L29 第 5 关 · 词汇复盘 ✅ 期望=True 实际=True
+== 关卡 29 第 5 关 · 词汇复盘（5 题）==
+  [进关预告] 🎯 四级 · 第 5 关 · 词汇复盘 校园生活 · 复盘 5 本关题数 7 约几分钟 08:00 限时 3 颗爱心 本关 5 题 · 约 7 分钟；答错 3 题本次闯关结束。 开始答题 → 返回地图 🗺️
+[CHECK] L29 进关预告写明「本关 X 题」 ✅ 期望=True 实际=True
+[CHECK] L29 进关预告写明「约 X 分钟」 ✅ 期望=True 实际=True
+    · 截图 shot-chain-L29-preview.png
+[CHECK] L29 卷面题数 == 进关预告题数 ✅ 期望=5 实际=5
+[CHECK] L29 卷面不下发答案/解析/原文 ✅ 期望=True 实际=True
+  [卷面] attempt=175 seed=8306698731097290876 题数=5 band=['4'] 首题=285 vocab
+    · 截图 shot-chain-L29-question.png
+[CHECK] L29 库里作答行数 == 卷面 answered 数（无脚本外写入） ✅ 期望=0 实际=0
+[CHECK] L29 第1题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L29 第1题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L29 第1题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L29 第1题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L29 第1题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L29 第1题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L29 第1题 无连击文案 ✅ 期望=True 实际=True
+    · 截图 shot-chain-L29-feedback-ok.png
+[CHECK] L29 第2题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L29 第2题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L29 第2题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L29 第2题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L29 第2题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L29 第2题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L29 第2题 连击文案（🔥 2 连击） ✅ 期望=True 实际=True
+[CHECK] L29 第3题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L29 第3题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L29 第3题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L29 第3题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L29 第3题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L29 第3题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L29 第3题 连击文案（🔥 3 连击） ✅ 期望=True 实际=True
+[CHECK] L29 第4题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L29 第4题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L29 第4题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L29 第4题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L29 第4题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L29 第4题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L29 第4题 连击文案（🔥 4 连击） ✅ 期望=True 实际=True
+[CHECK] L29 第5题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L29 第5题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L29 第5题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L29 第5题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L29 第5题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L29 第5题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L29 第5题 连击文案（🔥 5 连击） ✅ 期望=True 实际=True
+    · 截图 shot-chain-L29-settlement-clear.png
+  [结算] type=clear stars=★★★ 710= 明细=['答题基础分 +100', '速度加成 +50', '连击加成 +50', '通关奖励 +30', '三星奖励 +20']
+[CHECK] L29 通关后作答行数 == 卷面已答 + 本次脚本提交数 ✅ 期望=5 实际=5
+[CHECK] L29 结算层类型 == 服务端回执推导 ✅ 期望=clear 实际=clear
+[CHECK] L29 结算明细三列 == 服务端 xpRows（答题基础分 +100/速度加成 +50/连击加成 +50/通关奖励 +30/三星奖励 +20） ✅ 期望=['答题基础分 +100', '速度加成 +50', '连击加成 +50', '通关奖励 +30', '三星奖励 +20'] 实际=['答题基础分 +100', '速度加成 +50', '连击加成 +50', '通关奖励 +30', '三星奖励 +20']
+[CHECK] L29 结算逐题回顾行数 == 服务端 review 行数 ✅ 期望=5 实际=5
+[CHECK] L29 结算星级 == 服务端 stars ✅ 期望=★★★ 实际=★★★
+[CHECK] L29 结算页有「下一关」按钮 ✅ 期望=next 实际=next
+[CHECK] 下一关落到 L30 单元 Boss · 真题混合卷 ✅ 期望=True 实际=True
+== 关卡 30 单元 Boss · 真题混合卷（8 题）==
+  [进关预告] 👑 四级 · 单元 Boss · 真题混合卷 校园生活 · 真题 8 本关题数 10 约几分钟 12:00 限时 3 颗爱心 本关 8 题 · 约 10 分钟；答错 3 题本次闯关结束。 混合真题卷：按正确率折算 710 分制成绩单，每题 25 XP。 开始答题 → 返回地图 🗺️
+[CHECK] L30 进关预告写明「本关 X 题」 ✅ 期望=True 实际=True
+[CHECK] L30 进关预告写明「约 X 分钟」 ✅ 期望=True 实际=True
+    · 截图 shot-chain-L30-preview.png
+[CHECK] L30 卷面题数 == 进关预告题数 ✅ 期望=8 实际=8
+[CHECK] L30 卷面不下发答案/解析/原文 ✅ 期望=True 实际=True
+  [卷面] attempt=176 seed=3091098052196310890 题数=8 band=['4'] 首题=290 vocab
+    · 截图 shot-chain-L30-question.png
+[CHECK] L30 库里作答行数 == 卷面 answered 数（无脚本外写入） ✅ 期望=0 实际=0
+[CHECK] L30 第1题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L30 第1题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L30 第1题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L30 第1题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L30 第1题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L30 第1题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L30 第1题 无连击文案 ✅ 期望=True 实际=True
+    · 截图 shot-chain-L30-feedback-ok.png
+[CHECK] L30 第2题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L30 第2题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L30 第2题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L30 第2题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L30 第2题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L30 第2题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L30 第2题 连击文案（🔥 2 连击） ✅ 期望=True 实际=True
+[CHECK] L30 第3题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L30 第3题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L30 第3题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L30 第3题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L30 第3题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L30 第3题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L30 第3题 连击文案（🔥 3 连击） ✅ 期望=True 实际=True
+[CHECK] L30 第4题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L30 第4题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L30 第4题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L30 第4题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L30 第4题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L30 第4题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L30 第4题 连击文案（🔥 4 连击） ✅ 期望=True 实际=True
+[CHECK] L30 第5题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L30 第5题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L30 第5题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L30 第5题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L30 第5题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L30 第5题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L30 第5题 连击文案（🔥 5 连击） ✅ 期望=True 实际=True
+[CHECK] L30 第6题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L30 第6题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L30 第6题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L30 第6题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L30 第6题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L30 第6题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L30 第6题 连击文案（🔥 6 连击） ✅ 期望=True 实际=True
+[CHECK] L30 第7题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L30 第7题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L30 第7题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L30 第7题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L30 第7题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L30 第7题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L30 第7题 连击文案（🔥 7 连击） ✅ 期望=True 实际=True
+[CHECK] L30 第8题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L30 第8题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L30 第8题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L30 第8题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L30 第8题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L30 第8题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L30 第8题 连击文案（🔥 8 连击） ✅ 期望=True 实际=True
+    · 截图 shot-chain-L30-settlement-boss.png
+  [结算] type=boss stars= 710=710 明细=['Boss 答对 +200', 'Boss 满分奖励 +50']
+[CHECK] L30 通关后作答行数 == 卷面已答 + 本次脚本提交数 ✅ 期望=8 实际=8
+[CHECK] L30 结算层类型 == 服务端回执推导 ✅ 期望=boss 实际=boss
+[CHECK] L30 结算明细三列 == 服务端 xpRows（Boss 答对 +200/Boss 满分奖励 +50） ✅ 期望=['Boss 答对 +200', 'Boss 满分奖励 +50'] 实际=['Boss 答对 +200', 'Boss 满分奖励 +50']
+[CHECK] L30 结算逐题回顾行数 == 服务端 review 行数 ✅ 期望=8 实际=8
+[CHECK] L30 Boss 成绩单分数 == 服务端 score710 ✅ 期望=710 实际=710
+
+== E2E chain 汇总：301 条断言，失败 0 条 ==

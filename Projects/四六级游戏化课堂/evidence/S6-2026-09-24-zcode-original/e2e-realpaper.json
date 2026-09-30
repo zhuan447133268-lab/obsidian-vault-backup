@@ -1,0 +1,1901 @@
+{
+ "tag": "realpaper",
+ "user": "S6V6A",
+ "answer": "correct",
+ "levels": [
+  {
+   "levelId": 38,
+   "levelName": "阅读 · 选词填空",
+   "isBoss": false,
+   "questionCount": 10,
+   "estimatedMinutes": 12,
+   "shots": [
+    "shot-realpaper-L38-preview.png",
+    "shot-realpaper-L38-question.png",
+    "shot-realpaper-L38-feedback-ok.png",
+    "shot-realpaper-L38-settlement-clear.png"
+   ],
+   "previewText": "🎯 四级 · 阅读 · 选词填空 2026年6月四级真题（第3套） · 阅读 10 本关题数 12 约几分钟 08:00 限时 3 颗爱心 本关 10 题 · 约 12 分钟；答错 3 题本次闯关结束。 开始答题 → 返回地图 🗺️",
+   "attemptId": 178,
+   "resumed": false,
+   "shuffleSeed": 2090367108318683856,
+   "questionIds": [
+    386,
+    387,
+    388,
+    389,
+    390,
+    391,
+    392,
+    393,
+    394,
+    395
+   ],
+   "livesOnPaper": 3,
+   "bands": [
+    "4"
+   ],
+   "submits": [
+    {
+     "no": 1,
+     "questionId": 386,
+     "pickedIdx": "14",
+     "isCorrect": true,
+     "correctIdx": "14",
+     "xp": {
+      "base": 20,
+      "speed": 9,
+      "combo": 0
+     },
+     "streak": 1,
+     "livesLeft": 3,
+     "matched": 1,
+     "seqLen": 1,
+     "type": "cloze",
+     "tip": "physical adj. 身体的",
+     "exp": "【答案】physical adj. 身体的\n【语法分析】空格前为 the same,空格后为并列连词 and,其后是形容词 psychological,因此本空应填入形容词,与 psychological 并列修饰名词 symptoms。\n【语义判断】空格所在句指出,研究人员发现,试图减少摄入精加工食品的人,会经历一些与______吸烟或吸毒的人相似的______和心理症状,例如情绪波动、焦虑、头痛和睡眠质量下降。句中出现两类并列症状,一类对应心理层面,另一类对应身体层面,因此本空应填入含有“身体的”意义的形容词,I) physical(身体的)符合文意,故为答案。",
+     "progress": {
+      "answered": 1,
+      "correct": 1,
+      "wrong": 0,
+      "total": 10,
+      "livesLeft": 3,
+      "streak": 1
+     },
+     "status": "in_progress"
+    },
+    {
+     "no": 2,
+     "questionId": 387,
+     "pickedIdx": "6",
+     "isCorrect": true,
+     "correctIdx": "6",
+     "xp": {
+      "base": 20,
+      "speed": 10,
+      "combo": 5
+     },
+     "streak": 2,
+     "livesLeft": 3,
+     "matched": 1,
+     "seqLen": 1,
+     "type": "cloze",
+     "tip": "quitting v. 戒掉,停止",
+     "exp": "【答案】quitting v. 戒掉,停止\n【语法分析】空格前为代词 those,空格后为 or 连接的并列结构 smoking cigarettes 和 using drugs,因此本空应填入现在分词,构成现在分词短语作后置定语修饰 those。\n【语义判断】空格所在句指出,研究人员发现,试图减少摄入精加工食品的人,会经历一些与______吸烟或吸毒的人相似的身体和心理症状,例如情绪波动、焦虑、头痛和睡眠质量下降。根据上文提及的 drug withdrawal(戒断药物)可知,此处描述的是戒掉香烟、毒品的人群,因此本空应填入具有“戒掉”含义的现在分词,L) quitting(戒掉,停止)符合文意,故为答案。",
+     "progress": {
+      "answered": 2,
+      "correct": 2,
+      "wrong": 0,
+      "total": 10,
+      "livesLeft": 3,
+      "streak": 2
+     },
+     "status": "in_progress"
+    },
+    {
+     "no": 3,
+     "questionId": 388,
+     "pickedIdx": "11",
+     "isCorrect": true,
+     "correctIdx": "11",
+     "xp": {
+      "base": 20,
+      "speed": 10,
+      "combo": 10
+     },
+     "streak": 3,
+     "livesLeft": 3,
+     "matched": 1,
+     "seqLen": 1,
+     "type": "cloze",
+     "tip": "offers v. 提供,给予",
+     "exp": "【答案】offers v. 提供,给予\n【语法分析】空格前为句子的主语 The new study,是单数名词,空格后为名词短语 the first evidence 作宾语,句子缺少谓语,因此本空应填入动词第三人称单数形式。\n【语义判断】空格所在句指出,该研究的主要作者埃里卡·舒尔特表示,这项新研究首次______证据,表明当人们减少摄入精加工食品时,可能出现类似戒断反应的症状。由句意可知,这项研究给出或提供了相关证据,因此本空应填入含有“提供,给予”含义的动词第三人称单数形式,F) offers(提供,给予)符合文意,故为答案。",
+     "progress": {
+      "answered": 3,
+      "correct": 3,
+      "wrong": 0,
+      "total": 10,
+      "livesLeft": 3,
+      "streak": 3
+     },
+     "status": "in_progress"
+    },
+    {
+     "no": 4,
+     "questionId": 389,
+     "pickedIdx": "10",
+     "isCorrect": true,
+     "correctIdx": "10",
+     "xp": {
+      "base": 20,
+      "speed": 10,
+      "combo": 15
+     },
+     "streak": 4,
+     "livesLeft": 3,
+     "matched": 1,
+     "seqLen": 1,
+     "type": "cloze",
+     "tip": "significantly adv. 显著地,明显地",
+     "exp": "【答案】significantly adv. 显著地,明显地\n【语法分析】空格前为系动词 were,空格后为形容词比较级 more intense 作表语,句子成分完整,因此本空应填入副词修饰形容词。\n【语义判断】空格所在句指出,根据参与者自述的症状,尝试减少垃圾食品摄入后的第二天到第五天,戒断症状______加剧,这一时间跨度与人们经历药物戒断的阶段______。由句意可知,所填词应为修饰症状加剧程度的副词,N) significantly(显著地,明显地)符合文意,故为答案。",
+     "progress": {
+      "answered": 4,
+      "correct": 4,
+      "wrong": 0,
+      "total": 10,
+      "livesLeft": 3,
+      "streak": 4
+     },
+     "status": "in_progress"
+    },
+    {
+     "no": 5,
+     "questionId": 390,
+     "pickedIdx": "5",
+     "isCorrect": true,
+     "correctIdx": "5",
+     "xp": {
+      "base": 20,
+      "speed": 10,
+      "combo": 20
+     },
+     "streak": 5,
+     "livesLeft": 3,
+     "matched": 1,
+     "seqLen": 1,
+     "type": "cloze",
+     "tip": "parallels v. 与……相似,比得上",
+     "exp": "【答案】parallels v. 与……相似,比得上\n【语法分析】空格位于 which 引导的非限制性定语从句中,which 指代前文整个时间段,作主语,是单数概念,空格后为名词短语 the time span 作宾语,从句缺少谓语,因此本空应填入动词第三人称单数形式。\n【语义判断】空格所在句指出,根据参与者自述的症状,尝试减少垃圾食品摄入后的第二天到第五天,戒断症状明显加剧,这一时间跨度与人们经历药物戒断的阶段______。由句意可知,戒垃圾食品不适的时长和戒毒的时长相近、对应,因此本空应填入含有“与……相似”含义的动词第三人称单数形式,G) parallels(与……相似,比得上)符合文意,故为答案。",
+     "progress": {
+      "answered": 5,
+      "correct": 5,
+      "wrong": 0,
+      "total": 10,
+      "livesLeft": 3,
+      "streak": 5
+     },
+     "status": "in_progress"
+    },
+    {
+     "no": 6,
+     "questionId": 391,
+     "pickedIdx": "9",
+     "isCorrect": true,
+     "correctIdx": "9",
+     "xp": {
+      "base": 20,
+      "speed": 10,
+      "combo": 25
+     },
+     "streak": 6,
+     "livesLeft": 3,
+     "matched": 1,
+     "seqLen": 1,
+     "type": "cloze",
+     "tip": "controversial adj. 有争议的,引发争论的",
+     "exp": "【答案】controversial adj. 有争议的,引发争论的\n【语法分析】空格前为不定冠词 a,空格后为名词 subject,因此本空应填入形容词修饰名词 subject。\n【语义判断】空格所在句指出,舒尔特表示,某些人在“大量”摄入食物后可能产生成瘾性,这一观点是一个______话题。后文提到目前还没有相关研究佐证该观点,说明这个观点尚有争论,因此本空应填入含有“有争议的”含义的形容词,C) controversial(有争议的,引发争论的)符合文意,故为答案。",
+     "progress": {
+      "answered": 6,
+      "correct": 6,
+      "wrong": 0,
+      "total": 10,
+      "livesLeft": 3,
+      "streak": 6
+     },
+     "status": "in_progress"
+    },
+    {
+     "no": 7,
+     "questionId": 392,
+     "pickedIdx": "4",
+     "isCorrect": true,
+     "correctIdx": "4",
+     "xp": {
+      "base": 20,
+      "speed": 10,
+      "combo": 30
+     },
+     "streak": 7,
+     "livesLeft": 3,
+     "matched": 1,
+     "seqLen": 1,
+     "type": "cloze",
+     "tip": "trigger v. 引发,触发",
+     "exp": "【答案】trigger v. 引发,触发\n【语法分析】空格前为情态动词 can,空格后为名词短语 withdrawal symptoms 作宾语,因此本空应填入动词原形。\n【语义判断】空格所在句指出,尽管此前在动物和人类身上的研究已显示出物质使用障碍与精加工食品的成瘾性摄入之间存在某些生物学相似性和行为相似性,但她指出,尚无研究探讨过减少垃圾食品摄入是否可能______人们的戒断症状。由句意可知,此处讨论减少垃圾食品摄入是否会引发戒断不适,因此本空应填入含有“引发”含义的动词原形,O) trigger(引发,触发)符合文意,故为答案。",
+     "progress": {
+      "answered": 7,
+      "correct": 7,
+      "wrong": 0,
+      "total": 10,
+      "livesLeft": 3,
+      "streak": 7
+     },
+     "status": "in_progress"
+    },
+    {
+     "no": 8,
+     "questionId": 393,
+     "pickedIdx": "5",
+     "isCorrect": true,
+     "correctIdx": "5",
+     "xp": {
+      "base": 20,
+      "speed": 10,
+      "combo": 35
+     },
+     "streak": 8,
+     "livesLeft": 3,
+     "matched": 1,
+     "seqLen": 1,
+     "type": "cloze",
+     "tip": "awareness n. 认识,意识",
+     "exp": "【答案】awareness n. 认识,意识\n【语法分析】空格前为动名词 Raising,空格后为 that 引导的同位语从句,因此本空应填入名词,作 Raising 的宾语。\n【语义判断】空格所在句指出,舒尔特指出,提高人们对减少摄入垃圾食品时可能出现烦躁或头痛等反应的______,有助于个人提前______应对策略。结合句意和常识可知,此处表示提高人们的意识,A) awareness(认识,意识)符合文意,故为答案。raise awareness 为固定搭配,意为“提高意识”。",
+     "progress": {
+      "answered": 8,
+      "correct": 8,
+      "wrong": 0,
+      "total": 10,
+      "livesLeft": 3,
+      "streak": 8
+     },
+     "status": "in_progress"
+    },
+    {
+     "no": 9,
+     "questionId": 394,
+     "pickedIdx": "4",
+     "isCorrect": true,
+     "correctIdx": "4",
+     "xp": {
+      "base": 20,
+      "speed": 10,
+      "combo": 40
+     },
+     "streak": 9,
+     "livesLeft": 3,
+     "matched": 1,
+     "seqLen": 1,
+     "type": "cloze",
+     "tip": "prepare v. 使做好准备,把……预备好",
+     "exp": "【答案】prepare v. 使做好准备,把……预备好\n【语法分析】空格前为 help individuals,空格后为名词短语 coping strategies,因此本空应填入动词原形,构成 help sb. do sth. 的固定搭配。\n【语义判断】空格所在句指出,舒尔特指出,提高人们对减少摄入垃圾食品时可能出现烦躁或头痛等反应的认识,有助于个人提前______应对策略。这里表示人们提前筹备以应对不适,因此本空应填入含有“预备好”含义的动词原形,J) prepare(使做好准备,把……预备好)符合文意,故为答案。",
+     "progress": {
+      "answered": 9,
+      "correct": 9,
+      "wrong": 0,
+      "total": 10,
+      "livesLeft": 3,
+      "streak": 9
+     },
+     "status": "in_progress"
+    },
+    {
+     "no": 10,
+     "questionId": 395,
+     "pickedIdx": "4",
+     "isCorrect": true,
+     "correctIdx": "4",
+     "xp": {
+      "base": 20,
+      "speed": 10,
+      "combo": 45
+     },
+     "streak": 10,
+     "livesLeft": 3,
+     "matched": 1,
+     "seqLen": 1,
+     "type": "cloze",
+     "tip": "shed v. 把光照到……上",
+     "exp": "【答案】shed v. 把光照到……上\n【语法分析】空格前为情态动词 may 和副词 also,空格后为名词 light,因此本空应填入动词原形。\n【语义判断】空格所在句指出,她提到,这些发现也可能______人们在改变饮食习惯时所面临的障碍——而这些障碍可能导致人们中途放弃治疗。shed light on 为固定搭配,表示“阐明,揭示”,M) shed(把光照到……上)符合文意,故为答案。",
+     "progress": {
+      "answered": 10,
+      "correct": 10,
+      "wrong": 0,
+      "total": 10,
+      "livesLeft": 3,
+      "streak": 10
+     },
+     "status": "finished"
+    }
+   ],
+   "startIdx": 0,
+   "answeredBefore": [],
+   "settlement": {
+    "isBoss": false,
+    "correct": 10,
+    "total": 10,
+    "ratio": 1,
+    "stars": 3,
+    "score710": 0,
+    "xpRows": [
+     {
+      "reason": "answer_base",
+      "label": "答题基础分",
+      "delta": 200
+     },
+     {
+      "reason": "answer_speed",
+      "label": "速度加成",
+      "delta": 99
+     },
+     {
+      "reason": "answer_combo",
+      "label": "连击加成",
+      "delta": 225
+     },
+     {
+      "reason": "level_clear",
+      "label": "通关奖励",
+      "delta": 30
+     },
+     {
+      "reason": "star3_bonus",
+      "label": "三星奖励",
+      "delta": 20
+     }
+    ],
+    "xpTotal": 574,
+    "xpTotalAll": 2274,
+    "firstClear": true,
+    "replay": false,
+    "review": [
+     {
+      "no": 1,
+      "questionId": 386,
+      "type": "cloze",
+      "tip": "physical adj. 身体的",
+      "isCorrect": true
+     },
+     {
+      "no": 2,
+      "questionId": 387,
+      "type": "cloze",
+      "tip": "quitting v. 戒掉,停止",
+      "isCorrect": true
+     },
+     {
+      "no": 3,
+      "questionId": 388,
+      "type": "cloze",
+      "tip": "offers v. 提供,给予",
+      "isCorrect": true
+     },
+     {
+      "no": 4,
+      "questionId": 389,
+      "type": "cloze",
+      "tip": "significantly adv. 显著地,明显地",
+      "isCorrect": true
+     },
+     {
+      "no": 5,
+      "questionId": 390,
+      "type": "cloze",
+      "tip": "parallels v. 与……相似,比得上",
+      "isCorrect": true
+     },
+     {
+      "no": 6,
+      "questionId": 391,
+      "type": "cloze",
+      "tip": "controversial adj. 有争议的,引发争论的",
+      "isCorrect": true
+     },
+     {
+      "no": 7,
+      "questionId": 392,
+      "type": "cloze",
+      "tip": "trigger v. 引发,触发",
+      "isCorrect": true
+     },
+     {
+      "no": 8,
+      "questionId": 393,
+      "type": "cloze",
+      "tip": "awareness n. 认识,意识",
+      "isCorrect": true
+     },
+     {
+      "no": 9,
+      "questionId": 394,
+      "type": "cloze",
+      "tip": "prepare v. 使做好准备,把……预备好",
+      "isCorrect": true
+     },
+     {
+      "no": 10,
+      "questionId": 395,
+      "type": "cloze",
+      "tip": "shed v. 把光照到……上",
+      "isCorrect": true
+     }
+    ]
+   },
+   "settleStatus": "finished",
+   "overlay": "clear",
+   "overlayText": "🏆 完美通关！ ★★★ +574 XP（累计 2274） 答对 10/10 题 · 最高 10 连击 全对奖励 +20 XP 🎁 ✓ 选词填空 physical adj. 身体的 ✓ 选词填空 quitting v. 戒掉,停止 ✓ 选词填空 offers v. 提供,给予 ✓ 选词填空 significantly adv. 显著地,明显地 ✓ 选词填空 parallels v. 与……相似,比得上 ✓ 选词填空 controversial adj. 有争议的,引发争论的 ✓ 选词填空 trigger v. 引发,触发 ✓ 选词填空 awareness n. 认识,意识 ✓ 选词填空 prepare v. 使做好准备,把……预备好 ✓ 选词填空 shed v. 把光照到……上 答题基础分 +200 速度加成 +99 连击加成 +225 通关奖励 +30 三星奖励 +20 本次闯关净得 +574 XP · 账本合计 2274 XP 下一关 → 返回地图 🗺️",
+   "overlayStars": "★★★",
+   "overlayXpDetail": [
+    "答题基础分 +200",
+    "速度加成 +99",
+    "连击加成 +225",
+    "通关奖励 +30",
+    "三星奖励 +20"
+   ],
+   "overlayReview": [
+    "✓选词填空physical adj. 身体的",
+    "✓选词填空quitting v. 戒掉,停止",
+    "✓选词填空offers v. 提供,给予",
+    "✓选词填空significantly adv. 显著地,明显地",
+    "✓选词填空parallels v. 与……相似,比得上",
+    "✓选词填空controversial adj. 有争议的,引发争论的",
+    "✓选词填空trigger v. 引发,触发",
+    "✓选词填空awareness n. 认识,意识",
+    "✓选词填空prepare v. 使做好准备,把……预备好",
+    "✓选词填空shed v. 把光照到……上"
+   ],
+   "overlayScore710": ""
+  },
+  {
+   "levelId": 39,
+   "levelName": "阅读 · 段落匹配",
+   "isBoss": false,
+   "questionCount": 10,
+   "estimatedMinutes": 12,
+   "shots": [
+    "shot-realpaper-L39-preview.png",
+    "shot-realpaper-L39-question.png",
+    "shot-realpaper-L39-feedback-ok.png",
+    "shot-realpaper-L39-settlement-clear.png"
+   ],
+   "previewText": "🎯 四级 · 阅读 · 段落匹配 2026年6月四级真题（第3套） · 阅读 10 本关题数 12 约几分钟 10:00 限时 3 颗爱心 本关 10 题 · 约 12 分钟；答错 3 题本次闯关结束。 开始答题 → 返回地图 🗺️",
+   "attemptId": 179,
+   "resumed": false,
+   "shuffleSeed": 9063923621588429433,
+   "questionIds": [
+    396,
+    397,
+    398,
+    399,
+    400,
+    401,
+    402,
+    403,
+    404,
+    405
+   ],
+   "livesOnPaper": 3,
+   "bands": [
+    "4"
+   ],
+   "submits": [
+    {
+     "no": 1,
+     "questionId": 396,
+     "pickedIdx": "3",
+     "isCorrect": true,
+     "correctIdx": "3",
+     "xp": {
+      "base": 20,
+      "speed": 10,
+      "combo": 0
+     },
+     "streak": 1,
+     "livesLeft": 3,
+     "matched": 1,
+     "seqLen": 1,
+     "type": "match",
+     "tip": "",
+     "exp": "答案为 D)。该段第 1 句提到,关于薪资的问题,最好同样不要提及。由此可知,题干是对该句信息的同义转述,题干中的 not to ask questions 对应原文中的 The question... is also best avoided;pay 是原词复现。",
+     "progress": {
+      "answered": 1,
+      "correct": 1,
+      "wrong": 0,
+      "total": 10,
+      "livesLeft": 3,
+      "streak": 1
+     },
+     "status": "in_progress"
+    },
+    {
+     "no": 2,
+     "questionId": 397,
+     "pickedIdx": "9",
+     "isCorrect": true,
+     "correctIdx": "9",
+     "xp": {
+      "base": 20,
+      "speed": 10,
+      "combo": 5
+     },
+     "streak": 2,
+     "livesLeft": 3,
+     "matched": 1,
+     "seqLen": 1,
+     "type": "match",
+     "tip": "",
+     "exp": "答案为 J)。该段第 5 句提到,经验丰富的面试官会知道应聘者是否在打电话时查资料。由此可知,题干是对该句信息的同义转述,题干中的 Experienced interviewers 对应原文中的 Seasoned interviewers;题干中的 is searching for 对应原文中的 is researching。",
+     "progress": {
+      "answered": 2,
+      "correct": 2,
+      "wrong": 0,
+      "total": 10,
+      "livesLeft": 3,
+      "streak": 2
+     },
+     "status": "in_progress"
+    },
+    {
+     "no": 3,
+     "questionId": 398,
+     "pickedIdx": "0",
+     "isCorrect": true,
+     "correctIdx": "0",
+     "xp": {
+      "base": 20,
+      "speed": 10,
+      "combo": 10
+     },
+     "streak": 3,
+     "livesLeft": 3,
+     "matched": 1,
+     "seqLen": 1,
+     "type": "match",
+     "tip": "",
+     "exp": "答案为 A)。该段第 3 句提到,许多公司将电话筛选视为正式招聘过程的第一轮。由此可知,题干是对该句信息的同义转述,题干中的 Many employers 对应原文中的 Many companies;题干中的 regard the phone interview as 对应原文中的 treat phone screening as;题干中的 the first step of the official recruiting process 对应原文中的 the official first round of the hiring process。",
+     "progress": {
+      "answered": 3,
+      "correct": 3,
+      "wrong": 0,
+      "total": 10,
+      "livesLeft": 3,
+      "streak": 3
+     },
+     "status": "in_progress"
+    },
+    {
+     "no": 4,
+     "questionId": 399,
+     "pickedIdx": "4",
+     "isCorrect": true,
+     "correctIdx": "4",
+     "xp": {
+      "base": 20,
+      "speed": 10,
+      "combo": 15
+     },
+     "streak": 4,
+     "livesLeft": 3,
+     "matched": 1,
+     "seqLen": 1,
+     "type": "match",
+     "tip": "",
+     "exp": "答案为 E)。该段第 3 句提到,如果我们进行了一场非常顺利的电话面试,但结束时他们没有任何问题问我,这几乎会毁掉整场面试。由此可知,题干是对该句信息的同义转述,题干中的 don't ask questions 对应原文中的 don't have any questions;题干中的 at the end of 对应原文中的 wrap up;题干中的 ruin their chance of getting the position 对应原文中的 ruins the whole interview。",
+     "progress": {
+      "answered": 4,
+      "correct": 4,
+      "wrong": 0,
+      "total": 10,
+      "livesLeft": 3,
+      "streak": 4
+     },
+     "status": "in_progress"
+    },
+    {
+     "no": 5,
+     "questionId": 400,
+     "pickedIdx": "6",
+     "isCorrect": true,
+     "correctIdx": "6",
+     "xp": {
+      "base": 20,
+      "speed": 10,
+      "combo": 20
+     },
+     "streak": 5,
+     "livesLeft": 3,
+     "matched": 1,
+     "seqLen": 1,
+     "type": "match",
+     "tip": "",
+     "exp": "答案为 G)。该段第 1 句提到,在拨入电话之前,请务必测试好你的耳机和连接状态。由此可知,题干是对该句信息的同义转述,题干中的 test their phone connection 对应原文中的 test your... connection;题干中的 before they call the interviewer 对应原文中的 before dialing in。",
+     "progress": {
+      "answered": 5,
+      "correct": 5,
+      "wrong": 0,
+      "total": 10,
+      "livesLeft": 3,
+      "streak": 5
+     },
+     "status": "in_progress"
+    },
+    {
+     "no": 6,
+     "questionId": 401,
+     "pickedIdx": "2",
+     "isCorrect": true,
+     "correctIdx": "2",
+     "xp": {
+      "base": 20,
+      "speed": 10,
+      "combo": 25
+     },
+     "streak": 6,
+     "livesLeft": 3,
+     "matched": 1,
+     "seqLen": 1,
+     "type": "match",
+     "tip": "",
+     "exp": "答案为 C)。该段第 2 句提到,许多面试官对于在电话面试中一心多用的人感到反感。由此可知,题干是对该句信息的同义转述,题干中的 annoying 对应原文中的 annoyed;题干中的 doing other tasks 对应原文中的 multitask。",
+     "progress": {
+      "answered": 6,
+      "correct": 6,
+      "wrong": 0,
+      "total": 10,
+      "livesLeft": 3,
+      "streak": 6
+     },
+     "status": "in_progress"
+    },
+    {
+     "no": 7,
+     "questionId": 402,
+     "pickedIdx": "10",
+     "isCorrect": true,
+     "correctIdx": "10",
+     "xp": {
+      "base": 20,
+      "speed": 10,
+      "combo": 30
+     },
+     "streak": 7,
+     "livesLeft": 3,
+     "matched": 1,
+     "seqLen": 1,
+     "type": "match",
+     "tip": "",
+     "exp": "答案为 K)。该段第 1 句提到,电话面试成功的关键在于回答清晰简洁。由此可知,题干是对该句信息的同义转述,题干中的 the most important thing 对应原文中的 The key to success;题干中的 answer questions clearly and concisely 对应原文中的 clear and concise answers。",
+     "progress": {
+      "answered": 7,
+      "correct": 7,
+      "wrong": 0,
+      "total": 10,
+      "livesLeft": 3,
+      "streak": 7
+     },
+     "status": "in_progress"
+    },
+    {
+     "no": 8,
+     "questionId": 403,
+     "pickedIdx": "5",
+     "isCorrect": true,
+     "correctIdx": "5",
+     "xp": {
+      "base": 20,
+      "speed": 10,
+      "combo": 35
+     },
+     "streak": 8,
+     "livesLeft": 3,
+     "matched": 1,
+     "seqLen": 1,
+     "type": "match",
+     "tip": "",
+     "exp": "答案为 F)。该段最后一句提到,如果我在下午 1:13 或 12:49 接到他们的电话,而不是我们计划好的下午 1:00,我就能提前得到一个信号——对方可能并不合适。由此可知,题干是对该句信息的概括总结,题干中的 fail to call the interviewer on time 对应原文中的 at 1:13 p.m. or 12:49 p.m. instead of... interview time;题干中的 might not see you as a suitable candidate 对应原文中的 might not be a great fit。",
+     "progress": {
+      "answered": 8,
+      "correct": 8,
+      "wrong": 0,
+      "total": 10,
+      "livesLeft": 3,
+      "streak": 8
+     },
+     "status": "in_progress"
+    },
+    {
+     "no": 9,
+     "questionId": 404,
+     "pickedIdx": "1",
+     "isCorrect": true,
+     "correctIdx": "1",
+     "xp": {
+      "base": 20,
+      "speed": 10,
+      "combo": 40
+     },
+     "streak": 9,
+     "livesLeft": 3,
+     "matched": 1,
+     "seqLen": 1,
+     "type": "match",
+     "tip": "",
+     "exp": "答案为 B)。该段第 2 句提到,除非被直接问到你在业余时间喜欢做什么,否则不要谈论你的个人生活;第 3 句又提到,电话面试的重点在于了解候选人的专业经验和职业目标。由此可知,题干是对该处信息的同义转述,题干中的 avoid talking about their personal lives 对应原文中的 Don't talk about your personal life;题干中的 professional background and goals 对应原文中的 professional experience and goals。",
+     "progress": {
+      "answered": 9,
+      "correct": 9,
+      "wrong": 0,
+      "total": 10,
+      "livesLeft": 3,
+      "streak": 9
+     },
+     "status": "in_progress"
+    },
+    {
+     "no": 10,
+     "questionId": 405,
+     "pickedIdx": "7",
+     "isCorrect": true,
+     "correctIdx": "7",
+     "xp": {
+      "base": 20,
+      "speed": 10,
+      "combo": 45
+     },
+     "streak": 10,
+     "livesLeft": 3,
+     "matched": 1,
+     "seqLen": 1,
+     "type": "match",
+     "tip": "",
+     "exp": "答案为 H)。该段第 1 句提到,打断面试官是尴尬且不礼貌的。由此可知,题干是对该句信息的同义转述,题干中的 impolite 对应原文中的 rude;题干中的 interrupt the interviewer 对应原文中的 interrupting the interviewer。",
+     "progress": {
+      "answered": 10,
+      "correct": 10,
+      "wrong": 0,
+      "total": 10,
+      "livesLeft": 3,
+      "streak": 10
+     },
+     "status": "finished"
+    }
+   ],
+   "startIdx": 0,
+   "answeredBefore": [],
+   "settlement": {
+    "isBoss": false,
+    "correct": 10,
+    "total": 10,
+    "ratio": 1,
+    "stars": 3,
+    "score710": 0,
+    "xpRows": [
+     {
+      "reason": "answer_base",
+      "label": "答题基础分",
+      "delta": 200
+     },
+     {
+      "reason": "answer_speed",
+      "label": "速度加成",
+      "delta": 100
+     },
+     {
+      "reason": "answer_combo",
+      "label": "连击加成",
+      "delta": 225
+     },
+     {
+      "reason": "level_clear",
+      "label": "通关奖励",
+      "delta": 30
+     },
+     {
+      "reason": "star3_bonus",
+      "label": "三星奖励",
+      "delta": 20
+     }
+    ],
+    "xpTotal": 575,
+    "xpTotalAll": 2849,
+    "firstClear": true,
+    "replay": false,
+    "review": [
+     {
+      "no": 1,
+      "questionId": 396,
+      "type": "match",
+      "tip": "",
+      "isCorrect": true
+     },
+     {
+      "no": 2,
+      "questionId": 397,
+      "type": "match",
+      "tip": "",
+      "isCorrect": true
+     },
+     {
+      "no": 3,
+      "questionId": 398,
+      "type": "match",
+      "tip": "",
+      "isCorrect": true
+     },
+     {
+      "no": 4,
+      "questionId": 399,
+      "type": "match",
+      "tip": "",
+      "isCorrect": true
+     },
+     {
+      "no": 5,
+      "questionId": 400,
+      "type": "match",
+      "tip": "",
+      "isCorrect": true
+     },
+     {
+      "no": 6,
+      "questionId": 401,
+      "type": "match",
+      "tip": "",
+      "isCorrect": true
+     },
+     {
+      "no": 7,
+      "questionId": 402,
+      "type": "match",
+      "tip": "",
+      "isCorrect": true
+     },
+     {
+      "no": 8,
+      "questionId": 403,
+      "type": "match",
+      "tip": "",
+      "isCorrect": true
+     },
+     {
+      "no": 9,
+      "questionId": 404,
+      "type": "match",
+      "tip": "",
+      "isCorrect": true
+     },
+     {
+      "no": 10,
+      "questionId": 405,
+      "type": "match",
+      "tip": "",
+      "isCorrect": true
+     }
+    ]
+   },
+   "settleStatus": "finished",
+   "overlay": "clear",
+   "overlayText": "🏆 完美通关！ ★★★ +575 XP（累计 2849） 答对 10/10 题 · 最高 10 连击 全对奖励 +20 XP 🎁 ✓ 段落匹配 ✓ 段落匹配 ✓ 段落匹配 ✓ 段落匹配 ✓ 段落匹配 ✓ 段落匹配 ✓ 段落匹配 ✓ 段落匹配 ✓ 段落匹配 ✓ 段落匹配 答题基础分 +200 速度加成 +100 连击加成 +225 通关奖励 +30 三星奖励 +20 本次闯关净得 +575 XP · 账本合计 2849 XP 下一关 → 返回地图 🗺️",
+   "overlayStars": "★★★",
+   "overlayXpDetail": [
+    "答题基础分 +200",
+    "速度加成 +100",
+    "连击加成 +225",
+    "通关奖励 +30",
+    "三星奖励 +20"
+   ],
+   "overlayReview": [
+    "✓段落匹配",
+    "✓段落匹配",
+    "✓段落匹配",
+    "✓段落匹配",
+    "✓段落匹配",
+    "✓段落匹配",
+    "✓段落匹配",
+    "✓段落匹配",
+    "✓段落匹配",
+    "✓段落匹配"
+   ],
+   "overlayScore710": ""
+  }
+ ],
+ "targetBefore": "英语四级 · 冲关中 · 切换",
+ "shots": [],
+ "checks": [
+  {
+   "desc": "L38 进关预告写明「本关 X 题」",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 进关预告写明「约 X 分钟」",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 卷面题数 == 进关预告题数",
+   "want": "10",
+   "got": "10",
+   "ok": true
+  },
+  {
+   "desc": "L38 卷面不下发答案/解析/原文",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 库里作答行数 == 卷面 answered 数（无脚本外写入）",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "L38 第1题 反馈条样式与判分一致（fbok）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第1题 反馈条带 💡 解析",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第1题 反馈条解析与服务端回执逐字一致",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第1题 判分=答对",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第1题 爱心文案 == 服务端 livesLeft",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L38 第1题 答对不减心",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L38 第1题 无连击文案",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第2题 反馈条样式与判分一致（fbok）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第2题 反馈条带 💡 解析",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第2题 反馈条解析与服务端回执逐字一致",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第2题 判分=答对",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第2题 爱心文案 == 服务端 livesLeft",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L38 第2题 答对不减心",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L38 第2题 连击文案（🔥 2 连击）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第3题 反馈条样式与判分一致（fbok）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第3题 反馈条带 💡 解析",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第3题 反馈条解析与服务端回执逐字一致",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第3题 判分=答对",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第3题 爱心文案 == 服务端 livesLeft",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L38 第3题 答对不减心",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L38 第3题 连击文案（🔥 3 连击）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第4题 反馈条样式与判分一致（fbok）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第4题 反馈条带 💡 解析",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第4题 反馈条解析与服务端回执逐字一致",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第4题 判分=答对",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第4题 爱心文案 == 服务端 livesLeft",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L38 第4题 答对不减心",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L38 第4题 连击文案（🔥 4 连击）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第5题 反馈条样式与判分一致（fbok）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第5题 反馈条带 💡 解析",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第5题 反馈条解析与服务端回执逐字一致",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第5题 判分=答对",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第5题 爱心文案 == 服务端 livesLeft",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L38 第5题 答对不减心",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L38 第5题 连击文案（🔥 5 连击）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第6题 反馈条样式与判分一致（fbok）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第6题 反馈条带 💡 解析",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第6题 反馈条解析与服务端回执逐字一致",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第6题 判分=答对",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第6题 爱心文案 == 服务端 livesLeft",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L38 第6题 答对不减心",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L38 第6题 连击文案（🔥 6 连击）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第7题 反馈条样式与判分一致（fbok）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第7题 反馈条带 💡 解析",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第7题 反馈条解析与服务端回执逐字一致",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第7题 判分=答对",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第7题 爱心文案 == 服务端 livesLeft",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L38 第7题 答对不减心",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L38 第7题 连击文案（🔥 7 连击）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第8题 反馈条样式与判分一致（fbok）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第8题 反馈条带 💡 解析",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第8题 反馈条解析与服务端回执逐字一致",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第8题 判分=答对",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第8题 爱心文案 == 服务端 livesLeft",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L38 第8题 答对不减心",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L38 第8题 连击文案（🔥 8 连击）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第9题 反馈条样式与判分一致（fbok）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第9题 反馈条带 💡 解析",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第9题 反馈条解析与服务端回执逐字一致",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第9题 判分=答对",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第9题 爱心文案 == 服务端 livesLeft",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L38 第9题 答对不减心",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L38 第9题 连击文案（🔥 9 连击）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第10题 反馈条样式与判分一致（fbok）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第10题 反馈条带 💡 解析",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第10题 反馈条解析与服务端回执逐字一致",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第10题 判分=答对",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 第10题 爱心文案 == 服务端 livesLeft",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L38 第10题 答对不减心",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L38 第10题 连击文案（🔥 10 连击）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 通关后作答行数 == 卷面已答 + 本次脚本提交数",
+   "want": "10",
+   "got": "10",
+   "ok": true
+  },
+  {
+   "desc": "L38 结算层类型 == 服务端回执推导",
+   "want": "clear",
+   "got": "clear",
+   "ok": true
+  },
+  {
+   "desc": "L38 结算明细三列 == 服务端 xpRows（答题基础分 +200/速度加成 +99/连击加成 +225/通关奖励 +30/三星奖励 +20）",
+   "want": "['答题基础分 +200', '速度加成 +99', '连击加成 +225', '通关奖励 +30', '三星奖励 +20']",
+   "got": "['答题基础分 +200', '速度加成 +99', '连击加成 +225', '通关奖励 +30', '三星奖励 +20']",
+   "ok": true
+  },
+  {
+   "desc": "L38 结算逐题回顾行数 == 服务端 review 行数",
+   "want": "10",
+   "got": "10",
+   "ok": true
+  },
+  {
+   "desc": "L38 结算星级 == 服务端 stars",
+   "want": "★★★",
+   "got": "★★★",
+   "ok": true
+  },
+  {
+   "desc": "L38 结算页有「下一关」按钮",
+   "want": "next",
+   "got": "next",
+   "ok": true
+  },
+  {
+   "desc": "下一关落到 L39 阅读 · 段落匹配",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 进关预告写明「本关 X 题」",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 进关预告写明「约 X 分钟」",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 卷面题数 == 进关预告题数",
+   "want": "10",
+   "got": "10",
+   "ok": true
+  },
+  {
+   "desc": "L39 卷面不下发答案/解析/原文",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 库里作答行数 == 卷面 answered 数（无脚本外写入）",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "L39 第1题 反馈条样式与判分一致（fbok）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第1题 反馈条带 💡 解析",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第1题 反馈条解析与服务端回执逐字一致",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第1题 判分=答对",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第1题 爱心文案 == 服务端 livesLeft",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L39 第1题 答对不减心",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L39 第1题 无连击文案",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第2题 反馈条样式与判分一致（fbok）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第2题 反馈条带 💡 解析",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第2题 反馈条解析与服务端回执逐字一致",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第2题 判分=答对",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第2题 爱心文案 == 服务端 livesLeft",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L39 第2题 答对不减心",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L39 第2题 连击文案（🔥 2 连击）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第3题 反馈条样式与判分一致（fbok）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第3题 反馈条带 💡 解析",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第3题 反馈条解析与服务端回执逐字一致",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第3题 判分=答对",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第3题 爱心文案 == 服务端 livesLeft",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L39 第3题 答对不减心",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L39 第3题 连击文案（🔥 3 连击）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第4题 反馈条样式与判分一致（fbok）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第4题 反馈条带 💡 解析",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第4题 反馈条解析与服务端回执逐字一致",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第4题 判分=答对",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第4题 爱心文案 == 服务端 livesLeft",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L39 第4题 答对不减心",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L39 第4题 连击文案（🔥 4 连击）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第5题 反馈条样式与判分一致（fbok）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第5题 反馈条带 💡 解析",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第5题 反馈条解析与服务端回执逐字一致",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第5题 判分=答对",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第5题 爱心文案 == 服务端 livesLeft",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L39 第5题 答对不减心",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L39 第5题 连击文案（🔥 5 连击）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第6题 反馈条样式与判分一致（fbok）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第6题 反馈条带 💡 解析",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第6题 反馈条解析与服务端回执逐字一致",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第6题 判分=答对",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第6题 爱心文案 == 服务端 livesLeft",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L39 第6题 答对不减心",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L39 第6题 连击文案（🔥 6 连击）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第7题 反馈条样式与判分一致（fbok）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第7题 反馈条带 💡 解析",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第7题 反馈条解析与服务端回执逐字一致",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第7题 判分=答对",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第7题 爱心文案 == 服务端 livesLeft",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L39 第7题 答对不减心",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L39 第7题 连击文案（🔥 7 连击）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第8题 反馈条样式与判分一致（fbok）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第8题 反馈条带 💡 解析",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第8题 反馈条解析与服务端回执逐字一致",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第8题 判分=答对",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第8题 爱心文案 == 服务端 livesLeft",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L39 第8题 答对不减心",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L39 第8题 连击文案（🔥 8 连击）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第9题 反馈条样式与判分一致（fbok）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第9题 反馈条带 💡 解析",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第9题 反馈条解析与服务端回执逐字一致",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第9题 判分=答对",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第9题 爱心文案 == 服务端 livesLeft",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L39 第9题 答对不减心",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L39 第9题 连击文案（🔥 9 连击）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第10题 反馈条样式与判分一致（fbok）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第10题 反馈条带 💡 解析",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第10题 反馈条解析与服务端回执逐字一致",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第10题 判分=答对",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 第10题 爱心文案 == 服务端 livesLeft",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L39 第10题 答对不减心",
+   "want": "❤️ 3",
+   "got": "❤️ 3",
+   "ok": true
+  },
+  {
+   "desc": "L39 第10题 连击文案（🔥 10 连击）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 通关后作答行数 == 卷面已答 + 本次脚本提交数",
+   "want": "10",
+   "got": "10",
+   "ok": true
+  },
+  {
+   "desc": "L39 结算层类型 == 服务端回执推导",
+   "want": "clear",
+   "got": "clear",
+   "ok": true
+  },
+  {
+   "desc": "L39 结算明细三列 == 服务端 xpRows（答题基础分 +200/速度加成 +100/连击加成 +225/通关奖励 +30/三星奖励 +20）",
+   "want": "['答题基础分 +200', '速度加成 +100', '连击加成 +225', '通关奖励 +30', '三星奖励 +20']",
+   "got": "['答题基础分 +200', '速度加成 +100', '连击加成 +225', '通关奖励 +30', '三星奖励 +20']",
+   "ok": true
+  },
+  {
+   "desc": "L39 结算逐题回顾行数 == 服务端 review 行数",
+   "want": "10",
+   "got": "10",
+   "ok": true
+  },
+  {
+   "desc": "L39 结算星级 == 服务端 stars",
+   "want": "★★★",
+   "got": "★★★",
+   "ok": true
+  }
+ ],
+ "fails": [],
+ "log": [
+  "== 登录 S6V6A ==",
+  "  · 首进必选：已选英语四级",
+  "  · 顶栏：英语四级 · 冲关中 · 切换",
+  "== 关卡 38 阅读 · 选词填空（10 题）==",
+  "  [进关预告] 🎯 四级 · 阅读 · 选词填空 2026年6月四级真题（第3套） · 阅读 10 本关题数 12 约几分钟 08:00 限时 3 颗爱心 本关 10 题 · 约 12 分钟；答错 3 题本次闯关结束。 开始答题 → 返回地图 🗺️",
+  "  [卷面] attempt=178 seed=2090367108318683856 题数=10 band=['4'] 首题=386 cloze",
+  "  [结算] type=clear stars=★★★ 710= 明细=['答题基础分 +200', '速度加成 +99', '连击加成 +225', '通关奖励 +30', '三星奖励 +20']",
+  "== 关卡 39 阅读 · 段落匹配（10 题）==",
+  "  [进关预告] 🎯 四级 · 阅读 · 段落匹配 2026年6月四级真题（第3套） · 阅读 10 本关题数 12 约几分钟 10:00 限时 3 颗爱心 本关 10 题 · 约 12 分钟；答错 3 题本次闯关结束。 开始答题 → 返回地图 🗺️",
+  "  [卷面] attempt=179 seed=9063923621588429433 题数=10 band=['4'] 首题=396 match",
+  "  [结算] type=clear stars=★★★ 710= 明细=['答题基础分 +200', '速度加成 +100', '连击加成 +225', '通关奖励 +30', '三星奖励 +20']"
+ ]
+}

@@ -1,0 +1,66 @@
+
+########## 03 数据准备：把 S65A 的 24 关按计划打完（含 2 道故意错题）+ 2 次诊断 + 5 关流水回拨到过去几周 ##########
+    · 学生 S65A id=104
+[SEED] 可玩关卡数 = 24（4 单元 × 四级题库） ✅ 期望=24 实际=24
+[SEED] 每关都带题量（进关预告口径） ✅ 期望=True 实际=True
+[SEED] L25 开打前已解锁（线性解锁链） ✅ 期望=True 实际=True
+    · L25  第 1 关 · 高频词            状态=finished 对  4/5  星 2 XP 180 attempt=168
+[SEED] L26 开打前已解锁（线性解锁链） ✅ 期望=True 实际=True
+    · L26  第 2 关 · 语法陷阱           状态=finished 对  4/5  星 2 XP 180 attempt=169
+[SEED] L27 开打前已解锁（线性解锁链） ✅ 期望=True 实际=True
+    · L27  第 3 关 · 阅读速攻           状态=finished 对  5/5  星 3 XP 250 attempt=170
+[SEED] L28 开打前已解锁（线性解锁链） ✅ 期望=True 实际=True
+    · L28  第 4 关 · 阅读进阶           状态=finished 对  5/5  星 3 XP 250 attempt=171
+[SEED] L29 开打前已解锁（线性解锁链） ✅ 期望=True 实际=True
+    · L29  第 5 关 · 词汇复盘           状态=finished 对  4/5  星 2 XP 180 attempt=172
+[SEED] L30 开打前已解锁（线性解锁链） ✅ 期望=True 实际=True
+    · L30  单元 Boss · 真题混合卷        状态=finished 对  7/8  星 2 XP 175 attempt=173
+[SEED] L31 开打前已解锁（线性解锁链） ✅ 期望=True 实际=True
+    · L31  听力 · 新闻 3 篇            状态=finished 对  7/7  星 3 XP 365 attempt=174
+[SEED] L32 开打前已解锁（线性解锁链） ✅ 期望=True 实际=True
+    · L32  听力 · 长对话 2 篇           状态=finished 对  8/8  星 3 XP 430 attempt=175
+[SEED] L33 开打前已解锁（线性解锁链） ✅ 期望=True 实际=True
+    · L33  听力 · 篇章 3 篇            状态=finished 对 10/10 星 3 XP 575 attempt=176
+[SEED] L34 开打前已解锁（线性解锁链） ✅ 期望=True 实际=True
+    · L34  阅读 · 选词填空              状态=finished 对 10/10 星 3 XP 565 attempt=177
+[SEED] L37 开打前已解锁（线性解锁链） ✅ 期望=True 实际=True
+    · L37  阅读 · 段落匹配              状态=finished 对 10/10 星 3 XP 575 attempt=178
+[SEED] L35 开打前已解锁（线性解锁链） ✅ 期望=True 实际=True
+    · L35  阅读 · 仔细阅读（一）           状态=finished 对  5/5  星 3 XP 250 attempt=179
+[SEED] L36 开打前已解锁（线性解锁链） ✅ 期望=True 实际=True
+    · L36  阅读 · 仔细阅读（二）           状态=finished 对  5/5  星 3 XP 250 attempt=180
+[SEED] L42 开打前已解锁（线性解锁链） ✅ 期望=True 实际=True
+    · L42  听力 · 新闻 3 篇            状态=finished 对  7/7  星 3 XP 365 attempt=181
+[SEED] L43 开打前已解锁（线性解锁链） ✅ 期望=True 实际=True
+    · L43  听力 · 长对话 2 篇           状态=finished 对  8/8  星 3 XP 430 attempt=182
+[SEED] L44 开打前已解锁（线性解锁链） ✅ 期望=True 实际=True
+    · L44  听力 · 篇章 3 篇            状态=finished 对 10/10 星 3 XP 575 attempt=183
+[SEED] L45 开打前已解锁（线性解锁链） ✅ 期望=True 实际=True
+    · L45  阅读 · 选词填空              状态=finished 对 10/10 星 3 XP 565 attempt=184
+[SEED] L46 开打前已解锁（线性解锁链） ✅ 期望=True 实际=True
+    · L46  阅读 · 段落匹配              状态=finished 对 10/10 星 3 XP 575 attempt=185
+[SEED] L47 开打前已解锁（线性解锁链） ✅ 期望=True 实际=True
+    · L47  阅读 · 仔细阅读（一）           状态=finished 对  5/5  星 3 XP 250 attempt=186
+[SEED] L48 开打前已解锁（线性解锁链） ✅ 期望=True 实际=True
+    · L48  阅读 · 仔细阅读（二）           状态=finished 对  5/5  星 3 XP 250 attempt=187
+[SEED] L38 开打前已解锁（线性解锁链） ✅ 期望=True 实际=True
+    · L38  阅读 · 选词填空              状态=finished 对 10/10 星 3 XP 565 attempt=188
+[SEED] L39 开打前已解锁（线性解锁链） ✅ 期望=True 实际=True
+    · L39  阅读 · 段落匹配              状态=finished 对 10/10 星 3 XP 575 attempt=189
+[SEED] L40 开打前已解锁（线性解锁链） ✅ 期望=True 实际=True
+    · L40  阅读 · 仔细阅读（一）           状态=finished 对  5/5  星 3 XP 250 attempt=190
+[SEED] L41 开打前已解锁（线性解锁链） ✅ 期望=True 实际=True
+    · L41  阅读 · 仔细阅读（二）           状态=finished 对  5/5  星 3 XP 250 attempt=191
+[SEED] 24 关全部通关（status=finished） ✅ 期望=24 实际=24
+[SEED] 计划内的故意错题数 = 4 ✅ 期望=4 实际=4
+    · 错题题号：[265, 270, 285, 290]
+    · 诊断（wrong）：答对 0/10 · 档次 待加强 · diagnosisId=13
+    · 诊断（right）：答对 10/10 · 档次 扎实 · diagnosisId=14
+    · 回拨 7 天：L27（第 3 关 · 阅读速攻）attempt=170 平移 answers=5 ledger=5
+    · 回拨 14 天：L28（第 4 关 · 阅读进阶）attempt=171 平移 answers=5 ledger=5
+    · 回拨 21 天：L31（听力 · 新闻 3 篇）attempt=174 平移 answers=7 ledger=5
+    · 回拨 28 天：L32（听力 · 长对话 2 篇）attempt=175 平移 answers=8 ledger=5
+    · 回拨 63 天：L36（阅读 · 仔细阅读（二））attempt=180 平移 answers=5 ledger=5
+
+作答合计 173 题 · 错 4 题 · 诊断 2 次
+plan-seed.json 已写出（手算对拍的底稿）

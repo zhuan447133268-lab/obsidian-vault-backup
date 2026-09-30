@@ -1,0 +1,260 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<title>openJiuwen 职场挑战 · 48 个月可视化</title>
+<style>
+ body{background:#0e1015;color:#dfe3ea;font:14px/1.6 "Segoe UI","Microsoft YaHei",sans-serif;margin:0;padding:28px 34px 60px}
+ h1{font-size:22px;margin:0 0 4px} h2{font-size:17px;margin:34px 0 10px;border-left:3px solid #4b7bec;padding-left:9px}
+ .sub{color:#8b93a3;font-size:13px;margin-bottom:18px}
+ .cards{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0 6px}
+ .card{background:#161a22;border:1px solid #232936;border-radius:10px;padding:12px 16px;min-width:150px}
+ .card b{display:block;font-size:22px;color:#fff} .card span{color:#8b93a3;font-size:12px}
+ table{border-collapse:collapse;width:100%;font-size:13px}
+ th,td{padding:6px 9px;border-bottom:1px solid #1e232d;text-align:left;white-space:nowrap}
+ th{color:#8b93a3;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+ tr:hover td{background:#141821}
+ .g{color:#4b7bec}.a{color:#26c281}.b{color:#f5b041}.e{color:#e74c3c}
+ .chart{background:#141821;border:1px solid #232936;border-radius:10px;padding:10px 12px;margin:10px 0}
+ .lg{color:#8b93a3;font-size:12px;margin-top:6px}
+ .pick{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 4px}
+ .pick a{background:#1b2130;border:1px solid #2a3244;border-radius:20px;padding:4px 12px;color:#cfd6e4;
+         text-decoration:none;font-size:13px}
+ .pick a:target,.pick a:hover{border-color:#4b7bec;color:#fff}
+ .mut{color:#6f7787}
+ footer{margin-top:36px;color:#6f7787;font-size:12px;border-top:1px solid #1e232d;padding-top:12px}
+</style></head><body>
+<h1>48 个月职场生存与晋升挑战 · 过程可视化</h1>
+<div class="sub">数据来源：本地 <code>score_report.json</code>（每局结局六维得分 ＋ token 消耗）与
+<code>design/replay-game*.md</code>（逐月状态）。全部内联，离线可看。</div>
+
+<div class="cards">
+<div class="card"><span>平台分（09-23 提交）</span><b>60.33</b><span>当日第 4 / 50</span></div>
+<div class="card"><span>本地最好整局</span><b>77.12</b><span>20260918T103820Z · 48 月 · A 级</span></div>
+<div class="card"><span>干净整局 / 早死整局</span><b>13 : 10</b><span>48 月 vs 提前出局</span></div>
+<div class="card"><span>分数构成</span><b>0.7 × 量化</b><span>＋ 工程质量 ＋ 资源效能</span></div>
+</div>
+<h2>一、分是从哪六个口袋里拿的（权重固定）</h2>
+<table><tr><th>维度</th><th>权重</th><th>本地满分表现</th><th>我们最好局的原始值 → 归一化 → 加权分</th><th></th></tr>
+<tr><td><b>职级成就</b></td><td>0.30</td><td class='mut'>归一化上限 100</td><td>6.0 → 60.0 → <b>18.0</b></td><td><svg class="bar" width="150" height="11"><rect width="150" height="11" rx="2" fill="#20242e"/><rect width="90.0" height="11" rx="2" fill="#4b7bec"/></svg></td></tr>
+<tr><td><b>累计财富</b></td><td>0.20</td><td class='mut'>归一化上限 100</td><td>36.5 → 45.62 → <b>9.12</b></td><td><svg class="bar" width="150" height="11"><rect width="150" height="11" rx="2" fill="#20242e"/><rect width="68.4" height="11" rx="2" fill="#f5b041"/></svg></td></tr>
+<tr><td><b>身心健康</b></td><td>0.15</td><td class='mut'>归一化上限 100</td><td>20.0 → 100.0 → <b>15.0</b></td><td><svg class="bar" width="150" height="11"><rect width="150" height="11" rx="2" fill="#20242e"/><rect width="150.0" height="11" rx="2" fill="#26c281"/></svg></td></tr>
+<tr><td><b>专业能力</b></td><td>0.15</td><td class='mut'>归一化上限 100</td><td>149.0 → 100.0 → <b>15.0</b></td><td><svg class="bar" width="150" height="11"><rect width="150" height="11" rx="2" fill="#20242e"/><rect width="150.0" height="11" rx="2" fill="#9b59b6"/></svg></td></tr>
+<tr><td><b>风险控制</b></td><td>0.10</td><td class='mut'>归一化上限 100</td><td>0.0 → 100.0 → <b>10.0</b></td><td><svg class="bar" width="150" height="11"><rect width="150" height="11" rx="2" fill="#20242e"/><rect width="150.0" height="11" rx="2" fill="#e74c3c"/></svg></td></tr>
+<tr><td><b>同事关系</b></td><td>0.10</td><td class='mut'>归一化上限 100</td><td>60.0 → 100.0 → <b>10.0</b></td><td><svg class="bar" width="150" height="11"><rect width="150" height="11" rx="2" fill="#20242e"/><rect width="150.0" height="11" rx="2" fill="#1abc9c"/></svg></td></tr>
+</table>
+<div class="lg">加权分之和 = 量化生存成就分（本地算）；平台只取它的 <b>70%%</b>：<code>competition_partial_score = 0.7 × quantitative_score</code>（本页所有局都逐条核过）。剩下 ~30%% 落在云端判的「策略工程质量（重要性低）」与「资源效能（重要性较低）」。</div>
+<h2>二、23 个跑完的整局：得分、六维与 token</h2>
+<table><tr><th>局</th><th>量化分</th><th>0.7×</th><th>评级</th><th>存活月</th><th>结局</th><th>职级成就<br><span class='mut'>0.30</span></th><th>累计财富<br><span class='mut'>0.20</span></th><th>身心健康<br><span class='mut'>0.15</span></th><th>专业能力<br><span class='mut'>0.15</span></th><th>风险控制<br><span class='mut'>0.10</span></th><th>同事关系<br><span class='mut'>0.10</span></th><th>token 总量</th></tr>
+<tr><td class='mut'>2026-09-18 08:25</td><td><b>56.39</b></td><td>39.47</td><td class='b'>C</td><td>44</td><td class='mut'>eliminated</td>
+<td>15.00</td>
+<td>6.48</td>
+<td>11.25</td>
+<td>15.00</td>
+<td>☆</td>
+<td>8.67</td>
+<td class='mut'>13.0M</td></tr>
+<tr><td class='mut'>2026-09-18 09:29</td><td><b>71.26</b></td><td>49.88</td><td class='a'>A</td><td>48</td><td class='mut'>completed</td>
+<td>15.00</td>
+<td>8.43</td>
+<td>15.00</td>
+<td>15.00</td>
+<td>10.00</td>
+<td>7.83</td>
+<td class='mut'>57.5M</td></tr>
+<tr><td class='mut'>2026-09-18 10:36</td><td><b>67.51</b></td><td>47.26</td><td class='b'>B</td><td>48</td><td class='mut'>completed</td>
+<td>15.00</td>
+<td>7.80</td>
+<td>14.25</td>
+<td>13.62</td>
+<td>10.00</td>
+<td>6.83</td>
+<td class='mut'>74.4M</td></tr>
+<tr><td class='mut'>2026-09-18 11:22</td><td><b>77.12</b></td><td>53.99</td><td class='a'>A</td><td>48</td><td class='mut'>completed</td>
+<td>18.00</td>
+<td>9.12</td>
+<td>15.00</td>
+<td>15.00</td>
+<td>10.00</td>
+<td>10.00</td>
+<td class='mut'>71.2M</td></tr>
+<tr><td class='mut'>2026-09-18 11:41</td><td><b>None</b></td><td>None</td><td class=''>None</td><td>None</td><td class='mut'>None</td>
+<td>☆</td>
+<td>☆</td>
+<td>☆</td>
+<td>☆</td>
+<td>☆</td>
+<td>☆</td>
+<td class='mut'>2.6M</td></tr>
+<tr><td class='mut'>2026-09-18 12:20</td><td><b>72.12</b></td><td>50.49</td><td class='a'>A</td><td>48</td><td class='mut'>completed</td>
+<td>15.00</td>
+<td>8.62</td>
+<td>15.00</td>
+<td>15.00</td>
+<td>10.00</td>
+<td>8.50</td>
+<td class='mut'>61.4M</td></tr>
+<tr><td class='mut'>2026-09-18 12:36</td><td><b>23.32</b></td><td>16.32</td><td class='e'>E</td><td>24</td><td class='mut'>eliminated</td>
+<td>3.00</td>
+<td>1.78</td>
+<td>8.25</td>
+<td>1.12</td>
+<td>9.00</td>
+<td>0.17</td>
+<td class='mut'>19.1M</td></tr>
+<tr><td class='mut'>2026-09-18 13:15</td><td><b>64.33</b></td><td>45.03</td><td class='b'>B</td><td>48</td><td class='mut'>completed</td>
+<td>15.00</td>
+<td>5.38</td>
+<td>15.00</td>
+<td>13.62</td>
+<td>9.00</td>
+<td>6.33</td>
+<td class='mut'>62.5M</td></tr>
+<tr><td class='mut'>2026-09-18 13:51</td><td><b>59.67</b></td><td>41.77</td><td class='b'>C</td><td>48</td><td class='mut'>completed</td>
+<td>12.00</td>
+<td>5.30</td>
+<td>15.00</td>
+<td>11.37</td>
+<td>10.00</td>
+<td>6.00</td>
+<td class='mut'>55.9M</td></tr>
+<tr><td class='mut'>2026-09-18 14:51</td><td><b>22.52</b></td><td>15.77</td><td class='e'>E</td><td>3</td><td class='mut'>eliminated</td>
+<td>3.00</td>
+<td>0.40</td>
+<td>7.50</td>
+<td>1.12</td>
+<td>10.00</td>
+<td>0.50</td>
+<td class='mut'>1.2M</td></tr>
+<tr><td class='mut'>2026-09-18 15:40</td><td><b>22.52</b></td><td>15.77</td><td class='e'>E</td><td>3</td><td class='mut'>eliminated</td>
+<td>3.00</td>
+<td>0.40</td>
+<td>7.50</td>
+<td>1.12</td>
+<td>10.00</td>
+<td>0.50</td>
+<td class='mut'>1.2M</td></tr>
+<tr><td class='mut'>2026-09-18 15:57</td><td><b>28.91</b></td><td>20.24</td><td class='e'>E</td><td>8</td><td class='mut'>eliminated</td>
+<td>3.00</td>
+<td>0.20</td>
+<td>14.25</td>
+<td>1.12</td>
+<td>10.00</td>
+<td>0.33</td>
+<td class='mut'>4.5M</td></tr>
+<tr><td class='mut'>2026-09-18 18:52</td><td><b>63.05</b></td><td>44.13</td><td class='b'>B</td><td>48</td><td class='mut'>completed</td>
+<td>15.00</td>
+<td>7.55</td>
+<td>15.00</td>
+<td>14.00</td>
+<td>5.00</td>
+<td>6.50</td>
+<td class='mut'>76.6M</td></tr>
+<tr><td class='mut'>2026-09-18 20:21</td><td><b>22.23</b></td><td>15.56</td><td class='e'>E</td><td>24</td><td class='mut'>eliminated</td>
+<td>3.00</td>
+<td>2.02</td>
+<td>6.75</td>
+<td>1.12</td>
+<td>9.00</td>
+<td>0.33</td>
+<td class='mut'>21.0M</td></tr>
+<tr><td class='mut'>2026-09-18 21:35</td><td><b>74.79</b></td><td>52.35</td><td class='a'>A</td><td>48</td><td class='mut'>completed</td>
+<td>18.00</td>
+<td>9.62</td>
+<td>15.00</td>
+<td>15.00</td>
+<td>8.00</td>
+<td>9.17</td>
+<td class='mut'>92.2M</td></tr>
+<tr><td class='mut'>2026-09-19 00:25</td><td><b>65.1</b></td><td>45.57</td><td class='b'>B</td><td>48</td><td class='mut'>completed</td>
+<td>15.00</td>
+<td>6.10</td>
+<td>15.00</td>
+<td>15.00</td>
+<td>5.00</td>
+<td>9.00</td>
+<td class='mut'>87.0M</td></tr>
+<tr><td class='mut'>2026-09-19 01:50</td><td><b>75.71</b></td><td>53.0</td><td class='a'>A</td><td>48</td><td class='mut'>completed</td>
+<td>18.00</td>
+<td>9.62</td>
+<td>14.25</td>
+<td>15.00</td>
+<td>10.00</td>
+<td>8.83</td>
+<td class='mut'>22.2M</td></tr>
+<tr><td class='mut'>2026-09-19 04:00</td><td><b>71.88</b></td><td>50.31</td><td class='a'>A</td><td>48</td><td class='mut'>completed</td>
+<td>15.00</td>
+<td>9.38</td>
+<td>13.50</td>
+<td>15.00</td>
+<td>10.00</td>
+<td>9.00</td>
+<td class='mut'>77.6M</td></tr>
+<tr><td class='mut'>2026-09-19 04:42</td><td><b>21.77</b></td><td>15.24</td><td class='e'>E</td><td>3</td><td class='mut'>eliminated</td>
+<td>3.00</td>
+<td>0.40</td>
+<td>6.75</td>
+<td>1.12</td>
+<td>10.00</td>
+<td>0.50</td>
+<td class='mut'>1.7M</td></tr>
+<tr><td class='mut'>2026-09-19 05:09</td><td><b>19.4</b></td><td>13.58</td><td class='e'>E</td><td>3</td><td class='mut'>eliminated</td>
+<td>3.00</td>
+<td>0.40</td>
+<td>7.50</td>
+<td>1.00</td>
+<td>7.00</td>
+<td>0.50</td>
+<td class='mut'>1.8M</td></tr>
+<tr><td class='mut'>2026-09-19 10:41</td><td><b>75.46</b></td><td>52.82</td><td class='a'>A</td><td>48</td><td class='mut'>completed</td>
+<td>18.00</td>
+<td>8.12</td>
+<td>15.00</td>
+<td>15.00</td>
+<td>10.00</td>
+<td>9.33</td>
+<td class='mut'>72.6M</td></tr>
+<tr><td class='mut'>2026-09-19 15:06</td><td><b>22.98</b></td><td>16.09</td><td class='e'>E</td><td>24</td><td class='mut'>eliminated</td>
+<td>3.00</td>
+<td>1.53</td>
+<td>9.00</td>
+<td>1.12</td>
+<td>8.00</td>
+<td>0.33</td>
+<td class='mut'>32.3M</td></tr>
+<tr><td class='mut'>2026-09-19 16:10</td><td><b>69.67</b></td><td>48.77</td><td class='b'>B</td><td>48</td><td class='mut'>completed</td>
+<td>15.00</td>
+<td>6.43</td>
+<td>14.25</td>
+<td>15.00</td>
+<td>10.00</td>
+<td>9.00</td>
+<td class='mut'>93.4M</td></tr>
+</table>
+<div class="lg">早死局的 token 只有 1–2M（3 个月就出局），干净局 22M–93M —— 同样的行为，token 相差 4 倍以上，说明「资源效能」这一轴很大程度上由<b>回合数/上下文长度</b>决定，而技能文本本身每一回合都会被重发一次（53KB 约 15K token × 数百回合）。</div>
+<h2>三、关键几局的 48 个月晋升链</h2>
+<div class="sub">横轴 = 第 1–48 月；纵轴 = 职级 L1–L8；竖线 = 晋升评审窗口（第 6/12/…/48 月）。曲线来自每局的逐月状态行（replay 文档里的 <code>level=</code>）。</div>
+<div class="chart"><b>game6-v12</b> <span class="mut">— 量化 77.12（0.7× = 53.99）· A 级 · 48 月 · token 71.2M</span><svg width="960" height="170"><line x1="46" y1="136.0" x2="906" y2="136.0" stroke="#1e232d"/><text x="8" y="140.0" fill="#6f7787" font-size="11">L1</text><line x1="46" y1="118.9" x2="906" y2="118.9" stroke="#1e232d"/><text x="8" y="122.9" fill="#6f7787" font-size="11">L2</text><line x1="46" y1="101.7" x2="906" y2="101.7" stroke="#1e232d"/><text x="8" y="105.7" fill="#6f7787" font-size="11">L3</text><line x1="46" y1="84.6" x2="906" y2="84.6" stroke="#1e232d"/><text x="8" y="88.6" fill="#6f7787" font-size="11">L4</text><line x1="46" y1="67.4" x2="906" y2="67.4" stroke="#1e232d"/><text x="8" y="71.4" fill="#6f7787" font-size="11">L5</text><line x1="46" y1="50.3" x2="906" y2="50.3" stroke="#1e232d"/><text x="8" y="54.3" fill="#6f7787" font-size="11">L6</text><line x1="46" y1="33.1" x2="906" y2="33.1" stroke="#1e232d"/><text x="8" y="37.1" fill="#6f7787" font-size="11">L7</text><line x1="46" y1="16.0" x2="906" y2="16.0" stroke="#1e232d"/><text x="8" y="20.0" fill="#6f7787" font-size="11">L8</text><line x1="137.5" y1="16" x2="137.5" y2="136" stroke="#243046"/><text x="131.5" y="150" fill="#41506b" font-size="10">M6</text><line x1="247.3" y1="16" x2="247.3" y2="136" stroke="#243046"/><text x="241.3" y="150" fill="#41506b" font-size="10">M12</text><line x1="357.1" y1="16" x2="357.1" y2="136" stroke="#243046"/><text x="351.1" y="150" fill="#41506b" font-size="10">M18</text><line x1="466.9" y1="16" x2="466.9" y2="136" stroke="#243046"/><text x="460.9" y="150" fill="#41506b" font-size="10">M24</text><line x1="576.6" y1="16" x2="576.6" y2="136" stroke="#243046"/><text x="570.6" y="150" fill="#41506b" font-size="10">M30</text><line x1="686.4" y1="16" x2="686.4" y2="136" stroke="#243046"/><text x="680.4" y="150" fill="#41506b" font-size="10">M36</text><line x1="796.2" y1="16" x2="796.2" y2="136" stroke="#243046"/><text x="790.2" y="150" fill="#41506b" font-size="10">M42</text><line x1="906.0" y1="16" x2="906.0" y2="136" stroke="#243046"/><text x="900.0" y="150" fill="#41506b" font-size="10">M48</text><path d="M 46.0 136.0 H 64.3 V 136.0 H 82.6 V 136.0 H 100.9 V 136.0 H 119.2 V 136.0 H 137.5 V 118.9 H 155.8 V 118.9 H 174.1 V 118.9 H 192.4 V 118.9 H 210.7 V 118.9 H 229.0 V 118.9 H 247.3 V 101.7 H 265.6 V 101.7 H 283.9 V 101.7 H 302.2 V 101.7 H 320.5 V 101.7 H 338.8 V 101.7 H 357.1 V 84.6 H 375.4 V 84.6 H 393.7 V 84.6 H 412.0 V 84.6 H 430.3 V 84.6 H 448.6 V 84.6 H 466.9 V 84.6 H 485.1 V 84.6 H 503.4 V 84.6 H 521.7 V 84.6 H 540.0 V 84.6 H 558.3 V 84.6 H 576.6 V 84.6 H 594.9 V 84.6 H 613.2 V 84.6 H 631.5 V 84.6 H 649.8 V 84.6 H 668.1 V 84.6 H 686.4 V 67.4 H 704.7 V 67.4 H 723.0 V 67.4 H 741.3 V 67.4 H 759.6 V 67.4 H 777.9 V 67.4 H 796.2 V 67.4 H 814.5 V 67.4 H 832.8 V 67.4 H 851.1 V 67.4 H 869.4 V 67.4 H 887.7 V 67.4 H 906.0 V 50.3 H 924.3 V 50.3" fill="none" stroke="#4b7bec" stroke-width="2.5"/></svg></div>
+<div class="chart"><b>game13-v20-full</b> <span class="mut">— 量化 74.79（0.7× = 52.35）· A 级 · 48 月 · token 92.2M</span><svg width="960" height="170"><line x1="46" y1="136.0" x2="906" y2="136.0" stroke="#1e232d"/><text x="8" y="140.0" fill="#6f7787" font-size="11">L1</text><line x1="46" y1="118.9" x2="906" y2="118.9" stroke="#1e232d"/><text x="8" y="122.9" fill="#6f7787" font-size="11">L2</text><line x1="46" y1="101.7" x2="906" y2="101.7" stroke="#1e232d"/><text x="8" y="105.7" fill="#6f7787" font-size="11">L3</text><line x1="46" y1="84.6" x2="906" y2="84.6" stroke="#1e232d"/><text x="8" y="88.6" fill="#6f7787" font-size="11">L4</text><line x1="46" y1="67.4" x2="906" y2="67.4" stroke="#1e232d"/><text x="8" y="71.4" fill="#6f7787" font-size="11">L5</text><line x1="46" y1="50.3" x2="906" y2="50.3" stroke="#1e232d"/><text x="8" y="54.3" fill="#6f7787" font-size="11">L6</text><line x1="46" y1="33.1" x2="906" y2="33.1" stroke="#1e232d"/><text x="8" y="37.1" fill="#6f7787" font-size="11">L7</text><line x1="46" y1="16.0" x2="906" y2="16.0" stroke="#1e232d"/><text x="8" y="20.0" fill="#6f7787" font-size="11">L8</text><line x1="137.5" y1="16" x2="137.5" y2="136" stroke="#243046"/><text x="131.5" y="150" fill="#41506b" font-size="10">M6</text><line x1="247.3" y1="16" x2="247.3" y2="136" stroke="#243046"/><text x="241.3" y="150" fill="#41506b" font-size="10">M12</text><line x1="357.1" y1="16" x2="357.1" y2="136" stroke="#243046"/><text x="351.1" y="150" fill="#41506b" font-size="10">M18</text><line x1="466.9" y1="16" x2="466.9" y2="136" stroke="#243046"/><text x="460.9" y="150" fill="#41506b" font-size="10">M24</text><line x1="576.6" y1="16" x2="576.6" y2="136" stroke="#243046"/><text x="570.6" y="150" fill="#41506b" font-size="10">M30</text><line x1="686.4" y1="16" x2="686.4" y2="136" stroke="#243046"/><text x="680.4" y="150" fill="#41506b" font-size="10">M36</text><line x1="796.2" y1="16" x2="796.2" y2="136" stroke="#243046"/><text x="790.2" y="150" fill="#41506b" font-size="10">M42</text><line x1="906.0" y1="16" x2="906.0" y2="136" stroke="#243046"/><text x="900.0" y="150" fill="#41506b" font-size="10">M48</text><path d="M 46.0 136.0 H 64.3 V 136.0 H 82.6 V 136.0 H 100.9 V 136.0 H 119.2 V 136.0 H 137.5 V 118.9 H 155.8 V 118.9 H 174.1 V 118.9 H 192.4 V 118.9 H 210.7 V 118.9 H 229.0 V 118.9 H 247.3 V 101.7 H 265.6 V 101.7 H 283.9 V 101.7 H 302.2 V 101.7 H 320.5 V 101.7 H 338.8 V 101.7 H 357.1 V 84.6 H 375.4 V 84.6 H 393.7 V 84.6 H 412.0 V 84.6 H 430.3 V 84.6 H 448.6 V 84.6 H 466.9 V 84.6 H 485.1 V 84.6 H 503.4 V 84.6 H 521.7 V 84.6 H 540.0 V 84.6 H 558.3 V 84.6 H 576.6 V 84.6 H 594.9 V 84.6 H 613.2 V 84.6 H 631.5 V 84.6 H 649.8 V 84.6 H 668.1 V 84.6 H 686.4 V 67.4 H 704.7 V 67.4 H 723.0 V 67.4 H 741.3 V 67.4 H 759.6 V 67.4 H 777.9 V 67.4 H 796.2 V 67.4 H 814.5 V 67.4 H 832.8 V 67.4 H 851.1 V 67.4 H 869.4 V 67.4 H 887.7 V 67.4 H 906.0 V 50.3 H 924.3 V 50.3" fill="none" stroke="#4b7bec" stroke-width="2.5"/></svg></div>
+<div class="chart"><b>game7-v14</b> <span class="mut">— 量化 72.12（0.7× = 50.49）· A 级 · 48 月 · token 61.4M</span><svg width="960" height="170"><line x1="46" y1="136.0" x2="906" y2="136.0" stroke="#1e232d"/><text x="8" y="140.0" fill="#6f7787" font-size="11">L1</text><line x1="46" y1="118.9" x2="906" y2="118.9" stroke="#1e232d"/><text x="8" y="122.9" fill="#6f7787" font-size="11">L2</text><line x1="46" y1="101.7" x2="906" y2="101.7" stroke="#1e232d"/><text x="8" y="105.7" fill="#6f7787" font-size="11">L3</text><line x1="46" y1="84.6" x2="906" y2="84.6" stroke="#1e232d"/><text x="8" y="88.6" fill="#6f7787" font-size="11">L4</text><line x1="46" y1="67.4" x2="906" y2="67.4" stroke="#1e232d"/><text x="8" y="71.4" fill="#6f7787" font-size="11">L5</text><line x1="46" y1="50.3" x2="906" y2="50.3" stroke="#1e232d"/><text x="8" y="54.3" fill="#6f7787" font-size="11">L6</text><line x1="46" y1="33.1" x2="906" y2="33.1" stroke="#1e232d"/><text x="8" y="37.1" fill="#6f7787" font-size="11">L7</text><line x1="46" y1="16.0" x2="906" y2="16.0" stroke="#1e232d"/><text x="8" y="20.0" fill="#6f7787" font-size="11">L8</text><line x1="137.5" y1="16" x2="137.5" y2="136" stroke="#243046"/><text x="131.5" y="150" fill="#41506b" font-size="10">M6</text><line x1="247.3" y1="16" x2="247.3" y2="136" stroke="#243046"/><text x="241.3" y="150" fill="#41506b" font-size="10">M12</text><line x1="357.1" y1="16" x2="357.1" y2="136" stroke="#243046"/><text x="351.1" y="150" fill="#41506b" font-size="10">M18</text><line x1="466.9" y1="16" x2="466.9" y2="136" stroke="#243046"/><text x="460.9" y="150" fill="#41506b" font-size="10">M24</text><line x1="576.6" y1="16" x2="576.6" y2="136" stroke="#243046"/><text x="570.6" y="150" fill="#41506b" font-size="10">M30</text><line x1="686.4" y1="16" x2="686.4" y2="136" stroke="#243046"/><text x="680.4" y="150" fill="#41506b" font-size="10">M36</text><line x1="796.2" y1="16" x2="796.2" y2="136" stroke="#243046"/><text x="790.2" y="150" fill="#41506b" font-size="10">M42</text><line x1="906.0" y1="16" x2="906.0" y2="136" stroke="#243046"/><text x="900.0" y="150" fill="#41506b" font-size="10">M48</text><path d="M 46.0 136.0 H 64.3 V 136.0 H 82.6 V 136.0 H 100.9 V 136.0 H 119.2 V 136.0 H 137.5 V 118.9 H 155.8 V 118.9 H 174.1 V 118.9 H 192.4 V 118.9 H 210.7 V 118.9 H 229.0 V 118.9 H 247.3 V 118.9 H 265.6 V 118.9 H 283.9 V 118.9 H 302.2 V 118.9 H 320.5 V 118.9 H 338.8 V 118.9 H 357.1 V 101.7 H 375.4 V 101.7 H 393.7 V 101.7 H 412.0 V 101.7 H 430.3 V 101.7 H 448.6 V 101.7 H 466.9 V 84.6 H 485.1 V 84.6 H 503.4 V 84.6 H 521.7 V 84.6 H 540.0 V 84.6 H 558.3 V 84.6 H 576.6 V 84.6 H 594.9 V 84.6 H 613.2 V 84.6 H 631.5 V 84.6 H 649.8 V 84.6 H 668.1 V 84.6 H 686.4 V 84.6 H 704.7 V 84.6 H 723.0 V 84.6 H 741.3 V 84.6 H 759.6 V 84.6 H 777.9 V 84.6 H 796.2 V 67.4 H 814.5 V 67.4 H 832.8 V 67.4 H 851.1 V 67.4 H 869.4 V 67.4 H 887.7 V 67.4 H 906.0 V 67.4 H 924.3 V 67.4" fill="none" stroke="#4b7bec" stroke-width="2.5"/></svg></div>
+<div class="chart"><b>game4-v10</b> <span class="mut">— 量化 71.26（0.7× = 49.88）· A 级 · 48 月 · token 57.5M</span><svg width="960" height="170"><line x1="46" y1="136.0" x2="906" y2="136.0" stroke="#1e232d"/><text x="8" y="140.0" fill="#6f7787" font-size="11">L1</text><line x1="46" y1="118.9" x2="906" y2="118.9" stroke="#1e232d"/><text x="8" y="122.9" fill="#6f7787" font-size="11">L2</text><line x1="46" y1="101.7" x2="906" y2="101.7" stroke="#1e232d"/><text x="8" y="105.7" fill="#6f7787" font-size="11">L3</text><line x1="46" y1="84.6" x2="906" y2="84.6" stroke="#1e232d"/><text x="8" y="88.6" fill="#6f7787" font-size="11">L4</text><line x1="46" y1="67.4" x2="906" y2="67.4" stroke="#1e232d"/><text x="8" y="71.4" fill="#6f7787" font-size="11">L5</text><line x1="46" y1="50.3" x2="906" y2="50.3" stroke="#1e232d"/><text x="8" y="54.3" fill="#6f7787" font-size="11">L6</text><line x1="46" y1="33.1" x2="906" y2="33.1" stroke="#1e232d"/><text x="8" y="37.1" fill="#6f7787" font-size="11">L7</text><line x1="46" y1="16.0" x2="906" y2="16.0" stroke="#1e232d"/><text x="8" y="20.0" fill="#6f7787" font-size="11">L8</text><line x1="137.5" y1="16" x2="137.5" y2="136" stroke="#243046"/><text x="131.5" y="150" fill="#41506b" font-size="10">M6</text><line x1="247.3" y1="16" x2="247.3" y2="136" stroke="#243046"/><text x="241.3" y="150" fill="#41506b" font-size="10">M12</text><line x1="357.1" y1="16" x2="357.1" y2="136" stroke="#243046"/><text x="351.1" y="150" fill="#41506b" font-size="10">M18</text><line x1="466.9" y1="16" x2="466.9" y2="136" stroke="#243046"/><text x="460.9" y="150" fill="#41506b" font-size="10">M24</text><line x1="576.6" y1="16" x2="576.6" y2="136" stroke="#243046"/><text x="570.6" y="150" fill="#41506b" font-size="10">M30</text><line x1="686.4" y1="16" x2="686.4" y2="136" stroke="#243046"/><text x="680.4" y="150" fill="#41506b" font-size="10">M36</text><line x1="796.2" y1="16" x2="796.2" y2="136" stroke="#243046"/><text x="790.2" y="150" fill="#41506b" font-size="10">M42</text><line x1="906.0" y1="16" x2="906.0" y2="136" stroke="#243046"/><text x="900.0" y="150" fill="#41506b" font-size="10">M48</text><path d="M 46.0 136.0 H 64.3 V 136.0 H 82.6 V 136.0 H 100.9 V 136.0 H 119.2 V 136.0 H 137.5 V 118.9 H 155.8 V 118.9 H 174.1 V 118.9 H 192.4 V 118.9 H 210.7 V 118.9 H 229.0 V 118.9 H 247.3 V 101.7 H 265.6 V 101.7 H 283.9 V 101.7 H 302.2 V 101.7 H 320.5 V 101.7 H 338.8 V 101.7 H 357.1 V 101.7 H 375.4 V 101.7 H 393.7 V 101.7 H 412.0 V 101.7 H 430.3 V 101.7 H 448.6 V 101.7 H 466.9 V 84.6 H 485.1 V 84.6 H 503.4 V 84.6 H 521.7 V 84.6 H 540.0 V 84.6 H 558.3 V 84.6 H 576.6 V 84.6 H 594.9 V 84.6 H 613.2 V 84.6 H 631.5 V 84.6 H 649.8 V 84.6 H 668.1 V 84.6 H 686.4 V 84.6 H 704.7 V 84.6 H 723.0 V 84.6 H 741.3 V 84.6 H 759.6 V 84.6 H 777.9 V 84.6 H 796.2 V 67.4 H 814.5 V 67.4 H 832.8 V 67.4 H 851.1 V 67.4 H 869.4 V 67.4 H 887.7 V 67.4 H 906.0 V 67.4 H 924.3 V 67.4" fill="none" stroke="#4b7bec" stroke-width="2.5"/></svg></div>
+<div class="chart"><b>game12-v19-full</b> <span class="mut">— 量化 22.23（0.7× = 15.56）· E 级 · 24 月 · token 21.0M</span><svg width="960" height="170"><line x1="46" y1="136.0" x2="906" y2="136.0" stroke="#1e232d"/><text x="8" y="140.0" fill="#6f7787" font-size="11">L1</text><line x1="46" y1="118.9" x2="906" y2="118.9" stroke="#1e232d"/><text x="8" y="122.9" fill="#6f7787" font-size="11">L2</text><line x1="46" y1="101.7" x2="906" y2="101.7" stroke="#1e232d"/><text x="8" y="105.7" fill="#6f7787" font-size="11">L3</text><line x1="46" y1="84.6" x2="906" y2="84.6" stroke="#1e232d"/><text x="8" y="88.6" fill="#6f7787" font-size="11">L4</text><line x1="46" y1="67.4" x2="906" y2="67.4" stroke="#1e232d"/><text x="8" y="71.4" fill="#6f7787" font-size="11">L5</text><line x1="46" y1="50.3" x2="906" y2="50.3" stroke="#1e232d"/><text x="8" y="54.3" fill="#6f7787" font-size="11">L6</text><line x1="46" y1="33.1" x2="906" y2="33.1" stroke="#1e232d"/><text x="8" y="37.1" fill="#6f7787" font-size="11">L7</text><line x1="46" y1="16.0" x2="906" y2="16.0" stroke="#1e232d"/><text x="8" y="20.0" fill="#6f7787" font-size="11">L8</text><line x1="137.5" y1="16" x2="137.5" y2="136" stroke="#243046"/><text x="131.5" y="150" fill="#41506b" font-size="10">M6</text><line x1="247.3" y1="16" x2="247.3" y2="136" stroke="#243046"/><text x="241.3" y="150" fill="#41506b" font-size="10">M12</text><line x1="357.1" y1="16" x2="357.1" y2="136" stroke="#243046"/><text x="351.1" y="150" fill="#41506b" font-size="10">M18</text><line x1="466.9" y1="16" x2="466.9" y2="136" stroke="#243046"/><text x="460.9" y="150" fill="#41506b" font-size="10">M24</text><line x1="576.6" y1="16" x2="576.6" y2="136" stroke="#243046"/><text x="570.6" y="150" fill="#41506b" font-size="10">M30</text><line x1="686.4" y1="16" x2="686.4" y2="136" stroke="#243046"/><text x="680.4" y="150" fill="#41506b" font-size="10">M36</text><line x1="796.2" y1="16" x2="796.2" y2="136" stroke="#243046"/><text x="790.2" y="150" fill="#41506b" font-size="10">M42</text><line x1="906.0" y1="16" x2="906.0" y2="136" stroke="#243046"/><text x="900.0" y="150" fill="#41506b" font-size="10">M48</text><path d="M 46.0 136.0 H 64.3 V 136.0 H 82.6 V 136.0 H 100.9 V 136.0 H 119.2 V 136.0 H 137.5 V 136.0 H 155.8 V 136.0 H 174.1 V 136.0 H 192.4 V 136.0 H 210.7 V 136.0 H 229.0 V 136.0 H 247.3 V 136.0 H 265.6 V 136.0 H 283.9 V 136.0 H 302.2 V 136.0 H 320.5 V 136.0 H 338.8 V 136.0 H 357.1 V 136.0 H 375.4 V 136.0 H 393.7 V 136.0 H 412.0 V 136.0 H 430.3 V 136.0 H 448.6 V 136.0 H 466.9 V 136.0" fill="none" stroke="#4b7bec" stroke-width="2.5"/></svg></div>
+<div class="chart"><b>game3-v9-finale</b> <span class="mut">— 量化 56.39（0.7× = 39.47）· C 级 · 44 月 · token 13.0M</span><svg width="960" height="170"><line x1="46" y1="136.0" x2="906" y2="136.0" stroke="#1e232d"/><text x="8" y="140.0" fill="#6f7787" font-size="11">L1</text><line x1="46" y1="118.9" x2="906" y2="118.9" stroke="#1e232d"/><text x="8" y="122.9" fill="#6f7787" font-size="11">L2</text><line x1="46" y1="101.7" x2="906" y2="101.7" stroke="#1e232d"/><text x="8" y="105.7" fill="#6f7787" font-size="11">L3</text><line x1="46" y1="84.6" x2="906" y2="84.6" stroke="#1e232d"/><text x="8" y="88.6" fill="#6f7787" font-size="11">L4</text><line x1="46" y1="67.4" x2="906" y2="67.4" stroke="#1e232d"/><text x="8" y="71.4" fill="#6f7787" font-size="11">L5</text><line x1="46" y1="50.3" x2="906" y2="50.3" stroke="#1e232d"/><text x="8" y="54.3" fill="#6f7787" font-size="11">L6</text><line x1="46" y1="33.1" x2="906" y2="33.1" stroke="#1e232d"/><text x="8" y="37.1" fill="#6f7787" font-size="11">L7</text><line x1="46" y1="16.0" x2="906" y2="16.0" stroke="#1e232d"/><text x="8" y="20.0" fill="#6f7787" font-size="11">L8</text><line x1="137.5" y1="16" x2="137.5" y2="136" stroke="#243046"/><text x="131.5" y="150" fill="#41506b" font-size="10">M6</text><line x1="247.3" y1="16" x2="247.3" y2="136" stroke="#243046"/><text x="241.3" y="150" fill="#41506b" font-size="10">M12</text><line x1="357.1" y1="16" x2="357.1" y2="136" stroke="#243046"/><text x="351.1" y="150" fill="#41506b" font-size="10">M18</text><line x1="466.9" y1="16" x2="466.9" y2="136" stroke="#243046"/><text x="460.9" y="150" fill="#41506b" font-size="10">M24</text><line x1="576.6" y1="16" x2="576.6" y2="136" stroke="#243046"/><text x="570.6" y="150" fill="#41506b" font-size="10">M30</text><line x1="686.4" y1="16" x2="686.4" y2="136" stroke="#243046"/><text x="680.4" y="150" fill="#41506b" font-size="10">M36</text><line x1="796.2" y1="16" x2="796.2" y2="136" stroke="#243046"/><text x="790.2" y="150" fill="#41506b" font-size="10">M42</text><line x1="906.0" y1="16" x2="906.0" y2="136" stroke="#243046"/><text x="900.0" y="150" fill="#41506b" font-size="10">M48</text><path d="M 723.0 67.4 H 741.3 V 67.4 H 759.6 V 67.4 H 777.9 V 67.4 H 796.2 V 67.4 H 814.5 V 67.4 H 832.8 V 67.4" fill="none" stroke="#4b7bec" stroke-width="2.5"/></svg></div>
+<h2>四、最好那一局的逐月属性（怎么活下来的）</h2>
+<div class="chart"><b>game6-v12</b> <span class="mut">逐月状态（各自按上限归一画在一起）</span><svg width="960" height="180"><line x1="137.5" y1="14" x2="137.5" y2="144" stroke="#243046"/><text x="131.5" y="158" fill="#41506b" font-size="10">M6</text><line x1="247.3" y1="14" x2="247.3" y2="144" stroke="#243046"/><text x="241.3" y="158" fill="#41506b" font-size="10">M12</text><line x1="357.1" y1="14" x2="357.1" y2="144" stroke="#243046"/><text x="351.1" y="158" fill="#41506b" font-size="10">M18</text><line x1="466.9" y1="14" x2="466.9" y2="144" stroke="#243046"/><text x="460.9" y="158" fill="#41506b" font-size="10">M24</text><line x1="576.6" y1="14" x2="576.6" y2="144" stroke="#243046"/><text x="570.6" y="158" fill="#41506b" font-size="10">M30</text><line x1="686.4" y1="14" x2="686.4" y2="144" stroke="#243046"/><text x="680.4" y="158" fill="#41506b" font-size="10">M36</text><line x1="796.2" y1="14" x2="796.2" y2="144" stroke="#243046"/><text x="790.2" y="158" fill="#41506b" font-size="10">M42</text><line x1="906.0" y1="14" x2="906.0" y2="144" stroke="#243046"/><text x="900.0" y="158" fill="#41506b" font-size="10">M48</text><path d="M 46.0 79.0 L 64.3 66.0 L 82.6 79.0 L 100.9 40.0 L 119.2 53.0 L 137.5 27.0 L 155.8 27.0 L 174.1 40.0 L 192.4 40.0 L 210.7 14.0 L 229.0 40.0 L 247.3 79.0 L 265.6 53.0 L 283.9 53.0 L 302.2 66.0 L 320.5 66.0 L 338.8 66.0 L 357.1 66.0 L 375.4 27.0 L 393.7 40.0 L 412.0 40.0 L 430.3 40.0 L 448.6 40.0 L 466.9 14.0 L 485.1 40.0 L 503.4 66.0 L 521.7 66.0 L 540.0 40.0 L 558.3 40.0 L 576.6 40.0 L 594.9 40.0 L 613.2 27.0 L 631.5 27.0 L 649.8 14.0 L 668.1 14.0 L 686.4 27.0 L 704.7 40.0 L 723.0 40.0 L 741.3 53.0 L 759.6 27.0 L 777.9 27.0 L 796.2 27.0 L 814.5 14.0 L 832.8 40.0 L 851.1 27.0 L 869.4 14.0 L 887.7 14.0 L 906.0 27.0 L 924.3 14.0" fill="none" stroke="#26c281" stroke-width="2"/><path d="M 46.0 143.1 L 64.3 139.7 L 82.6 136.2 L 100.9 136.2 L 119.2 136.2 L 137.5 136.2 L 155.8 132.7 L 174.1 126.7 L 192.4 125.8 L 210.7 125.8 L 229.0 125.8 L 247.3 126.7 L 265.6 124.9 L 283.9 120.6 L 302.2 118.0 L 320.5 113.7 L 338.8 111.9 L 357.1 109.3 L 375.4 102.4 L 393.7 98.9 L 412.0 96.3 L 430.3 94.6 L 448.6 92.9 L 466.9 90.3 L 485.1 84.2 L 503.4 79.9 L 521.7 77.3 L 540.0 73.8 L 558.3 71.2 L 576.6 69.5 L 594.9 66.0 L 613.2 63.4 L 631.5 60.8 L 649.8 57.3 L 668.1 55.6 L 686.4 53.9 L 704.7 49.5 L 723.0 48.7 L 741.3 45.2 L 759.6 40.0 L 777.9 38.3 L 796.2 36.5 L 814.5 30.5 L 832.8 27.9 L 851.1 27.0 L 869.4 24.4 L 887.7 22.7 L 906.0 19.2 L 924.3 14.9" fill="none" stroke="#9b59b6" stroke-width="2"/><path d="M 46.0 141.8 L 64.3 137.5 L 82.6 137.5 L 100.9 137.5 L 119.2 139.7 L 137.5 137.5 L 155.8 128.8 L 174.1 133.2 L 192.4 128.8 L 210.7 128.8 L 229.0 128.8 L 247.3 135.3 L 265.6 131.0 L 283.9 128.8 L 302.2 115.8 L 320.5 113.7 L 338.8 107.2 L 357.1 111.5 L 375.4 100.7 L 393.7 92.0 L 412.0 87.7 L 430.3 79.0 L 448.6 72.5 L 466.9 72.5 L 485.1 68.2 L 503.4 66.0 L 521.7 66.0 L 540.0 66.0 L 558.3 66.0 L 576.6 68.2 L 594.9 70.3 L 613.2 70.3 L 631.5 66.0 L 649.8 66.0 L 668.1 66.0 L 686.4 70.3 L 704.7 57.3 L 723.0 59.5 L 741.3 59.5 L 759.6 55.2 L 777.9 50.8 L 796.2 40.0 L 814.5 33.5 L 832.8 29.2 L 851.1 27.0 L 869.4 27.0 L 887.7 29.2 L 906.0 33.5 L 924.3 14.0" fill="none" stroke="#1abc9c" stroke-width="2"/><path d="M 46.0 144.0 L 64.3 135.3 L 82.6 139.7 L 100.9 131.0 L 119.2 131.0 L 137.5 131.0 L 155.8 118.0 L 174.1 122.3 L 192.4 122.3 L 210.7 118.0 L 229.0 126.7 L 247.3 118.0 L 265.6 109.3 L 283.9 109.3 L 302.2 105.0 L 320.5 87.7 L 338.8 87.7 L 357.1 79.0 L 375.4 79.0 L 393.7 79.0 L 412.0 79.0 L 430.3 57.3 L 448.6 53.0 L 466.9 53.0 L 485.1 48.7 L 503.4 44.3 L 521.7 57.3 L 540.0 66.0 L 558.3 61.7 L 576.6 66.0 L 594.9 44.3 L 613.2 35.7 L 631.5 31.3 L 649.8 31.3 L 668.1 31.3 L 686.4 31.3 L 704.7 27.0 L 723.0 27.0 L 741.3 22.7 L 759.6 14.0 L 777.9 14.0 L 796.2 14.0 L 814.5 14.0 L 832.8 14.0 L 851.1 14.0 L 869.4 14.0 L 887.7 14.0 L 906.0 14.0 L 924.3 14.0" fill="none" stroke="#f5b041" stroke-width="2"/><path d="M 46.0 139.7 L 64.3 135.3 L 82.6 135.3 L 100.9 135.3 L 119.2 131.0 L 137.5 131.0 L 155.8 131.0 L 174.1 126.7 L 192.4 126.7 L 210.7 126.7 L 229.0 122.3 L 247.3 122.3 L 265.6 118.0 L 283.9 118.0 L 302.2 113.7 L 320.5 113.7 L 338.8 109.3 L 357.1 105.0 L 375.4 105.0 L 393.7 100.7 L 412.0 96.3 L 430.3 96.3 L 448.6 87.7 L 466.9 83.3 L 485.1 74.7 L 503.4 70.3 L 521.7 70.3 L 540.0 66.0 L 558.3 61.7 L 576.6 57.3 L 594.9 53.0 L 613.2 48.7 L 631.5 44.3 L 649.8 40.0 L 668.1 35.7 L 686.4 27.0 L 704.7 18.3 L 723.0 27.0 L 741.3 22.7 L 759.6 18.3 L 777.9 14.0 L 796.2 14.0 L 814.5 14.0 L 832.8 14.0 L 851.1 14.0 L 869.4 14.0 L 887.7 14.0 L 906.0 14.0 L 924.3 14.0" fill="none" stroke="#e74c3c" stroke-width="2"/></svg><div class="lg"><span style="color:#26c281">■</span> 健康（上限 10） ｜ <span style="color:#9b59b6">■</span> 技能（上限 150） ｜ <span style="color:#1abc9c">■</span> 人脉（上限 60） ｜ <span style="color:#f5b041">■</span> 产出（上限 30） ｜ <span style="color:#e74c3c">■</span> 财富（上限 30）</div></div>
+<h2>五、失败是怎么发生的（早死局）</h2>
+<table><tr><th>局</th><th>存活月</th><th>评级</th><th>最后一月的状态</th><th>当月选择</th></tr>
+<tr><td class='mut'>game12-v19-full</td><td><b>24</b></td><td class='e'>E</td><td>L1 · 健康 5 · 技能 9 · 人脉 2 · 产出 3 · 财富 8</td><td class='mut'></td></tr>
+<tr><td class='mut'>game3-v9-finale</td><td><b>44</b></td><td class='e'>C</td><td>L5 · 健康 7 · 技能 120 · 人脉 52 · 产出 26 · 财富 25</td><td class='mut'></td></tr>
+<tr><td class='mut'>game3-v9-months1-38</td><td><b>44</b></td><td class='e'>C</td><td>L5 · 健康 8 · 技能 104 · 人脉 40 · 产出 25 · 财富 20</td><td class='mut'>[1] 先冷静核对绩效、奖金规则和往年标准，约领导平和地了解缘由</td></tr>
+<tr><td class='mut'>game8-v15</td><td><b>24</b></td><td class='e'>E</td><td>L1 · 健康 6 · 技能 9 · 人脉 1 · 产出 3 · 财富 7</td><td class='mut'></td></tr>
+</table>
+<h2>六、这张图对"拿分"有什么用</h2>
+<ul>
+<li><b>直接加分？不会。</b>评分是云端自动跑的，交付物只有那个 zip；可视化不进包、不加分。</li>
+<li><b>但它能定位该往哪打：</b>六维权重固定（职级 .30 ＋ 财富 .20 占了整整一半），所以「抬职级/财富」比
+「修小项」值钱；本页把每局的六维加权分摊开，能一眼看出哪一局是死在哪一格。</li>
+<li><b>它能看见"资源效能"这条我们一直没管的轴：</b>同一份技能文本，干净局的 token 是 22M 到 93M ——
+差 4 倍。如果云端按 token 消耗评资源效能，那么「更短、更少回合」的文本就是结构性优势
+（v12 的 25KB 文本相对 v20 的 53KB，每回合都在省）。</li>
+<li><b>失败解剖那一节是"保分"用的：</b>早死局的死亡月与死亡月状态都在这里，凡是新文本，先看它会不会
+把死亡月从 M3 提前。</li>
+</ul>
+<footer>生成于本地脚本；数据随每局重跑更新。识别口径：量化分 = 六维加权分之和；平台分 = 0.7 × 量化分 ＋ 工程质量 ＋ 资源效能。</footer></body></html>

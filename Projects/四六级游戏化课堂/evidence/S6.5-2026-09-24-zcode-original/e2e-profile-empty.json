@@ -1,0 +1,155 @@
+{
+ "checks": [
+  {
+   "desc": "新学生：六维覆盖 0 维",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "新学生：作答 0 题 / 正确率 0",
+   "want": "(0, 0.0)",
+   "got": "(0, 0)",
+   "ok": true
+  },
+  {
+   "desc": "新学生：错题本为空",
+   "want": "(0, 0)",
+   "got": "(0, 0)",
+   "ok": true
+  },
+  {
+   "desc": "新学生：无提醒（没东西可复盘）",
+   "want": "False",
+   "got": "False",
+   "ok": true
+  },
+  {
+   "desc": "新学生：无诊断卡（没做过诊断不占位）",
+   "want": "None",
+   "got": "None",
+   "ok": true
+  },
+  {
+   "desc": "空态：没有提醒条",
+   "want": "None",
+   "got": "None",
+   "ok": true
+  },
+  {
+   "desc": "空态：没有诊断卡",
+   "want": "None",
+   "got": "None",
+   "ok": true
+  },
+  {
+   "desc": "空态：六维全「暂无数据」",
+   "want": "['暂无数据', '暂无数据', '暂无数据', '暂无数据', '暂无数据', '暂无数据']",
+   "got": "['暂无数据', '暂无数据', '暂无数据', '暂无数据', '暂无数据', '暂无数据']",
+   "ok": true
+  },
+  {
+   "desc": "空态：雷达图百分比全「—」",
+   "want": "['—', '—', '—', '—', '—', '—']",
+   "got": "['—', '—', '—', '—', '—', '—']",
+   "ok": true
+  },
+  {
+   "desc": "空态：画像档次留空（没有数据就不打分）",
+   "want": "None",
+   "got": "None",
+   "ok": true
+  },
+  {
+   "desc": "空态：错题本文案",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "空态：曲线空态文案（引导去打第一关）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "空态：曲线仍是 8 个时间轴点（缺周不缺轴）",
+   "want": "8",
+   "got": "8",
+   "ok": true
+  },
+  {
+   "desc": "空态：底部「我的」Tab 无红点",
+   "want": "False",
+   "got": "False",
+   "ok": true
+  },
+  {
+   "desc": "空态：顶栏仍是 LV.1",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "空态下四张卡也都在（空态是卡内文案，不是把卡删掉）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "截图 shot-empty-ability.png 尺寸合理（宽 ≤ 390 且不为空条）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "截图 shot-empty-trend.png 尺寸合理（宽 ≤ 390 且不为空条）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "截图 shot-empty-wrongbook.png 尺寸合理（宽 ≤ 390 且不为空条）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "截图 shot-empty-navbar.png 尺寸合理（宽 ≤ 390 且不为空条）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "整页截图 shot-empty-page.png 宽 390（一屏宽的阅读面）",
+   "want": "390",
+   "got": "390",
+   "ok": true
+  },
+  {
+   "desc": "整页截图 shot-empty-page.png 比一屏高（真的拍全了内容，不是只拍一屏）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "空态：控制台零错误",
+   "want": "[]",
+   "got": "[]",
+   "ok": true
+  }
+ ],
+ "fails": [],
+ "consoleErrors": [],
+ "extra": {
+  "shots": [
+   "shot-empty-top.png",
+   "shot-empty-ability.png",
+   "shot-empty-trend.png",
+   "shot-empty-wrongbook.png",
+   "shot-empty-navbar.png",
+   "shot-empty-page.png"
+  ],
+  "user": "S65B"
+ }
+}

@@ -1,0 +1,87 @@
+{
+ "tag": "target6",
+ "user": "S6V6C",
+ "answer": "correct",
+ "levels": [],
+ "targetBefore": "英语四级 · 冲关中 · 切换",
+ "shots": [
+  "shot-target6-map-band6.png",
+  "shot-target6-first-question-band6.png"
+ ],
+ "targetPatch": {
+  "id": 103,
+  "username": "S6V6C",
+  "realName": "S6演示学生",
+  "role": "student",
+  "avatar": "",
+  "classId": 1,
+  "target": "6",
+  "lv": 1,
+  "streak": 0,
+  "mustChangePwd": false
+ },
+ "targetAfter": "英语六级 · 冲关中 · 切换",
+ "target6Paper": {
+  "levelId": 25,
+  "attemptId": 182,
+  "questionIds": [
+   298,
+   299,
+   300,
+   301,
+   302
+  ],
+  "bands": [
+   "6"
+  ],
+  "firstQuestion": {
+   "id": 298,
+   "band": "6",
+   "type": "vocab",
+   "stem": "The ____ of the research findings has been questioned by several leading scholar",
+   "domText": "词汇 The ____ of the research findings has been questioned by several leading scholars."
+  }
+ },
+ "checks": [
+  {
+   "desc": "顶栏目标已切到英语六级",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "切到六级后卷面题数=5",
+   "want": "5",
+   "got": "5",
+   "ok": true
+  },
+  {
+   "desc": "切到六级后卷面题目全部来自六级题库",
+   "want": "['6']",
+   "got": "['6']",
+   "ok": true
+  },
+  {
+   "desc": "切到六级后第一题来自六级题库",
+   "want": "6",
+   "got": "6",
+   "ok": true
+  },
+  {
+   "desc": "切到六级后第一题题干与卷面一致",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  }
+ ],
+ "fails": [],
+ "log": [
+  "== 登录 S6V6C ==",
+  "  · 首进必选：已选英语四级",
+  "  · 顶栏：英语四级 · 冲关中 · 切换",
+  "== 切换备考目标 → 六级 ==",
+  "  · 目标切换场景：只验证切换后的卷面，不在切换前进关",
+  "== 切到六级后进关取卷（L1 首题必须来自六级题库）==",
+  "  [六级首题] id=298 band=6 type=vocab"
+ ]
+}

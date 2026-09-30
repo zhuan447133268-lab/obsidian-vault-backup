@@ -1,0 +1,702 @@
+{
+ "attempts": 11,
+ "checks": [
+  {
+   "desc": "账本对账：用户 S6V6A 在 users 表里（e2e-chain.json）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L25 attempt 171 账本 reason 集合 == 结算明细",
+   "want": "['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus']",
+   "got": "['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus']",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L25 attempt 171 账本 answer_base 金额 == 结算明细",
+   "want": "100",
+   "got": "100",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L25 attempt 171 账本 answer_combo 金额 == 结算明细",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L25 attempt 171 账本 answer_speed 金额 == 结算明细",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L25 attempt 171 账本 level_clear 金额 == 结算明细",
+   "want": "30",
+   "got": "30",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L25 attempt 171 账本 star3_bonus 金额 == 结算明细",
+   "want": "20",
+   "got": "20",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L25 attempt 171 验收④ 结算「基础分」行 == 账本 answer_base 合计",
+   "want": "100",
+   "got": "100",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L25 attempt 171 验收④ 结算「速度加成」行 == 账本 answer_speed 合计",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L25 attempt 171 账本基础分逐题 20（5 条 == 答对 5 题）",
+   "want": "[20, 20, 20, 20, 20]",
+   "got": "[20, 20, 20, 20, 20]",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L25 attempt 171 账本速度加成逐题 0..10",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L25 attempt 171 结算净得 == 账本净额",
+   "want": "250",
+   "got": "250",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L26 attempt 172 账本 reason 集合 == 结算明细",
+   "want": "['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus']",
+   "got": "['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus']",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L26 attempt 172 账本 answer_base 金额 == 结算明细",
+   "want": "100",
+   "got": "100",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L26 attempt 172 账本 answer_combo 金额 == 结算明细",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L26 attempt 172 账本 answer_speed 金额 == 结算明细",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L26 attempt 172 账本 level_clear 金额 == 结算明细",
+   "want": "30",
+   "got": "30",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L26 attempt 172 账本 star3_bonus 金额 == 结算明细",
+   "want": "20",
+   "got": "20",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L26 attempt 172 验收④ 结算「基础分」行 == 账本 answer_base 合计",
+   "want": "100",
+   "got": "100",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L26 attempt 172 验收④ 结算「速度加成」行 == 账本 answer_speed 合计",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L26 attempt 172 账本基础分逐题 20（5 条 == 答对 5 题）",
+   "want": "[20, 20, 20, 20, 20]",
+   "got": "[20, 20, 20, 20, 20]",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L26 attempt 172 账本速度加成逐题 0..10",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L26 attempt 172 结算净得 == 账本净额",
+   "want": "250",
+   "got": "250",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L27 attempt 173 账本 reason 集合 == 结算明细",
+   "want": "['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus']",
+   "got": "['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus']",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L27 attempt 173 账本 answer_base 金额 == 结算明细",
+   "want": "100",
+   "got": "100",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L27 attempt 173 账本 answer_combo 金额 == 结算明细",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L27 attempt 173 账本 answer_speed 金额 == 结算明细",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L27 attempt 173 账本 level_clear 金额 == 结算明细",
+   "want": "30",
+   "got": "30",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L27 attempt 173 账本 star3_bonus 金额 == 结算明细",
+   "want": "20",
+   "got": "20",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L27 attempt 173 验收④ 结算「基础分」行 == 账本 answer_base 合计",
+   "want": "100",
+   "got": "100",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L27 attempt 173 验收④ 结算「速度加成」行 == 账本 answer_speed 合计",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L27 attempt 173 账本基础分逐题 20（5 条 == 答对 5 题）",
+   "want": "[20, 20, 20, 20, 20]",
+   "got": "[20, 20, 20, 20, 20]",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L27 attempt 173 账本速度加成逐题 0..10",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L27 attempt 173 结算净得 == 账本净额",
+   "want": "250",
+   "got": "250",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L28 attempt 174 账本 reason 集合 == 结算明细",
+   "want": "['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus']",
+   "got": "['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus']",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L28 attempt 174 账本 answer_base 金额 == 结算明细",
+   "want": "100",
+   "got": "100",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L28 attempt 174 账本 answer_combo 金额 == 结算明细",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L28 attempt 174 账本 answer_speed 金额 == 结算明细",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L28 attempt 174 账本 level_clear 金额 == 结算明细",
+   "want": "30",
+   "got": "30",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L28 attempt 174 账本 star3_bonus 金额 == 结算明细",
+   "want": "20",
+   "got": "20",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L28 attempt 174 验收④ 结算「基础分」行 == 账本 answer_base 合计",
+   "want": "100",
+   "got": "100",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L28 attempt 174 验收④ 结算「速度加成」行 == 账本 answer_speed 合计",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L28 attempt 174 账本基础分逐题 20（5 条 == 答对 5 题）",
+   "want": "[20, 20, 20, 20, 20]",
+   "got": "[20, 20, 20, 20, 20]",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L28 attempt 174 账本速度加成逐题 0..10",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L28 attempt 174 结算净得 == 账本净额",
+   "want": "250",
+   "got": "250",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L29 attempt 175 账本 reason 集合 == 结算明细",
+   "want": "['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus']",
+   "got": "['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus']",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L29 attempt 175 账本 answer_base 金额 == 结算明细",
+   "want": "100",
+   "got": "100",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L29 attempt 175 账本 answer_combo 金额 == 结算明细",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L29 attempt 175 账本 answer_speed 金额 == 结算明细",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L29 attempt 175 账本 level_clear 金额 == 结算明细",
+   "want": "30",
+   "got": "30",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L29 attempt 175 账本 star3_bonus 金额 == 结算明细",
+   "want": "20",
+   "got": "20",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L29 attempt 175 验收④ 结算「基础分」行 == 账本 answer_base 合计",
+   "want": "100",
+   "got": "100",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L29 attempt 175 验收④ 结算「速度加成」行 == 账本 answer_speed 合计",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L29 attempt 175 账本基础分逐题 20（5 条 == 答对 5 题）",
+   "want": "[20, 20, 20, 20, 20]",
+   "got": "[20, 20, 20, 20, 20]",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L29 attempt 175 账本速度加成逐题 0..10",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L29 attempt 175 结算净得 == 账本净额",
+   "want": "250",
+   "got": "250",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L30 attempt 176 账本 reason 集合 == 结算明细",
+   "want": "['boss_correct', 'boss_perfect']",
+   "got": "['boss_correct', 'boss_perfect']",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L30 attempt 176 账本 boss_correct 金额 == 结算明细",
+   "want": "200",
+   "got": "200",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L30 attempt 176 账本 boss_perfect 金额 == 结算明细",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L30 attempt 176 验收④ 结算「基础分」行 == 账本 answer_base 合计",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L30 attempt 176 验收④ 结算「速度加成」行 == 账本 answer_speed 合计",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L30 attempt 176 账本 Boss 每题答对 25（8 条 == 答对 8 题）",
+   "want": "[25, 25, 25, 25, 25, 25, 25, 25]",
+   "got": "[25, 25, 25, 25, 25, 25, 25, 25]",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L30 attempt 176 结算净得 == 账本净额",
+   "want": "250",
+   "got": "250",
+   "ok": true
+  },
+  {
+   "desc": "账本对账：用户 S6V6A 在 users 表里（e2e-replay.json）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L25 attempt 177 账本 reason 集合 == 结算明细",
+   "want": "['answer_base', 'answer_combo', 'answer_speed']",
+   "got": "['answer_base', 'answer_combo', 'answer_speed']",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L25 attempt 177 账本 answer_base 金额 == 结算明细",
+   "want": "100",
+   "got": "100",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L25 attempt 177 账本 answer_combo 金额 == 结算明细",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L25 attempt 177 账本 answer_speed 金额 == 结算明细",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L25 attempt 177 验收④ 结算「基础分」行 == 账本 answer_base 合计",
+   "want": "100",
+   "got": "100",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L25 attempt 177 验收④ 结算「速度加成」行 == 账本 answer_speed 合计",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L25 attempt 177 账本基础分逐题 20（5 条 == 答对 5 题）",
+   "want": "[20, 20, 20, 20, 20]",
+   "got": "[20, 20, 20, 20, 20]",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L25 attempt 177 账本速度加成逐题 0..10",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L25 attempt 177 结算净得 == 账本净额",
+   "want": "200",
+   "got": "200",
+   "ok": true
+  },
+  {
+   "desc": "账本对账：用户 S6V6A 在 users 表里（e2e-realpaper.json）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L38 attempt 178 账本 reason 集合 == 结算明细",
+   "want": "['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus']",
+   "got": "['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus']",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L38 attempt 178 账本 answer_base 金额 == 结算明细",
+   "want": "200",
+   "got": "200",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L38 attempt 178 账本 answer_combo 金额 == 结算明细",
+   "want": "225",
+   "got": "225",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L38 attempt 178 账本 answer_speed 金额 == 结算明细",
+   "want": "99",
+   "got": "99",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L38 attempt 178 账本 level_clear 金额 == 结算明细",
+   "want": "30",
+   "got": "30",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L38 attempt 178 账本 star3_bonus 金额 == 结算明细",
+   "want": "20",
+   "got": "20",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L38 attempt 178 验收④ 结算「基础分」行 == 账本 answer_base 合计",
+   "want": "200",
+   "got": "200",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L38 attempt 178 验收④ 结算「速度加成」行 == 账本 answer_speed 合计",
+   "want": "99",
+   "got": "99",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L38 attempt 178 账本基础分逐题 20（10 条 == 答对 10 题）",
+   "want": "[20, 20, 20, 20, 20, 20, 20, 20, 20, 20]",
+   "got": "[20, 20, 20, 20, 20, 20, 20, 20, 20, 20]",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L38 attempt 178 账本速度加成逐题 0..10",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L38 attempt 178 结算净得 == 账本净额",
+   "want": "574",
+   "got": "574",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L39 attempt 179 账本 reason 集合 == 结算明细",
+   "want": "['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus']",
+   "got": "['answer_base', 'answer_combo', 'answer_speed', 'level_clear', 'star3_bonus']",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L39 attempt 179 账本 answer_base 金额 == 结算明细",
+   "want": "200",
+   "got": "200",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L39 attempt 179 账本 answer_combo 金额 == 结算明细",
+   "want": "225",
+   "got": "225",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L39 attempt 179 账本 answer_speed 金额 == 结算明细",
+   "want": "100",
+   "got": "100",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L39 attempt 179 账本 level_clear 金额 == 结算明细",
+   "want": "30",
+   "got": "30",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L39 attempt 179 账本 star3_bonus 金额 == 结算明细",
+   "want": "20",
+   "got": "20",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L39 attempt 179 验收④ 结算「基础分」行 == 账本 answer_base 合计",
+   "want": "200",
+   "got": "200",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L39 attempt 179 验收④ 结算「速度加成」行 == 账本 answer_speed 合计",
+   "want": "100",
+   "got": "100",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L39 attempt 179 账本基础分逐题 20（10 条 == 答对 10 题）",
+   "want": "[20, 20, 20, 20, 20, 20, 20, 20, 20, 20]",
+   "got": "[20, 20, 20, 20, 20, 20, 20, 20, 20, 20]",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L39 attempt 179 账本速度加成逐题 0..10",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A L39 attempt 179 结算净得 == 账本净额",
+   "want": "575",
+   "got": "575",
+   "ok": true
+  },
+  {
+   "desc": "账本对账：用户 S6V6B 在 users 表里（e2e-wrong.json）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S6V6B L25 attempt 180 账本 reason 集合 == 结算明细",
+   "want": "[]",
+   "got": "[]",
+   "ok": true
+  },
+  {
+   "desc": "S6V6B L25 attempt 180 结算净得 == 账本净额",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "S6V6B L25 attempt 180 失败层账本净额归零（撤销行冲回已入账得分）",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "S6V6B L25 attempt 180 失败层不写通关/三星奖励行",
+   "want": "[]",
+   "got": "[]",
+   "ok": true
+  },
+  {
+   "desc": "账本对账：用户 S6V6B 在 users 表里（e2e-failmixed.json）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S6V6B L25 attempt 181 账本 reason 集合 == 结算明细",
+   "want": "['answer_base', 'answer_combo', 'answer_speed', 'attempt_voided']",
+   "got": "['answer_base', 'answer_combo', 'answer_speed', 'attempt_voided']",
+   "ok": true
+  },
+  {
+   "desc": "S6V6B L25 attempt 181 账本 answer_base 金额 == 结算明细",
+   "want": "40",
+   "got": "40",
+   "ok": true
+  },
+  {
+   "desc": "S6V6B L25 attempt 181 账本 answer_combo 金额 == 结算明细",
+   "want": "5",
+   "got": "5",
+   "ok": true
+  },
+  {
+   "desc": "S6V6B L25 attempt 181 账本 answer_speed 金额 == 结算明细",
+   "want": "20",
+   "got": "20",
+   "ok": true
+  },
+  {
+   "desc": "S6V6B L25 attempt 181 账本 attempt_voided 金额 == 结算明细",
+   "want": "-65",
+   "got": "-65",
+   "ok": true
+  },
+  {
+   "desc": "S6V6B L25 attempt 181 结算净得 == 账本净额",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "S6V6B L25 attempt 181 失败层账本净额归零（撤销行冲回已入账得分）",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "S6V6B L25 attempt 181 失败层已入账被显式冲回（65 → -65）",
+   "want": "-65",
+   "got": "-65",
+   "ok": true
+  },
+  {
+   "desc": "S6V6B L25 attempt 181 失败层不写通关/三星奖励行",
+   "want": "[]",
+   "got": "[]",
+   "ok": true
+  },
+  {
+   "desc": "账本对账：用户 S6V6C 在 users 表里（e2e-target6.json）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S6V6C 切换后 users.target 落库为 6",
+   "want": "6",
+   "got": "6",
+   "ok": true
+  },
+  {
+   "desc": "S6V6A 结算累计 XP == SELECT SUM(delta)（attempt 179 结算口径）",
+   "want": "2849",
+   "got": "2849",
+   "ok": true
+  },
+  {
+   "desc": "S6V6B 结算累计 XP == SELECT SUM(delta)（attempt 181 结算口径）",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "L25 四级卷与六级卷题目集合不相交",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  }
+ ],
+ "fails": []
+}

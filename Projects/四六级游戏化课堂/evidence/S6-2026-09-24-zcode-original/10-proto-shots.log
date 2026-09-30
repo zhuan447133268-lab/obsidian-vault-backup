@@ -1,0 +1,15 @@
+
+########## 10 验收③ 原型 quiz.html 五态截图（390 宽手机框；走 http 才能写 localStorage） ##########
+[CHECK] 原型静态服务 8099 可达 ✅ 期望=200 实际=200
+== 原型 quiz.html · 第 1 关（高频词，5 题）==
+    · 原型截图 shots/proto-question.png
+    · 原型截图 shots/proto-feedback-ok.png
+    · 原型截图 shots/proto-feedback-no.png
+== 原型 quiz.html · 第 1 关全对（通关结算）==
+    · 原型截图 shots/proto-settlement-clear.png
+== 原型 quiz.html · 第 1 关连错 3 题（爱心扣完）==
+    · 原型截图 shots/proto-settlement-fail.png
+== 原型 quiz.html · 第 6 关（单元 Boss 真题混合卷）==
+    · 原型截图 shots/proto-settlement-boss.png
+
+原型五态截图完成（shots/proto-*.png）

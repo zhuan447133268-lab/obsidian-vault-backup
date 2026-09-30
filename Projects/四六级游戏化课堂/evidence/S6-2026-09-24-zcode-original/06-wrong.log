@@ -1,0 +1,47 @@
+
+########## 06 验收① E2E 一镜到底（错路）：全错 → 爱心扣完 → 失败层（本次得分已作废） ##########
+== 登录 S6V6B ==
+  · 首进必选：已选英语四级
+  · 顶栏：英语四级 · 冲关中 · 切换
+== 关卡 25 第 1 关 · 高频词（5 题）==
+  [进关预告] 🎯 四级 · 第 1 关 · 高频词 校园生活 · 词汇 5 本关题数 7 约几分钟 08:00 限时 3 颗爱心 本关 5 题 · 约 7 分钟；答错 3 题本次闯关结束。 开始答题 → 返回地图 🗺️
+[CHECK] L25 进关预告写明「本关 X 题」 ✅ 期望=True 实际=True
+[CHECK] L25 进关预告写明「约 X 分钟」 ✅ 期望=True 实际=True
+    · 截图 shot-wrong-L25-preview.png
+[CHECK] L25 卷面题数 == 进关预告题数 ✅ 期望=5 实际=5
+[CHECK] L25 卷面不下发答案/解析/原文 ✅ 期望=True 实际=True
+  [卷面] attempt=180 seed=1012118449701915820 题数=5 band=['4'] 首题=265 vocab
+    · 截图 shot-wrong-L25-question.png
+[CHECK] L25 库里作答行数 == 卷面 answered 数（无脚本外写入） ✅ 期望=0 实际=0
+[CHECK] L25 第1题 反馈条样式与判分一致（fbno） ✅ 期望=True 实际=True
+[CHECK] L25 第1题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L25 第1题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L25 第1题 答错回执带正确项展示坐标 C ✅ 期望=True 实际=True
+[CHECK] L25 第1题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 2 实际=❤️ 2
+[CHECK] L25 第1题 答错扣一颗心（❤️ 3 → ❤️ 2） ✅ 期望=2 实际=2
+[CHECK] L25 第1题 无连击文案 ✅ 期望=True 实际=True
+    · 截图 shot-wrong-L25-feedback-no.png
+[CHECK] L25 第2题 反馈条样式与判分一致（fbno） ✅ 期望=True 实际=True
+[CHECK] L25 第2题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L25 第2题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L25 第2题 答错回执带正确项展示坐标 A ✅ 期望=True 实际=True
+[CHECK] L25 第2题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 1 实际=❤️ 1
+[CHECK] L25 第2题 答错扣一颗心（❤️ 2 → ❤️ 1） ✅ 期望=1 实际=1
+[CHECK] L25 第2题 无连击文案 ✅ 期望=True 实际=True
+[CHECK] L25 第3题 反馈条样式与判分一致（fbno） ✅ 期望=True 实际=True
+[CHECK] L25 第3题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L25 第3题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L25 第3题 答错回执带正确项展示坐标 B ✅ 期望=True 实际=True
+[CHECK] L25 第3题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 0 实际=❤️ 0
+[CHECK] L25 第3题 答错扣一颗心（❤️ 1 → ❤️ 0） ✅ 期望=0 实际=0
+[CHECK] L25 第3题 无连击文案 ✅ 期望=True 实际=True
+  [爱心扣完] 第 3 题答错后归零，点「继续」进失败结算
+    · 截图 shot-wrong-L25-settlement-fail.png
+  [结算] type=fail stars= 710= 明细=[]
+[CHECK] L25 通关后作答行数 == 卷面已答 + 本次脚本提交数 ✅ 期望=3 实际=3
+[CHECK] L25 结算层类型 == 服务端回执推导 ✅ 期望=fail 实际=fail
+[CHECK] L25 失败层不列逐题回顾（与原型 failOverlay 一致） ✅ 期望=0 实际=0
+[CHECK] L25 失败层不列 XP 明细三列（与原型 failOverlay 一致） ✅ 期望=[] 实际=[]
+[CHECK] L25 失败层写明本次得分已作废（净得 0） ✅ 期望=True 实际=True
+
+== E2E wrong 汇总：31 条断言，失败 0 条 ==

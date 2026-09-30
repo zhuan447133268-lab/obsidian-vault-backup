@@ -1,0 +1,185 @@
+
+########## 05 内容基线：真题切片体量（四级第 3 套 阅读·选词填空 10 题 / 段落匹配 10 题） ##########
+== 登录 S6V6A ==
+  · 首进必选：已选英语四级
+  · 顶栏：英语四级 · 冲关中 · 切换
+== 关卡 38 阅读 · 选词填空（10 题）==
+  [进关预告] 🎯 四级 · 阅读 · 选词填空 2026年6月四级真题（第3套） · 阅读 10 本关题数 12 约几分钟 08:00 限时 3 颗爱心 本关 10 题 · 约 12 分钟；答错 3 题本次闯关结束。 开始答题 → 返回地图 🗺️
+[CHECK] L38 进关预告写明「本关 X 题」 ✅ 期望=True 实际=True
+[CHECK] L38 进关预告写明「约 X 分钟」 ✅ 期望=True 实际=True
+    · 截图 shot-realpaper-L38-preview.png
+[CHECK] L38 卷面题数 == 进关预告题数 ✅ 期望=10 实际=10
+[CHECK] L38 卷面不下发答案/解析/原文 ✅ 期望=True 实际=True
+  [卷面] attempt=178 seed=2090367108318683856 题数=10 band=['4'] 首题=386 cloze
+    · 截图 shot-realpaper-L38-question.png
+[CHECK] L38 库里作答行数 == 卷面 answered 数（无脚本外写入） ✅ 期望=0 实际=0
+[CHECK] L38 第1题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L38 第1题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L38 第1题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L38 第1题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L38 第1题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L38 第1题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L38 第1题 无连击文案 ✅ 期望=True 实际=True
+    · 截图 shot-realpaper-L38-feedback-ok.png
+[CHECK] L38 第2题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L38 第2题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L38 第2题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L38 第2题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L38 第2题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L38 第2题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L38 第2题 连击文案（🔥 2 连击） ✅ 期望=True 实际=True
+[CHECK] L38 第3题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L38 第3题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L38 第3题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L38 第3题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L38 第3题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L38 第3题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L38 第3题 连击文案（🔥 3 连击） ✅ 期望=True 实际=True
+[CHECK] L38 第4题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L38 第4题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L38 第4题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L38 第4题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L38 第4题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L38 第4题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L38 第4题 连击文案（🔥 4 连击） ✅ 期望=True 实际=True
+[CHECK] L38 第5题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L38 第5题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L38 第5题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L38 第5题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L38 第5题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L38 第5题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L38 第5题 连击文案（🔥 5 连击） ✅ 期望=True 实际=True
+[CHECK] L38 第6题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L38 第6题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L38 第6题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L38 第6题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L38 第6题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L38 第6题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L38 第6题 连击文案（🔥 6 连击） ✅ 期望=True 实际=True
+[CHECK] L38 第7题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L38 第7题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L38 第7题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L38 第7题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L38 第7题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L38 第7题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L38 第7题 连击文案（🔥 7 连击） ✅ 期望=True 实际=True
+[CHECK] L38 第8题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L38 第8题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L38 第8题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L38 第8题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L38 第8题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L38 第8题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L38 第8题 连击文案（🔥 8 连击） ✅ 期望=True 实际=True
+[CHECK] L38 第9题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L38 第9题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L38 第9题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L38 第9题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L38 第9题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L38 第9题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L38 第9题 连击文案（🔥 9 连击） ✅ 期望=True 实际=True
+[CHECK] L38 第10题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L38 第10题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L38 第10题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L38 第10题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L38 第10题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L38 第10题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L38 第10题 连击文案（🔥 10 连击） ✅ 期望=True 实际=True
+    · 截图 shot-realpaper-L38-settlement-clear.png
+  [结算] type=clear stars=★★★ 710= 明细=['答题基础分 +200', '速度加成 +99', '连击加成 +225', '通关奖励 +30', '三星奖励 +20']
+[CHECK] L38 通关后作答行数 == 卷面已答 + 本次脚本提交数 ✅ 期望=10 实际=10
+[CHECK] L38 结算层类型 == 服务端回执推导 ✅ 期望=clear 实际=clear
+[CHECK] L38 结算明细三列 == 服务端 xpRows（答题基础分 +200/速度加成 +99/连击加成 +225/通关奖励 +30/三星奖励 +20） ✅ 期望=['答题基础分 +200', '速度加成 +99', '连击加成 +225', '通关奖励 +30', '三星奖励 +20'] 实际=['答题基础分 +200', '速度加成 +99', '连击加成 +225', '通关奖励 +30', '三星奖励 +20']
+[CHECK] L38 结算逐题回顾行数 == 服务端 review 行数 ✅ 期望=10 实际=10
+[CHECK] L38 结算星级 == 服务端 stars ✅ 期望=★★★ 实际=★★★
+[CHECK] L38 结算页有「下一关」按钮 ✅ 期望=next 实际=next
+[CHECK] 下一关落到 L39 阅读 · 段落匹配 ✅ 期望=True 实际=True
+== 关卡 39 阅读 · 段落匹配（10 题）==
+  [进关预告] 🎯 四级 · 阅读 · 段落匹配 2026年6月四级真题（第3套） · 阅读 10 本关题数 12 约几分钟 10:00 限时 3 颗爱心 本关 10 题 · 约 12 分钟；答错 3 题本次闯关结束。 开始答题 → 返回地图 🗺️
+[CHECK] L39 进关预告写明「本关 X 题」 ✅ 期望=True 实际=True
+[CHECK] L39 进关预告写明「约 X 分钟」 ✅ 期望=True 实际=True
+    · 截图 shot-realpaper-L39-preview.png
+[CHECK] L39 卷面题数 == 进关预告题数 ✅ 期望=10 实际=10
+[CHECK] L39 卷面不下发答案/解析/原文 ✅ 期望=True 实际=True
+  [卷面] attempt=179 seed=9063923621588429433 题数=10 band=['4'] 首题=396 match
+    · 截图 shot-realpaper-L39-question.png
+[CHECK] L39 库里作答行数 == 卷面 answered 数（无脚本外写入） ✅ 期望=0 实际=0
+[CHECK] L39 第1题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L39 第1题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L39 第1题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L39 第1题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L39 第1题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L39 第1题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L39 第1题 无连击文案 ✅ 期望=True 实际=True
+    · 截图 shot-realpaper-L39-feedback-ok.png
+[CHECK] L39 第2题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L39 第2题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L39 第2题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L39 第2题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L39 第2题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L39 第2题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L39 第2题 连击文案（🔥 2 连击） ✅ 期望=True 实际=True
+[CHECK] L39 第3题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L39 第3题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L39 第3题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L39 第3题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L39 第3题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L39 第3题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L39 第3题 连击文案（🔥 3 连击） ✅ 期望=True 实际=True
+[CHECK] L39 第4题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L39 第4题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L39 第4题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L39 第4题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L39 第4题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L39 第4题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L39 第4题 连击文案（🔥 4 连击） ✅ 期望=True 实际=True
+[CHECK] L39 第5题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L39 第5题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L39 第5题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L39 第5题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L39 第5题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L39 第5题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L39 第5题 连击文案（🔥 5 连击） ✅ 期望=True 实际=True
+[CHECK] L39 第6题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L39 第6题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L39 第6题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L39 第6题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L39 第6题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L39 第6题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L39 第6题 连击文案（🔥 6 连击） ✅ 期望=True 实际=True
+[CHECK] L39 第7题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L39 第7题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L39 第7题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L39 第7题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L39 第7题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L39 第7题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L39 第7题 连击文案（🔥 7 连击） ✅ 期望=True 实际=True
+[CHECK] L39 第8题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L39 第8题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L39 第8题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L39 第8题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L39 第8题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L39 第8题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L39 第8题 连击文案（🔥 8 连击） ✅ 期望=True 实际=True
+[CHECK] L39 第9题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L39 第9题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L39 第9题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L39 第9题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L39 第9题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L39 第9题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L39 第9题 连击文案（🔥 9 连击） ✅ 期望=True 实际=True
+[CHECK] L39 第10题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L39 第10题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L39 第10题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L39 第10题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L39 第10题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L39 第10题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L39 第10题 连击文案（🔥 10 连击） ✅ 期望=True 实际=True
+    · 截图 shot-realpaper-L39-settlement-clear.png
+  [结算] type=clear stars=★★★ 710= 明细=['答题基础分 +200', '速度加成 +100', '连击加成 +225', '通关奖励 +30', '三星奖励 +20']
+[CHECK] L39 通关后作答行数 == 卷面已答 + 本次脚本提交数 ✅ 期望=10 实际=10
+[CHECK] L39 结算层类型 == 服务端回执推导 ✅ 期望=clear 实际=clear
+[CHECK] L39 结算明细三列 == 服务端 xpRows（答题基础分 +200/速度加成 +100/连击加成 +225/通关奖励 +30/三星奖励 +20） ✅ 期望=['答题基础分 +200', '速度加成 +100', '连击加成 +225', '通关奖励 +30', '三星奖励 +20'] 实际=['答题基础分 +200', '速度加成 +100', '连击加成 +225', '通关奖励 +30', '三星奖励 +20']
+[CHECK] L39 结算逐题回顾行数 == 服务端 review 行数 ✅ 期望=10 实际=10
+[CHECK] L39 结算星级 == 服务端 stars ✅ 期望=★★★ 实际=★★★
+
+== E2E realpaper 汇总：162 条断言，失败 0 条 ==

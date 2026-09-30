@@ -1,0 +1,75 @@
+
+########## 04 拍板必改项回归：重刷已通关关卡（L25）不再重复发通关/三星奖励，答题分照发；顺带实录断点续答（答完第 2 题刷新页面） ##########
+== 登录 S6V6A ==
+  · 首进必选：已选英语四级
+  · 顶栏：英语四级 · 冲关中 · 切换
+== 关卡 25 第 1 关 · 高频词（5 题）==
+  [进关预告] 🎯 四级 · 第 1 关 · 高频词 校园生活 · 词汇 5 本关题数 7 约几分钟 08:00 限时 3 颗爱心 本关 5 题 · 约 7 分钟；答错 3 题本次闯关结束。 首刷成绩：答对 5/5 题，3 星。 重刷模式：答题分照发，通关/三星奖励只在首次通关发放。 开始答题 → 返回地图 🗺️
+[CHECK] L25 进关预告写明「本关 X 题」 ✅ 期望=True 实际=True
+[CHECK] L25 进关预告写明「约 X 分钟」 ✅ 期望=True 实际=True
+    · 截图 shot-replay-L25-preview.png
+[CHECK] L25 重刷进关预告写明「重刷模式」 ✅ 期望=True 实际=True
+[CHECK] L25 卷面题数 == 进关预告题数 ✅ 期望=5 实际=5
+[CHECK] L25 卷面不下发答案/解析/原文 ✅ 期望=True 实际=True
+  [卷面] attempt=177 seed=8932481413804266409 题数=5 band=['4'] 首题=265 vocab
+    · 截图 shot-replay-L25-question.png
+[CHECK] L25 库里作答行数 == 卷面 answered 数（无脚本外写入） ✅ 期望=0 实际=0
+[CHECK] L25 第1题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L25 第1题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L25 第1题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L25 第1题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L25 第1题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L25 第1题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L25 第1题 无连击文案 ✅ 期望=True 实际=True
+    · 截图 shot-replay-L25-feedback-ok.png
+[CHECK] L25 第2题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L25 第2题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L25 第2题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L25 第2题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L25 第2题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L25 第2题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L25 第2题 连击文案（🔥 2 连击） ✅ 期望=True 实际=True
+    · 截图 shot-replay-L25-resume.png
+[CHECK] L25 断点续答：刷新后复用同一 attempt ✅ 期望=177 实际=177
+[CHECK] L25 断点续答：卷面 resumed=True ✅ 期望=True 实际=True
+[CHECK] L25 断点续答：shuffleSeed 不变（同一套卷同一洗牌） ✅ 期望=8932481413804266409 实际=8932481413804266409
+[CHECK] L25 断点续答：题目集合与顺序不变 ✅ 期望=[265, 266, 267, 268, 269] 实际=[265, 266, 267, 268, 269]
+[CHECK] L25 断点续答：卷面 answered == 已答 2 题（不重复计） ✅ 期望=2 实际=2
+[CHECK] L25 断点续答：库里作答行数没被重复写 ✅ 期望=2 实际=2
+[CHECK] L25 断点续答：DOM 落到第 3 题 ✅ 期望=True 实际=True
+[CHECK] L25 断点续答：toast 提示「接着上次答」 ✅ 期望=True 实际=True
+  [断点续答] 答完第 2 题刷新页面 → attempt=177 resumed=True 进度=第 3 / 5 题 ⏱ 08:00 toast=接着上次答：已完成 2/5 题
+[CHECK] L25 第3题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L25 第3题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L25 第3题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L25 第3题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L25 第3题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L25 第3题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L25 第3题 连击文案（🔥 3 连击） ✅ 期望=True 实际=True
+[CHECK] L25 第4题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L25 第4题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L25 第4题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L25 第4题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L25 第4题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L25 第4题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L25 第4题 连击文案（🔥 4 连击） ✅ 期望=True 实际=True
+[CHECK] L25 第5题 反馈条样式与判分一致（fbok） ✅ 期望=True 实际=True
+[CHECK] L25 第5题 反馈条带 💡 解析 ✅ 期望=True 实际=True
+[CHECK] L25 第5题 反馈条解析与服务端回执逐字一致 ✅ 期望=True 实际=True
+[CHECK] L25 第5题 判分=答对 ✅ 期望=True 实际=True
+[CHECK] L25 第5题 爱心文案 == 服务端 livesLeft ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L25 第5题 答对不减心 ✅ 期望=❤️ 3 实际=❤️ 3
+[CHECK] L25 第5题 连击文案（🔥 5 连击） ✅ 期望=True 实际=True
+    · 截图 shot-replay-L25-settlement-clear.png
+  [结算] type=clear stars=★★★ 710= 明细=['答题基础分 +100', '速度加成 +50', '连击加成 +50']
+[CHECK] L25 通关后作答行数 == 卷面已答 + 本次脚本提交数 ✅ 期望=5 实际=5
+[CHECK] L25 结算层类型 == 服务端回执推导 ✅ 期望=clear 实际=clear
+[CHECK] L25 结算明细三列 == 服务端 xpRows（答题基础分 +100/速度加成 +50/连击加成 +50） ✅ 期望=['答题基础分 +100', '速度加成 +50', '连击加成 +50'] 实际=['答题基础分 +100', '速度加成 +50', '连击加成 +50']
+[CHECK] L25 结算逐题回顾行数 == 服务端 review 行数 ✅ 期望=5 实际=5
+[CHECK] L25 结算星级 == 服务端 stars ✅ 期望=★★★ 实际=★★★
+[CHECK] L25 重刷：回执 replay=True ✅ 期望=True 实际=True
+[CHECK] L25 重刷：回执 firstClear=False ✅ 期望=False 实际=False
+[CHECK] L25 重刷：明细里没有通关/三星/满分奖励行 ✅ 期望=[] 实际=[]
+[CHECK] L25 重刷：答题分照发（基础+速度两条都在） ✅ 期望=True 实际=True
+
+== E2E replay 汇总：58 条断言，失败 0 条 ==
