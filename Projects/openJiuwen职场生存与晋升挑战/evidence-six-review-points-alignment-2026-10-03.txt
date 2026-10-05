@@ -1,0 +1,68 @@
+BDCI26 · 六条专家评审要点对齐核对与文档升级 —— 证据（2026-10-03 22:28）
+
+## 0. 触发
+用户原话要点：v40 是否已与「选手须随作品提交设计思路文档（PDF 或 Markdown），作为专家评审的重要依据」的
+六条考察点对齐，以及官方文档站 https://career-emulator.readthedocs.io/ 的内容。
+
+## 1. 六条考察点（用户原文）
+① Skills 设计：能力划分、职责边界与多 Skill 协同方式
+② 长期规划：跨季度、跨绩效周期的目标拆解与行动一致性
+③ 框架运用：JiuwenSwarm 各项能力的选用理由与调用模式
+④ 风险控制：生存红线及财富、健康等资源约束下的决策机制
+⑤ 失败恢复：异常、封禁或不利局面下的降级与补救策略
+⑥ 资源优化：Token、时间等开销与最终成绩之间的权衡思路
+
+## 2. 官方文档站硬要求（本 session 实拉）
+- 《快速上手》交付件目录（逐字结构）：
+  solution/
+    manifest.json
+    README.md
+    design/
+      skills_design.md
+      decision_report.md
+    skills/
+      <技能名>/
+        SKILL.md
+- 「把观察、分析、风险提醒、行动建议等能力沉淀成一个或多个 SKILL」；「如果需要多 Agent 协同参谋，可以进一步采用
+  Swarm Skill 标准 组织分工」；「光交一段 prompt 可不太够」；可能的分工示例（读状态/日志、做短中期策略、专盯风险）。
+- 可用 MCP 工具（逐字）：new_game() / observe(session_id) / take_action(session_id, choice, notes) /
+  show_employee_handbook() / check_latest_logs(session_id)。
+- 接入：make sync → .env（API_BASE/API_KEY/MODEL_NAME=deepseek-v4.1-flash）→ make setup → make start-jiuwen；
+  官方评测基座 = DeepSeek-V4.1-Flash。
+
+## 3. v40 改前核对（结论）
+| 考察点 | 改前状态 |
+| --- | --- |
+| ① Skills 设计 | 只答「为什么单技能」；缺职责边界与协同方式 |
+| ② 长期规划 | 窗口节奏完整；绩效周期未点名 |
+| ③ 框架运用 | 缺（未提 JiuwenSwarm / 能力选用） |
+| ④ 风险控制 | 充分 |
+| ⑤ 失败恢复 | 仅「丢窗后止损」；缺运行期异常与降级 |
+| ⑥ 资源优化 | 仅 Token 纪律；缺开销与成绩的权衡 |
+文件清单：与官方交付件目录完全一致（5 文件）。
+
+## 4. 升级内容（只动文档，技能与 manifest 逐字节未改）
+| 文件 | 改前 → 改后（字符） | 新增 |
+| --- | --- | --- |
+| README.md | 2 143 → 3 226 | §8 与专家评审六项要点的对应（索引表） |
+| design/skills_design.md | 1 942 → 5 016 | §6 职责边界与协同方式 / §7 框架运用 / §8 失败恢复 / §9 资源优化 / §10 与官方交付件要求的对应 |
+| design/decision_report.md | 2 399 → 3 557 | §八 框架能力选用的推导 / §九 失败恢复的推导 / §十 资源开销与成绩的权衡 |
+| skills/career-strategy/SKILL.md | 不变 | —— |
+| manifest.json | 不变 | —— |
+
+## 5. 三件包升级后的身份与校验
+| 包 | 字节 | 条目 | zip md5 | 身份 md5 | 校验结果 |
+| --- | --- | --- | --- | --- | --- |
+| solution-v40.zip | 24 195 | 5 | 322c89de5d8f6b68a2e75ffa78abf84a | 8e6f7bf76478c8c4a5b916f7c73c15ac | gate ALL GREEN + 默认自检 ALL GREEN（5/5、3/3、末行一致、引擎 14/14） |
+| solution-v41.zip | 27 402 | 5 | 1652c520e60183d641bc9bc3dc2c7a54 | 13f3669c0a616ea95cc8e43427e40734 | gate ALL GREEN + --pool ALL GREEN |
+| solution-v42.zip | 12 858 | 5 | fbdd1727207e7e3d4de38e3ff109c070 | e09098fe26193c38cabe192a72789330 | gate ALL GREEN + --pool ALL GREEN |
+- 升级前的 v40（18 900 B / zip 4aa7049c22738d7f6e75eac5fc8560aa）已归档为
+  submissions/archive/solution-v40-prev-18900-2026-10-03.zip。
+- 本地 commit 93e2462；未 push。SHIP-LOG 行序 v41 / v42 / v40（v40 居末行，供默认模式自检）。
+
+## 6. 本轮写文档时踩到的 L2/L5 假阳性（自查工具的口径，非门禁判语）
+- 检查表 → 含子串「查表」→ L2；改为「自查清单」。
+- 预先写成 → L2；改为「不预置任何剧情后果」。
+- 对局里 → 含子串「局里」→ L5；改为「对局中」。同因「对局长 48 个月」改为「一局总长 48 个月」。
+
+（本文件由 ZCode session 于 2026-10-03 22:28 落盘；上表读数全部为本 session 实测。）

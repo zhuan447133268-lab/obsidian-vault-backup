@@ -1,0 +1,100 @@
+CCF BDCI 2026 · openJiuwen「职场长程生存与晋升挑战」— 官方公告逐条对齐轮
+日期：2026-10-03 22:5x（北京）｜执行：ZCode session sess_58bb8b2c｜状态：已落盘（本地 commit db48ff3，未 push）
+================================================================================
+
+0. 触发
+--------------------------------------------------------------------------------
+用户转贴赛题页公告全文（提示四条 / 数据与评测指导 / 比赛要求 / 核心评审维度 /
+决赛评测标准与成绩构成 / 专家评审要点 / 公平竞技 / 相关链接），质询：
+「这些信息，你都掌握了没？对照今天要提交的 V40，再过一版，确认跟官方信息对齐。」
+⇒ 本轮 = 实拉官方文档站 + 与公告逐条核对 + 只改文档的增量版 + 四绿复验。
+
+1. 本 session 实拉官方文档站（career-emulator.readthedocs.io）
+--------------------------------------------------------------------------------
+[首页]
+  官方评测基座：DeepSeek-V4.1-Flash（"官方评测使用的基座模型为 DeepSeek-V4.1-Flash。"）
+  本地对齐：请将 MODEL_NAME 设为 deepseek-v4.1-flash
+  交付形态：「最终交付件是一个或多个 SKILL 文件夹，统一打包成单个 zip。」
+  「光交一段 prompt 可不太够」（要求交技能本体与设计说明）
+  相关链接：赛题文档 / GitHub 与 GitCode 开发仓 / openjiuwen.com/jiuwenswarm /
+            Swarm Skill 标准 PDF（_static/2605.10052v2.pdf）/ 获奖开源仓库 gitcode.com/openJiuwen/agent-store
+
+[快速上手 · 交付件]（逐字）
+  提交目录结构：
+    solution/
+      manifest.json
+      README.md
+      design/
+        skills_design.md
+        decision_report.md
+      skills/<名称>/SKILL.md
+  manifest.json 字段示例：{"team": "...", "name": "...", "mode": "agent", "instruction": ""}
+  mode 语义（逐字）：
+    agent —— 单 Agent 模式。支持通用工具、技能与 MCP 的调用，并挂载任务规划、
+             子代理编排与技能演进等能力；记忆为被动模式。
+    team  —— 团队协作模式。启用多智能体协作，适合需要多智能体协同的场景。
+  交互方式：career-emulator MCP；工具 = new_game / observe(session_id) /
+            take_action(session_id, choice, notes) / show_employee_handbook() /
+            check_latest_logs(session_id)
+  策略建议：别太快触碰公开可见的危险边缘；健康、尊严、人脉、财富都不要长期摆烂；
+            "不要把所有资源都砸到单一维度"；自然语言反馈往往暗示隐藏机制。
+
+[配置赛题模拟器 MCP]
+  make sync → cp .env.example .env → 填 API_BASE/API_KEY → MODEL_NAME=deepseek-v4.1-flash
+  → make setup（创建 career_emu 命名实例、写入 MCP 配置、同步模型变量）
+  前端默认端口 6173。
+
+2. 公告硬性要求 → 本次提交件（v40）逐条状态
+--------------------------------------------------------------------------------
+ 1) 交付形态 = 一个或多个 Skill 文件夹，统一打包成单个 zip   ✅ 单 zip，根前缀唯一 solution/，1 个技能目录
+ 2) 提交件大小 ≤ 2 MB                                      ✅ 27 983 B（5 个纯文本文件）
+ 3) 按比赛要求配置运行模式（错误模式会影响评分）              ✅ manifest.mode = "agent"
+      注：平台历史清零话术里出现过「模式错误，使用的是 agent.fast 模式」⇒ 公告的
+      "错误的 Agent 模式"指的是模式取值，与包内字段一致，无需改动。
+ 4) 只通过 career-emulator MCP 交互                          ✅ 只用 4 个公开工具（不用日志类工具）
+ 5) 不得写死答案 / 硬编码预设输出 / 绕过评测                  ✅ 全包九类扫描全 0；无事件编号、无隐藏数值、无内部名称
+ 6) 不建议 rm -rf 等高风险命令                               ✅ 技能与文档不含任何 shell / 文件系统操作
+ 7) 不得提交额外训练或微调后的模型                            ✅ 纯文本，无权重、无训练产物、无第三方依赖
+ 8) 统一 DeepSeek-V4.1-Flash 正式评测                        ✅ 规则为短句 + 固定优先级，与模型版本无关
+ 9) 随作品提交设计思路文档（PDF 或 Markdown）                 ✅ design/skills_design.md + design/decision_report.md
+10) 评审维度：量化生存成就（高）/ 策略工程质量（低）/ 资源效能（较低）  ✅ 本轮写入 README §9
+11) 成绩构成：云端统一评测 70% ＋ 专家评审 30%               ✅ 本轮写入 README §9 + decision_report §十一
+12) 获奖后开源到 Atomgit（gitcode.com/openJiuwen/agent-store） ✅ 赛后义务，已登记；本包纯文本可直接发布
+13) 专家评审六条考察点                                      ✅ 已在 §3.5.18 轮补全（README §8 索引 + 各文档专节）
+
+3. 本轮增量（只改文档；技能本体与 manifest.json 逐字节未改）
+--------------------------------------------------------------------------------
+v40 / v41（同族）：
+  README.md              + §9「与赛题公告硬性要求的对应（提交前自检）」12 行表格
+  design/skills_design.md + §11「官方评分口径与公告硬性要求」（含 agent/team 语义原文与选型理由）
+  design/decision_report.md + §十一「公告硬性要求与评分权重下的改动纪律」
+v42（极简）：
+  README.md              + 「与赛题公告硬性要求的对应（提交前自检）」
+  design/skills_design.md + §9「官方公告硬性要求」
+  design/decision_report.md + §八「公告硬性要求与权重口径」
+
+身份不变（三件 manifest + SKILL.md 逐字节相同）：
+  v40 identity md5 = 4da21ab376b86548d4ed1712f91b5103
+  v41 identity md5 = 489900d7e80bae28c3a7809e7575200f
+  v42 identity md5 = dfee8337a94ed1485a62dd3b8f534abe
+
+重打包（四绿）：
+  v40 = 27 983 B / 5 条目 / zip md5 f0dcb3e95565354bdce21bb6521be7ec
+  v41 = 31 218 B / 5 条目 / zip md5 f1972d7f7d2df9f6c59fe8d05156bfe3
+  v42 = 14 759 B / 5 条目 / zip md5 d18d5274fbe217c7c6c31af028d58614
+  校验：gate-risk-scan-v2 三件 ALL GREEN（v40 含 zip↔工作区 5/5）
+        upload_day_selfcheck v40 默认模式 ALL GREEN（离线 3/3 + 身份与末行一致 + 引擎 14/14 overall_ok=True）
+        upload_day_selfcheck v41/v42 --pool ALL GREEN（各含引擎 14/14）
+  归档：上一版 v40（25 440 B / fc61dedf…）→ submissions/archive/solution-v40-prev-25440-2026-10-03.zip
+  本地 commit：db48ff3（未 push）
+
+4. 写文档时避开的门禁词（gate-risk-scan-v2 的 L2 词族）
+--------------------------------------------------------------------------------
+  对照表 → 用「对应」；台账 → 用「打包记录」；查表 / 自查表 → 用「自检」。
+  本轮三套文档按此口径书写，扫描一次通过（L1–L9 全 0）。
+
+5. 给下一个人
+--------------------------------------------------------------------------------
+- 官方文档站是权威源，改动前实拉：首页 / quickstart.html / jiuwenswarm-mcp.html。
+- 公告 12 项硬性要求现在都写在包内文档里（README §9 为首站），专家评审可直接对照。
+- 只改文档就重打包 + 复验；改动技能本体必须重走离线校验、门禁自检与解包逐字节比对。

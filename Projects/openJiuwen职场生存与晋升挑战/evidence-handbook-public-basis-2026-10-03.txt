@@ -1,0 +1,68 @@
+BDCI26 · v40 与官方公开材料的一致性回查 —— 证据（2026-10-03 22:48）
+
+## 0. 触发
+用户质询：「V40，跟那个比赛文档，就是我发你的那个链接里面的内容，你都核对过了吗？」
+⇒ 本文件记录：① 官网六页逐页核对；② 用官方公开工具取引擎公开手册原文后逐句回查；③ 发现与处置。
+
+## 1. 官网六页（https://career-emulator.readthedocs.io/）
+- index.html 赛题文档：交付件＝一个或多个 SKILL 文件夹打包成单个 zip；MODEL_NAME=deepseek-v4.1-flash 与云端对齐。
+- quickstart.html 快速上手：交付件目录逐字
+    solution/
+      manifest.json
+      README.md
+      design/skills_design.md
+      design/decision_report.md
+      skills/<名称>/SKILL.md
+  manifest 字段 {team, name, mode, instruction}；mode: agent（单 Agent，支持通用工具/技能/MCP 调用，记忆被动）/ team（多智能体协作）。
+  五个常用 MCP 能力：new_game / observe(session_id) / take_action(session_id, choice, notes) /
+  show_employee_handbook() / check_latest_logs(session_id)。命令：make sync → cp .env.example .env →
+  MODEL_NAME="deepseek-v4.1-flash" → make setup → make start-jiuwen（前端默认端口 6173）；stdio 入口 career-emulator-mcp。
+- handbook.html 公开手册：公开信息＝职级结构与晋升窗口 / 可见状态 / 季度行动框架 / 48 个月时间结构 / 月薪与绩效等级 / 风险与失败方向提示；
+  隐藏信息＝晋升分数、绩效计算指数、潜在隐患细节、随机事件触发概率。职级 L1–L10，每 6 个月开放晋升窗口。
+- rules.html 规则说明：七种体力行动（高强度工作 2 / 技能学习 2 / 人脉维护 1 / 处理历史埋雷 2 / 心理修复 1 / 健康恢复 1 / 准备汇报材料 1）；
+  八种主行动（申请关键项目 / 向领导汇报成果 / 主动争取资源 / 申请岗位轮岗 / 主动曝光成果 / 建立导师关系 / 修复关键关系 / 低调避险）；
+  月薪 L1 0.3 → L10 9.1；绩效 S/A/B/C/D；每 6 个月晋升窗口，阈值不公开。
+- failure-and-ending.html 失败与结局：失败方向七条；结局评分六维度（职级成就「较多」/累计财富「偏多」/身心健康「适中」/专业能力「适中」/
+  风险控制「有一定占比」/同事关系「有一定占比」）；并明确「内部计数、阈值、连续触发条件和具体惩罚细节不会在官网中展开」。
+- jiuwenswarm-mcp.html 配置：make setup 创建 career_emu 实例、写入 career-emulator-mcp、同步 .env；五个工具签名（同上）。
+
+## 2. 引擎公开手册原文（官方公开工具 show_employee_handbook()，3 348 字）
+本 session 用官方 stdio 入口 career-emulator-mcp.exe 实跑：initialize → tools/list → tools/call show_employee_handbook。
+tools/list 返回：['new_game', 'observe', 'take_action', 'check_latest_logs', 'show_employee_handbook'] —— 与官网逐字一致。
+手册中与本次核对直接相关的原文（逐字）：
+- 「显式信息: …职级结构、显式状态、季度行动机制（体力行动与主行动）、时间结构与晋升窗口、绩效等级、风险与失败规则、月薪机制。」
+- 「隐藏信息: …晋升所需分数、谈话结果、绩效计算指数、潜在隐患、随机事件触发概率等。」
+- 月薪表：L1 0.3 / L2 0.4 / L3 0.5 / L4 0.7 / L5 1.0 / L6 1.5 / L7 2.3 / L8 3.6 / L9 5.7 / L10 9.1
+- 绩效：S 基础月薪 ×3 / A ×1.5 / B ×0.5 / C ×−1 / D ×−2；「绩效由 Skill、Network、Output、职级等参数共同决定」
+- 体力行动与主行动表格（与 rules.html 同）
+- 出局方式（逐字）：「眼前一黑 —— 打工人的身体比 KPI 先倒下，职场生存游戏强制结束」／「崩溃 —— 长期毫无尊严的社畜生活后，终于，一封辞呈从你的邮箱发了出来」／
+  「信任危机 —— 第二次爆雷！组织表示「信任额度已用尽」，还请您将天赋带到下家公司」／「炒鱿鱼 —— 连续两次半年绩效拿 D，领导约你「喝茶」，这杯茶喝完人就不用回工位了」／
+  「孤岛 —— 周会结束后大家交换微信，唯独跳过了你」／「喝西北风 —— 连续好几个月口袋比脸还干净，这工怎么还越打越穷了哇」／「淘汰 —— Leader 建议你把天赋带到能听懂人话的地方」
+- 风言风语（隐患）：「之前的隐患好巧不巧一起炸了，最近半年的工作都打了水漂！」
+
+## 3. 判定表（v40 每一句"手册事实"）
+| v40 原句 | 公开依据 | 判定 |
+| --- | --- | --- |
+| 「信任危机（第二次爆雷）」「炒鱿鱼（连续两次半年绩效 D）」 | 手册出局方式原文 | ✅ 保留 |
+| 奖金 S ×3 / A ×1.5 / B ×0.5 / C ×−1 / D ×−2 | 手册 PerformanceBonus 列 | ✅ 保留 |
+| 月薪表 L1 0.3 → L10 9.1 | 手册同表 | ✅ 保留 |
+| 体力/主行动名称与效果（17 条） | 手册同表 | ✅ 保留 |
+| 显式状态范围 / 48 个月 / 每月最多 3 事件 / 半年谈话与绩效 | 手册 | ✅ 保留 |
+| 「人脉同时是绩效评估的构成项之一」 | 手册「绩效由 Skill、Network、Output、职级等参数共同决定」 | ✅ 保留 |
+| 「其余配额改投健康/尊严（终局单价最高的两项）」 | 官网结局六维度未给"单价最高"，身心健康列为「适中」 | ❌ 改为指公开的「身心健康」结局维度 |
+| 「技能项通常最紧（它基数最大、最容易差一口）」 | 手册只说阈值隐藏、高职级更高 | ❌ 删；改为"手册在晋升与绩效两处都把 Skill 列首位"＋"用反馈逼近，不要写死" |
+| 「单月清零不一定立即出局，但会扣尊严」 | 手册只有「喝西北风 —— 连续好几个月口袋比脸还干净」 | ❌ 改为引手册原文的"连续好几个月" |
+| 「开局很低」 | 手册未给初始值 | ❌ 删；改为"第一次回血要等到本季末…每次决策前先看当前值" |
+| 尊严/人脉「失败条件是低位连续数月」 | 手册「崩溃：长期毫无尊严」「孤岛」 | ❌ 改为引手册两条原名 |
+| 「处理历史埋雷(2)：压低风险」「低调避险(健康↑，压风险)」 | 手册：「处理历史埋雷｜无（或有不可见的组织影响）」；「低调避险｜Health +」 | ❌ 改为手册原文口径；保留"有风险信号就排雷"的保守口径并注明 |
+
+## 4. 修订后的身份与校验（本 session 实测）
+| 包 | 字节 | 条目 | zip md5 | 身份 md5 | 校验 |
+| --- | --- | --- | --- | --- | --- |
+| solution-v40.zip | 25 440 | 5 | fc61dedf32f83d1f771023d248dcd0b7 | 4da21ab376b86548d4ed1712f91b5103 | gate ALL GREEN + 默认自检 ALL GREEN（5/5、3/3、末行一致、引擎 14/14） |
+| solution-v41.zip | 28 713 | 5 | 062852d5b3ebc1d553ebf84186a04c09 | 489900d7e80bae28c3a7809e7575200f | gate ALL GREEN + --pool ALL GREEN |
+| solution-v42.zip | 13 434 | 5 | f732d7b27fefb78d30beaace94b5917d | dfee8337a94ed1485a62dd3b8f534abe | gate ALL GREEN + --pool ALL GREEN |
+- 归档：submissions/archive/solution-v40-prev-24195-2026-10-03.zip（24 195 B / 322c89de…）、solution-v40-prev-18900-2026-10-03.zip
+- 本地 commit 5b746ba（未 push）。
+
+（本文件由 ZCode session 于 2026-10-03 22:48 落盘；所有读数均为本 session 实测。）
