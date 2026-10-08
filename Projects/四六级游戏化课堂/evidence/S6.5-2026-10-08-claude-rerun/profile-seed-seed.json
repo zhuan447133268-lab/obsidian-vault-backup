@@ -1,0 +1,174 @@
+{
+ "checks": [
+  {
+   "desc": "可玩关卡数 = 24（4 单元 × 四级题库）",
+   "want": "24",
+   "got": "24",
+   "ok": true
+  },
+  {
+   "desc": "每关都带题量（进关预告口径）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L25 开打前已解锁（线性解锁链）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L26 开打前已解锁（线性解锁链）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L27 开打前已解锁（线性解锁链）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L28 开打前已解锁（线性解锁链）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L29 开打前已解锁（线性解锁链）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L30 开打前已解锁（线性解锁链）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L31 开打前已解锁（线性解锁链）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L32 开打前已解锁（线性解锁链）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L33 开打前已解锁（线性解锁链）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L34 开打前已解锁（线性解锁链）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L37 开打前已解锁（线性解锁链）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L35 开打前已解锁（线性解锁链）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L36 开打前已解锁（线性解锁链）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L42 开打前已解锁（线性解锁链）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L43 开打前已解锁（线性解锁链）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L44 开打前已解锁（线性解锁链）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L45 开打前已解锁（线性解锁链）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L46 开打前已解锁（线性解锁链）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L47 开打前已解锁（线性解锁链）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L48 开打前已解锁（线性解锁链）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L38 开打前已解锁（线性解锁链）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L39 开打前已解锁（线性解锁链）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L40 开打前已解锁（线性解锁链）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "L41 开打前已解锁（线性解锁链）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "24 关全部通关（status=finished）",
+   "want": "24",
+   "got": "24",
+   "ok": true
+  },
+  {
+   "desc": "计划内的故意错题数 = 4",
+   "want": "4",
+   "got": "4",
+   "ok": true
+  }
+ ],
+ "fails": [],
+ "plan": "plan-seed.json"
+}

@@ -1,0 +1,1882 @@
+{
+ "user": "S65A",
+ "userId": 107,
+ "tag": "seed",
+ "levels": [
+  {
+   "levelId": 25,
+   "levelName": "第 1 关 · 高频词",
+   "unitName": "校园生活",
+   "attemptId": 197,
+   "status": "finished",
+   "correct": 4,
+   "total": 5
+  },
+  {
+   "levelId": 26,
+   "levelName": "第 2 关 · 语法陷阱",
+   "unitName": "校园生活",
+   "attemptId": 198,
+   "status": "finished",
+   "correct": 4,
+   "total": 5
+  },
+  {
+   "levelId": 27,
+   "levelName": "第 3 关 · 阅读速攻",
+   "unitName": "校园生活",
+   "attemptId": 199,
+   "status": "finished",
+   "correct": 5,
+   "total": 5
+  },
+  {
+   "levelId": 28,
+   "levelName": "第 4 关 · 阅读进阶",
+   "unitName": "校园生活",
+   "attemptId": 200,
+   "status": "finished",
+   "correct": 5,
+   "total": 5
+  },
+  {
+   "levelId": 29,
+   "levelName": "第 5 关 · 词汇复盘",
+   "unitName": "校园生活",
+   "attemptId": 201,
+   "status": "finished",
+   "correct": 4,
+   "total": 5
+  },
+  {
+   "levelId": 30,
+   "levelName": "单元 Boss · 真题混合卷",
+   "unitName": "校园生活",
+   "attemptId": 202,
+   "status": "finished",
+   "correct": 7,
+   "total": 8
+  },
+  {
+   "levelId": 31,
+   "levelName": "听力 · 新闻 3 篇",
+   "unitName": "2026年6月四级真题（第1套）",
+   "attemptId": 203,
+   "status": "finished",
+   "correct": 7,
+   "total": 7
+  },
+  {
+   "levelId": 32,
+   "levelName": "听力 · 长对话 2 篇",
+   "unitName": "2026年6月四级真题（第1套）",
+   "attemptId": 204,
+   "status": "finished",
+   "correct": 8,
+   "total": 8
+  },
+  {
+   "levelId": 33,
+   "levelName": "听力 · 篇章 3 篇",
+   "unitName": "2026年6月四级真题（第1套）",
+   "attemptId": 205,
+   "status": "finished",
+   "correct": 10,
+   "total": 10
+  },
+  {
+   "levelId": 34,
+   "levelName": "阅读 · 选词填空",
+   "unitName": "2026年6月四级真题（第1套）",
+   "attemptId": 206,
+   "status": "finished",
+   "correct": 10,
+   "total": 10
+  },
+  {
+   "levelId": 37,
+   "levelName": "阅读 · 段落匹配",
+   "unitName": "2026年6月四级真题（第1套）",
+   "attemptId": 207,
+   "status": "finished",
+   "correct": 10,
+   "total": 10
+  },
+  {
+   "levelId": 35,
+   "levelName": "阅读 · 仔细阅读（一）",
+   "unitName": "2026年6月四级真题（第1套）",
+   "attemptId": 208,
+   "status": "finished",
+   "correct": 5,
+   "total": 5
+  },
+  {
+   "levelId": 36,
+   "levelName": "阅读 · 仔细阅读（二）",
+   "unitName": "2026年6月四级真题（第1套）",
+   "attemptId": 209,
+   "status": "finished",
+   "correct": 5,
+   "total": 5
+  },
+  {
+   "levelId": 42,
+   "levelName": "听力 · 新闻 3 篇",
+   "unitName": "2026年6月四级真题（第2套）",
+   "attemptId": 210,
+   "status": "finished",
+   "correct": 7,
+   "total": 7
+  },
+  {
+   "levelId": 43,
+   "levelName": "听力 · 长对话 2 篇",
+   "unitName": "2026年6月四级真题（第2套）",
+   "attemptId": 211,
+   "status": "finished",
+   "correct": 8,
+   "total": 8
+  },
+  {
+   "levelId": 44,
+   "levelName": "听力 · 篇章 3 篇",
+   "unitName": "2026年6月四级真题（第2套）",
+   "attemptId": 212,
+   "status": "finished",
+   "correct": 10,
+   "total": 10
+  },
+  {
+   "levelId": 45,
+   "levelName": "阅读 · 选词填空",
+   "unitName": "2026年6月四级真题（第2套）",
+   "attemptId": 213,
+   "status": "finished",
+   "correct": 10,
+   "total": 10
+  },
+  {
+   "levelId": 46,
+   "levelName": "阅读 · 段落匹配",
+   "unitName": "2026年6月四级真题（第2套）",
+   "attemptId": 214,
+   "status": "finished",
+   "correct": 10,
+   "total": 10
+  },
+  {
+   "levelId": 47,
+   "levelName": "阅读 · 仔细阅读（一）",
+   "unitName": "2026年6月四级真题（第2套）",
+   "attemptId": 215,
+   "status": "finished",
+   "correct": 5,
+   "total": 5
+  },
+  {
+   "levelId": 48,
+   "levelName": "阅读 · 仔细阅读（二）",
+   "unitName": "2026年6月四级真题（第2套）",
+   "attemptId": 216,
+   "status": "finished",
+   "correct": 5,
+   "total": 5
+  },
+  {
+   "levelId": 38,
+   "levelName": "阅读 · 选词填空",
+   "unitName": "2026年6月四级真题（第3套）",
+   "attemptId": 217,
+   "status": "finished",
+   "correct": 10,
+   "total": 10
+  },
+  {
+   "levelId": 39,
+   "levelName": "阅读 · 段落匹配",
+   "unitName": "2026年6月四级真题（第3套）",
+   "attemptId": 218,
+   "status": "finished",
+   "correct": 10,
+   "total": 10
+  },
+  {
+   "levelId": 40,
+   "levelName": "阅读 · 仔细阅读（一）",
+   "unitName": "2026年6月四级真题（第3套）",
+   "attemptId": 219,
+   "status": "finished",
+   "correct": 5,
+   "total": 5
+  },
+  {
+   "levelId": 41,
+   "levelName": "阅读 · 仔细阅读（二）",
+   "unitName": "2026年6月四级真题（第3套）",
+   "attemptId": 220,
+   "status": "finished",
+   "correct": 5,
+   "total": 5
+  }
+ ],
+ "answers": [
+  {
+   "questionId": 265,
+   "type": "vocab",
+   "correct": false,
+   "plannedWrong": true,
+   "serverCorrect": false,
+   "fdbkType": "vocab"
+  },
+  {
+   "questionId": 266,
+   "type": "vocab",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "vocab"
+  },
+  {
+   "questionId": 267,
+   "type": "vocab",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "vocab"
+  },
+  {
+   "questionId": 268,
+   "type": "vocab",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "vocab"
+  },
+  {
+   "questionId": 269,
+   "type": "vocab",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "vocab"
+  },
+  {
+   "questionId": 270,
+   "type": "grammar",
+   "correct": false,
+   "plannedWrong": true,
+   "serverCorrect": false,
+   "fdbkType": "grammar"
+  },
+  {
+   "questionId": 271,
+   "type": "grammar",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "grammar"
+  },
+  {
+   "questionId": 272,
+   "type": "grammar",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "grammar"
+  },
+  {
+   "questionId": 273,
+   "type": "grammar",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "grammar"
+  },
+  {
+   "questionId": 274,
+   "type": "grammar",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "grammar"
+  },
+  {
+   "questionId": 275,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 276,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 277,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 278,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 279,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 280,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 281,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 282,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 283,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 284,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 285,
+   "type": "vocab",
+   "correct": false,
+   "plannedWrong": true,
+   "serverCorrect": false,
+   "fdbkType": "vocab"
+  },
+  {
+   "questionId": 286,
+   "type": "vocab",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "vocab"
+  },
+  {
+   "questionId": 287,
+   "type": "grammar",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "grammar"
+  },
+  {
+   "questionId": 288,
+   "type": "vocab",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "vocab"
+  },
+  {
+   "questionId": 289,
+   "type": "vocab",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "vocab"
+  },
+  {
+   "questionId": 290,
+   "type": "vocab",
+   "correct": false,
+   "plannedWrong": true,
+   "serverCorrect": false,
+   "fdbkType": "vocab"
+  },
+  {
+   "questionId": 291,
+   "type": "grammar",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "grammar"
+  },
+  {
+   "questionId": 292,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 293,
+   "type": "translation",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "translation"
+  },
+  {
+   "questionId": 294,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 295,
+   "type": "vocab",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "vocab"
+  },
+  {
+   "questionId": 296,
+   "type": "grammar",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "grammar"
+  },
+  {
+   "questionId": 297,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 331,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 332,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 333,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 334,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 335,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 336,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 337,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 338,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 339,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 340,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 341,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 342,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 343,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 344,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 345,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 346,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 347,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 348,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 349,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 350,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 351,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 352,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 353,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 354,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 355,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 356,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 357,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 358,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 359,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 360,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 361,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 362,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 363,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 364,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 365,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 376,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 377,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 378,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 379,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 380,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 381,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 382,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 383,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 384,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 385,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 366,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 367,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 368,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 369,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 370,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 371,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 372,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 373,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 374,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 375,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 416,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 417,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 418,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 419,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 420,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 421,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 422,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 423,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 424,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 425,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 426,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 427,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 428,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 429,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 430,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 431,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 432,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 433,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 434,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 435,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 436,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 437,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 438,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 439,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 440,
+   "type": "listening",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "listening"
+  },
+  {
+   "questionId": 441,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 442,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 443,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 444,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 445,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 446,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 447,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 448,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 449,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 450,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 451,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 452,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 453,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 454,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 455,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 456,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 457,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 458,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 459,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 460,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 461,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 462,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 463,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 464,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 465,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 466,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 467,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 468,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 469,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 470,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 386,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 387,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 388,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 389,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 390,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 391,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 392,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 393,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 394,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 395,
+   "type": "cloze",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "cloze"
+  },
+  {
+   "questionId": 396,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 397,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 398,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 399,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 400,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 401,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 402,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 403,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 404,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 405,
+   "type": "match",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "match"
+  },
+  {
+   "questionId": 406,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 407,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 408,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 409,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 410,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 411,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 412,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 413,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 414,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 415,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "serverCorrect": true,
+   "fdbkType": "reading"
+  },
+  {
+   "questionId": 265,
+   "type": "vocab",
+   "correct": true,
+   "plannedWrong": false,
+   "replay": "第 1 关 · 高频词"
+  },
+  {
+   "questionId": 266,
+   "type": "vocab",
+   "correct": true,
+   "plannedWrong": false,
+   "replay": "第 1 关 · 高频词"
+  },
+  {
+   "questionId": 267,
+   "type": "vocab",
+   "correct": true,
+   "plannedWrong": false,
+   "replay": "第 1 关 · 高频词"
+  },
+  {
+   "questionId": 268,
+   "type": "vocab",
+   "correct": true,
+   "plannedWrong": false,
+   "replay": "第 1 关 · 高频词"
+  },
+  {
+   "questionId": 269,
+   "type": "vocab",
+   "correct": true,
+   "plannedWrong": false,
+   "replay": "第 1 关 · 高频词"
+  },
+  {
+   "questionId": 270,
+   "type": "grammar",
+   "correct": true,
+   "plannedWrong": false,
+   "replay": "第 2 关 · 语法陷阱"
+  },
+  {
+   "questionId": 271,
+   "type": "grammar",
+   "correct": true,
+   "plannedWrong": false,
+   "replay": "第 2 关 · 语法陷阱"
+  },
+  {
+   "questionId": 272,
+   "type": "grammar",
+   "correct": true,
+   "plannedWrong": false,
+   "replay": "第 2 关 · 语法陷阱"
+  },
+  {
+   "questionId": 273,
+   "type": "grammar",
+   "correct": true,
+   "plannedWrong": false,
+   "replay": "第 2 关 · 语法陷阱"
+  },
+  {
+   "questionId": 274,
+   "type": "grammar",
+   "correct": true,
+   "plannedWrong": false,
+   "replay": "第 2 关 · 语法陷阱"
+  },
+  {
+   "questionId": 285,
+   "type": "vocab",
+   "correct": true,
+   "plannedWrong": false,
+   "replay": "第 5 关 · 词汇复盘"
+  },
+  {
+   "questionId": 286,
+   "type": "vocab",
+   "correct": true,
+   "plannedWrong": false,
+   "replay": "第 5 关 · 词汇复盘"
+  },
+  {
+   "questionId": 287,
+   "type": "grammar",
+   "correct": true,
+   "plannedWrong": false,
+   "replay": "第 5 关 · 词汇复盘"
+  },
+  {
+   "questionId": 288,
+   "type": "vocab",
+   "correct": true,
+   "plannedWrong": false,
+   "replay": "第 5 关 · 词汇复盘"
+  },
+  {
+   "questionId": 289,
+   "type": "vocab",
+   "correct": true,
+   "plannedWrong": false,
+   "replay": "第 5 关 · 词汇复盘"
+  },
+  {
+   "questionId": 290,
+   "type": "vocab",
+   "correct": true,
+   "plannedWrong": false,
+   "replay": "单元 Boss · 真题混合卷"
+  },
+  {
+   "questionId": 291,
+   "type": "grammar",
+   "correct": true,
+   "plannedWrong": false,
+   "replay": "单元 Boss · 真题混合卷"
+  },
+  {
+   "questionId": 292,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "replay": "单元 Boss · 真题混合卷"
+  },
+  {
+   "questionId": 293,
+   "type": "translation",
+   "correct": true,
+   "plannedWrong": false,
+   "replay": "单元 Boss · 真题混合卷"
+  },
+  {
+   "questionId": 294,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "replay": "单元 Boss · 真题混合卷"
+  },
+  {
+   "questionId": 295,
+   "type": "vocab",
+   "correct": true,
+   "plannedWrong": false,
+   "replay": "单元 Boss · 真题混合卷"
+  },
+  {
+   "questionId": 296,
+   "type": "grammar",
+   "correct": true,
+   "plannedWrong": false,
+   "replay": "单元 Boss · 真题混合卷"
+  },
+  {
+   "questionId": 297,
+   "type": "reading",
+   "correct": true,
+   "plannedWrong": false,
+   "replay": "单元 Boss · 真题混合卷"
+  }
+ ],
+ "diags": [
+  {
+   "mode": "wrong",
+   "diagnosisId": 15,
+   "correct": 0,
+   "total": 10,
+   "accuracy": 0,
+   "level": "待加强",
+   "byType": {
+    "grammar": {
+     "correct": 0,
+     "total": 3,
+     "accuracy": 0
+    },
+    "reading": {
+     "correct": 0,
+     "total": 3,
+     "accuracy": 0
+    },
+    "vocab": {
+     "correct": 0,
+     "total": 4,
+     "accuracy": 0
+    }
+   }
+  },
+  {
+   "mode": "right",
+   "diagnosisId": 16,
+   "correct": 10,
+   "total": 10,
+   "accuracy": 1,
+   "level": "扎实",
+   "byType": {
+    "grammar": {
+     "correct": 3,
+     "total": 3,
+     "accuracy": 1
+    },
+    "reading": {
+     "correct": 3,
+     "total": 3,
+     "accuracy": 1
+    },
+    "vocab": {
+     "correct": 4,
+     "total": 4,
+     "accuracy": 1
+    }
+   }
+  }
+ ],
+ "backdates": [
+  {
+   "attemptId": 199,
+   "days": 7,
+   "answers": 5,
+   "ledger": 5,
+   "levelId": 27,
+   "levelName": "第 3 关 · 阅读速攻"
+  },
+  {
+   "attemptId": 200,
+   "days": 14,
+   "answers": 5,
+   "ledger": 5,
+   "levelId": 28,
+   "levelName": "第 4 关 · 阅读进阶"
+  },
+  {
+   "attemptId": 203,
+   "days": 21,
+   "answers": 7,
+   "ledger": 5,
+   "levelId": 31,
+   "levelName": "听力 · 新闻 3 篇"
+  },
+  {
+   "attemptId": 204,
+   "days": 28,
+   "answers": 8,
+   "ledger": 5,
+   "levelId": 32,
+   "levelName": "听力 · 长对话 2 篇"
+  },
+  {
+   "attemptId": 209,
+   "days": 63,
+   "answers": 5,
+   "ledger": 5,
+   "levelId": 36,
+   "levelName": "阅读 · 仔细阅读（二）"
+  }
+ ],
+ "wrongLevelIds": [
+  25,
+  26,
+  29,
+  30
+ ],
+ "wrongLevelNames": [
+  "第 1 关 · 高频词",
+  "第 2 关 · 语法陷阱",
+  "第 5 关 · 词汇复盘",
+  "单元 Boss · 真题混合卷"
+ ],
+ "replays": [
+  25,
+  26,
+  29,
+  30
+ ]
+}

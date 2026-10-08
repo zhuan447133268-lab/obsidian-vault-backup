@@ -1,0 +1,32 @@
+
+########## 09 证据清点：截图逐张校验（真实尺寸 + 同场景内两两不同）+ 各场景断言数汇总 ##########
+--- 场景 empty 截图 ---
+shot-empty-top.png                 元素/视口    390x844  md5 0c7193c0
+shot-empty-ability.png             元素/视口    350x568  md5 25b8e309
+shot-empty-trend.png               元素/视口    350x332  md5 0d445995
+shot-empty-wrongbook.png           元素/视口    350x100  md5 1f868819
+shot-empty-navbar.png              元素/视口    390x81  md5 4c33d6ff
+shot-empty-page.png                整页       390x1619  md5 d8fbaefe
+本场景 6 张截图 · 去重后 6 张
+--- 场景 s65 截图 ---
+shot-s65-top.png                   元素/视口    390x844  md5 203ada88
+shot-s65-ability.png               元素/视口    350x569  md5 525b221b
+shot-s65-trend.png                 元素/视口    350x306  md5 83d36b4d
+shot-s65-wrongbook.png             元素/视口    350x431  md5 4e9a8fb1
+shot-s65-wrongbook-expanded.png    元素/视口    350x516  md5 a2b3e259
+shot-s65-navbar.png                元素/视口    390x81  md5 a5e988c2
+shot-s65-map.png                   元素/视口    390x844  md5 89f429e5
+shot-s65-page.png                  整页       390x2171  md5 24356824
+本场景 8 张截图 · 去重后 8 张
+SHOTS_OK
+
+--- 09-2 各场景断言数（来自 e2e/profile-*.json）---
+e2e-profile-auth.json                 8 条断言 · 失败 0 条 · ✅
+e2e-profile-empty.json               23 条断言 · 失败 0 条 · ✅
+e2e-profile-mastery.json             27 条断言 · 失败 0 条 · ✅
+e2e-profile-s65.json                 60 条断言 · 失败 0 条 · ✅
+profile-reconcile-post.json         193 条断言 · 失败 0 条 · ✅
+profile-reconcile-pre.json          193 条断言 · 失败 0 条 · ✅
+profile-seed-seed.json               28 条断言 · 失败 0 条 · ✅
+合计 532 条断言
+ALL_JSON_OK

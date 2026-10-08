@@ -1,0 +1,1397 @@
+{
+ "checks": [
+  {
+   "desc": "六维「词汇」correct：手算=SQL",
+   "want": "23",
+   "got": "23",
+   "ok": true
+  },
+  {
+   "desc": "六维「词汇」correct：SQL=接口",
+   "want": "23",
+   "got": "23",
+   "ok": true
+  },
+  {
+   "desc": "六维「词汇」total：手算=SQL",
+   "want": "26",
+   "got": "26",
+   "ok": true
+  },
+  {
+   "desc": "六维「词汇」total：SQL=接口",
+   "want": "26",
+   "got": "26",
+   "ok": true
+  },
+  {
+   "desc": "六维「词汇」accuracy：手算=SQL",
+   "want": "0.88",
+   "got": "0.88",
+   "ok": true
+  },
+  {
+   "desc": "六维「词汇」accuracy：SQL=接口",
+   "want": "0.88",
+   "got": "0.88",
+   "ok": true
+  },
+  {
+   "desc": "六维「词汇」attemptCorrect：手算=SQL",
+   "want": "19",
+   "got": "19",
+   "ok": true
+  },
+  {
+   "desc": "六维「词汇」attemptCorrect：SQL=接口",
+   "want": "19",
+   "got": "19",
+   "ok": true
+  },
+  {
+   "desc": "六维「词汇」attemptTotal：手算=SQL",
+   "want": "22",
+   "got": "22",
+   "ok": true
+  },
+  {
+   "desc": "六维「词汇」attemptTotal：SQL=接口",
+   "want": "22",
+   "got": "22",
+   "ok": true
+  },
+  {
+   "desc": "六维「词汇」diagCorrect：手算=SQL",
+   "want": "4",
+   "got": "4",
+   "ok": true
+  },
+  {
+   "desc": "六维「词汇」diagCorrect：SQL=接口",
+   "want": "4",
+   "got": "4",
+   "ok": true
+  },
+  {
+   "desc": "六维「词汇」diagTotal：手算=SQL",
+   "want": "4",
+   "got": "4",
+   "ok": true
+  },
+  {
+   "desc": "六维「词汇」diagTotal：SQL=接口",
+   "want": "4",
+   "got": "4",
+   "ok": true
+  },
+  {
+   "desc": "六维「语法」correct：手算=SQL",
+   "want": "18",
+   "got": "18",
+   "ok": true
+  },
+  {
+   "desc": "六维「语法」correct：SQL=接口",
+   "want": "18",
+   "got": "18",
+   "ok": true
+  },
+  {
+   "desc": "六维「语法」total：手算=SQL",
+   "want": "19",
+   "got": "19",
+   "ok": true
+  },
+  {
+   "desc": "六维「语法」total：SQL=接口",
+   "want": "19",
+   "got": "19",
+   "ok": true
+  },
+  {
+   "desc": "六维「语法」accuracy：手算=SQL",
+   "want": "0.95",
+   "got": "0.95",
+   "ok": true
+  },
+  {
+   "desc": "六维「语法」accuracy：SQL=接口",
+   "want": "0.95",
+   "got": "0.95",
+   "ok": true
+  },
+  {
+   "desc": "六维「语法」attemptCorrect：手算=SQL",
+   "want": "15",
+   "got": "15",
+   "ok": true
+  },
+  {
+   "desc": "六维「语法」attemptCorrect：SQL=接口",
+   "want": "15",
+   "got": "15",
+   "ok": true
+  },
+  {
+   "desc": "六维「语法」attemptTotal：手算=SQL",
+   "want": "16",
+   "got": "16",
+   "ok": true
+  },
+  {
+   "desc": "六维「语法」attemptTotal：SQL=接口",
+   "want": "16",
+   "got": "16",
+   "ok": true
+  },
+  {
+   "desc": "六维「语法」diagCorrect：手算=SQL",
+   "want": "3",
+   "got": "3",
+   "ok": true
+  },
+  {
+   "desc": "六维「语法」diagCorrect：SQL=接口",
+   "want": "3",
+   "got": "3",
+   "ok": true
+  },
+  {
+   "desc": "六维「语法」diagTotal：手算=SQL",
+   "want": "3",
+   "got": "3",
+   "ok": true
+  },
+  {
+   "desc": "六维「语法」diagTotal：SQL=接口",
+   "want": "3",
+   "got": "3",
+   "ok": true
+  },
+  {
+   "desc": "六维「阅读」correct：手算=SQL",
+   "want": "109",
+   "got": "109",
+   "ok": true
+  },
+  {
+   "desc": "六维「阅读」correct：SQL=接口",
+   "want": "109",
+   "got": "109",
+   "ok": true
+  },
+  {
+   "desc": "六维「阅读」total：手算=SQL",
+   "want": "109",
+   "got": "109",
+   "ok": true
+  },
+  {
+   "desc": "六维「阅读」total：SQL=接口",
+   "want": "109",
+   "got": "109",
+   "ok": true
+  },
+  {
+   "desc": "六维「阅读」accuracy：手算=SQL",
+   "want": "1.0",
+   "got": "1.0",
+   "ok": true
+  },
+  {
+   "desc": "六维「阅读」accuracy：SQL=接口",
+   "want": "1.0",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "六维「阅读」attemptCorrect：手算=SQL",
+   "want": "106",
+   "got": "106",
+   "ok": true
+  },
+  {
+   "desc": "六维「阅读」attemptCorrect：SQL=接口",
+   "want": "106",
+   "got": "106",
+   "ok": true
+  },
+  {
+   "desc": "六维「阅读」attemptTotal：手算=SQL",
+   "want": "106",
+   "got": "106",
+   "ok": true
+  },
+  {
+   "desc": "六维「阅读」attemptTotal：SQL=接口",
+   "want": "106",
+   "got": "106",
+   "ok": true
+  },
+  {
+   "desc": "六维「阅读」diagCorrect：手算=SQL",
+   "want": "3",
+   "got": "3",
+   "ok": true
+  },
+  {
+   "desc": "六维「阅读」diagCorrect：SQL=接口",
+   "want": "3",
+   "got": "3",
+   "ok": true
+  },
+  {
+   "desc": "六维「阅读」diagTotal：手算=SQL",
+   "want": "3",
+   "got": "3",
+   "ok": true
+  },
+  {
+   "desc": "六维「阅读」diagTotal：SQL=接口",
+   "want": "3",
+   "got": "3",
+   "ok": true
+  },
+  {
+   "desc": "六维「听力」correct：手算=SQL",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "六维「听力」correct：SQL=接口",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "六维「听力」total：手算=SQL",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "六维「听力」total：SQL=接口",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "六维「听力」accuracy：手算=SQL",
+   "want": "1.0",
+   "got": "1.0",
+   "ok": true
+  },
+  {
+   "desc": "六维「听力」accuracy：SQL=接口",
+   "want": "1.0",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "六维「听力」attemptCorrect：手算=SQL",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "六维「听力」attemptCorrect：SQL=接口",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "六维「听力」attemptTotal：手算=SQL",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "六维「听力」attemptTotal：SQL=接口",
+   "want": "50",
+   "got": "50",
+   "ok": true
+  },
+  {
+   "desc": "六维「听力」diagCorrect：手算=SQL",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "六维「听力」diagCorrect：SQL=接口",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "六维「听力」diagTotal：手算=SQL",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "六维「听力」diagTotal：SQL=接口",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "六维「翻译」correct：手算=SQL",
+   "want": "2",
+   "got": "2",
+   "ok": true
+  },
+  {
+   "desc": "六维「翻译」correct：SQL=接口",
+   "want": "2",
+   "got": "2",
+   "ok": true
+  },
+  {
+   "desc": "六维「翻译」total：手算=SQL",
+   "want": "2",
+   "got": "2",
+   "ok": true
+  },
+  {
+   "desc": "六维「翻译」total：SQL=接口",
+   "want": "2",
+   "got": "2",
+   "ok": true
+  },
+  {
+   "desc": "六维「翻译」accuracy：手算=SQL",
+   "want": "1.0",
+   "got": "1.0",
+   "ok": true
+  },
+  {
+   "desc": "六维「翻译」accuracy：SQL=接口",
+   "want": "1.0",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "六维「翻译」attemptCorrect：手算=SQL",
+   "want": "2",
+   "got": "2",
+   "ok": true
+  },
+  {
+   "desc": "六维「翻译」attemptCorrect：SQL=接口",
+   "want": "2",
+   "got": "2",
+   "ok": true
+  },
+  {
+   "desc": "六维「翻译」attemptTotal：手算=SQL",
+   "want": "2",
+   "got": "2",
+   "ok": true
+  },
+  {
+   "desc": "六维「翻译」attemptTotal：SQL=接口",
+   "want": "2",
+   "got": "2",
+   "ok": true
+  },
+  {
+   "desc": "六维「翻译」diagCorrect：手算=SQL",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "六维「翻译」diagCorrect：SQL=接口",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "六维「翻译」diagTotal：手算=SQL",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "六维「翻译」diagTotal：SQL=接口",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "六维「写作」correct：手算=SQL",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "六维「写作」correct：SQL=接口",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "六维「写作」total：手算=SQL",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "六维「写作」total：SQL=接口",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "六维「写作」accuracy：手算=SQL",
+   "want": "0.0",
+   "got": "0.0",
+   "ok": true
+  },
+  {
+   "desc": "六维「写作」accuracy：SQL=接口",
+   "want": "0.0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "六维「写作」attemptCorrect：手算=SQL",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "六维「写作」attemptCorrect：SQL=接口",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "六维「写作」attemptTotal：手算=SQL",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "六维「写作」attemptTotal：SQL=接口",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "六维「写作」diagCorrect：手算=SQL",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "六维「写作」diagCorrect：SQL=接口",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "六维「写作」diagTotal：手算=SQL",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "六维「写作」diagTotal：SQL=接口",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "已覆盖维度数 = 有作答的维数（写作无题 → 0 数据）",
+   "want": "5",
+   "got": "5",
+   "ok": true
+  },
+  {
+   "desc": "六维合计正确率 → 档次文案",
+   "want": "扎实",
+   "got": "扎实",
+   "ok": true
+  },
+  {
+   "desc": "接口档位与「扎实/中等/待加强」阈值一致（独立复算）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "六维轴次序由服务端固定下发（词汇→语法→阅读→听力→翻译→写作）",
+   "want": "vocab,grammar,reading,listening,translation,writing",
+   "got": "vocab,grammar,reading,listening,translation,writing",
+   "ok": true
+  },
+  {
+   "desc": "写作维一期无题（0 数据，不是答错）",
+   "want": "0/0",
+   "got": "0/0",
+   "ok": true
+  },
+  {
+   "desc": "诊断侧只取最近一次（两次混算会不同，选择器能分辨）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "最近一次诊断 = 计划里的第 2 次（全对）",
+   "want": "16",
+   "got": "16",
+   "ok": true
+  },
+  {
+   "desc": "诊断卡的题量与 result_json 一致",
+   "want": "10/10",
+   "got": "10/10",
+   "ok": true
+  },
+  {
+   "desc": "诊断卡档次 = 阈值函数(诊断正确率)",
+   "want": "扎实",
+   "got": "扎实",
+   "ok": true
+  },
+  {
+   "desc": "第一次诊断的档次与最近一次不同（取错那次一眼能看出来）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "错题题号集合：手算=SQL",
+   "want": "[265, 270, 285, 290]",
+   "got": "[265, 270, 285, 290]",
+   "ok": true
+  },
+  {
+   "desc": "题 265 错过次数：手算=SQL",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "题 265 掌握标记：手算=SQL",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "题 265 错过次数：SQL=接口",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "题 265 掌握标记：SQL=接口",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "题 265 lastAt：SQL=接口（比到秒）",
+   "want": "2026-10-08T11:59:25",
+   "got": "2026-10-08T11:59:25",
+   "ok": true
+  },
+  {
+   "desc": "题 265 lastAt 带本地时区偏移",
+   "want": "+08:00",
+   "got": "+08:00",
+   "ok": true
+  },
+  {
+   "desc": "题 270 错过次数：手算=SQL",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "题 270 掌握标记：手算=SQL",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "题 270 错过次数：SQL=接口",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "题 270 掌握标记：SQL=接口",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "题 270 lastAt：SQL=接口（比到秒）",
+   "want": "2026-10-08T11:59:25",
+   "got": "2026-10-08T11:59:25",
+   "ok": true
+  },
+  {
+   "desc": "题 270 lastAt 带本地时区偏移",
+   "want": "+08:00",
+   "got": "+08:00",
+   "ok": true
+  },
+  {
+   "desc": "题 285 错过次数：手算=SQL",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "题 285 掌握标记：手算=SQL",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "题 285 错过次数：SQL=接口",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "题 285 掌握标记：SQL=接口",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "题 285 lastAt：SQL=接口（比到秒）",
+   "want": "2026-10-08T11:59:25",
+   "got": "2026-10-08T11:59:25",
+   "ok": true
+  },
+  {
+   "desc": "题 285 lastAt 带本地时区偏移",
+   "want": "+08:00",
+   "got": "+08:00",
+   "ok": true
+  },
+  {
+   "desc": "题 290 错过次数：手算=SQL",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "题 290 掌握标记：手算=SQL",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "题 290 错过次数：SQL=接口",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "题 290 掌握标记：SQL=接口",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "题 290 lastAt：SQL=接口（比到秒）",
+   "want": "2026-10-08T11:59:25",
+   "got": "2026-10-08T11:59:25",
+   "ok": true
+  },
+  {
+   "desc": "题 290 lastAt 带本地时区偏移",
+   "want": "+08:00",
+   "got": "+08:00",
+   "ok": true
+  },
+  {
+   "desc": "错题本条目数 = wrong_book 行数",
+   "want": "4",
+   "got": "4",
+   "ok": true
+  },
+  {
+   "desc": "待复盘数：SQL=接口",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "已掌握数：SQL=接口",
+   "want": "4",
+   "got": "4",
+   "ok": true
+  },
+  {
+   "desc": "归组与组内次序（周→单元→未掌握优先→最近出错在前→题号）与 SQL 一致",
+   "want": "[(290, 5, 3, '校园生活', True, 'vocab'), (285, 5, 3, '校园生活', True, 'vocab'), (270, 5, 3, '校园生活', True, 'grammar'), (265, 5, 3, '校园生活', True, 'vocab')]",
+   "got": "[(290, 5, 3, '校园生活', True, 'vocab'), (285, 5, 3, '校园生活', True, 'vocab'), (270, 5, 3, '校园生活', True, 'grammar'), (265, 5, 3, '校园生活', True, 'vocab')]",
+   "ok": true
+  },
+  {
+   "desc": "组「校园生活」unitCleared 与「该单元有题的关全通关」一致",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "组「校园生活」计数 = 组内条目数",
+   "want": "(0, 4)",
+   "got": "(0, 4)",
+   "ok": true
+  },
+  {
+   "desc": "题干摘要不超过 160 字 + 省略号",
+   "want": "[]",
+   "got": "[]",
+   "ok": true
+  },
+  {
+   "desc": "题 290 题干摘要 = 按字符截断(160)",
+   "want": "真题风格：The government has decided to ____ the reform measures immediately.",
+   "got": "真题风格：The government has decided to ____ the reform measures immediately.",
+   "ok": true
+  },
+  {
+   "desc": "题 285 题干摘要 = 按字符截断(160)",
+   "want": "复习关来了——这些是你前面关卡最容易错的词：\n\n____ expensive = 贵得买不起",
+   "got": "复习关来了——这些是你前面关卡最容易错的词：\n\n____ expensive = 贵得买不起",
+   "ok": true
+  },
+  {
+   "desc": "题 270 题干摘要 = 按字符截断(160)",
+   "want": "Not until midnight ____ the experiment.",
+   "got": "Not until midnight ____ the experiment.",
+   "ok": true
+  },
+  {
+   "desc": "题 265 题干摘要 = 按字符截断(160)",
+   "want": "We need to find ____ near the campus before the semester starts.",
+   "got": "We need to find ____ near the campus before the semester starts.",
+   "ok": true
+  },
+  {
+   "desc": "hasPending = 存在「已结束且还有未掌握错题」的专题",
+   "want": "False",
+   "got": "False",
+   "ok": true
+  },
+  {
+   "desc": "推送单元列表：SQL=接口",
+   "want": "[]",
+   "got": "[]",
+   "ok": true
+  },
+  {
+   "desc": "推送文案（独立拼一遍）",
+   "want": "",
+   "got": "",
+   "ok": true
+  },
+  {
+   "desc": "曲线数据点 = 8 个（近 8 周含本周）",
+   "want": "8",
+   "got": "8",
+   "ok": true
+  },
+  {
+   "desc": "横轴标签 = 8 个 M/D（升序，含本周）",
+   "want": "['8/17', '8/24', '8/31', '9/7', '9/14', '9/21', '9/28', '10/5']",
+   "got": "['8/17', '8/24', '8/31', '9/7', '9/14', '9/21', '9/28', '10/5']",
+   "ok": true
+  },
+  {
+   "desc": "周起点 = 8 个周一 00:00（升序）",
+   "want": "['2026-08-17', '2026-08-24', '2026-08-31', '2026-09-07', '2026-09-14', '2026-09-21', '2026-09-28', '2026-10-05']",
+   "got": "['2026-08-17', '2026-08-24', '2026-08-31', '2026-09-07', '2026-09-14', '2026-09-21', '2026-09-28', '2026-10-05']",
+   "ok": true
+  },
+  {
+   "desc": "第 1 周（8/17）attempts：SQL=接口",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "第 1 周（8/17）answers：SQL=接口",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "第 1 周（8/17）correct：SQL=接口",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "第 1 周（8/17）accuracy：SQL=接口（两位小数）",
+   "want": "0.0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "第 1 周（8/17）XP：SQL=接口",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "第 2 周（8/24）attempts：SQL=接口",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "第 2 周（8/24）answers：SQL=接口",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "第 2 周（8/24）correct：SQL=接口",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "第 2 周（8/24）accuracy：SQL=接口（两位小数）",
+   "want": "0.0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "第 2 周（8/24）XP：SQL=接口",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "第 3 周（8/31）attempts：SQL=接口",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "第 3 周（8/31）answers：SQL=接口",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "第 3 周（8/31）correct：SQL=接口",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "第 3 周（8/31）accuracy：SQL=接口（两位小数）",
+   "want": "0.0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "第 3 周（8/31）XP：SQL=接口",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "第 4 周（9/7）attempts：SQL=接口",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "第 4 周（9/7）answers：SQL=接口",
+   "want": "8",
+   "got": "8",
+   "ok": true
+  },
+  {
+   "desc": "第 4 周（9/7）correct：SQL=接口",
+   "want": "8",
+   "got": "8",
+   "ok": true
+  },
+  {
+   "desc": "第 4 周（9/7）accuracy：SQL=接口（两位小数）",
+   "want": "1.0",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "第 4 周（9/7）XP：SQL=接口",
+   "want": "430",
+   "got": "430",
+   "ok": true
+  },
+  {
+   "desc": "第 5 周（9/14）attempts：SQL=接口",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "第 5 周（9/14）answers：SQL=接口",
+   "want": "7",
+   "got": "7",
+   "ok": true
+  },
+  {
+   "desc": "第 5 周（9/14）correct：SQL=接口",
+   "want": "7",
+   "got": "7",
+   "ok": true
+  },
+  {
+   "desc": "第 5 周（9/14）accuracy：SQL=接口（两位小数）",
+   "want": "1.0",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "第 5 周（9/14）XP：SQL=接口",
+   "want": "365",
+   "got": "365",
+   "ok": true
+  },
+  {
+   "desc": "第 6 周（9/21）attempts：SQL=接口",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "第 6 周（9/21）answers：SQL=接口",
+   "want": "5",
+   "got": "5",
+   "ok": true
+  },
+  {
+   "desc": "第 6 周（9/21）correct：SQL=接口",
+   "want": "5",
+   "got": "5",
+   "ok": true
+  },
+  {
+   "desc": "第 6 周（9/21）accuracy：SQL=接口（两位小数）",
+   "want": "1.0",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "第 6 周（9/21）XP：SQL=接口",
+   "want": "250",
+   "got": "250",
+   "ok": true
+  },
+  {
+   "desc": "第 7 周（9/28）attempts：SQL=接口",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "第 7 周（9/28）answers：SQL=接口",
+   "want": "5",
+   "got": "5",
+   "ok": true
+  },
+  {
+   "desc": "第 7 周（9/28）correct：SQL=接口",
+   "want": "5",
+   "got": "5",
+   "ok": true
+  },
+  {
+   "desc": "第 7 周（9/28）accuracy：SQL=接口（两位小数）",
+   "want": "1.0",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "第 7 周（9/28）XP：SQL=接口",
+   "want": "250",
+   "got": "250",
+   "ok": true
+  },
+  {
+   "desc": "第 8 周（10/5）attempts：SQL=接口",
+   "want": "23",
+   "got": "23",
+   "ok": true
+  },
+  {
+   "desc": "第 8 周（10/5）answers：SQL=接口",
+   "want": "166",
+   "got": "166",
+   "ok": true
+  },
+  {
+   "desc": "第 8 周（10/5）correct：SQL=接口",
+   "want": "162",
+   "got": "162",
+   "ok": true
+  },
+  {
+   "desc": "第 8 周（10/5）accuracy：SQL=接口（两位小数）",
+   "want": "0.98",
+   "got": "0.98",
+   "ok": true
+  },
+  {
+   "desc": "第 8 周（10/5）XP：SQL=接口",
+   "want": "8130",
+   "got": "8130",
+   "ok": true
+  },
+  {
+   "desc": "有数据的周数 = 8 点里非零的周数",
+   "want": "5",
+   "got": "5",
+   "ok": true
+  },
+  {
+   "desc": "窗口外的行确实存在（证明窗口裁剪是被算过的，不是没数据）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "8 个点的 attempts 合计 = 窗口内行数（窗口外被裁掉）",
+   "want": "27",
+   "got": "27",
+   "ok": true
+  },
+  {
+   "desc": "窗口外 attempts = 全库行数 − 窗口内行数",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "回拨 7 天的关卡落在「上周」（第 7 个点）",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "概览总 XP = 账本 SUM(delta)（唯一权威）",
+   "want": "9675",
+   "got": "9675",
+   "ok": true
+  },
+  {
+   "desc": "窗口内 8 周 XP 合计 = 账本总额 − 窗口外",
+   "want": "9425",
+   "got": "9425",
+   "ok": true
+  },
+  {
+   "desc": "等级换算 = 1 + XP/300（服务端不落库，独立复算）",
+   "want": "(33, 75, 300)",
+   "got": "(33, 75, 300)",
+   "ok": true
+  },
+  {
+   "desc": "关卡总数（有题的关）",
+   "want": "24",
+   "got": "24",
+   "ok": true
+  },
+  {
+   "desc": "已通关关卡数",
+   "want": "24",
+   "got": "24",
+   "ok": true
+  },
+  {
+   "desc": "专题总数",
+   "want": "4",
+   "got": "4",
+   "ok": true
+  },
+  {
+   "desc": "已通关专题数（单元内有题的关全通关）",
+   "want": "4",
+   "got": "4",
+   "ok": true
+  },
+  {
+   "desc": "作答总数（手算 = 闯关流水 + 最近一次诊断）",
+   "want": "206",
+   "got": "206",
+   "ok": true
+  },
+  {
+   "desc": "答对总数（手算 = 闯关答对 + 最近一次诊断答对）",
+   "want": "202",
+   "got": "202",
+   "ok": true
+  },
+  {
+   "desc": "正确率（两位小数）",
+   "want": "0.98",
+   "got": "0.98",
+   "ok": true
+  },
+  {
+   "desc": "待复盘错题数 = 错题本 pendingCount",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "已掌握错题数 = 错题本 masteredCount",
+   "want": "4",
+   "got": "4",
+   "ok": true
+  }
+ ],
+ "fails": [],
+ "user": "S65A",
+ "phase": "post",
+ "overview": {
+  "summary": {
+   "xpTotal": 9675,
+   "lv": 33,
+   "xpInLevel": 75,
+   "xpPerLevel": 300,
+   "unitsTotal": 4,
+   "unitsCleared": 4,
+   "levelsTotal": 24,
+   "levelsCleared": 24,
+   "answersTotal": 206,
+   "correctTotal": 202,
+   "accuracy": 0.98,
+   "pendingWrong": 0,
+   "masteredWrong": 4
+  },
+  "hexagon": {
+   "dims": [
+    {
+     "key": "vocab",
+     "label": "词汇",
+     "correct": 23,
+     "total": 26,
+     "accuracy": 0.88,
+     "diagCorrect": 4,
+     "diagTotal": 4,
+     "attemptCorrect": 19,
+     "attemptTotal": 22
+    },
+    {
+     "key": "grammar",
+     "label": "语法",
+     "correct": 18,
+     "total": 19,
+     "accuracy": 0.95,
+     "diagCorrect": 3,
+     "diagTotal": 3,
+     "attemptCorrect": 15,
+     "attemptTotal": 16
+    },
+    {
+     "key": "reading",
+     "label": "阅读",
+     "correct": 109,
+     "total": 109,
+     "accuracy": 1,
+     "diagCorrect": 3,
+     "diagTotal": 3,
+     "attemptCorrect": 106,
+     "attemptTotal": 106
+    },
+    {
+     "key": "listening",
+     "label": "听力",
+     "correct": 50,
+     "total": 50,
+     "accuracy": 1,
+     "diagCorrect": 0,
+     "diagTotal": 0,
+     "attemptCorrect": 50,
+     "attemptTotal": 50
+    },
+    {
+     "key": "translation",
+     "label": "翻译",
+     "correct": 2,
+     "total": 2,
+     "accuracy": 1,
+     "diagCorrect": 0,
+     "diagTotal": 0,
+     "attemptCorrect": 2,
+     "attemptTotal": 2
+    },
+    {
+     "key": "writing",
+     "label": "写作",
+     "correct": 0,
+     "total": 0,
+     "accuracy": 0,
+     "diagCorrect": 0,
+     "diagTotal": 0,
+     "attemptCorrect": 0,
+     "attemptTotal": 0
+    }
+   ],
+   "coverage": 5,
+   "level": "扎实"
+  },
+  "wrongBook": {
+   "pendingCount": 0,
+   "masteredCount": 4,
+   "groups": [
+    {
+     "unitId": 5,
+     "weekNo": 3,
+     "unitName": "校园生活",
+     "unitCleared": true,
+     "pendingCount": 0,
+     "masteredCount": 4,
+     "items": [
+      {
+       "questionId": 290,
+       "type": "vocab",
+       "knowledgeTag": "",
+       "stem": "真题风格：The government has decided to ____ the reform measures immediately.",
+       "wrongCount": 1,
+       "lastAt": "2026-10-08T11:59:25+08:00",
+       "mastered": true
+      },
+      {
+       "questionId": 285,
+       "type": "vocab",
+       "knowledgeTag": "",
+       "stem": "复习关来了——这些是你前面关卡最容易错的词：\n\n____ expensive = 贵得买不起",
+       "wrongCount": 1,
+       "lastAt": "2026-10-08T11:59:25+08:00",
+       "mastered": true
+      },
+      {
+       "questionId": 270,
+       "type": "grammar",
+       "knowledgeTag": "",
+       "stem": "Not until midnight ____ the experiment.",
+       "wrongCount": 1,
+       "lastAt": "2026-10-08T11:59:25+08:00",
+       "mastered": true
+      },
+      {
+       "questionId": 265,
+       "type": "vocab",
+       "knowledgeTag": "",
+       "stem": "We need to find ____ near the campus before the semester starts.",
+       "wrongCount": 1,
+       "lastAt": "2026-10-08T11:59:25+08:00",
+       "mastered": true
+      }
+     ]
+    }
+   ]
+  },
+  "trend": {
+   "weeks": [
+    {
+     "weekStart": "2026-08-17",
+     "label": "8/17",
+     "attempts": 0,
+     "answers": 0,
+     "correct": 0,
+     "accuracy": 0,
+     "xp": 0
+    },
+    {
+     "weekStart": "2026-08-24",
+     "label": "8/24",
+     "attempts": 0,
+     "answers": 0,
+     "correct": 0,
+     "accuracy": 0,
+     "xp": 0
+    },
+    {
+     "weekStart": "2026-08-31",
+     "label": "8/31",
+     "attempts": 0,
+     "answers": 0,
+     "correct": 0,
+     "accuracy": 0,
+     "xp": 0
+    },
+    {
+     "weekStart": "2026-09-07",
+     "label": "9/7",
+     "attempts": 1,
+     "answers": 8,
+     "correct": 8,
+     "accuracy": 1,
+     "xp": 430
+    },
+    {
+     "weekStart": "2026-09-14",
+     "label": "9/14",
+     "attempts": 1,
+     "answers": 7,
+     "correct": 7,
+     "accuracy": 1,
+     "xp": 365
+    },
+    {
+     "weekStart": "2026-09-21",
+     "label": "9/21",
+     "attempts": 1,
+     "answers": 5,
+     "correct": 5,
+     "accuracy": 1,
+     "xp": 250
+    },
+    {
+     "weekStart": "2026-09-28",
+     "label": "9/28",
+     "attempts": 1,
+     "answers": 5,
+     "correct": 5,
+     "accuracy": 1,
+     "xp": 250
+    },
+    {
+     "weekStart": "2026-10-05",
+     "label": "10/5",
+     "attempts": 23,
+     "answers": 166,
+     "correct": 162,
+     "accuracy": 0.98,
+     "xp": 8130
+    }
+   ],
+   "weeksWithData": 5
+  },
+  "push": {
+   "hasPending": false,
+   "pendingUnits": [],
+   "message": ""
+  },
+  "latestDiag": {
+   "diagnosisId": 16,
+   "createdAt": "2026-10-08T11:59:26+08:00",
+   "correct": 10,
+   "total": 10,
+   "accuracy": 1,
+   "level": "扎实"
+  }
+ },
+ "plan": "plan-seed.json"
+}

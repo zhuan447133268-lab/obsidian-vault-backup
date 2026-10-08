@@ -1,0 +1,2 @@
+{"code":0,"message":"ok","data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEwOSwidW5hbWUiOiJTNjVDIiwicm9sZSI6InN0dWRlbnQiLCJpc3MiOiJjZXQ0NiIsInN1YiI6IjEwOSIsImV4cCI6MTc5MjAzNjY5NCwiaWF0IjoxNzkxNDMxODk0fQ.W4JI-R_FUkmzTs07d20Ld40mLr_ZaNRT5wKtqh6foq0","expiresIn":604800,"mustChangePwd":true,"user":{"id":109,"username":"S65C","realName":"S6.5演示学生C","role":"student","avatar":"","classId":1,"target":"4","lv":1,"streak":0,"mustChangePwd":true}}}
+[HTTP 200]

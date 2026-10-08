@@ -1,0 +1,378 @@
+{
+ "checks": [
+  {
+   "desc": "页面加载时真的请求了 /api/profile/overview 并 200",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "页面上出现提醒条（专题已结束 + 有未掌握错题）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "提醒条文案 = 接口 push.message",
+   "want": "「校园生活」已通关，还有 4 道错题没补回来，来复盘吧",
+   "got": "「校园生活」已通关，还有 4 道错题没补回来，来复盘吧",
+   "ok": true
+  },
+  {
+   "desc": "提醒条标题是「该复盘了」",
+   "want": "📌 该复盘了",
+   "got": "📌 该复盘了",
+   "ok": true
+  },
+  {
+   "desc": "底部「我的」Tab 有红点（hasPending=true）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "底部导航四项且「我的」高亮",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "XP 条写明总额与级内进度",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "概览四格（数值+标题）= 接口 summary",
+   "want": "[('8875', '总 XP'), ('4/4', '已通关'), ('183', '作答'), ('98%', '正确率')]",
+   "got": "[('8875', '总 XP'), ('4/4', '已通关'), ('183', '作答'), ('98%', '正确率')]",
+   "ok": true
+  },
+  {
+   "desc": "六边形六根轴都有中文名",
+   "want": "['词汇', '语法', '阅读', '听力', '翻译', '写作']",
+   "got": "['词汇', '语法', '阅读', '听力', '翻译', '写作']",
+   "ok": true
+  },
+  {
+   "desc": "六维明细（名称+对/总）= 接口 dims",
+   "want": "[('词汇', '12/15'), ('语法', '10/11'), ('阅读', '106/106'), ('听力', '50/50'), ('翻译', '1/1'), ('写作', '暂无数据')]",
+   "got": "[('词汇', '12/15'), ('语法', '10/11'), ('阅读', '106/106'), ('听力', '50/50'), ('翻译', '1/1'), ('写作', '暂无数据')]",
+   "ok": true
+  },
+  {
+   "desc": "已覆盖维度数写在副标题上",
+   "want": "已覆盖 5/6 维",
+   "got": "已覆盖 5/6 维",
+   "ok": true
+  },
+  {
+   "desc": "画像档次标签 = 接口 level",
+   "want": "扎实",
+   "got": "扎实",
+   "ok": true
+  },
+  {
+   "desc": "无数据维在雷达图上标「—」（不是 0%）",
+   "want": "—",
+   "got": "—",
+   "ok": true
+  },
+  {
+   "desc": "雷达轴「词汇」百分比 = 接口正确率",
+   "want": "80%",
+   "got": "80%",
+   "ok": true
+  },
+  {
+   "desc": "维度条「词汇」宽度 = 正确率",
+   "want": "80%",
+   "got": "80%",
+   "ok": true
+  },
+  {
+   "desc": "雷达轴「语法」百分比 = 接口正确率",
+   "want": "91%",
+   "got": "91%",
+   "ok": true
+  },
+  {
+   "desc": "维度条「语法」宽度 = 正确率",
+   "want": "91%",
+   "got": "91%",
+   "ok": true
+  },
+  {
+   "desc": "雷达轴「阅读」百分比 = 接口正确率",
+   "want": "100%",
+   "got": "100%",
+   "ok": true
+  },
+  {
+   "desc": "维度条「阅读」宽度 = 正确率",
+   "want": "100%",
+   "got": "100%",
+   "ok": true
+  },
+  {
+   "desc": "雷达轴「听力」百分比 = 接口正确率",
+   "want": "100%",
+   "got": "100%",
+   "ok": true
+  },
+  {
+   "desc": "维度条「听力」宽度 = 正确率",
+   "want": "100%",
+   "got": "100%",
+   "ok": true
+  },
+  {
+   "desc": "雷达轴「翻译」百分比 = 接口正确率",
+   "want": "100%",
+   "got": "100%",
+   "ok": true
+  },
+  {
+   "desc": "维度条「翻译」宽度 = 正确率",
+   "want": "100%",
+   "got": "100%",
+   "ok": true
+  },
+  {
+   "desc": "雷达轴「写作」百分比 = 接口正确率",
+   "want": "—",
+   "got": "—",
+   "ok": true
+  },
+  {
+   "desc": "维度条「写作」宽度 = 正确率",
+   "want": "0%",
+   "got": "0%",
+   "ok": true
+  },
+  {
+   "desc": "曲线横轴 8 个标签 = 接口 week.label",
+   "want": "['8/17', '8/24', '8/31', '9/7', '9/14', '9/21', '9/28', '10/5']",
+   "got": "['8/17', '8/24', '8/31', '9/7', '9/14', '9/21', '9/28', '10/5']",
+   "ok": true
+  },
+  {
+   "desc": "曲线副标题（近 8 周汇总）= 接口每周数据求和",
+   "want": "近 8 周：闯关 23 次 · 作答 168 题 · 正确率 98% · 净得 8625 XP",
+   "got": "近 8 周：闯关 23 次 · 作答 168 题 · 正确率 98% · 净得 8625 XP",
+   "ok": true
+  },
+  {
+   "desc": "每周 XP 柱 8 根（含 0 值的周也画）",
+   "want": "8",
+   "got": "8",
+   "ok": true
+  },
+  {
+   "desc": "有负值周时柱子用 neg 样式（失败撤销那一周要看得出来）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "没有练习的周柱子高度为 0（画 0 而不是不画）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "错题本分组数 = 接口 groups",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "错题本角标 = 待复盘题数",
+   "want": "4 题待复盘",
+   "got": "4 题待复盘",
+   "ok": true
+  },
+  {
+   "desc": "组「校园生活」标题 = UNIT 周次 · 单元名",
+   "want": "UNIT 3 · 校园生活",
+   "got": "UNIT 3 · 校园生活",
+   "ok": true
+  },
+  {
+   "desc": "组「校园生活」状态 chip = 本专题已结束",
+   "want": "本专题已结束",
+   "got": "本专题已结束",
+   "ok": true
+  },
+  {
+   "desc": "组「校园生活」计数行 = 未掌握/已掌握",
+   "want": "未掌握 4 · 已掌握 0",
+   "got": "未掌握 4 · 已掌握 0",
+   "ok": true
+  },
+  {
+   "desc": "组「校园生活」默认只展开前 3 条（长专题不撑爆一屏）",
+   "want": "3",
+   "got": "3",
+   "ok": true
+  },
+  {
+   "desc": "组「校园生活」展开按钮文案",
+   "want": "展开全部 4 条",
+   "got": "展开全部 4 条",
+   "ok": true
+  },
+  {
+   "desc": "组「校园生活」第 1 条题型徽标 = 中文题型名（页面按自己的标签表本地化）",
+   "want": "词汇",
+   "got": "词汇",
+   "ok": true
+  },
+  {
+   "desc": "组「校园生活」第 1 条题干摘要 = 接口 stem",
+   "want": "真题风格：The government has decided to ____ the reform measures immediately.",
+   "got": "真题风格：The government has decided to ____ the reform measures immediately.",
+   "ok": true
+  },
+  {
+   "desc": "组「校园生活」第 1 条出错日期 = lastAt 前 10 位",
+   "want": "2026-10-08",
+   "got": "2026-10-08",
+   "ok": true
+  },
+  {
+   "desc": "组「校园生活」第 1 条显示「错 N 次」",
+   "want": "错 1 次",
+   "got": "错 1 次",
+   "ok": true
+  },
+  {
+   "desc": "组「校园生活」第 2 条题型徽标 = 中文题型名（页面按自己的标签表本地化）",
+   "want": "词汇",
+   "got": "词汇",
+   "ok": true
+  },
+  {
+   "desc": "组「校园生活」第 2 条题干摘要 = 接口 stem",
+   "want": "复习关来了——这些是你前面关卡最容易错的词： ____ expensive = 贵得买不起",
+   "got": "复习关来了——这些是你前面关卡最容易错的词： ____ expensive = 贵得买不起",
+   "ok": true
+  },
+  {
+   "desc": "组「校园生活」第 2 条出错日期 = lastAt 前 10 位",
+   "want": "2026-10-08",
+   "got": "2026-10-08",
+   "ok": true
+  },
+  {
+   "desc": "组「校园生活」第 2 条显示「错 N 次」",
+   "want": "错 1 次",
+   "got": "错 1 次",
+   "ok": true
+  },
+  {
+   "desc": "组「校园生活」第 3 条题型徽标 = 中文题型名（页面按自己的标签表本地化）",
+   "want": "语法",
+   "got": "语法",
+   "ok": true
+  },
+  {
+   "desc": "组「校园生活」第 3 条题干摘要 = 接口 stem",
+   "want": "Not until midnight ____ the experiment.",
+   "got": "Not until midnight ____ the experiment.",
+   "ok": true
+  },
+  {
+   "desc": "组「校园生活」第 3 条出错日期 = lastAt 前 10 位",
+   "want": "2026-10-08",
+   "got": "2026-10-08",
+   "ok": true
+  },
+  {
+   "desc": "组「校园生活」第 3 条显示「错 N 次」",
+   "want": "错 1 次",
+   "got": "错 1 次",
+   "ok": true
+  },
+  {
+   "desc": "四张卡都按用途定位到了（能力画像 / 成长曲线 / 错题本）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "截图 shot-s65-ability.png 尺寸合理（宽 ≤ 390 且不为空条）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "截图 shot-s65-trend.png 尺寸合理（宽 ≤ 390 且不为空条）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "截图 shot-s65-wrongbook.png 尺寸合理（宽 ≤ 390 且不为空条）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "截图 shot-s65-navbar.png 尺寸合理（宽 ≤ 390 且不为空条）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "截图 shot-s65-wrongbook-expanded.png 尺寸合理（宽 ≤ 390 且不为空条）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "点「展开全部」后条目数变为全部",
+   "want": "4",
+   "got": "4",
+   "ok": true
+  },
+  {
+   "desc": "展开后按钮变「收起」",
+   "want": "收起",
+   "got": "收起",
+   "ok": true
+  },
+  {
+   "desc": "整页截图 shot-s65-page.png 宽 390（一屏宽的阅读面）",
+   "want": "390",
+   "got": "390",
+   "ok": true
+  },
+  {
+   "desc": "整页截图 shot-s65-page.png 比一屏高（真的拍全了内容，不是只拍一屏）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "浏览器控制台零错误",
+   "want": "[]",
+   "got": "[]",
+   "ok": true
+  }
+ ],
+ "fails": [],
+ "consoleErrors": [],
+ "extra": {
+  "shots": [
+   "shot-s65-top.png",
+   "shot-s65-ability.png",
+   "shot-s65-trend.png",
+   "shot-s65-wrongbook.png",
+   "shot-s65-navbar.png",
+   "shot-s65-wrongbook-expanded.png",
+   "shot-s65-page.png"
+  ],
+  "user": "S65A"
+ }
+}
