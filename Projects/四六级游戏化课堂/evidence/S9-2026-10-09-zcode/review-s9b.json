@@ -1,0 +1,234 @@
+{
+  "paper": {
+    "count": 2,
+    "items": [
+      {
+        "question": {
+          "id": 760,
+          "type": "vocab",
+          "stem": "S9 验收第 1 题：选出与 acquire 意思最接近的词",
+          "options": [
+            "放弃",
+            "燃烧",
+            "测量",
+            "获得"
+          ]
+        },
+        "wrongCount": 3,
+        "lastAt": "2026-10-09",
+        "levelId": 130,
+        "levelName": "S9 验收第 1 关"
+      },
+      {
+        "question": {
+          "id": 761,
+          "type": "vocab",
+          "stem": "S9 验收第 2 题：选出与 fragile 意思最接近的词",
+          "options": [
+            "易碎的",
+            "沉重的",
+            "宽敞的",
+            "干燥的"
+          ]
+        },
+        "wrongCount": 2,
+        "lastAt": "2026-10-09",
+        "levelId": 130,
+        "levelName": "S9 验收第 1 关"
+      }
+    ],
+    "note": "只从你的错题本里组卷；答对即收进「已掌握」，本子清空复盘卡就是空的。"
+  },
+  "paper_after_empty": {
+    "count": 0,
+    "items": [],
+    "note": "只从你的错题本里组卷；答对即收进「已掌握」，本子清空复盘卡就是空的。"
+  },
+  "overview": {
+    "user": {
+      "id": 302,
+      "realName": "复盘生",
+      "avatar": "",
+      "className": "S9商城验收班",
+      "target": "4",
+      "targetText": "英语四级冲关中",
+      "xp": 840,
+      "lv": 3,
+      "xpInLevel": 240,
+      "xpPerLevel": 300,
+      "streak": 1
+    },
+    "badges": [
+      {
+        "key": "streak",
+        "icon": "🔥",
+        "text": "连课 1 周",
+        "hint": "连续有积分流水的周数（周一为新一周的开始）"
+      },
+      {
+        "key": "perfect",
+        "icon": "🎯",
+        "text": "全对王×2",
+        "hint": "整关全对的次数"
+      },
+      {
+        "key": "level",
+        "icon": "⚡",
+        "text": "LV.3",
+        "hint": "每 300 XP 升一级"
+      }
+    ],
+    "stats": [
+      {
+        "key": "cleared",
+        "label": "累计通关",
+        "value": 5,
+        "text": "5",
+        "hint": "通关次数（重刷也算，奖励只发首刷）"
+      },
+      {
+        "key": "xp",
+        "label": "我的积分",
+        "value": 840,
+        "text": "840",
+        "hint": "LV.3 · 级内 240/300（每分都来自账本）"
+      },
+      {
+        "key": "accuracy",
+        "label": "总正确率",
+        "value": 72,
+        "text": "72%",
+        "hint": "答对 13 / 共 18 次作答"
+      }
+    ],
+    "wallet": {
+      "total": 1,
+      "items": [
+        {
+          "id": 14,
+          "code": "C46-D9ZHQFS7",
+          "couponId": 21,
+          "name": "免迟到券",
+          "status": "pending",
+          "statusText": "待老师确认",
+          "costXp": 300,
+          "source": "商城兑换",
+          "createdAt": "2026-10-09 11:49",
+          "justGranted": false
+        }
+      ],
+      "note": "券码由老师端确认后生效 · 恶意囤券会被限购哦"
+    },
+    "bag": [
+      {
+        "key": "paper",
+        "icon": "📜",
+        "name": "真题卷",
+        "count": 0,
+        "note": "Boss 通关奖励解锁"
+      },
+      {
+        "key": "cheese",
+        "icon": "🧀",
+        "name": "奶酪",
+        "count": 0,
+        "note": "已喂 0 块 · 当前「幼崽」"
+      },
+      {
+        "key": "coupon",
+        "icon": "🎟️",
+        "name": "福利券",
+        "count": 1,
+        "note": "商城兑换 / 小队宝箱"
+      }
+    ],
+    "pet": {
+      "fedXp": 0,
+      "feeds": 0,
+      "stageKey": "baby",
+      "stageName": "幼崽",
+      "stageIndex": 0,
+      "inStage": 0,
+      "stageSpan": 300,
+      "progress": 0,
+      "isMax": false,
+      "nextStage": {
+        "index": 1,
+        "key": "lively",
+        "name": "活泼",
+        "needXp": 300
+      },
+      "feedCost": 30,
+      "canFeed": true,
+      "note": "再喂 10 块到「活泼」 · 养到阶段可向老师申请平时成绩额度（额度规则待定）",
+      "stages": [
+        {
+          "index": 0,
+          "key": "baby",
+          "name": "幼崽",
+          "needXp": 0
+        },
+        {
+          "index": 1,
+          "key": "lively",
+          "name": "活泼",
+          "needXp": 300
+        },
+        {
+          "index": 2,
+          "key": "strong",
+          "name": "强壮",
+          "needXp": 900
+        },
+        {
+          "index": 3,
+          "key": "king",
+          "name": "王者",
+          "needXp": 1800
+        }
+      ]
+    },
+    "shop": {
+      "balance": 840,
+      "note": "💡 兑换后自动生成电子券码，老师端确认后生效 · 恶意囤券会被限购哦（额度规则待学校定，只上架教师手工确认类）",
+      "items": [
+        {
+          "id": 21,
+          "name": "免迟到券",
+          "costXp": 300,
+          "stock": 0,
+          "perUserLimit": 3,
+          "owned": 1,
+          "canRedeem": false,
+          "reject": "out_of_stock",
+          "rejectText": "已兑完"
+        },
+        {
+          "id": 20,
+          "name": "免旷课券",
+          "costXp": 880,
+          "stock": 4,
+          "perUserLimit": 1,
+          "owned": 0,
+          "canRedeem": false,
+          "reject": "not_enough_xp",
+          "rejectText": "还差 880 分"
+        }
+      ]
+    },
+    "review": {
+      "pending": 0,
+      "mastered": 2,
+      "total": 2,
+      "text": "错题都收拾干净了 🎉 有新错题会在这里出现",
+      "levelId": 0,
+      "levelName": ""
+    },
+    "chest": null
+  },
+  "settlements": [
+    150,
+    200,
+    150
+  ]
+}

@@ -1,0 +1,30 @@
+
+########## 06 验收①（到达侧）：队员 S7B 收到队长提醒 → 页顶提醒条 + 底栏红点 → 点「知道了」熄灭 ##########
+[E2E] S7B 有未读提醒（队长在浏览器阶段点出来的） ✅ 期望=True 实际=True
+[E2E] 页面加载时真的请求了 /api/team/overview 并 200 ✅ 期望=[200] 实际=[200]
+[E2E] 页顶出现提醒条（站内到达点） ✅ 期望=True 实际=True
+[E2E] 提醒条标题 = 谁提醒你（队长带标记） ✅ 期望=📣 S7演示学生A（队长） 提醒你 实际=📣 S7演示学生A（队长） 提醒你
+[E2E] 提醒条正文 = 接口 msg ✅ 期望=这周一起冲两关？小队宝箱就差你了 💪 实际=这周一起冲两关？小队宝箱就差你了 💪
+[E2E] 提醒条按钮「知道了」 ✅ 期望=知道了 实际=知道了
+[E2E] 底栏「小队」Tab 有红点（未读提醒） ✅ 期望=True 实际=True
+[E2E] 队员看不到「一键提醒」（队长特权，前端也不显示） ✅ 期望=None 实际=None
+[E2E] 自己的卡没有「提醒Ta」（不能提醒自己） ✅ 期望=None 实际=None
+[E2E] 队长卡没有「提醒Ta」（原型如此） ✅ 期望=None 实际=None
+    · 截图 shot-member-top.png (390, 844)
+    · 截图 shot-member-pushbar-el.png（元素级）(350, 108)
+[E2E] 截图 shot-member-pushbar-el.png 尺寸合理（宽 ≤ 390 且不为空条） ✅ 期望=True 实际=True
+    · 截图 shot-member-members.png（元素级）(350, 73)
+[E2E] 截图 shot-member-members.png 尺寸合理（宽 ≤ 390 且不为空条） ✅ 期望=True 实际=True
+[E2E] 点「知道了」后提醒条消失 ✅ 期望=None 实际=None
+[E2E] 红点随之熄灭 ✅ 期望=False 实际=False
+[E2E] 已读是服务端状态（接口未读清零，不是本地藏起来） ✅ 期望=0 实际=0
+[E2E] 刷新后提醒条仍然不再出现（真的已读） ✅ 期望=None 实际=None
+    · 截图 shot-member-acked.png (390, 844)
+    · 截图 shot-member-navbar.png（元素级）(390, 81)
+[E2E] 截图 shot-member-navbar.png 尺寸合理（宽 ≤ 390 且不为空条） ✅ 期望=True 实际=True
+    · 截图 shot-member-page.png（整页）(390, 892) · 内层容器内容高 772
+[E2E] 整页截图 shot-member-page.png 宽 390 ✅ 期望=390 实际=390
+[E2E] 整页截图 shot-member-page.png 覆盖内层容器全部内容（内容 772 px） ✅ 期望=True 实际=True
+[E2E] 浏览器控制台零错误 ✅ 期望=[] 实际=[]
+
+队员视角真机核对完成：20 条断言 · 失败 0 条

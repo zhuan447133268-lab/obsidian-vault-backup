@@ -1,0 +1,20 @@
+
+--- 用例③：6 人并列班逐字段对拍（并列跨过晋级线 / 0 分留行 / 趋势四态） ---
+[S8] 6 人档名额（round(6×5/12)=3 / round(6×4/12)=2）+ 头部 ✅ 期望={promoteCount=3, demoteCount=2, classSize=6, participants=5, count=6} 实际={promoteCount=3, demoteCount=2, classSize=6, participants=5, count=6}
+[S8] 榜上 边界甲 ✅ 期望={realName=边界甲, xp=500, rank=1, zone=promote, lastRank=5, delta=4, trend=up, teamName=, solo=False, isMe=False} 实际={realName=边界甲, xp=500, rank=1, zone=promote, lastRank=5, delta=4, trend=up, teamName=, solo=False, isMe=False}
+[S8] 榜上 边界乙 ✅ 期望={realName=边界乙, xp=400, rank=2, zone=promote, lastRank=4, delta=2, trend=up, teamName=, solo=False, isMe=False} 实际={realName=边界乙, xp=400, rank=2, zone=promote, lastRank=4, delta=2, trend=up, teamName=, solo=False, isMe=False}
+[S8] 榜上 边界丙 ✅ 期望={realName=边界丙, xp=300, rank=3, zone=promote, lastRank=3, delta=0, trend=flat, teamName=, solo=False, isMe=False} 实际={realName=边界丙, xp=300, rank=3, zone=promote, lastRank=3, delta=0, trend=flat, teamName=, solo=False, isMe=False}
+[S8] 榜上 边界丁 ✅ 期望={realName=边界丁, xp=300, rank=3, zone=promote, lastRank=2, delta=-1, trend=flat, teamName=, solo=False, isMe=False} 实际={realName=边界丁, xp=300, rank=3, zone=promote, lastRank=2, delta=-1, trend=flat, teamName=, solo=False, isMe=False}
+[S8] 榜上 边界戊 ✅ 期望={realName=边界戊, xp=100, rank=5, zone=demote, lastRank=1, delta=-4, trend=down, teamName=, solo=False, isMe=False} 实际={realName=边界戊, xp=100, rank=5, zone=demote, lastRank=1, delta=-4, trend=down, teamName=, solo=False, isMe=False}
+[S8] 榜按 XP 降序 ✅ 期望=True 实际=True
+[S8] 我（边界己，0 分）那一行：rank 0 / 不涂色带 / 排在最后 ✅ 期望={realName=边界己, rank=0, xp=0, zone=, isMe=True} 实际={realName=边界己, rank=0, xp=0, zone=, isMe=True}
+[S8] 我那一行给的是「整条晋升线」的距离 ✅ 期望={promoteCutXp=300, gapToPromote=300} 实际={promoteCutXp=300, gapToPromote=300}
+[S8] 并列把晋级区撑成 4 人（名额 3 是「名次线」不是「人数上限」） ✅ 期望=4 实际=4
+[S8] 降级区只有 1 人（名额 2 但只有 1 人掉在区里：没分的人不占降级位） ✅ 期望=1 实际=1
+[S8] 并列第 3 的两行同 XP 同名次（300/300） ✅ 期望=3/3 实际=3/3
+[S8] 趋势四态齐了（up/down/flat 三种徽标口径都在） ✅ 期望=up,up,flat,flat,down 实际=up,up,flat,flat,down
+[S8] 名次变化（甲 +4 / 乙 +2 / 丙 0 / 丁 -1 / 戊 -4） ✅ 期望=4,2,0,-1,-4 实际=4,2,0,-1,-4
+[S8] SQL 首刷口径（6 人） ✅ 期望={边界甲=500, 边界乙=400, 边界丙=300, 边界丁=300, 边界戊=100, 边界己=0} 实际={边界甲=500, 边界乙=400, 边界丙=300, 边界丁=300, 边界戊=100, 边界己=0}
+[S8] 本步断言 15 条，失败 0 条 —— 用例③ 对拍
+
+[S8] 合计断言 15 条，失败 0 条

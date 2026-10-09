@@ -1,0 +1,19 @@
+
+--- 验收③：班间 PK 同卷约束——同卷放行 / 异卷拒绝 / 无卷拒绝 / 班内直接放行 ---
+    · 导入班级「S8-PK同卷班」1 人（初始密码 S8init2026）
+    · 导入班级「S8-PK异卷班」1 人（初始密码 S8init2026）
+    · 导入班级「S8-PK无卷班」1 人（初始密码 S8init2026）
+[S8] 陪练班就位（同卷班有同内容套题 / 异卷班有不同内容套题 / 无卷班没有单元） ✅ 期望=True/True/0 实际=True/True/0
+[S8] PK 六种情形结论 ✅ 期望={班内对战（对手=我班）=True/SAME_CLASS, 同卷（两班套题内容一致）=True/OK, 异卷（两班套题内容不同）=False/PK_PAPER_MISMATCH, 对手班没有套题=False/PK_OPPONENT_NO_PAPER, 我班没有套题（不带 unitId）=False/PK_NO_PAPER, 不带 unitId（默认取本班最新单元）=True/OK} 实际={班内对战（对手=我班）=True/SAME_CLASS, 同卷（两班套题内容一致）=True/OK, 异卷（两班套题内容不同）=False/PK_PAPER_MISMATCH, 对手班没有套题=False/PK_OPPONENT_NO_PAPER, 我班没有套题（不带 unitId）=False/PK_NO_PAPER, 不带 unitId（默认取本班最新单元）=True/OK}
+[S8] 班内对战：放行且不比卷（samePaper 恒 false） ✅ 期望=True/False 实际=True/False
+[S8] 同卷：双方指纹一致（内容 MD5），且命中对手班那套单元 ✅ 期望=True/True 实际=True/True
+[S8] 异卷：请求里带出了双方指纹与单元名（拒得有理有据） ✅ 期望=True/True 实际=True/True
+    · 班内放行话术：班内对战随时可发起（同卷约束只针对班间）：本班在打《S8 实跑·第 1 套》
+    · 同卷放行话术：同卷 ✔ 双方都在打《S8 实跑·第 1 套》（S8实跑班 / S8-PK同卷班），可以开战
+    · 异卷拒绝话术：两班不同卷：本班在打《S8 实跑·第 1 套》，对方班在打《S8 异卷·第 1 套》；班间 PK 需双方同套题
+    · 对手无卷话术：对方班（S8-PK无卷班）还没有可对战的套题，班间 PK 需双方同套题
+    · 我班无卷话术：本班还没有可对战的套题，等老师发布单元后再来
+    · 写出 pk-cases.json
+[S8] 本步断言 5 条，失败 0 条 —— 验收③ PK
+
+[S8] 合计断言 5 条，失败 0 条

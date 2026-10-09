@@ -1,0 +1,195 @@
+{
+ "checks": [
+  {
+   "desc": "S7E 还没入队（本模式要先看未入队态）",
+   "want": "None",
+   "got": "None",
+   "ok": true
+  },
+  {
+   "desc": "页面加载时真的请求了 /api/team/overview 并 200",
+   "want": "[200]",
+   "got": "[200]",
+   "ok": true
+  },
+  {
+   "desc": "未入队态：页头不留队徽（还不知道队名）",
+   "want": "None",
+   "got": "None",
+   "ok": true
+  },
+  {
+   "desc": "未入队态：出「组一支小队」建队卡",
+   "want": "🐹 组一支小队",
+   "got": "🐹 组一支小队",
+   "ok": true
+  },
+  {
+   "desc": "未入队态：出「用队伍号加入」卡",
+   "want": "🔑 用队伍号加入",
+   "got": "🔑 用队伍号加入",
+   "ok": true
+  },
+  {
+   "desc": "未入队态：候选列表与接口一致（加油鸭）",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "候选项「加油鸭」= 队名/队长/人数/队伍号",
+   "want": "('加油鸭', '队长 S7演示学生A · 3 人 · 队伍号 14', '加入')",
+   "got": "('加油鸭', '队长 S7演示学生A · 3 人 · 队伍号 14', '加入')",
+   "ok": true
+  },
+  {
+   "desc": "未入队态：底下就是原型 .solo 那段话（单人也能玩）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "截图 shot-solo-create.png 尺寸合理（宽 ≤ 390 且不为空条）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "截图 shot-solo-joincard.png 尺寸合理（宽 ≤ 390 且不为空条）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "截图 shot-solo-cands.png 尺寸合理（宽 ≤ 390 且不为空条）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "整页截图 shot-solo-noteam-page.png 宽 390",
+   "want": "390",
+   "got": "390",
+   "ok": true
+  },
+  {
+   "desc": "整页截图 shot-solo-noteam-page.png 覆盖内层容器全部内容（内容 759 px）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "点「建队」后真的建成了（接口 team 非空）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "建完是单人队（solo=true / 1 人 / 我是队长）",
+   "want": "(True, 1, True)",
+   "got": "(True, 1, True)",
+   "ok": true
+  },
+  {
+   "desc": "队名与队徽 = 我在页面上填的",
+   "want": "('独行侠', '🦊')",
+   "got": "('独行侠', '🦊')",
+   "ok": true
+  },
+  {
+   "desc": "建完页头挂上队徽",
+   "want": "🦊 独行侠",
+   "got": "🦊 独行侠",
+   "ok": true
+  },
+  {
+   "desc": "单人队：经验条文案说明「无加成、无宝箱」",
+   "want": "单人队 · 无小队加成与小队宝箱",
+   "got": "单人队 · 无小队加成与小队宝箱",
+   "ok": true
+  },
+  {
+   "desc": "单人队：宝箱块换成「队里就你一个」",
+   "want": "🐹 队里就你一个",
+   "got": "🐹 队里就你一个",
+   "ok": true
+  },
+  {
+   "desc": "单人队：宝箱块说明最少 2 人",
+   "want": "小队最少 2 人才有小队加成与小队宝箱",
+   "got": "小队最少 2 人才有小队加成与小队宝箱",
+   "ok": true
+  },
+  {
+   "desc": "单人队：底下的 .solo 说明仍在（XP 照计）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "单人队：成员卡只有 1 张，且是自己的（没有提醒按钮）",
+   "want": "(1, None)",
+   "got": "(1, None)",
+   "ok": true
+  },
+  {
+   "desc": "单人队：成员卡三格成绩 = 接口（本周 XP / 通关 / 正确率）",
+   "want": "['本周 250 XP', '通关 1 关', '正确率 100%']",
+   "got": "['本周 250 XP', '通关 1 关', '正确率 100%']",
+   "ok": true
+  },
+  {
+   "desc": "单人队：XP 照计（本周净得 250 > 0，没有被队伍抹平）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "截图 shot-solo-solo-teamxp.png 尺寸合理（宽 ≤ 390 且不为空条）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "截图 shot-solo-solo-member.png 尺寸合理（宽 ≤ 390 且不为空条）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "整页截图 shot-solo-solo-page.png 宽 390",
+   "want": "390",
+   "got": "390",
+   "ok": true
+  },
+  {
+   "desc": "整页截图 shot-solo-solo-page.png 覆盖内层容器全部内容（内容 698 px）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "浏览器控制台零错误",
+   "want": "[]",
+   "got": "[]",
+   "ok": true
+  }
+ ],
+ "fails": [],
+ "consoleErrors": [],
+ "extra": {
+  "shots": [
+   "shot-solo-noteam-top.png",
+   "shot-solo-create.png",
+   "shot-solo-joincard.png",
+   "shot-solo-cands.png",
+   "shot-solo-noteam-page.png",
+   "shot-solo-solo-top.png",
+   "shot-solo-solo-teamxp.png",
+   "shot-solo-solo-member.png",
+   "shot-solo-solo-page.png"
+  ],
+  "user": "S7E",
+  "mode": "solo"
+ }
+}

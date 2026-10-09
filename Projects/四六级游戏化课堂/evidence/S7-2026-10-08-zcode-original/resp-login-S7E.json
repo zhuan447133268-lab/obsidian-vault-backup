@@ -1,0 +1,2 @@
+{"code":0,"message":"ok","data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjExNCwidW5hbWUiOiJTN0UiLCJyb2xlIjoic3R1ZGVudCIsImlzcyI6ImNldDQ2Iiwic3ViIjoiMTE0IiwiZXhwIjoxNzkyMDQyNDMyLCJpYXQiOjE3OTE0Mzc2MzJ9.4hgesludVd7zhK-CJcQ7wTD11XKh_ZtEcKMolMoqfZA","expiresIn":604800,"mustChangePwd":false,"user":{"id":114,"username":"S7E","realName":"S7演示学生E","role":"student","avatar":"","classId":1,"target":"4","lv":1,"streak":0,"mustChangePwd":false}}}
+[HTTP 200]

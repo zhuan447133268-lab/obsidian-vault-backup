@@ -1,0 +1,296 @@
+
+########## 00-precheck ##########
+
+########## S8 验收前置：服务可达 + 教师账号 + 底账快照 ##########
+[CHECK] MySQL 3307 可连（表数 17） ✅ 期望=17 实际=17
+[CHECK] Go 服务 /api/health 200 ✅ 期望=200 实际=200
+[CHECK] Vite 5174 可达 ✅ 期望=200 实际=200
+[CHECK] 联赛页路由 /s/rank 可达 ✅ 期望=200 实际=200
+[CHECK] S8 board 接口已挂（无 token → 401，不是 404） ✅ 期望=401 实际=401
+[CHECK] S8 me 接口已挂（无 token → 401） ✅ 期望=401 实际=401
+[CHECK] S8 pk/check 接口已挂（无 token → 401） ✅ 期望=401 实际=401
+[CHECK] 教师开关接口已挂（无 token → 401） ✅ 期望=401 实际=401
+[CHECK] Vite 吐的是 S8 之后的 RankView（含联赛接口调用） ✅ 期望=1 实际=1
+[CHECK] 路由表里有 /rank ✅ 期望=1 实际=1
+[CHECK] 底部导航「联赛」格有真实落点 ✅ 期望=1 实际=1
+[CHECK] 班级「2024级英语1班」在库（题库指纹的比对基准） ✅ 期望=1 实际=1
+[CHECK] cron 已就位（服务启动日志：周日 23:00 结算） ✅ 期望=1 实际=1
+
+########## 01-go-test ##########
+
+########## 后端单测 + router 集成测试（首刷口径 / 升降级边界 / 隐藏脱敏 / PK 拒绝） ##########
+?   	cet46/server/cmd/import-users	[no test files]
+?   	cet46/server/cmd/league-settle	[no test files]
+?   	cet46/server/cmd/migrate	[no test files]
+?   	cet46/server/cmd/qbank	[no test files]
+?   	cet46/server/cmd/seed-teacher	[no test files]
+?   	cet46/server/cmd/server	[no test files]
+ok  	cet46/server/internal/auth	1.683s
+ok  	cet46/server/internal/config	0.629s
+ok  	cet46/server/internal/database	2.029s
+?   	cet46/server/internal/dto	[no test files]
+ok  	cet46/server/internal/exam	0.616s
+?   	cet46/server/internal/handler	[no test files]
+?   	cet46/server/internal/jobs	[no test files]
+?   	cet46/server/internal/middleware	[no test files]
+ok  	cet46/server/internal/model	0.643s
+?   	cet46/server/internal/pkg/apperror	[no test files]
+?   	cet46/server/internal/pkg/response	[no test files]
+ok  	cet46/server/internal/qbank	0.959s
+ok  	cet46/server/internal/quiz	0.825s
+ok  	cet46/server/internal/roster	0.952s
+ok  	cet46/server/internal/router	55.104s
+ok  	cet46/server/internal/service	16.337s
+?   	cet46/server/internal/testsupport	[no test files]
+[CHECK] go test ./... 退出码 0 ✅ 期望=0 实际=0
+[CHECK] 全绿包数 > 0 ✅ 期望=1 实际=1
+[CHECK] FAIL 行 0 条 ✅ 期望=0 实际=0
+[CHECK] league 口径单点（internal/quiz）有测试跑过 ✅ 期望=1 实际=1
+
+########## 02-seed12 ##########
+
+--- 用例①：建「S8联赛验收班」（12 人，XP 与原型 rank.html 同档）+ 两周底账 + 5 支小队 ---
+
+--- 自建自清：删掉 S8 自建班级与它们名下的一切 ---
+    · 已删除班级 [31, 32, 33, 34, 35, 36] 及其学生/单元/关卡/题目/成绩/小队/赛季行
+    · 导入班级「S8联赛验收班」12 人（初始密码 S8init2026）
+    · 12 个头像按原型的 emoji 写进 users.avatar（用户资料字段，不改表）
+[S8] 用例① 单元/关卡就位 ✅ 期望=True 实际=True
+[S8] 底账时刻落位（上周日在上一周窗内 / 本周在本周窗内） ✅ 期望=True 实际=True
+[S8] 5 支小队（含 2 支单人队）组队完成 ✅ 期望=True 实际=True
+    · 写出 plan-hand12.json
+[S8] 本步断言 3 条，失败 0 条 —— 用例① 造数
+
+[S8] 合计断言 3 条，失败 0 条
+[SUM] 02-seed12 断言 3 条，失败 0 条
+
+########## 03-check12 ##########
+
+--- 用例①：12 人榜逐字段对拍（手算 vs 接口 vs SQL 底账） ---
+[S8] 榜单头部（班名/开关/赛季/周窗） ✅ 期望={className=S8联赛验收班, rankPublic=True, hidden=False, season.no=1, season.name=第 1 赛季, season.id=0, season.divisionLabel=翡翠联赛, season.upDivision=钻石, season.downDivision=白银, season.start=2026-09-28, season.end=2026-10-11, season.daysLeft=4, week.start=2026-10-05, week.end=2026-10-11, week.label=10/5} 实际={className=S8联赛验收班, rankPublic=True, hidden=False, season.no=1, season.name=第 1 赛季, season.id=0, season.divisionLabel=翡翠联赛, season.upDivision=钻石, season.downDivision=白银, season.start=2026-09-28, season.end=2026-10-11, season.daysLeft=4, week.start=2026-10-05, week.end=2026-10-11, week.label=10/5}
+[S8] 名额与文案（前 5 晋级 / 后 4 降级） ✅ 期望={promoteCount=5, demoteCount=4, promoteText=前 5 名晋级钻石联赛 · 后 4 名降级白银联赛, classSize=12, participants=12, count=12} 实际={promoteCount=5, demoteCount=4, promoteText=前 5 名晋级钻石联赛 · 后 4 名降级白银联赛, classSize=12, participants=12, count=12}
+[S8] 努力值口径文案含「首刷」 ✅ 期望=True 实际=True
+    · xpText = 努力值只算首刷成绩——重刷的分数进个人账本，但不进联赛榜
+[S8] 榜上行数 = 12（无 0 分学生，不留额外行） ✅ 期望=12 实际=12
+[S8] 榜第 1 行 陈一帆 ✅ 期望={realName=陈一帆, xp=940, rank=1, zone=promote, lastRank=1, delta=0, trend=flat, teamName=汪汪队, solo=False, isMe=False} 实际={realName=陈一帆, xp=940, rank=1, zone=promote, lastRank=1, delta=0, trend=flat, teamName=汪汪队, solo=False, isMe=False}
+[S8] 榜第 2 行 李晓萌 ✅ 期望={realName=李晓萌, xp=905, rank=2, zone=promote, lastRank=2, delta=0, trend=flat, teamName=喵喵教, solo=False, isMe=False} 实际={realName=李晓萌, xp=905, rank=2, zone=promote, lastRank=2, delta=0, trend=flat, teamName=喵喵教, solo=False, isMe=False}
+[S8] 榜第 3 行 赵梓豪 ✅ 期望={realName=赵梓豪, xp=880, rank=3, zone=promote, lastRank=3, delta=0, trend=flat, teamName=汪汪队, solo=False, isMe=False} 实际={realName=赵梓豪, xp=880, rank=3, zone=promote, lastRank=3, delta=0, trend=flat, teamName=汪汪队, solo=False, isMe=False}
+[S8] 榜第 4 行 刘思远 ✅ 期望={realName=刘思远, xp=855, rank=4, zone=promote, lastRank=4, delta=0, trend=flat, teamName=干饭人, solo=False, isMe=False} 实际={realName=刘思远, xp=855, rank=4, zone=promote, lastRank=4, delta=0, trend=flat, teamName=干饭人, solo=False, isMe=False}
+[S8] 榜第 5 行 孙可欣 ✅ 期望={realName=孙可欣, xp=830, rank=5, zone=promote, lastRank=5, delta=0, trend=flat, teamName=喵喵教, solo=False, isMe=False} 实际={realName=孙可欣, xp=830, rank=5, zone=promote, lastRank=5, delta=0, trend=flat, teamName=喵喵教, solo=False, isMe=False}
+[S8] 榜第 6 行 王小鱼 ✅ 期望={realName=王小鱼, xp=790, rank=6, zone=keep, lastRank=9, delta=3, trend=up, teamName=加油鸭, solo=False, isMe=True} 实际={realName=王小鱼, xp=790, rank=6, zone=keep, lastRank=9, delta=3, trend=up, teamName=加油鸭, solo=False, isMe=True}
+[S8] 榜第 7 行 周子墨 ✅ 期望={realName=周子墨, xp=760, rank=7, zone=keep, lastRank=6, delta=-1, trend=flat, teamName=孤狼, solo=True, isMe=False} 实际={realName=周子墨, xp=760, rank=7, zone=keep, lastRank=6, delta=-1, trend=flat, teamName=孤狼, solo=True, isMe=False}
+[S8] 榜第 8 行 吴雨桐 ✅ 期望={realName=吴雨桐, xp=720, rank=8, zone=keep, lastRank=7, delta=-1, trend=flat, teamName=喵喵教, solo=False, isMe=False} 实际={realName=吴雨桐, xp=720, rank=8, zone=keep, lastRank=7, delta=-1, trend=flat, teamName=喵喵教, solo=False, isMe=False}
+[S8] 榜第 9 行 郑凯文 ✅ 期望={realName=郑凯文, xp=660, rank=9, zone=demote, lastRank=12, delta=3, trend=up, teamName=干饭人, solo=False, isMe=False} 实际={realName=郑凯文, xp=660, rank=9, zone=demote, lastRank=12, delta=3, trend=up, teamName=干饭人, solo=False, isMe=False}
+[S8] 榜第 10 行 林晓雯 ✅ 期望={realName=林晓雯, xp=615, rank=10, zone=demote, lastRank=8, delta=-2, trend=down, teamName=加油鸭, solo=False, isMe=False} 实际={realName=林晓雯, xp=615, rank=10, zone=demote, lastRank=8, delta=-2, trend=down, teamName=加油鸭, solo=False, isMe=False}
+[S8] 榜第 11 行 黄子轩 ✅ 期望={realName=黄子轩, xp=540, rank=11, zone=demote, lastRank=10, delta=-1, trend=flat, teamName=孤狼, solo=True, isMe=False} 实际={realName=黄子轩, xp=540, rank=11, zone=demote, lastRank=10, delta=-1, trend=flat, teamName=孤狼, solo=True, isMe=False}
+[S8] 榜第 12 行 徐若曦 ✅ 期望={realName=徐若曦, xp=480, rank=12, zone=demote, lastRank=11, delta=-1, trend=flat, teamName=喵喵教, solo=False, isMe=False} 实际={realName=徐若曦, xp=480, rank=12, zone=demote, lastRank=11, delta=-1, trend=flat, teamName=喵喵教, solo=False, isMe=False}
+[S8] 我那一行（第 6 名 / 差 40 XP） ✅ 期望={rank=6, xp=790, zone=keep, lastRank=9, delta=3, trend=up, promoteCutXp=830, gapToPromote=40} 实际={rank=6, xp=790, zone=keep, lastRank=9, delta=3, trend=up, promoteCutXp=830, gapToPromote=40}
+[S8] SQL 首刷口径逐人等于手算 XP（12 人） ✅ 期望=0 实际=0
+[S8] 我的明细合计（1 条首刷 / 0 次重刷 / 合计=790） ✅ 期望={xp=790, rows=1, replayAttempts=0, rowXp=790, rowLevel=S8 验收关 2（本周底账）} 实际={xp=790, rows=1, replayAttempts=0, rowXp=790, rowLevel=S8 验收关 2（本周底账）}
+[S8] 明细合计 == 榜上 XP（同一口径） ✅ 期望=790 实际=790
+[S8] 郑凯文：榜 660 / 重刷 1 次 / 账本 500+660+450=1610 ✅ 期望={rankXp=660, replayAttempts=1, ledger=1610, replayNotInBoard=True} 实际={rankXp=660, replayAttempts=1, ledger=1610, replayNotInBoard=True}
+[S8] 郑凯文 SQL 账本聚合 = 1610（重刷的 450 只在账本里） ✅ 期望=1610 实际=1610
+    · 写出 check12-hand-table.json
+[S8] 本步断言 22 条，失败 0 条 —— 用例① 对拍
+
+[S8] 合计断言 22 条，失败 0 条
+[SUM] 03-check12 断言 22 条，失败 0 条
+
+########## 04-seed4-and-check4 ##########
+
+--- 用例②：建「S8实跑班」4 人 + 真实链路打关（首刷 / 重刷 / 并列 / 0 分） ---
+    · 导入班级「S8实跑班」4 人（初始密码 S8init2026）
+[S8] Alice 首刷/重刷标记正确（首次 firstClear=true，重刷 replay=true） ✅ 期望=True/True 实际=True/True
+[S8] Alice 重刷不再发通关奖励（重刷净得 < 首刷净得） ✅ 期望=True 实际=True
+[S8] Alice 与 Bob 同参数同分（并列前提） ✅ 期望=115 实际=115
+[S8] Dave 本周这一次是重刷（首刷在上周） ✅ 期望=True 实际=True
+    · 写出 plan-e2e4.json
+[S8] 本步断言 4 条，失败 0 条 —— 用例② 造数
+
+[S8] 合计断言 4 条，失败 0 条
+[SUM] 04-seed4-and-check4 断言 4 条，失败 0 条
+
+########## 04b-check4 ##########
+
+--- 用例②：4 人实跑班——并列第 1 / 首刷口径 / 0 分不上榜 / 名额缩放 2:1 ---
+[S8] 4 人档名额（round(4×5/12)=2 / round(4×4/12)=1）+ 计分 2 人 ✅ 期望={promoteCount=2, demoteCount=1, classSize=4, participants=2, count=2} 实际={promoteCount=2, demoteCount=1, classSize=4, participants=2, count=2}
+[S8] 榜上 实跑Alice（并列第 1，都在晋级区） ✅ 期望={realName=实跑Alice, xp=115, rank=1, zone=promote, lastRank=0, delta=0, trend=flat, teamName=, solo=False, isMe=True} 实际={realName=实跑Alice, xp=115, rank=1, zone=promote, lastRank=0, delta=0, trend=flat, teamName=, solo=False, isMe=True}
+[S8] 榜上 实跑Bob（并列第 1，都在晋级区） ✅ 期望={realName=实跑Bob, xp=115, rank=1, zone=promote, lastRank=0, delta=0, trend=flat, teamName=, solo=False, isMe=False} 实际={realName=实跑Bob, xp=115, rank=1, zone=promote, lastRank=0, delta=0, trend=flat, teamName=, solo=False, isMe=False}
+[S8] 榜按 XP 降序（并列相邻不跳号） ✅ 期望=True 实际=True
+[S8] 并列第 1：两行同 XP 同名次（1/1，不跳号） ✅ 期望=1/1 实际=1/1
+[S8] 我（Alice）：榜首 / 已在晋级区 / 晋升线=榜上最高分 ✅ 期望={rank=1, xp=115, zone=promote, promoteCutXp=115, gapToPromote=0} 实际={rank=1, xp=115, zone=promote, promoteCutXp=115, gapToPromote=0}
+[S8] Alice 明细：1 次首刷计入 / 1 次重刷不计入 ✅ 期望={xp=115, rows=1, replayAttempts=1, ledger=180} 实际={xp=115, rows=1, replayAttempts=1, ledger=180}
+[S8] 榜上 XP = 首刷那一次（重刷的 65 XP 没进榜） ✅ 期望=True 实际=True
+[S8] Bob 明细：1 次首刷 / 0 次重刷 ✅ 期望={xp=115, rows=1, replayAttempts=0} 实际={xp=115, rows=1, replayAttempts=0}
+[S8] Carol（0 分）：不上榜但保留自己那一行，晋升线 = 榜上最高分 ✅ 期望={participants=2, count=3, lastRealName=实跑Carol, lastRank=0, lastXP=0, lastZone=, lastIsMe=True, promoteCutXp=115, gapToPromote=115} 实际={participants=2, count=3, lastRealName=实跑Carol, lastRank=0, lastXP=0, lastZone=, lastIsMe=True, promoteCutXp=115, gapToPromote=115}
+[S8] 0 分学生看到的是「整条晋升线」的差距（与原型同一句文案） ✅ 期望=True 实际=True
+[S8] Dave：上周首刷 + 本周重刷 → 本周 0 分不上榜，明细 0 行 / 重刷 1 次 ✅ 期望={boardXp=0, boardRank=0, count=3, rows=0, replayAttempts=1, ledger=365} 实际={boardXp=0, boardRank=0, count=3, rows=0, replayAttempts=1, ledger=365}
+[S8] Dave 账本 = 上周 300 + 本周重刷 65（都在账本里、都不在本周榜上） ✅ 期望=True 实际=True
+[S8] SQL 首刷口径（4 人） ✅ 期望={alice=115, bob=115, carol=0, dave=0} 实际={alice=115, bob=115, carol=0, dave=0}
+[S8] SQL 重刷次数（Alice 1 / Bob 0 / Dave 1） ✅ 期望={alice=1, bob=0, dave=1} 实际={alice=1, bob=0, dave=1}
+[S8] 本步断言 15 条，失败 0 条 —— 用例② 对拍
+
+[S8] 合计断言 15 条，失败 0 条
+[SUM] 04b-check4 断言 15 条，失败 0 条
+
+########## 05-seed6-and-check6 ##########
+
+--- 用例③：建「S8并列验收班」6 人——并列压在晋级线上（名额 3，区内 4 人） ---
+    · 导入班级「S8并列验收班」6 人（初始密码 S8init2026）
+[S8] 用例③ 底账就位（本周 5 条 / 上周 6 条） ✅ 期望=5/6 实际=5/6
+    · 写出 plan-hand6.json
+[S8] 本步断言 1 条，失败 0 条 —— 用例③ 造数
+
+[S8] 合计断言 1 条，失败 0 条
+[SUM] 05-seed6-and-check6 断言 1 条，失败 0 条
+
+########## 05b-check6 ##########
+
+--- 用例③：6 人并列班逐字段对拍（并列跨过晋级线 / 0 分留行 / 趋势四态） ---
+[S8] 6 人档名额（round(6×5/12)=3 / round(6×4/12)=2）+ 头部 ✅ 期望={promoteCount=3, demoteCount=2, classSize=6, participants=5, count=6} 实际={promoteCount=3, demoteCount=2, classSize=6, participants=5, count=6}
+[S8] 榜上 边界甲 ✅ 期望={realName=边界甲, xp=500, rank=1, zone=promote, lastRank=5, delta=4, trend=up, teamName=, solo=False, isMe=False} 实际={realName=边界甲, xp=500, rank=1, zone=promote, lastRank=5, delta=4, trend=up, teamName=, solo=False, isMe=False}
+[S8] 榜上 边界乙 ✅ 期望={realName=边界乙, xp=400, rank=2, zone=promote, lastRank=4, delta=2, trend=up, teamName=, solo=False, isMe=False} 实际={realName=边界乙, xp=400, rank=2, zone=promote, lastRank=4, delta=2, trend=up, teamName=, solo=False, isMe=False}
+[S8] 榜上 边界丙 ✅ 期望={realName=边界丙, xp=300, rank=3, zone=promote, lastRank=3, delta=0, trend=flat, teamName=, solo=False, isMe=False} 实际={realName=边界丙, xp=300, rank=3, zone=promote, lastRank=3, delta=0, trend=flat, teamName=, solo=False, isMe=False}
+[S8] 榜上 边界丁 ✅ 期望={realName=边界丁, xp=300, rank=3, zone=promote, lastRank=2, delta=-1, trend=flat, teamName=, solo=False, isMe=False} 实际={realName=边界丁, xp=300, rank=3, zone=promote, lastRank=2, delta=-1, trend=flat, teamName=, solo=False, isMe=False}
+[S8] 榜上 边界戊 ✅ 期望={realName=边界戊, xp=100, rank=5, zone=demote, lastRank=1, delta=-4, trend=down, teamName=, solo=False, isMe=False} 实际={realName=边界戊, xp=100, rank=5, zone=demote, lastRank=1, delta=-4, trend=down, teamName=, solo=False, isMe=False}
+[S8] 榜按 XP 降序 ✅ 期望=True 实际=True
+[S8] 我（边界己，0 分）那一行：rank 0 / 不涂色带 / 排在最后 ✅ 期望={realName=边界己, rank=0, xp=0, zone=, isMe=True} 实际={realName=边界己, rank=0, xp=0, zone=, isMe=True}
+[S8] 我那一行给的是「整条晋升线」的距离 ✅ 期望={promoteCutXp=300, gapToPromote=300} 实际={promoteCutXp=300, gapToPromote=300}
+[S8] 并列把晋级区撑成 4 人（名额 3 是「名次线」不是「人数上限」） ✅ 期望=4 实际=4
+[S8] 降级区只有 1 人（名额 2 但只有 1 人掉在区里：没分的人不占降级位） ✅ 期望=1 实际=1
+[S8] 并列第 3 的两行同 XP 同名次（300/300） ✅ 期望=3/3 实际=3/3
+[S8] 趋势四态齐了（up/down/flat 三种徽标口径都在） ✅ 期望=up,up,flat,flat,down 实际=up,up,flat,flat,down
+[S8] 名次变化（甲 +4 / 乙 +2 / 丙 0 / 丁 -1 / 戊 -4） ✅ 期望=4,2,0,-1,-4 实际=4,2,0,-1,-4
+[S8] SQL 首刷口径（6 人） ✅ 期望={边界甲=500, 边界乙=400, 边界丙=300, 边界丁=300, 边界戊=100, 边界己=0} 实际={边界甲=500, 边界乙=400, 边界丙=300, 边界丁=300, 边界戊=100, 边界己=0}
+[S8] 本步断言 15 条，失败 0 条 —— 用例③ 对拍
+
+[S8] 合计断言 15 条，失败 0 条
+[SUM] 05b-check6 断言 15 条，失败 0 条
+
+########## 06-pk ##########
+
+--- 验收③：班间 PK 同卷约束——同卷放行 / 异卷拒绝 / 无卷拒绝 / 班内直接放行 ---
+    · 导入班级「S8-PK同卷班」1 人（初始密码 S8init2026）
+    · 导入班级「S8-PK异卷班」1 人（初始密码 S8init2026）
+    · 导入班级「S8-PK无卷班」1 人（初始密码 S8init2026）
+[S8] 陪练班就位（同卷班有同内容套题 / 异卷班有不同内容套题 / 无卷班没有单元） ✅ 期望=True/True/0 实际=True/True/0
+[S8] PK 六种情形结论 ✅ 期望={班内对战（对手=我班）=True/SAME_CLASS, 同卷（两班套题内容一致）=True/OK, 异卷（两班套题内容不同）=False/PK_PAPER_MISMATCH, 对手班没有套题=False/PK_OPPONENT_NO_PAPER, 我班没有套题（不带 unitId）=False/PK_NO_PAPER, 不带 unitId（默认取本班最新单元）=True/OK} 实际={班内对战（对手=我班）=True/SAME_CLASS, 同卷（两班套题内容一致）=True/OK, 异卷（两班套题内容不同）=False/PK_PAPER_MISMATCH, 对手班没有套题=False/PK_OPPONENT_NO_PAPER, 我班没有套题（不带 unitId）=False/PK_NO_PAPER, 不带 unitId（默认取本班最新单元）=True/OK}
+[S8] 班内对战：放行且不比卷（samePaper 恒 false） ✅ 期望=True/False 实际=True/False
+[S8] 同卷：双方指纹一致（内容 MD5），且命中对手班那套单元 ✅ 期望=True/True 实际=True/True
+[S8] 异卷：请求里带出了双方指纹与单元名（拒得有理有据） ✅ 期望=True/True 实际=True/True
+    · 班内放行话术：班内对战随时可发起（同卷约束只针对班间）：本班在打《S8 实跑·第 1 套》
+    · 同卷放行话术：同卷 ✔ 双方都在打《S8 实跑·第 1 套》（S8实跑班 / S8-PK同卷班），可以开战
+    · 异卷拒绝话术：两班不同卷：本班在打《S8 实跑·第 1 套》，对方班在打《S8 异卷·第 1 套》；班间 PK 需双方同套题
+    · 对手无卷话术：对方班（S8-PK无卷班）还没有可对战的套题，班间 PK 需双方同套题
+    · 我班无卷话术：本班还没有可对战的套题，等老师发布单元后再来
+    · 写出 pk-cases.json
+[S8] 本步断言 5 条，失败 0 条 —— 验收③ PK
+
+[S8] 合计断言 5 条，失败 0 条
+[SUM] 06-pk 断言 5 条，失败 0 条
+
+########## 07-hidden ##########
+
+--- 验收②：教师关闭排行 → 学生端脱敏（不返回，而不是返回了再由前端藏） ---
+[S8] 教师关闭回执（含留痕 id） ✅ 期望={className=S8联赛验收班, rankPublic=False} 实际={className=S8联赛验收班, rankPublic=False}
+[S8] 留痕：audit_log 里 rank_toggle 条数 ≥ 1 ✅ 期望=True 实际=True
+[S8] settings_json 合并写（rank_public=false，别人的键还在） ✅ 期望={rank_public=False, foreign=keep-me} 实际={rank_public=False, foreign=keep-me}
+[S8] 关闭态榜头：榜单清空、名次与参与人数归零、我自己的数还在 ✅ 期望={rankPublic=False, hidden=True, items=0, count=0, participants=0, classSize=12, meXp=790, meRank=0, meZone=, meCut=0, meGap=0, hiddenTextNotEmpty=True} 实际={rankPublic=False, hidden=True, items=0, count=0, participants=0, classSize=12, meXp=790, meRank=0, meZone=, meCut=0, meGap=0, hiddenTextNotEmpty=True}
+    · 降级文案：老师暂时关闭了本班公开排名。不排名也能进步，你的努力值照常累计 💪
+[S8] 关闭态响应体不泄露他人数据 ✅ 期望={他人姓名=0, 他人 XP=0, 榜单键(realName/teamName/solo)=0, userId 出现次数=1} 实际={他人姓名=0, 他人 XP=0, 榜单键(realName/teamName/solo)=0, userId 出现次数=1}
+[S8] 关闭态「我的努力值明细」仍然只给我自己的数 ✅ 期望={xp=790, rows=1, replayAttempts=0, 他人姓名=0, 他人 XP=0} 实际={xp=790, rows=1, replayAttempts=0, 他人姓名=0, 他人 XP=0}
+[S8] 学生 token 调教师开关：10 发全被拦、且回执都拿到了（无 RST 断连） ✅ 期望={403=10, 40301=10, 断连=0} 实际={403=10, 40301=10, 断连=0}
+    · 学生调开关返回：HTTP 403 {"code": 40301, "message": "无权访问", "data": null}
+[S8] 重新打开后榜恢复（开关可逆） ✅ 期望={toggleRankPublic=True, rankPublic=True, hidden=False, items=12, participants=12} 实际={toggleRankPublic=True, rankPublic=True, hidden=False, items=12, participants=12}
+[S8] 本步断言 8 条，失败 0 条 —— 验收② 隐藏开关
+
+[S8] 合计断言 8 条，失败 0 条
+[SUM] 07-hidden 断言 8 条，失败 0 条
+
+########## 08-settle ##########
+
+--- 周结算 / 赛季结算 / 幂等重跑（cmd/league-settle，与 cron 同一个 SettleClass） ---
+[S8] 周结算（cron 日常路径）：scope=week / 窗口=本周 / 12 人计分 ✅ 期望={scope=week, participants=12, windowStart=2026-10-05, windowEnd=2026-10-11, weekLabel=10/5, promoteCount=5, demoteCount=4} 实际={scope=week, participants=12, windowStart=2026-10-05, windowEnd=2026-10-11, weekLabel=10/5, promoteCount=5, demoteCount=4}
+[S8] 周结算名单 = 手算（晋级 5 人 / 降级 4 人，名次与 XP 逐字段一致） ✅ 期望={promote=[(1, '陈一帆', 940), (2, '李晓萌', 905), (3, '赵梓豪', 880), (4, '刘思远', 855), (5, '孙可欣', 830)], demote=[(9, '郑凯文', 660), (10, '林晓雯', 615), (11, '黄子轩', 540), (12, '徐若曦', 480)]} 实际={promote=[(1, '陈一帆', 940), (2, '李晓萌', 905), (3, '赵梓豪', 880), (4, '刘思远', 855), (5, '孙可欣', 830)], demote=[(9, '郑凯文', 660), (10, '林晓雯', 615), (11, '黄子轩', 540), (12, '徐若曦', 480)]}
+[S8] 周结算不建赛季行（周榜只是走势快照） ✅ 期望=0 实际=0
+[S8] 赛季结算时刻还没到（本用例前提：跑在赛季最后一周的周日 23:00 前） ✅ 期望=True 实际=True
+[S8] 赛季结算：scope=season / 窗口=本赛季两周 / 归档并开出下一赛季 ✅ 期望={scope=season, participants=12, windowStart=2026-09-28, windowEnd=2026-10-11, closedSeasonId=0, nextSeasonIdGt0=True} 实际={scope=season, participants=12, windowStart=2026-09-28, windowEnd=2026-10-11, closedSeasonId=0, nextSeasonIdGt0=True}
+[S8] 赛季名单 = 手算（赛季窗内累计，重刷的 450 不算） ✅ 期望={promote=[(1, '陈一帆', 2140), (2, '李晓萌', 2055), (3, '赵梓豪', 1980), (4, '刘思远', 1905), (5, '孙可欣', 1830)], demote=[(9, '林晓雯', 1465), (10, '黄子轩', 1240), (11, '郑凯文', 1160), (12, '徐若曦', 1080)]} 实际={promote=[(1, '陈一帆', 2140), (2, '李晓萌', 2055), (3, '赵梓豪', 1980), (4, '刘思远', 1905), (5, '孙可欣', 1830)], demote=[(9, '林晓雯', 1465), (10, '黄子轩', 1240), (11, '郑凯文', 1160), (12, '徐若曦', 1080)]}
+[S8] 赛季行落库（1 行 active，名字「第 2 赛季」） ✅ 期望={行数=1, name=第 2 赛季, status=active} 实际={行数=1, name=第 2 赛季, status=active}
+[S8] settings_json 里的赛季号跟着走（league_season_no=2） ✅ 期望=2 实际=2
+[S8] 同一时刻重跑：不重复开赛季（scope 掉回 week / 不建新行） ✅ 期望={scope=week, nextSeasonId=0, 赛季行数=1} 实际={scope=week, nextSeasonId=0, 赛季行数=1}
+[S8] 结算后 GET：赛季行生效（第 2 赛季 / 下一窗 / 天数往上取整） ✅ 期望={id=4, no=2, name=第 2 赛季, start=2026-10-12, end=2026-10-25, daysLeft=18, items=12} 实际={id=4, no=2, name=第 2 赛季, start=2026-10-12, end=2026-10-25, daysLeft=18, items=12}
+[S8] 留痕：league_settle / league_season_settle 都在 audit_log 里 ✅ 期望={league_settle=True, league_season_settle=True} 实际={league_settle=True, league_season_settle=True}
+[S8] 本步断言 11 条，失败 0 条 —— 周/赛季结算
+
+[S8] 合计断言 11 条，失败 0 条
+[SUM] 08-settle 断言 11 条，失败 0 条
+
+########## 09-browser ##########
+
+########## 浏览器实测截图（委派子代理跑真页面；这一步核对产物在位、真实尺寸、四张互不同帧） ##########
+[CHECK] 截图 1 在位且非空白（s8-browser-01-rank-public.png，100907 字节） ✅ 期望=1 实际=1
+[CHECK] 截图 2 在位且非空白（s8-browser-02-mine-detail.png，95627 字节） ✅ 期望=1 实际=1
+[CHECK] 截图 3 在位且非空白（s8-browser-03-rank-closed.png，75628 字节） ✅ 期望=1 实际=1
+[CHECK] 截图 4 在位且非空白（s8-browser-04-after-open.png，97927 字节） ✅ 期望=1 实际=1
+[CHECK] 四张截图都是 390×844 整屏（不是占位/缩略图） ✅ 期望=4 实际=4
+[CHECK] 四张截图两两不同帧（MD5 去重后仍是 4） ✅ 期望=4 实际=4
+[CHECK] 关闭态截图与公开态截图不是同一帧 ✅ 期望=1 实际=1
+
+########## 98-baseline-after ##########
+
+--- 底账快照：表 / 列 / 题库指纹（S8 只写数据行，不动表结构、不动别人的题库） ---
+    · 别人的底账（表/列/单元/关/题/题库 CRC）：17/128/4/24/206/845397835
+[S8] 表数仍是 17（S8 不加表） ✅ 期望=17 实际=17
+[S8] 列数仍是 128（S8 不改列） ✅ 期望=128 实际=128
+[S8] 别人的题库指纹与跑前一致（没改别人的题） ✅ 期望=845397835 实际=845397835
+[S8] 别人的单元/关/题数与跑前一致 ✅ 期望=4/24/206 实际=4/24/206
+[S8] 表/列数与跑前一致 ✅ 期望=17/128 实际=17/128
+[S8] 本步断言 5 条，失败 0 条 —— 底账快照
+
+[S8] 合计断言 5 条，失败 0 条
+[SUM] 98-baseline-after 断言 5 条，失败 0 条
+
+########## 10-demo ##########
+
+--- 回到演示态：「S8联赛验收班」拨回第 1 赛季 + 公开排行 ---
+[S8] 赛季行清空（回到「无赛季行 = 第 1 赛季」的原点） ✅ 期望=0 实际=0
+[S8] settings_json 复位（赛季号 1 / 公开，别人的键不动） ✅ 期望={league_season_no=1, rank_public=True, foreign=keep-me} 实际={league_season_no=1, rank_public=True, foreign=keep-me}
+[S8] 复位后榜头 = 截图那一帧（第 1 赛季 / 公开 / 剩余天数 / 5+4 名额） ✅ 期望={rankPublic=True, hidden=False, seasonId=0, no=1, name=第 1 赛季, start=2026-09-28, end=2026-10-11, daysLeft=4, promoteCount=5, demoteCount=4, count=12, weekLabel=10/5} 实际={rankPublic=True, hidden=False, seasonId=0, no=1, name=第 1 赛季, start=2026-09-28, end=2026-10-11, daysLeft=4, promoteCount=5, demoteCount=4, count=12, weekLabel=10/5}
+[S8] 复位后榜第 1 行 陈一帆 ✅ 期望={realName=陈一帆, xp=940, rank=1, zone=promote, lastRank=1, delta=0, trend=flat, teamName=汪汪队, solo=False, isMe=False} 实际={realName=陈一帆, xp=940, rank=1, zone=promote, lastRank=1, delta=0, trend=flat, teamName=汪汪队, solo=False, isMe=False}
+[S8] 复位后榜第 2 行 李晓萌 ✅ 期望={realName=李晓萌, xp=905, rank=2, zone=promote, lastRank=2, delta=0, trend=flat, teamName=喵喵教, solo=False, isMe=False} 实际={realName=李晓萌, xp=905, rank=2, zone=promote, lastRank=2, delta=0, trend=flat, teamName=喵喵教, solo=False, isMe=False}
+[S8] 复位后榜第 3 行 赵梓豪 ✅ 期望={realName=赵梓豪, xp=880, rank=3, zone=promote, lastRank=3, delta=0, trend=flat, teamName=汪汪队, solo=False, isMe=False} 实际={realName=赵梓豪, xp=880, rank=3, zone=promote, lastRank=3, delta=0, trend=flat, teamName=汪汪队, solo=False, isMe=False}
+[S8] 复位后榜第 4 行 刘思远 ✅ 期望={realName=刘思远, xp=855, rank=4, zone=promote, lastRank=4, delta=0, trend=flat, teamName=干饭人, solo=False, isMe=False} 实际={realName=刘思远, xp=855, rank=4, zone=promote, lastRank=4, delta=0, trend=flat, teamName=干饭人, solo=False, isMe=False}
+[S8] 复位后榜第 5 行 孙可欣 ✅ 期望={realName=孙可欣, xp=830, rank=5, zone=promote, lastRank=5, delta=0, trend=flat, teamName=喵喵教, solo=False, isMe=False} 实际={realName=孙可欣, xp=830, rank=5, zone=promote, lastRank=5, delta=0, trend=flat, teamName=喵喵教, solo=False, isMe=False}
+[S8] 复位后榜第 6 行 王小鱼 ✅ 期望={realName=王小鱼, xp=790, rank=6, zone=keep, lastRank=9, delta=3, trend=up, teamName=加油鸭, solo=False, isMe=True} 实际={realName=王小鱼, xp=790, rank=6, zone=keep, lastRank=9, delta=3, trend=up, teamName=加油鸭, solo=False, isMe=True}
+[S8] 复位后榜第 7 行 周子墨 ✅ 期望={realName=周子墨, xp=760, rank=7, zone=keep, lastRank=6, delta=-1, trend=flat, teamName=孤狼, solo=True, isMe=False} 实际={realName=周子墨, xp=760, rank=7, zone=keep, lastRank=6, delta=-1, trend=flat, teamName=孤狼, solo=True, isMe=False}
+[S8] 复位后榜第 8 行 吴雨桐 ✅ 期望={realName=吴雨桐, xp=720, rank=8, zone=keep, lastRank=7, delta=-1, trend=flat, teamName=喵喵教, solo=False, isMe=False} 实际={realName=吴雨桐, xp=720, rank=8, zone=keep, lastRank=7, delta=-1, trend=flat, teamName=喵喵教, solo=False, isMe=False}
+[S8] 复位后榜第 9 行 郑凯文 ✅ 期望={realName=郑凯文, xp=660, rank=9, zone=demote, lastRank=12, delta=3, trend=up, teamName=干饭人, solo=False, isMe=False} 实际={realName=郑凯文, xp=660, rank=9, zone=demote, lastRank=12, delta=3, trend=up, teamName=干饭人, solo=False, isMe=False}
+[S8] 复位后榜第 10 行 林晓雯 ✅ 期望={realName=林晓雯, xp=615, rank=10, zone=demote, lastRank=8, delta=-2, trend=down, teamName=加油鸭, solo=False, isMe=False} 实际={realName=林晓雯, xp=615, rank=10, zone=demote, lastRank=8, delta=-2, trend=down, teamName=加油鸭, solo=False, isMe=False}
+[S8] 复位后榜第 11 行 黄子轩 ✅ 期望={realName=黄子轩, xp=540, rank=11, zone=demote, lastRank=10, delta=-1, trend=flat, teamName=孤狼, solo=True, isMe=False} 实际={realName=黄子轩, xp=540, rank=11, zone=demote, lastRank=10, delta=-1, trend=flat, teamName=孤狼, solo=True, isMe=False}
+[S8] 复位后榜第 12 行 徐若曦 ✅ 期望={realName=徐若曦, xp=480, rank=12, zone=demote, lastRank=11, delta=-1, trend=flat, teamName=喵喵教, solo=False, isMe=False} 实际={realName=徐若曦, xp=480, rank=12, zone=demote, lastRank=11, delta=-1, trend=flat, teamName=喵喵教, solo=False, isMe=False}
+[S8] 复位后「我」= 截图里的第 6 名 / 差 40 XP（王小鱼） ✅ 期望={rank=6, xp=790, gapToPromote=40} 实际={rank=6, xp=790, gapToPromote=40}
+[S8] 本步断言 16 条，失败 0 条 —— 回到演示态
+
+[S8] 合计断言 16 条，失败 0 条
+[SUM] 10-demo 断言 16 条，失败 0 条
+
+########## S8 验收汇总 ##########
+步骤                     断言   失败
+00-precheck                    13        0
+01-go-test                      4        0
+02-seed12                       3        0
+03-check12                     22        0
+04-seed4-and-check4             4        0
+04b-check4                     15        0
+05-seed6-and-check6             1        0
+05b-check6                     15        0
+06-pk                           5        0
+07-hidden                       8        0
+08-settle                      11        0
+09-browser                      7        0
+98-baseline-after               5        0
+10-demo                        16        0
+
+S8 验收汇总：断言 105 条，失败 0 条
+结论：全绿 ✅

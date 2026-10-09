@@ -1,0 +1,77 @@
+[
+  {
+    "classId": 37,
+    "className": "S8联赛验收班",
+    "at": "2026-10-08T18:32:01+08:00",
+    "seasonId": 0,
+    "seasonNo": 1,
+    "seasonName": "第 1 赛季",
+    "division": "翡翠",
+    "scope": "week",
+    "windowStart": "2026-10-05",
+    "windowEnd": "2026-10-11",
+    "weekLabel": "10/5",
+    "participants": 12,
+    "promote": [
+      {
+        "userId": 227,
+        "realName": "陈一帆",
+        "rank": 1,
+        "xp": 940
+      },
+      {
+        "userId": 228,
+        "realName": "李晓萌",
+        "rank": 2,
+        "xp": 905
+      },
+      {
+        "userId": 229,
+        "realName": "赵梓豪",
+        "rank": 3,
+        "xp": 880
+      },
+      {
+        "userId": 230,
+        "realName": "刘思远",
+        "rank": 4,
+        "xp": 855
+      },
+      {
+        "userId": 231,
+        "realName": "孙可欣",
+        "rank": 5,
+        "xp": 830
+      }
+    ],
+    "demote": [
+      {
+        "userId": 235,
+        "realName": "郑凯文",
+        "rank": 9,
+        "xp": 660
+      },
+      {
+        "userId": 236,
+        "realName": "林晓雯",
+        "rank": 10,
+        "xp": 615
+      },
+      {
+        "userId": 237,
+        "realName": "黄子轩",
+        "rank": 11,
+        "xp": 540
+      },
+      {
+        "userId": 238,
+        "realName": "徐若曦",
+        "rank": 12,
+        "xp": 480
+      }
+    ],
+    "closedSeasonId": 0,
+    "nextSeasonId": 0,
+    "auditId": 23
+  }
+]

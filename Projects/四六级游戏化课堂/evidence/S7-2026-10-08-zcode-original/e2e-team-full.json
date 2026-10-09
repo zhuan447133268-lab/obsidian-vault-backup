@@ -1,0 +1,424 @@
+{
+ "checks": [
+  {
+   "desc": "页面加载时真的请求了 /api/team/overview 并 200",
+   "want": "[200]",
+   "got": "[200]",
+   "ok": true
+  },
+  {
+   "desc": "首屏接口确实回了队伍（队长视角）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "页头标题「🐹 我的小队」",
+   "want": "🐹 我的小队",
+   "got": "🐹 我的小队",
+   "ok": true
+  },
+  {
+   "desc": "页头副标题 = 原型那句（小队经验全员加成 +10%）",
+   "want": "组队闯关 · 小队经验全员加成 +10%",
+   "got": "组队闯关 · 小队经验全员加成 +10%",
+   "ok": true
+  },
+  {
+   "desc": "队徽 = 队徽 emoji + 队名",
+   "want": "🦆 加油鸭",
+   "got": "🦆 加油鸭",
+   "ok": true
+  },
+  {
+   "desc": "底栏「小队」Tab 高亮（当前页）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "底栏四个 Tab（闯关/联赛/小队/我的）",
+   "want": "4",
+   "got": "4",
+   "ok": true
+  },
+  {
+   "desc": "底栏「小队」红点 = 未读提醒数 > 0（队长没收到提醒时不该有红点）",
+   "want": "False",
+   "got": "False",
+   "ok": true
+  },
+  {
+   "desc": "经验条标题「小队本周经验」",
+   "want": "小队本周经验",
+   "got": "小队本周经验",
+   "ok": true
+  },
+  {
+   "desc": "经验条文案 = 接口下发的进度/阈值/还差",
+   "want": "495 / 2000 · 距小队宝箱还差 1505",
+   "got": "495 / 2000 · 距小队宝箱还差 1505",
+   "ok": true
+  },
+  {
+   "desc": "经验条填充宽度 = 接口进度百分比",
+   "want": "25%",
+   "got": "25%",
+   "ok": true
+  },
+  {
+   "desc": "本周小结三格 = 接口 week",
+   "want": "[('3', '本周总通关'), ('67%', '小队平均正确率'), ('2 人', '需要加油')]",
+   "got": "[('3', '本周总通关'), ('67%', '小队平均正确率'), ('2 人', '需要加油')]",
+   "ok": true
+  },
+  {
+   "desc": "提示行 = 原型那句（成绩互相可见 · 互相提醒）",
+   "want": "👀 小队成绩互相可见 · 组内互相提醒，比老师点名好使",
+   "got": "👀 小队成绩互相可见 · 组内互相提醒，比老师点名好使",
+   "ok": true
+  },
+  {
+   "desc": "「一键提醒 N 名」按钮 = 接口 nudgeCount",
+   "want": "📣 一键提醒 2 名需加油队员",
+   "got": "📣 一键提醒 2 名需加油队员",
+   "ok": true
+  },
+  {
+   "desc": "成员卡数量 = memberCount",
+   "want": "3",
+   "got": "3",
+   "ok": true
+  },
+  {
+   "desc": "第 1 张卡是 S7演示学生A（次序与接口一致）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生A「队长」徽标 = isLeader",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生A「⚠ 需加油」徽标 = weak（阈值服务端判）",
+   "want": "False",
+   "got": "False",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生A「新入队」徽标 = newJoin",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生A 卡片底色用 weak 样式",
+   "want": "False",
+   "got": "False",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生A 两个成绩项 = 接口 xp/clears",
+   "want": "['本周 315 XP', '通关 2 关']",
+   "got": "['本周 315 XP', '通关 2 关']",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生A 正确率项 = 接口 accuracy",
+   "want": "正确率 70%",
+   "got": "正确率 70%",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生A 正确率标黄规则 = 没作答或 <70%",
+   "want": "False",
+   "got": "False",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生A 提醒按钮 = 非队长非本人（原型队长卡没有按钮）",
+   "want": "False",
+   "got": "False",
+   "ok": true
+  },
+  {
+   "desc": "第 2 张卡是 S7演示学生B（次序与接口一致）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生B「队长」徽标 = isLeader",
+   "want": "False",
+   "got": "False",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生B「⚠ 需加油」徽标 = weak（阈值服务端判）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生B「新入队」徽标 = newJoin",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生B 卡片底色用 weak 样式",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生B 两个成绩项 = 接口 xp/clears",
+   "want": "['本周 135 XP', '通关 1 关']",
+   "got": "['本周 135 XP', '通关 1 关']",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生B 正确率项 = 接口 accuracy",
+   "want": "正确率 60%",
+   "got": "正确率 60%",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生B 正确率标黄规则 = 没作答或 <70%",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生B 提醒按钮 = 非队长非本人（原型队长卡没有按钮）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "第 3 张卡是 S7演示学生C（次序与接口一致）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生C「队长」徽标 = isLeader",
+   "want": "False",
+   "got": "False",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生C「⚠ 需加油」徽标 = weak（阈值服务端判）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生C「新入队」徽标 = newJoin",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生C 卡片底色用 weak 样式",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生C 两个成绩项 = 接口 xp/clears",
+   "want": "['本周 0 XP', '通关 0 关']",
+   "got": "['本周 0 XP', '通关 0 关']",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生C 正确率项 = 接口 accuracy",
+   "want": "本周还没闯关",
+   "got": "本周还没闯关",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生C 正确率标黄规则 = 没作答或 <70%",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生C 提醒按钮 = 非队长非本人（原型队长卡没有按钮）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "宝箱块标题 = 进度百分比",
+   "want": "🎁 小队宝箱进度 25%",
+   "got": "🎁 小队宝箱进度 25%",
+   "ok": true
+  },
+  {
+   "desc": "宝箱块说明 = 阈值 + 奖励（免作业券已废弃，一期只承诺真题卷）",
+   "want": "小队经验满 2000，全员解锁「2022 年真题卷」",
+   "got": "小队经验满 2000，全员解锁「2022 年真题卷」",
+   "ok": true
+  },
+  {
+   "desc": "宝箱块按钮「邀请同学入队 +」",
+   "want": "邀请同学入队 +",
+   "got": "邀请同学入队 +",
+   "ok": true
+  },
+  {
+   "desc": "页尾有「退出小队」（原型没有；不加会变成只能进不能出）",
+   "want": "退出小队",
+   "got": "退出小队",
+   "ok": true
+  },
+  {
+   "desc": "点「邀请同学入队 +」后弹 toast",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "toast 文案 = 队伍号即邀请码",
+   "want": "把这句话发给同学就能入队 队伍号 11，一起冲小队宝箱 💪",
+   "got": "把这句话发给同学就能入队 队伍号 11，一起冲小队宝箱 💪",
+   "ok": true
+  },
+  {
+   "desc": "点「提醒Ta」后 toast 出「已由队长发出提醒」（队长发起才这么写）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "toast 里带上被提醒人姓名",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "toast 里带默认话术（原型那句）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "被提醒的那张卡按钮变「已提醒 ⏰」并禁用",
+   "want": "('已提醒 ⏰', True)",
+   "got": "('已提醒 ⏰', True)",
+   "ok": true
+  },
+  {
+   "desc": "提醒落库：reminders 多了一行（点一次写一行）",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "「一键提醒 N 名」计数随点击减少（剩余可提醒 = 接口 nudgeCount）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "点「一键提醒」后按钮变「✓ 已全部提醒」",
+   "want": "✓ 已全部提醒",
+   "got": "✓ 已全部提醒",
+   "ok": true
+  },
+  {
+   "desc": "一键提醒 toast 报出提醒了几人",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "点完后所有非队长非本人卡都是「已提醒 ⏰」",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "一键提醒后接口 nudgeCount = 0（本周提醒完了）",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "截图 shot-full-teamxp.png 尺寸合理（宽 ≤ 390 且不为空条）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "截图 shot-full-weeksum.png 尺寸合理（宽 ≤ 390 且不为空条）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "截图 shot-full-members.png 尺寸合理（宽 ≤ 390 且不为空条）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "截图 shot-full-invite.png 尺寸合理（宽 ≤ 390 且不为空条）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "截图 shot-full-navbar.png 尺寸合理（宽 ≤ 390 且不为空条）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "整页截图 shot-full-page.png 宽 390",
+   "want": "390",
+   "got": "390",
+   "ok": true
+  },
+  {
+   "desc": "整页截图 shot-full-page.png 覆盖内层容器全部内容（内容 855 px）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "整页截图 shot-full-page.png 比一屏高（内容超一屏时确实拍全了）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "浏览器控制台零错误",
+   "want": "[]",
+   "got": "[]",
+   "ok": true
+  }
+ ],
+ "fails": [],
+ "consoleErrors": [],
+ "extra": {
+  "shots": [
+   "shot-full-toast-invite.png",
+   "shot-full-toast-remind.png",
+   "shot-full-toast-nudgeall.png",
+   "shot-full-top.png",
+   "shot-full-teamxp.png",
+   "shot-full-weeksum.png",
+   "shot-full-members.png",
+   "shot-full-invite.png",
+   "shot-full-navbar.png",
+   "shot-full-page.png"
+  ],
+  "user": "S7A",
+  "mode": "full"
+ }
+}

@@ -1,0 +1,21 @@
+
+--- 回到演示态：「S8联赛验收班」拨回第 1 赛季 + 公开排行 ---
+[S8] 赛季行清空（回到「无赛季行 = 第 1 赛季」的原点） ✅ 期望=0 实际=0
+[S8] settings_json 复位（赛季号 1 / 公开，别人的键不动） ✅ 期望={league_season_no=1, rank_public=True, foreign=keep-me} 实际={league_season_no=1, rank_public=True, foreign=keep-me}
+[S8] 复位后榜头 = 截图那一帧（第 1 赛季 / 公开 / 剩余天数 / 5+4 名额） ✅ 期望={rankPublic=True, hidden=False, seasonId=0, no=1, name=第 1 赛季, start=2026-09-28, end=2026-10-11, daysLeft=3, promoteCount=5, demoteCount=4, count=12, weekLabel=10/5} 实际={rankPublic=True, hidden=False, seasonId=0, no=1, name=第 1 赛季, start=2026-09-28, end=2026-10-11, daysLeft=3, promoteCount=5, demoteCount=4, count=12, weekLabel=10/5}
+[S8] 复位后榜第 1 行 陈一帆 ✅ 期望={realName=陈一帆, xp=940, rank=1, zone=promote, lastRank=1, delta=0, trend=flat, teamName=汪汪队, solo=False, isMe=False} 实际={realName=陈一帆, xp=940, rank=1, zone=promote, lastRank=1, delta=0, trend=flat, teamName=汪汪队, solo=False, isMe=False}
+[S8] 复位后榜第 2 行 李晓萌 ✅ 期望={realName=李晓萌, xp=905, rank=2, zone=promote, lastRank=2, delta=0, trend=flat, teamName=喵喵教, solo=False, isMe=False} 实际={realName=李晓萌, xp=905, rank=2, zone=promote, lastRank=2, delta=0, trend=flat, teamName=喵喵教, solo=False, isMe=False}
+[S8] 复位后榜第 3 行 赵梓豪 ✅ 期望={realName=赵梓豪, xp=880, rank=3, zone=promote, lastRank=3, delta=0, trend=flat, teamName=汪汪队, solo=False, isMe=False} 实际={realName=赵梓豪, xp=880, rank=3, zone=promote, lastRank=3, delta=0, trend=flat, teamName=汪汪队, solo=False, isMe=False}
+[S8] 复位后榜第 4 行 刘思远 ✅ 期望={realName=刘思远, xp=855, rank=4, zone=promote, lastRank=4, delta=0, trend=flat, teamName=干饭人, solo=False, isMe=False} 实际={realName=刘思远, xp=855, rank=4, zone=promote, lastRank=4, delta=0, trend=flat, teamName=干饭人, solo=False, isMe=False}
+[S8] 复位后榜第 5 行 孙可欣 ✅ 期望={realName=孙可欣, xp=830, rank=5, zone=promote, lastRank=5, delta=0, trend=flat, teamName=喵喵教, solo=False, isMe=False} 实际={realName=孙可欣, xp=830, rank=5, zone=promote, lastRank=5, delta=0, trend=flat, teamName=喵喵教, solo=False, isMe=False}
+[S8] 复位后榜第 6 行 王小鱼 ✅ 期望={realName=王小鱼, xp=790, rank=6, zone=keep, lastRank=9, delta=3, trend=up, teamName=加油鸭, solo=False, isMe=True} 实际={realName=王小鱼, xp=790, rank=6, zone=keep, lastRank=9, delta=3, trend=up, teamName=加油鸭, solo=False, isMe=True}
+[S8] 复位后榜第 7 行 周子墨 ✅ 期望={realName=周子墨, xp=760, rank=7, zone=keep, lastRank=6, delta=-1, trend=flat, teamName=孤狼, solo=True, isMe=False} 实际={realName=周子墨, xp=760, rank=7, zone=keep, lastRank=6, delta=-1, trend=flat, teamName=孤狼, solo=True, isMe=False}
+[S8] 复位后榜第 8 行 吴雨桐 ✅ 期望={realName=吴雨桐, xp=720, rank=8, zone=keep, lastRank=7, delta=-1, trend=flat, teamName=喵喵教, solo=False, isMe=False} 实际={realName=吴雨桐, xp=720, rank=8, zone=keep, lastRank=7, delta=-1, trend=flat, teamName=喵喵教, solo=False, isMe=False}
+[S8] 复位后榜第 9 行 郑凯文 ✅ 期望={realName=郑凯文, xp=660, rank=9, zone=demote, lastRank=12, delta=3, trend=up, teamName=干饭人, solo=False, isMe=False} 实际={realName=郑凯文, xp=660, rank=9, zone=demote, lastRank=12, delta=3, trend=up, teamName=干饭人, solo=False, isMe=False}
+[S8] 复位后榜第 10 行 林晓雯 ✅ 期望={realName=林晓雯, xp=615, rank=10, zone=demote, lastRank=8, delta=-2, trend=down, teamName=加油鸭, solo=False, isMe=False} 实际={realName=林晓雯, xp=615, rank=10, zone=demote, lastRank=8, delta=-2, trend=down, teamName=加油鸭, solo=False, isMe=False}
+[S8] 复位后榜第 11 行 黄子轩 ✅ 期望={realName=黄子轩, xp=540, rank=11, zone=demote, lastRank=10, delta=-1, trend=flat, teamName=孤狼, solo=True, isMe=False} 实际={realName=黄子轩, xp=540, rank=11, zone=demote, lastRank=10, delta=-1, trend=flat, teamName=孤狼, solo=True, isMe=False}
+[S8] 复位后榜第 12 行 徐若曦 ✅ 期望={realName=徐若曦, xp=480, rank=12, zone=demote, lastRank=11, delta=-1, trend=flat, teamName=喵喵教, solo=False, isMe=False} 实际={realName=徐若曦, xp=480, rank=12, zone=demote, lastRank=11, delta=-1, trend=flat, teamName=喵喵教, solo=False, isMe=False}
+[S8] 复位后「我」= 截图里的第 6 名 / 差 40 XP（王小鱼） ✅ 期望={rank=6, xp=790, gapToPromote=40} 实际={rank=6, xp=790, gapToPromote=40}
+[S8] 本步断言 16 条，失败 0 条 —— 回到演示态
+
+[S8] 合计断言 16 条，失败 0 条

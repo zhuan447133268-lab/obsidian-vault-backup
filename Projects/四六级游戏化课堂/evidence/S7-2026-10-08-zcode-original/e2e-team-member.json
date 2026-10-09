@@ -1,0 +1,138 @@
+{
+ "checks": [
+  {
+   "desc": "S7B 有未读提醒（队长在浏览器阶段点出来的）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "页面加载时真的请求了 /api/team/overview 并 200",
+   "want": "[200]",
+   "got": "[200]",
+   "ok": true
+  },
+  {
+   "desc": "页顶出现提醒条（站内到达点）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "提醒条标题 = 谁提醒你（队长带标记）",
+   "want": "📣 S7演示学生A（队长） 提醒你",
+   "got": "📣 S7演示学生A（队长） 提醒你",
+   "ok": true
+  },
+  {
+   "desc": "提醒条正文 = 接口 msg",
+   "want": "这周一起冲两关？小队宝箱就差你了 💪",
+   "got": "这周一起冲两关？小队宝箱就差你了 💪",
+   "ok": true
+  },
+  {
+   "desc": "提醒条按钮「知道了」",
+   "want": "知道了",
+   "got": "知道了",
+   "ok": true
+  },
+  {
+   "desc": "底栏「小队」Tab 有红点（未读提醒）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "队员看不到「一键提醒」（队长特权，前端也不显示）",
+   "want": "None",
+   "got": "None",
+   "ok": true
+  },
+  {
+   "desc": "自己的卡没有「提醒Ta」（不能提醒自己）",
+   "want": "None",
+   "got": "None",
+   "ok": true
+  },
+  {
+   "desc": "队长卡没有「提醒Ta」（原型如此）",
+   "want": "None",
+   "got": "None",
+   "ok": true
+  },
+  {
+   "desc": "截图 shot-member-pushbar-el.png 尺寸合理（宽 ≤ 390 且不为空条）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "截图 shot-member-members.png 尺寸合理（宽 ≤ 390 且不为空条）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "点「知道了」后提醒条消失",
+   "want": "None",
+   "got": "None",
+   "ok": true
+  },
+  {
+   "desc": "红点随之熄灭",
+   "want": "False",
+   "got": "False",
+   "ok": true
+  },
+  {
+   "desc": "已读是服务端状态（接口未读清零，不是本地藏起来）",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "刷新后提醒条仍然不再出现（真的已读）",
+   "want": "None",
+   "got": "None",
+   "ok": true
+  },
+  {
+   "desc": "截图 shot-member-navbar.png 尺寸合理（宽 ≤ 390 且不为空条）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "整页截图 shot-member-page.png 宽 390",
+   "want": "390",
+   "got": "390",
+   "ok": true
+  },
+  {
+   "desc": "整页截图 shot-member-page.png 覆盖内层容器全部内容（内容 772 px）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "浏览器控制台零错误",
+   "want": "[]",
+   "got": "[]",
+   "ok": true
+  }
+ ],
+ "fails": [],
+ "consoleErrors": [],
+ "extra": {
+  "shots": [
+   "shot-member-top.png",
+   "shot-member-pushbar-el.png",
+   "shot-member-members.png",
+   "shot-member-acked.png",
+   "shot-member-navbar.png",
+   "shot-member-page.png"
+  ],
+  "user": "S7B",
+  "mode": "member"
+ }
+}

@@ -1,0 +1,35 @@
+
+########## 00 S7 验收前置：服务可达 + 演示学生就位 + 底账快照 ##########
+--- 00-1 服务可达 ---
+[CHECK] MySQL 3307 可连 ✅ 期望=1 实际=1
+[CHECK] Go 服务 /api/health 200 ✅ 期望=200 实际=200
+[CHECK] Vite 5174 可达（学生端 5174：5173 被别的项目占着） ✅ 期望=200 实际=200
+[CHECK] 小队页路由 /s/team 可达 ✅ 期望=200 实际=200
+[CHECK] S7 新接口已挂上（未带 token → 401，不是 404） ✅ 期望=401 实际=401
+[CHECK] Vite 吐的是 S7 之后的 TeamView（含小队接口调用） ✅ 期望=yes 实际=yes
+[CHECK] Vite 吐的是 S7 之后的 BottomNav（含小队红点） ✅ 期望=yes 实际=yes
+
+--- 00-2 教师账号就位（seed-teacher 打回初始密码再改密，S2 起的惯例）---
+[CHECK] 教师初始密码登录成功 ✅ 期望=yes 实际=yes
+[CHECK] 教师改密后再登录成功 ✅ 期望=yes 实际=yes
+[CHECK] 班级「2024级英语1班」存在 ✅ 期望=yes 实际=yes
+[CHECK] 班级「2024级英语9班」存在（S7 跨班隔离用） ✅ 期望=yes 实际=yes
+
+--- 00-3 演示学生（缺则建、建后改密；每次跑前把 S7 的队/成员/提醒/成绩清零）---
+[CHECK] S7A 演示密码 S7demo2026 能登录 ✅ 期望=yes 实际=yes
+[CHECK] S7A 进度与队伍已清零（attempts/team_members/reminders/xp 全 0） ✅ 期望=0/0/0/0 实际=0/0/0/0
+[CHECK] S7B 演示密码 S7demo2026 能登录 ✅ 期望=yes 实际=yes
+[CHECK] S7B 进度与队伍已清零（attempts/team_members/reminders/xp 全 0） ✅ 期望=0/0/0/0 实际=0/0/0/0
+[CHECK] S7C 演示密码 S7demo2026 能登录 ✅ 期望=yes 实际=yes
+[CHECK] S7C 进度与队伍已清零（attempts/team_members/reminders/xp 全 0） ✅ 期望=0/0/0/0 实际=0/0/0/0
+[CHECK] S7D 演示密码 S7demo2026 能登录 ✅ 期望=yes 实际=yes
+[CHECK] S7D 进度与队伍已清零（attempts/team_members/reminders/xp 全 0） ✅ 期望=0/0/0/0 实际=0/0/0/0
+[CHECK] S7E 演示密码 S7demo2026 能登录 ✅ 期望=yes 实际=yes
+[CHECK] S7E 进度与队伍已清零（attempts/team_members/reminders/xp 全 0） ✅ 期望=0/0/0/0 实际=0/0/0/0
+
+--- 00-4 底账快照（99 要拿来比：S7 只写演示学生的行，不动表结构/题库/其他人）---
+底账（表/列/单元/关/题/账号）：17/128/4/24/206/63
+题库指纹（题数/id和/题干长/选项长/逐题 CRC 和）：206/75705/311085/25817/477287524982
+[CHECK] 表数仍是 17（S7 不加表：小队用现成的 teams/team_members/reminders） ✅ 期望=17 实际=17
+[CHECK] 列数仍是 128（S7 不改列） ✅ 期望=128 实际=128
+[CHECK] 题库仍是 4 单元 / 24 关 / 206 题 ✅ 期望=4/24/206 实际=4/24/206

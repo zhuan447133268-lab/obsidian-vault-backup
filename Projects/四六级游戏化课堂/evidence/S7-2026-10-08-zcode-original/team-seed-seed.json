@@ -1,0 +1,72 @@
+{
+ "checks": [
+  {
+   "desc": "可玩关卡数 = 24（4 单元 × 四级题库）",
+   "want": "24",
+   "got": "24",
+   "ok": true
+  },
+  {
+   "desc": "S7A 打 L25 前已解锁",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S7A 打 L26 前已解锁",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S7B 打 L25 前已解锁",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S7E 打 L25 前已解锁",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S7A 本周正确率正好 7/10 = 70%（阈值边界值）",
+   "want": "0.7",
+   "got": "0.7",
+   "ok": true
+  },
+  {
+   "desc": "S7A 本周通关 2 关（≥1，所以不因「0 通关」被判弱）",
+   "want": "2",
+   "got": "2",
+   "ok": true
+  },
+  {
+   "desc": "S7B 本周正确率 3/5 = 60%（低于 70% 那条路）",
+   "want": "0.6",
+   "got": "0.6",
+   "ok": true
+  },
+  {
+   "desc": "S7C 本周一关没打（0 通关那条路）",
+   "want": "(0, 0, 0)",
+   "got": "(0, 0, 0)",
+   "ok": true
+  },
+  {
+   "desc": "S7E 本周 5/5（单人队「XP 照计」的证据）",
+   "want": "5",
+   "got": "5",
+   "ok": true
+  },
+  {
+   "desc": "S7D 一关没打（2 班没有排课，跨班用例的前提）",
+   "want": "(0, 0)",
+   "got": "(0, 0)",
+   "ok": true
+  }
+ ],
+ "fails": [],
+ "plan": "plan-seed.json"
+}

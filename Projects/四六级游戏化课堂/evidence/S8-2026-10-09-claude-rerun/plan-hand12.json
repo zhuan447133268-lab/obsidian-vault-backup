@@ -1,0 +1,92 @@
+{
+  "classId": 43,
+  "className": "S8联赛验收班",
+  "unitId": 47,
+  "levelLast": 119,
+  "levelThis": 120,
+  "weekStart": "2026-10-05",
+  "weekEnd": "2026-10-12",
+  "lastAt": "2026-10-04T20:00:00",
+  "thisAt": "2026-10-09T08:38:51.067847",
+  "students": {
+    "陈一帆": {
+      "uid": 252,
+      "xp": 940,
+      "lastXp": 1200,
+      "replayXp": 0
+    },
+    "李晓萌": {
+      "uid": 253,
+      "xp": 905,
+      "lastXp": 1150,
+      "replayXp": 0
+    },
+    "赵梓豪": {
+      "uid": 254,
+      "xp": 880,
+      "lastXp": 1100,
+      "replayXp": 0
+    },
+    "刘思远": {
+      "uid": 255,
+      "xp": 855,
+      "lastXp": 1050,
+      "replayXp": 0
+    },
+    "孙可欣": {
+      "uid": 256,
+      "xp": 830,
+      "lastXp": 1000,
+      "replayXp": 0
+    },
+    "王小鱼": {
+      "uid": 257,
+      "xp": 790,
+      "lastXp": 800,
+      "replayXp": 0
+    },
+    "周子墨": {
+      "uid": 258,
+      "xp": 760,
+      "lastXp": 950,
+      "replayXp": 0
+    },
+    "吴雨桐": {
+      "uid": 259,
+      "xp": 720,
+      "lastXp": 900,
+      "replayXp": 0
+    },
+    "郑凯文": {
+      "uid": 260,
+      "xp": 660,
+      "lastXp": 500,
+      "replayXp": 450
+    },
+    "林晓雯": {
+      "uid": 261,
+      "xp": 615,
+      "lastXp": 850,
+      "replayXp": 0
+    },
+    "黄子轩": {
+      "uid": 262,
+      "xp": 540,
+      "lastXp": 700,
+      "replayXp": 0
+    },
+    "徐若曦": {
+      "uid": 263,
+      "xp": 480,
+      "lastXp": 600,
+      "replayXp": 0
+    }
+  },
+  "teams": {
+    "汪汪队": 46,
+    "喵喵教": 47,
+    "干饭人": 48,
+    "加油鸭": 49,
+    "孤狼": 51
+  }
+}

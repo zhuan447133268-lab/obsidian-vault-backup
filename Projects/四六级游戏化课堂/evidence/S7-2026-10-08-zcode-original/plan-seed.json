@@ -1,0 +1,232 @@
+{
+ "phase": "seed",
+ "tag": "seed",
+ "students": {
+  "S7A": {
+   "userId": 110,
+   "levels": [
+    {
+     "levelId": 25,
+     "levelName": "第 1 关 · 高频词",
+     "attemptId": 269,
+     "status": "finished",
+     "plannedCorrect": 4,
+     "correct": 4,
+     "total": 5,
+     "stars": 2,
+     "xpTotal": 180
+    },
+    {
+     "levelId": 26,
+     "levelName": "第 2 关 · 语法陷阱",
+     "attemptId": 270,
+     "status": "finished",
+     "plannedCorrect": 3,
+     "correct": 3,
+     "total": 5,
+     "stars": 2,
+     "xpTotal": 135
+    }
+   ],
+   "answers": [
+    {
+     "questionId": 265,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 266,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 267,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 268,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 269,
+     "type": "vocab",
+     "correct": false,
+     "serverCorrect": false
+    },
+    {
+     "questionId": 270,
+     "type": "grammar",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 271,
+     "type": "grammar",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 272,
+     "type": "grammar",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 273,
+     "type": "grammar",
+     "correct": false,
+     "serverCorrect": false
+    },
+    {
+     "questionId": 274,
+     "type": "grammar",
+     "correct": false,
+     "serverCorrect": false
+    }
+   ],
+   "hand": {
+    "clears": 2,
+    "answers": 10,
+    "correct": 7,
+    "xpReceipts": 315
+   }
+  },
+  "S7B": {
+   "userId": 111,
+   "levels": [
+    {
+     "levelId": 25,
+     "levelName": "第 1 关 · 高频词",
+     "attemptId": 271,
+     "status": "finished",
+     "plannedCorrect": 3,
+     "correct": 3,
+     "total": 5,
+     "stars": 2,
+     "xpTotal": 135
+    }
+   ],
+   "answers": [
+    {
+     "questionId": 265,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 266,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 267,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 268,
+     "type": "vocab",
+     "correct": false,
+     "serverCorrect": false
+    },
+    {
+     "questionId": 269,
+     "type": "vocab",
+     "correct": false,
+     "serverCorrect": false
+    }
+   ],
+   "hand": {
+    "clears": 1,
+    "answers": 5,
+    "correct": 3,
+    "xpReceipts": 135
+   }
+  },
+  "S7C": {
+   "userId": 112,
+   "levels": [],
+   "answers": [],
+   "hand": {
+    "clears": 0,
+    "answers": 0,
+    "correct": 0,
+    "xpReceipts": 0
+   }
+  },
+  "S7D": {
+   "userId": 113,
+   "levels": [],
+   "answers": [],
+   "hand": {
+    "clears": 0,
+    "answers": 0,
+    "correct": 0,
+    "xpReceipts": 0
+   }
+  },
+  "S7E": {
+   "userId": 114,
+   "levels": [
+    {
+     "levelId": 25,
+     "levelName": "第 1 关 · 高频词",
+     "attemptId": 272,
+     "status": "finished",
+     "plannedCorrect": 5,
+     "correct": 5,
+     "total": 5,
+     "stars": 3,
+     "xpTotal": 250
+    }
+   ],
+   "answers": [
+    {
+     "questionId": 265,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 266,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 267,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 268,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 269,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    }
+   ],
+   "hand": {
+    "clears": 1,
+    "answers": 5,
+    "correct": 5,
+    "xpReceipts": 250
+   }
+  }
+ },
+ "rounds": []
+}

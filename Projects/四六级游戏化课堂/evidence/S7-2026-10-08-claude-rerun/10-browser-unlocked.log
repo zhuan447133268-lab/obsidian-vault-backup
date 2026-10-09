@@ -1,0 +1,25 @@
+
+########## 10 验收①（解锁态）：队长页宝箱「已解锁」+ 需要加油 0 人 + 已提醒态留存 ##########
+[E2E] 补打后宝箱已解锁（进页面前的前置） ✅ 期望=True 实际=True
+[E2E] 解锁后「需要加油」= 0 人 ✅ 期望=0 实际=0
+[E2E] 页面加载时真的请求了 /api/team/overview 并 200 ✅ 期望=[200] 实际=[200]
+[E2E] 解锁态：经验条写「🎁 小队宝箱已解锁」 ✅ 期望=🎁 小队宝箱已解锁 实际=🎁 小队宝箱已解锁
+[E2E] 解锁态：进度条拉满 100% ✅ 期望=100% 实际=100%
+[E2E] 解锁态：宝箱块进度 100% ✅ 期望=🎁 小队宝箱进度 100% 实际=🎁 小队宝箱进度 100%
+[E2E] 解锁态：小结里「需要加油」格 = 0 人 ✅ 期望=0 人 实际=0 人
+[E2E] 解锁态：没人再挂 ⚠ 需加油 ✅ 期望=[] 实际=[]
+[E2E] 解锁态：队长仍看到「已提醒 ⏰」（本周提醒记录还在） ✅ 期望=True 实际=True
+[E2E] 解锁态：nudgeCount=0 → 一键提醒按钮不再出现（原型 hidden 口径） ✅ 期望=None 实际=None
+    · 截图 shot-unlocked-top.png (390, 844)
+    · 截图 shot-unlocked-unlocked-xp.png（元素级）(350, 70)
+[E2E] 截图 shot-unlocked-unlocked-xp.png 尺寸合理（宽 ≤ 390 且不为空条） ✅ 期望=True 实际=True
+    · 截图 shot-unlocked-invite.png（元素级）(350, 132)
+[E2E] 截图 shot-unlocked-invite.png 尺寸合理（宽 ≤ 390 且不为空条） ✅ 期望=True 实际=True
+    · 截图 shot-unlocked-weeksum.png（元素级）(350, 69)
+[E2E] 截图 shot-unlocked-weeksum.png 尺寸合理（宽 ≤ 390 且不为空条） ✅ 期望=True 实际=True
+    · 截图 shot-unlocked-page.png（整页）(390, 878) · 内层容器内容高 758
+[E2E] 整页截图 shot-unlocked-page.png 宽 390 ✅ 期望=390 实际=390
+[E2E] 整页截图 shot-unlocked-page.png 覆盖内层容器全部内容（内容 758 px） ✅ 期望=True 实际=True
+[E2E] 浏览器控制台零错误 ✅ 期望=[] 实际=[]
+
+解锁态真机核对完成：16 条断言 · 失败 0 条

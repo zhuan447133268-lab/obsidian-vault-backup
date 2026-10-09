@@ -1,0 +1,139 @@
+{
+  "response": {
+    "balance": 1475,
+    "earned": 2655,
+    "spent": 1180,
+    "total": 7,
+    "offset": 0,
+    "items": [
+      {
+        "id": 1687,
+        "delta": -300,
+        "reason": "shop_redeem",
+        "label": "兑换福利券",
+        "refType": "coupon",
+        "refId": 21,
+        "detail": "商城兑换 · 免迟到券",
+        "createdAt": "2026-10-09 11:49"
+      },
+      {
+        "id": 1686,
+        "delta": -880,
+        "reason": "shop_redeem",
+        "label": "兑换福利券",
+        "refType": "coupon",
+        "refId": 20,
+        "detail": "商城兑换 · 免旷课券",
+        "createdAt": "2026-10-09 11:49"
+      },
+      {
+        "id": 1685,
+        "delta": 75,
+        "reason": "answer_combo",
+        "label": "连击加成",
+        "refType": "attempt",
+        "refId": 596,
+        "detail": "S9 验收第 1 关",
+        "createdAt": "2026-10-09 11:49"
+      },
+      {
+        "id": 1684,
+        "delta": 60,
+        "reason": "answer_speed",
+        "label": "速度加成",
+        "refType": "attempt",
+        "refId": 596,
+        "detail": "S9 验收第 1 关",
+        "createdAt": "2026-10-09 11:49"
+      },
+      {
+        "id": 1683,
+        "delta": 120,
+        "reason": "answer_base",
+        "label": "答题基础分",
+        "refType": "attempt",
+        "refId": 596,
+        "detail": "S9 验收第 1 关",
+        "createdAt": "2026-10-09 11:49"
+      },
+      {
+        "id": 1674,
+        "delta": 1200,
+        "reason": "answer_base",
+        "label": "答题基础分",
+        "refType": "attempt",
+        "refId": 587,
+        "detail": "S9 验收第 1 关",
+        "createdAt": "2026-10-05 00:00"
+      },
+      {
+        "id": 1673,
+        "delta": 1200,
+        "reason": "answer_base",
+        "label": "答题基础分",
+        "refType": "attempt",
+        "refId": 586,
+        "detail": "S9 验收第 1 关",
+        "createdAt": "2026-10-05 00:00"
+      }
+    ]
+  },
+  "sql_rows": [
+    {
+      "id": 1687,
+      "delta": -300,
+      "reason": "shop_redeem",
+      "ref_type": "coupon",
+      "ref_id": 21,
+      "created_at": "2026-10-09 11:49"
+    },
+    {
+      "id": 1686,
+      "delta": -880,
+      "reason": "shop_redeem",
+      "ref_type": "coupon",
+      "ref_id": 20,
+      "created_at": "2026-10-09 11:49"
+    },
+    {
+      "id": 1685,
+      "delta": 75,
+      "reason": "answer_combo",
+      "ref_type": "attempt",
+      "ref_id": 596,
+      "created_at": "2026-10-09 11:49"
+    },
+    {
+      "id": 1684,
+      "delta": 60,
+      "reason": "answer_speed",
+      "ref_type": "attempt",
+      "ref_id": 596,
+      "created_at": "2026-10-09 11:49"
+    },
+    {
+      "id": 1683,
+      "delta": 120,
+      "reason": "answer_base",
+      "ref_type": "attempt",
+      "ref_id": 596,
+      "created_at": "2026-10-09 11:49"
+    },
+    {
+      "id": 1674,
+      "delta": 1200,
+      "reason": "answer_base",
+      "ref_type": "attempt",
+      "ref_id": 587,
+      "created_at": "2026-10-05 00:00"
+    },
+    {
+      "id": 1673,
+      "delta": 1200,
+      "reason": "answer_base",
+      "ref_type": "attempt",
+      "ref_id": 586,
+      "created_at": "2026-10-05 00:00"
+    }
+  ]
+}

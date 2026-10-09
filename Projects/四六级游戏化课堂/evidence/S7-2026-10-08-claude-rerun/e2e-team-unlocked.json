@@ -1,0 +1,113 @@
+{
+ "checks": [
+  {
+   "desc": "补打后宝箱已解锁（进页面前的前置）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "解锁后「需要加油」= 0 人",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "页面加载时真的请求了 /api/team/overview 并 200",
+   "want": "[200]",
+   "got": "[200]",
+   "ok": true
+  },
+  {
+   "desc": "解锁态：经验条写「🎁 小队宝箱已解锁」",
+   "want": "🎁 小队宝箱已解锁",
+   "got": "🎁 小队宝箱已解锁",
+   "ok": true
+  },
+  {
+   "desc": "解锁态：进度条拉满 100%",
+   "want": "100%",
+   "got": "100%",
+   "ok": true
+  },
+  {
+   "desc": "解锁态：宝箱块进度 100%",
+   "want": "🎁 小队宝箱进度 100%",
+   "got": "🎁 小队宝箱进度 100%",
+   "ok": true
+  },
+  {
+   "desc": "解锁态：小结里「需要加油」格 = 0 人",
+   "want": "0 人",
+   "got": "0 人",
+   "ok": true
+  },
+  {
+   "desc": "解锁态：没人再挂 ⚠ 需加油",
+   "want": "[]",
+   "got": "[]",
+   "ok": true
+  },
+  {
+   "desc": "解锁态：队长仍看到「已提醒 ⏰」（本周提醒记录还在）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "解锁态：nudgeCount=0 → 一键提醒按钮不再出现（原型 hidden 口径）",
+   "want": "None",
+   "got": "None",
+   "ok": true
+  },
+  {
+   "desc": "截图 shot-unlocked-unlocked-xp.png 尺寸合理（宽 ≤ 390 且不为空条）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "截图 shot-unlocked-invite.png 尺寸合理（宽 ≤ 390 且不为空条）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "截图 shot-unlocked-weeksum.png 尺寸合理（宽 ≤ 390 且不为空条）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "整页截图 shot-unlocked-page.png 宽 390",
+   "want": "390",
+   "got": "390",
+   "ok": true
+  },
+  {
+   "desc": "整页截图 shot-unlocked-page.png 覆盖内层容器全部内容（内容 758 px）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "浏览器控制台零错误",
+   "want": "[]",
+   "got": "[]",
+   "ok": true
+  }
+ ],
+ "fails": [],
+ "consoleErrors": [],
+ "extra": {
+  "shots": [
+   "shot-unlocked-top.png",
+   "shot-unlocked-unlocked-xp.png",
+   "shot-unlocked-invite.png",
+   "shot-unlocked-weeksum.png",
+   "shot-unlocked-page.png"
+  ],
+  "user": "S7A",
+  "mode": "unlocked"
+ }
+}

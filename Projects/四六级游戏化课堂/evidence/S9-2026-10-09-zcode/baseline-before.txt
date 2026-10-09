@@ -1,0 +1,6 @@
+tables=17
+columns=128
+units=9
+levels=31
+questions=219
+bank_crc=3897258111

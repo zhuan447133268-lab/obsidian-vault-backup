@@ -1,0 +1,18 @@
+{
+  "classId": 44,
+  "className": "S8实跑班",
+  "unitId": 48,
+  "levelId": 121,
+  "weekStart": "2026-10-05",
+  "weekEnd": "2026-10-12",
+  "lastAt": "2026-10-04T20:00:00",
+  "aliceFirstXp": 115,
+  "aliceReplayXp": 65,
+  "aliceLedger": 180,
+  "bobXp": 115,
+  "bobLedger": 115,
+  "daveReplayXp": 65,
+  "daveLedger": 365,
+  "daveSeededXp": 300,
+  "carolXp": 0
+}

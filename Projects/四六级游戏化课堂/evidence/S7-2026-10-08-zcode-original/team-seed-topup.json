@@ -1,0 +1,18 @@
+{
+ "checks": [
+  {
+   "desc": "补打若干轮后宝箱解锁（解锁与否由接口状态决定，不预写轮数）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "解锁前那一轮的进度确实没满（真的跨了阈值，不是一开始就满）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  }
+ ],
+ "fails": [],
+ "plan": "plan-topup.json"
+}

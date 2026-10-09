@@ -1,0 +1,55 @@
+
+########## 11 证据清点：截图逐张校验（真实尺寸 + 同场景内两两不同 + 必备画面点名）+ 断言数汇总 ##########
+--- 场景 full：JSON 记录 10 张截图 ---
+shot-full-toast-invite.png               元素/视口    390x844   md5 a70cb603
+shot-full-toast-remind.png               元素/视口    390x844   md5 10736b05
+shot-full-toast-nudgeall.png             元素/视口    390x844   md5 288c29ef
+shot-full-top.png                        元素/视口    390x844   md5 6dca20eb
+shot-full-teamxp.png                     元素/视口    350x70    md5 53e04699
+shot-full-weeksum.png                    元素/视口    350x69    md5 8e520f7e
+shot-full-members.png                    元素/视口    350x72    md5 b1939046
+shot-full-invite.png                     元素/视口    350x132   md5 f1ec1c3b
+shot-full-navbar.png                     元素/视口    390x81    md5 b25f4abc
+shot-full-page.png                       整页       390x975   md5 76027776
+本场景 10 张 · 去重后 10 张
+--- 场景 member：JSON 记录 6 张截图 ---
+shot-member-top.png                      元素/视口    390x844   md5 2601470e
+shot-member-pushbar-el.png               元素/视口    350x108   md5 6314b635
+shot-member-members.png                  元素/视口    350x73    md5 7638c687
+shot-member-acked.png                    元素/视口    390x844   md5 e973e9d9
+shot-member-navbar.png                   元素/视口    390x81    md5 890663a6
+shot-member-page.png                     整页       390x892   md5 88e41136
+本场景 6 张 · 去重后 6 张
+--- 场景 solo：JSON 记录 9 张截图 ---
+shot-solo-noteam-top.png                 元素/视口    390x844   md5 8cb75129
+shot-solo-create.png                     元素/视口    350x229   md5 9981ba3f
+shot-solo-joincard.png                   元素/视口    350x181   md5 6403d9de
+shot-solo-cands.png                      元素/视口    350x89    md5 025567df
+shot-solo-noteam-page.png                整页       390x879   md5 b87fa20f
+shot-solo-solo-top.png                   元素/视口    390x844   md5 65be3f0c
+shot-solo-solo-teamxp.png                元素/视口    350x70    md5 82ec1d03
+shot-solo-solo-member.png                元素/视口    350x72    md5 13fe0825
+shot-solo-solo-page.png                  整页       390x818   md5 53c5859e
+本场景 9 张 · 去重后 9 张
+--- 场景 unlocked：JSON 记录 5 张截图 ---
+shot-unlocked-top.png                    元素/视口    390x844   md5 5be41ed1
+shot-unlocked-unlocked-xp.png            元素/视口    350x70    md5 ef43743d
+shot-unlocked-invite.png                 元素/视口    350x132   md5 f87ccf35
+shot-unlocked-weeksum.png                元素/视口    350x69    md5 8aa6ee32
+shot-unlocked-page.png                   整页       390x878   md5 82cf4bc0
+本场景 5 张 · 去重后 5 张
+截图合计 30 张
+[CHECK] 截图逐张校验（30 张 / 4 场景：真实尺寸 + 同场景两两不同 + 必备画面点名） ✅ 期望=SHOTS_OK 实际=SHOTS_OK
+SHOTS_OK
+
+--- 11-2 各场景断言数（来自 e2e-team-*.json / team-*.json）---
+e2e-team-full.json                   67 条断言 · 失败 0 条 · ✅
+e2e-team-member.json                 20 条断言 · 失败 0 条 · ✅
+e2e-team-solo.json                   29 条断言 · 失败 0 条 · ✅
+e2e-team-unlocked.json               16 条断言 · 失败 0 条 · ✅
+team-reconcile-post.json             52 条断言 · 失败 0 条 · ✅
+team-reconcile-pre.json             136 条断言 · 失败 0 条 · ✅
+team-seed-seed.json                  11 条断言 · 失败 0 条 · ✅
+team-seed-topup.json                  2 条断言 · 失败 0 条 · ✅
+合计 333 条断言
+ALL_JSON_OK

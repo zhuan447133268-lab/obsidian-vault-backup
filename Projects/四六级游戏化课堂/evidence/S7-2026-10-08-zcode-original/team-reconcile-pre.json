@@ -1,0 +1,823 @@
+{
+ "phase": "pre",
+ "checks": [
+  {
+   "desc": "手算底稿已就位（plan-*.json）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "本周一 00:00 分桶（起点）",
+   "want": "2026-10-05 00:00:00",
+   "got": "2026-10-05 00:00:00",
+   "ok": true
+  },
+  {
+   "desc": "S7A 手算通关 2 关 = SQL 2",
+   "want": "2",
+   "got": "2",
+   "ok": true
+  },
+  {
+   "desc": "S7A 手算作答 10 题 = SQL 10",
+   "want": "10",
+   "got": "10",
+   "ok": true
+  },
+  {
+   "desc": "S7A 手算答对 7 题 = SQL 7",
+   "want": "7",
+   "got": "7",
+   "ok": true
+  },
+  {
+   "desc": "S7B 手算通关 1 关 = SQL 1",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "S7B 手算作答 5 题 = SQL 5",
+   "want": "5",
+   "got": "5",
+   "ok": true
+  },
+  {
+   "desc": "S7B 手算答对 3 题 = SQL 3",
+   "want": "3",
+   "got": "3",
+   "ok": true
+  },
+  {
+   "desc": "S7C 手算通关 0 关 = SQL 0",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "S7C 手算作答 0 题 = SQL 0",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "S7C 手算答对 0 题 = SQL 0",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "S7D 手算通关 0 关 = SQL 0",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "S7D 手算作答 0 题 = SQL 0",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "S7D 手算答对 0 题 = SQL 0",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "S7E 手算通关 1 关 = SQL 1",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "S7E 手算作答 5 题 = SQL 5",
+   "want": "5",
+   "got": "5",
+   "ok": true
+  },
+  {
+   "desc": "S7E 手算答对 5 题 = SQL 5",
+   "want": "5",
+   "got": "5",
+   "ok": true
+  },
+  {
+   "desc": "S7C 未入队时 team = null",
+   "want": "None",
+   "got": "None",
+   "ok": true
+  },
+  {
+   "desc": "S7C 建队 HTTP 200 + code 0",
+   "want": "200/0",
+   "got": "200/0",
+   "ok": true
+  },
+  {
+   "desc": "建完即单人队（memberCount=1 / solo=true / 我是队长）",
+   "want": "(1, True, True)",
+   "got": "(1, True, True)",
+   "ok": true
+  },
+  {
+   "desc": "单人队：无加成比例（bonusRate=0）",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "单人队：加成 XP 恒 0",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "单人队：宝箱标记 solo=true",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "单人队：rawXp = 自己本周账本（没作答 → 0）",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "S7C 单人队时宝箱未解锁",
+   "want": "False",
+   "got": "False",
+   "ok": true
+  },
+  {
+   "desc": "S7C 自己看：候选小队里没有自己的队",
+   "want": "[]",
+   "got": "[]",
+   "ok": true
+  },
+  {
+   "desc": "S7A 还没入队 → team = null",
+   "want": "None",
+   "got": "None",
+   "ok": true
+  },
+  {
+   "desc": "未入队者能看到本班已有小队（摆摊队）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "候选卡口径 = 队名/队徽/人数/队长/队伍号",
+   "want": "('摆摊队', '🐼', 1, 'S7演示学生C', 10)",
+   "got": "('摆摊队', '🐼', 1, 'S7演示学生C', 10)",
+   "ok": true
+  },
+  {
+   "desc": "别班（S7D）候选列表为空：跨班不互见小队",
+   "want": "[]",
+   "got": "[]",
+   "ok": true
+  },
+  {
+   "desc": "S7D 加入别班小队 → 404 不存在（不泄露别班队名）",
+   "want": "(404, 40401)",
+   "got": "(404, 40401)",
+   "ok": true
+  },
+  {
+   "desc": "单人队的队长可以退队（队伍随之解散）",
+   "want": "(200, 0)",
+   "got": "(200, 0)",
+   "ok": true
+  },
+  {
+   "desc": "S7C 退队后回到未入队",
+   "want": "None",
+   "got": "None",
+   "ok": true
+  },
+  {
+   "desc": "解散的队不再出现在候选列表",
+   "want": "False",
+   "got": "False",
+   "ok": true
+  },
+  {
+   "desc": "加入已解散的队 → 404",
+   "want": "(404, 40401)",
+   "got": "(404, 40401)",
+   "ok": true
+  },
+  {
+   "desc": "S7A 建队 200",
+   "want": "(200, 0)",
+   "got": "(200, 0)",
+   "ok": true
+  },
+  {
+   "desc": "建完是单人队（solo=true / 1 人）",
+   "want": "(True, 1)",
+   "got": "(True, 1)",
+   "ok": true
+  },
+  {
+   "desc": "单人队 rawXp = 账本净得（照常计 XP：315 > 0）",
+   "want": "315",
+   "got": "315",
+   "ok": true
+  },
+  {
+   "desc": "单人队 rawXp > 0（确实有本周成绩，不是空转）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "单人队加成 = 0（XP 一分不改）",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "个人档案页总 XP = 账本 SUM(delta)（队伍不参与个人 XP 计算）",
+   "want": "315",
+   "got": "315",
+   "ok": true
+  },
+  {
+   "desc": "S7B 用队伍号加入 200",
+   "want": "(200, 0)",
+   "got": "(200, 0)",
+   "ok": true
+  },
+  {
+   "desc": "两人队：solo=false / memberCount=2",
+   "want": "(False, 2)",
+   "got": "(False, 2)",
+   "ok": true
+  },
+  {
+   "desc": "两人队：加成比例 = 0.1",
+   "want": "0.1",
+   "got": "0.1",
+   "ok": true
+  },
+  {
+   "desc": "成员次序：队长在第一位",
+   "want": "(110, True)",
+   "got": "(110, True)",
+   "ok": true
+  },
+  {
+   "desc": "视图里的 isMe 只挂在自己身上",
+   "want": "[110]",
+   "got": "[110]",
+   "ok": true
+  },
+  {
+   "desc": "S7C 用队伍号加入 200",
+   "want": "(200, 0)",
+   "got": "(200, 0)",
+   "ok": true
+  },
+  {
+   "desc": "三人队 memberCount=3",
+   "want": "3",
+   "got": "3",
+   "ok": true
+  },
+  {
+   "desc": "队伍号 = 邀请码（S7A 拿到的 id 与实际入队的 id 一致）",
+   "want": "11",
+   "got": "11",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生A（S7A）成员卡本周 XP = 账本 SUM(delta)",
+   "want": "315",
+   "got": "315",
+   "ok": true
+  },
+  {
+   "desc": "S7A 成员卡通关关数 = SQL 计 finished",
+   "want": "2",
+   "got": "2",
+   "ok": true
+  },
+  {
+   "desc": "S7A 成员卡作答数 = SQL 计 attempt_answers",
+   "want": "10",
+   "got": "10",
+   "ok": true
+  },
+  {
+   "desc": "S7A 成员卡答对数 = SQL 计 is_correct=1",
+   "want": "7",
+   "got": "7",
+   "ok": true
+  },
+  {
+   "desc": "S7A 成员卡正确率 = 对/答（两位小数）",
+   "want": "0.7",
+   "got": "0.7",
+   "ok": true
+  },
+  {
+   "desc": "S7A 需加油标记 = 正确率<70% 或 0 通关（原型 isWeak）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生B（S7B）成员卡本周 XP = 账本 SUM(delta)",
+   "want": "135",
+   "got": "135",
+   "ok": true
+  },
+  {
+   "desc": "S7B 成员卡通关关数 = SQL 计 finished",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "S7B 成员卡作答数 = SQL 计 attempt_answers",
+   "want": "5",
+   "got": "5",
+   "ok": true
+  },
+  {
+   "desc": "S7B 成员卡答对数 = SQL 计 is_correct=1",
+   "want": "3",
+   "got": "3",
+   "ok": true
+  },
+  {
+   "desc": "S7B 成员卡正确率 = 对/答（两位小数）",
+   "want": "0.6",
+   "got": "0.6",
+   "ok": true
+  },
+  {
+   "desc": "S7B 需加油标记 = 正确率<70% 或 0 通关（原型 isWeak）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S7演示学生C（S7C）成员卡本周 XP = 账本 SUM(delta)",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "S7C 成员卡通关关数 = SQL 计 finished",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "S7C 成员卡作答数 = SQL 计 attempt_answers",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "S7C 成员卡答对数 = SQL 计 is_correct=1",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "S7C 成员卡正确率 = 对/答（两位小数）",
+   "want": "0.0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "S7C 需加油标记 = 正确率<70% 或 0 通关（原型 isWeak）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "本周总通关 = 各成员通关之和",
+   "want": "3",
+   "got": "3",
+   "ok": true
+  },
+  {
+   "desc": "本周作答 = 各成员之和",
+   "want": "15",
+   "got": "15",
+   "ok": true
+  },
+  {
+   "desc": "本周答对 = 各成员之和",
+   "want": "10",
+   "got": "10",
+   "ok": true
+  },
+  {
+   "desc": "小队平均正确率 = 全员合计正确率（不是各人正确率的平均）",
+   "want": "0.67",
+   "got": "0.67",
+   "ok": true
+  },
+  {
+   "desc": "周起点 = 本机独立算出的周一（YYYY-MM-DD）",
+   "want": "2026-10-05",
+   "got": "2026-10-05",
+   "ok": true
+  },
+  {
+   "desc": "周标签 = M/D",
+   "want": "10/5",
+   "got": "10/5",
+   "ok": true
+  },
+  {
+   "desc": "宝箱 rawXp = 成员卡本周 XP 之和",
+   "want": "450",
+   "got": "450",
+   "ok": true
+  },
+  {
+   "desc": "宝箱加成 = 单人队 0 / 多人队 rawXp×10%（四舍五入）",
+   "want": "45",
+   "got": "45",
+   "ok": true
+  },
+  {
+   "desc": "宝箱小队经验 = rawXp + 加成",
+   "want": "495",
+   "got": "495",
+   "ok": true
+  },
+  {
+   "desc": "宝箱加成比例 = 单人队 0 / 多人队 0.1",
+   "want": "0.1",
+   "got": "0.1",
+   "ok": true
+  },
+  {
+   "desc": "宝箱阈值 = 2000（PRD §6）",
+   "want": "2000",
+   "got": "2000",
+   "ok": true
+  },
+  {
+   "desc": "宝箱进度百分比 = 向上取整",
+   "want": "25",
+   "got": "25",
+   "ok": true
+  },
+  {
+   "desc": "宝箱还差多少 = 2000 − 小队经验（不为负）",
+   "want": "1505",
+   "got": "1505",
+   "ok": true
+  },
+  {
+   "desc": "宝箱解锁 = 小队经验 ≥ 2000",
+   "want": "False",
+   "got": "False",
+   "ok": true
+  },
+  {
+   "desc": "前置：此刻小队经验未满 2000（宝箱锁定态可断言）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S7A 正确率正好 70%（边界值）",
+   "want": "0.7",
+   "got": "0.7",
+   "ok": true
+  },
+  {
+   "desc": "S7A 70% + 通关 2 关 → **不**算需加油（阈值是严格小于）",
+   "want": "False",
+   "got": "False",
+   "ok": true
+  },
+  {
+   "desc": "S7B 60% → 算需加油（正确率低）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S7C 0 通关 → 算需加油（即使正确率不是判定依据）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S7C 正确率 0 且作答 0（「本周还没闯关」）",
+   "want": "(0.0, 0)",
+   "got": "(0, 0)",
+   "ok": true
+  },
+  {
+   "desc": "面板「需要加油 N 人」= 挂徽标人数（原型静态文案与 JS 不一致，这里以 JS 口径为准）",
+   "want": "2",
+   "got": "2",
+   "ok": true
+  },
+  {
+   "desc": "队长视角可提醒人数 = 弱队员里排除队长与自己（2 人）",
+   "want": "2",
+   "got": "2",
+   "ok": true
+  },
+  {
+   "desc": "队员视角可提醒人数 = 1（另一名弱队员；队长卡没有提醒按钮）",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "另一名队员（S7C）视角可提醒人数 = 1（队长 + 自己都排除）",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "队员提醒另一名队员 200（谁都能提醒）",
+   "want": "(200, 0)",
+   "got": "(200, 0)",
+   "ok": true
+  },
+  {
+   "desc": "默认话术 = 原型那句（服务端兜底）",
+   "want": "这周一起冲两关？小队宝箱就差你了 💪",
+   "got": "这周一起冲两关？小队宝箱就差你了 💪",
+   "ok": true
+  },
+  {
+   "desc": "提醒回执：发起人 / 收件人正确",
+   "want": "(111, 112)",
+   "got": "(111, 112)",
+   "ok": true
+  },
+  {
+   "desc": "提醒回执：发起人姓名带上（提醒条要显示谁喊的）",
+   "want": "S7演示学生B",
+   "got": "S7演示学生B",
+   "ok": true
+  },
+  {
+   "desc": "队员发起 → fromLeader=false",
+   "want": "False",
+   "got": "False",
+   "ok": true
+  },
+  {
+   "desc": "提醒落库：reminders 多了一行",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "落库内容 = 回执（msg 一致、read_at 未读）",
+   "want": "('这周一起冲两关？小队宝箱就差你了 💪', None)",
+   "got": "('这周一起冲两关？小队宝箱就差你了 💪', None)",
+   "ok": true
+  },
+  {
+   "desc": "本周重复提醒同一个人 → alreadySent=true（幂等）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "重复提醒不再新增行",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "重复提醒返回同一行、话术仍是最初那条",
+   "want": "(10, '这周一起冲两关？小队宝箱就差你了 💪')",
+   "got": "(10, '这周一起冲两关？小队宝箱就差你了 💪')",
+   "ok": true
+  },
+  {
+   "desc": "自己提醒自己 → 400",
+   "want": "(400, 40001)",
+   "got": "(400, 40001)",
+   "ok": true
+  },
+  {
+   "desc": "提醒别班同学（非队友）→ 404",
+   "want": "(404, 40401)",
+   "got": "(404, 40401)",
+   "ok": true
+  },
+  {
+   "desc": "S7C 收到 1 条未读提醒",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "提醒条内容 = 发送人姓名 + 话术",
+   "want": "('S7演示学生B', '这周一起冲两关？小队宝箱就差你了 💪')",
+   "got": "('S7演示学生B', '这周一起冲两关？小队宝箱就差你了 💪')",
+   "ok": true
+  },
+  {
+   "desc": "队员发起 → 提醒条不带队长标记",
+   "want": "False",
+   "got": "False",
+   "ok": true
+  },
+  {
+   "desc": "S7B 视角：S7C 那张卡已经是「已提醒」态（原型按钮文案的服务端依据）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "S7B 视角：对队长没有「已提醒」态可挂（队长卡没有按钮）",
+   "want": "False",
+   "got": "False",
+   "ok": true
+  },
+  {
+   "desc": "别人的提醒标不了已读（发起人也不行）→ acked=0",
+   "want": "(200, 0)",
+   "got": "(200, 0)",
+   "ok": true
+  },
+  {
+   "desc": "收件人标已读 → acked=1",
+   "want": "(200, 1)",
+   "got": "(200, 1)",
+   "ok": true
+  },
+  {
+   "desc": "已读后未读清零",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "已读落库（read_at 非空）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "重复标已读 → acked=0（幂等）",
+   "want": "(200, 0)",
+   "got": "(200, 0)",
+   "ok": true
+  },
+  {
+   "desc": "非队长一键提醒 → 403 无权",
+   "want": "(403, 40301)",
+   "got": "(403, 40301)",
+   "ok": true
+  },
+  {
+   "desc": "被拒后没有任何新提醒落库",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "没入队的人一键提醒 → 409（没有小队可提醒）",
+   "want": "(409, 40901)",
+   "got": "(409, 40901)",
+   "ok": true
+  },
+  {
+   "desc": "队长还有队友时退队 → 409 冲突（一期不做队长移交）",
+   "want": "(409, 40901)",
+   "got": "(409, 40901)",
+   "ok": true
+  },
+  {
+   "desc": "队员退队 → 200",
+   "want": "(200, 0)",
+   "got": "(200, 0)",
+   "ok": true
+  },
+  {
+   "desc": "退队后回到未入队态",
+   "want": "None",
+   "got": "None",
+   "ok": true
+  },
+  {
+   "desc": "退队留痕：team_members 行还在，left_at 非空（不物理删）",
+   "want": "1",
+   "got": "1",
+   "ok": true
+  },
+  {
+   "desc": "退队后队伍人数回到 2",
+   "want": "2",
+   "got": "2",
+   "ok": true
+  },
+  {
+   "desc": "退队后还能再入队（队伍号仍有效）",
+   "want": "(200, 0)",
+   "got": "(200, 0)",
+   "ok": true
+  },
+  {
+   "desc": "重新入队后人数回到 3",
+   "want": "3",
+   "got": "3",
+   "ok": true
+  },
+  {
+   "desc": "本周新入队 → 原型「新入队」标记（joined_at 落在本周）",
+   "want": "True",
+   "got": "True",
+   "ok": true
+  },
+  {
+   "desc": "未登录 → 401",
+   "want": "401",
+   "got": "401",
+   "ok": true
+  },
+  {
+   "desc": "首登未改密 → 403 + 40302（Ready 门禁）",
+   "want": "(403, 40302)",
+   "got": "(403, 40302)",
+   "ok": true
+  },
+  {
+   "desc": "已在队里再建队 → 409",
+   "want": "(409, 40901)",
+   "got": "(409, 40901)",
+   "ok": true
+  },
+  {
+   "desc": "队名全空白 → 400",
+   "want": "(400, 40001)",
+   "got": "(400, 40001)",
+   "ok": true
+  },
+  {
+   "desc": "加入不存在的队伍 → 404",
+   "want": "(404, 40401)",
+   "got": "(404, 40401)",
+   "ok": true
+  },
+  {
+   "desc": "已在队里再入队 → 409",
+   "want": "(409, 40901)",
+   "got": "(409, 40901)",
+   "ok": true
+  },
+  {
+   "desc": "不传队伍号 → 400",
+   "want": "(400, 40001)",
+   "got": "(400, 40001)",
+   "ok": true
+  },
+  {
+   "desc": "不传提醒对象 → 400",
+   "want": "(400, 40001)",
+   "got": "(400, 40001)",
+   "ok": true
+  },
+  {
+   "desc": "没入队的学生也能打开小队页（team=null，不是报错）",
+   "want": "(200, None)",
+   "got": "(200, None)",
+   "ok": true
+  },
+  {
+   "desc": "同一对 (发起人,收件人) 本周最多 1 行提醒（幂等的库层面证据）",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "提醒双方必须同队（跨队提醒一行都不许有）",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  },
+  {
+   "desc": "一个人同时只能在一个活跃小队（无并行重复成员行）",
+   "want": "0",
+   "got": "0",
+   "ok": true
+  }
+ ],
+ "fails": [],
+ "weekStart": "2026-10-05 00:00:00"
+}

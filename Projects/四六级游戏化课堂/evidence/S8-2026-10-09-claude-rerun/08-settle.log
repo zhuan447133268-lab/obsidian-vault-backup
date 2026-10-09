@@ -1,0 +1,16 @@
+
+--- 周结算 / 赛季结算 / 幂等重跑（cmd/league-settle，与 cron 同一个 SettleClass） ---
+[S8] 周结算（cron 日常路径）：scope=week / 窗口=本周 / 12 人计分 ✅ 期望={scope=week, participants=12, windowStart=2026-10-05, windowEnd=2026-10-11, weekLabel=10/5, promoteCount=5, demoteCount=4} 实际={scope=week, participants=12, windowStart=2026-10-05, windowEnd=2026-10-11, weekLabel=10/5, promoteCount=5, demoteCount=4}
+[S8] 周结算名单 = 手算（晋级 5 人 / 降级 4 人，名次与 XP 逐字段一致） ✅ 期望={promote=[(1, '陈一帆', 940), (2, '李晓萌', 905), (3, '赵梓豪', 880), (4, '刘思远', 855), (5, '孙可欣', 830)], demote=[(9, '郑凯文', 660), (10, '林晓雯', 615), (11, '黄子轩', 540), (12, '徐若曦', 480)]} 实际={promote=[(1, '陈一帆', 940), (2, '李晓萌', 905), (3, '赵梓豪', 880), (4, '刘思远', 855), (5, '孙可欣', 830)], demote=[(9, '郑凯文', 660), (10, '林晓雯', 615), (11, '黄子轩', 540), (12, '徐若曦', 480)]}
+[S8] 周结算不建赛季行（周榜只是走势快照） ✅ 期望=0 实际=0
+[S8] 赛季结算时刻还没到（本用例前提：跑在赛季最后一周的周日 23:00 前） ✅ 期望=True 实际=True
+[S8] 赛季结算：scope=season / 窗口=本赛季两周 / 归档并开出下一赛季 ✅ 期望={scope=season, participants=12, windowStart=2026-09-28, windowEnd=2026-10-11, closedSeasonId=0, nextSeasonIdGt0=True} 实际={scope=season, participants=12, windowStart=2026-09-28, windowEnd=2026-10-11, closedSeasonId=0, nextSeasonIdGt0=True}
+[S8] 赛季名单 = 手算（赛季窗内累计，重刷的 450 不算） ✅ 期望={promote=[(1, '陈一帆', 2140), (2, '李晓萌', 2055), (3, '赵梓豪', 1980), (4, '刘思远', 1905), (5, '孙可欣', 1830)], demote=[(9, '林晓雯', 1465), (10, '黄子轩', 1240), (11, '郑凯文', 1160), (12, '徐若曦', 1080)]} 实际={promote=[(1, '陈一帆', 2140), (2, '李晓萌', 2055), (3, '赵梓豪', 1980), (4, '刘思远', 1905), (5, '孙可欣', 1830)], demote=[(9, '林晓雯', 1465), (10, '黄子轩', 1240), (11, '郑凯文', 1160), (12, '徐若曦', 1080)]}
+[S8] 赛季行落库（1 行 active，名字「第 2 赛季」） ✅ 期望={行数=1, name=第 2 赛季, status=active} 实际={行数=1, name=第 2 赛季, status=active}
+[S8] settings_json 里的赛季号跟着走（league_season_no=2） ✅ 期望=2 实际=2
+[S8] 同一时刻重跑：不重复开赛季（scope 掉回 week / 不建新行） ✅ 期望={scope=week, nextSeasonId=0, 赛季行数=1} 实际={scope=week, nextSeasonId=0, 赛季行数=1}
+[S8] 结算后 GET：赛季行生效（第 2 赛季 / 下一窗 / 天数往上取整） ✅ 期望={id=5, no=2, name=第 2 赛季, start=2026-10-12, end=2026-10-25, daysLeft=17, items=12} 实际={id=5, no=2, name=第 2 赛季, start=2026-10-12, end=2026-10-25, daysLeft=17, items=12}
+[S8] 留痕：league_settle / league_season_settle 都在 audit_log 里 ✅ 期望={league_settle=True, league_season_settle=True} 实际={league_settle=True, league_season_settle=True}
+[S8] 本步断言 11 条，失败 0 条 —— 周/赛季结算
+
+[S8] 合计断言 11 条，失败 0 条

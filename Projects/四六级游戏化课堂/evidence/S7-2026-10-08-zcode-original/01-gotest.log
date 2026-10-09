@@ -1,0 +1,29 @@
+
+########## 01 go test ./... -count=1（全包；S7 新增小队口径/服务/路由的回归） ##########
+?   	cet46/server/cmd/import-users	[no test files]
+?   	cet46/server/cmd/migrate	[no test files]
+?   	cet46/server/cmd/qbank	[no test files]
+?   	cet46/server/cmd/seed-teacher	[no test files]
+?   	cet46/server/cmd/server	[no test files]
+ok  	cet46/server/internal/auth	1.751s
+ok  	cet46/server/internal/config	0.517s
+ok  	cet46/server/internal/database	2.407s
+?   	cet46/server/internal/dto	[no test files]
+ok  	cet46/server/internal/exam	0.678s
+?   	cet46/server/internal/handler	[no test files]
+?   	cet46/server/internal/middleware	[no test files]
+ok  	cet46/server/internal/model	0.738s
+?   	cet46/server/internal/pkg/apperror	[no test files]
+?   	cet46/server/internal/pkg/response	[no test files]
+ok  	cet46/server/internal/qbank	1.029s
+ok  	cet46/server/internal/quiz	0.865s
+ok  	cet46/server/internal/roster	1.071s
+ok  	cet46/server/internal/router	43.560s
+ok  	cet46/server/internal/service	17.468s
+?   	cet46/server/internal/testsupport	[no test files]
+
+--- 统计 ---
+PASS 行数：10
+[CHECK] go test 无 FAIL ✅ 期望=0 实际=0
+[CHECK] go test 无构建错误 ✅ 期望=0 实际=0
+[CHECK] 小队相关包（quiz/service/router）都在通过列表里 ✅ 期望=3 实际=3

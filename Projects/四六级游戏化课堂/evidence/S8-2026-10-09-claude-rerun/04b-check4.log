@@ -1,0 +1,20 @@
+
+--- 用例②：4 人实跑班——并列第 1 / 首刷口径 / 0 分不上榜 / 名额缩放 2:1 ---
+[S8] 4 人档名额（round(4×5/12)=2 / round(4×4/12)=1）+ 计分 2 人 ✅ 期望={promoteCount=2, demoteCount=1, classSize=4, participants=2, count=2} 实际={promoteCount=2, demoteCount=1, classSize=4, participants=2, count=2}
+[S8] 榜上 实跑Alice（并列第 1，都在晋级区） ✅ 期望={realName=实跑Alice, xp=115, rank=1, zone=promote, lastRank=0, delta=0, trend=flat, teamName=, solo=False, isMe=True} 实际={realName=实跑Alice, xp=115, rank=1, zone=promote, lastRank=0, delta=0, trend=flat, teamName=, solo=False, isMe=True}
+[S8] 榜上 实跑Bob（并列第 1，都在晋级区） ✅ 期望={realName=实跑Bob, xp=115, rank=1, zone=promote, lastRank=0, delta=0, trend=flat, teamName=, solo=False, isMe=False} 实际={realName=实跑Bob, xp=115, rank=1, zone=promote, lastRank=0, delta=0, trend=flat, teamName=, solo=False, isMe=False}
+[S8] 榜按 XP 降序（并列相邻不跳号） ✅ 期望=True 实际=True
+[S8] 并列第 1：两行同 XP 同名次（1/1，不跳号） ✅ 期望=1/1 实际=1/1
+[S8] 我（Alice）：榜首 / 已在晋级区 / 晋升线=榜上最高分 ✅ 期望={rank=1, xp=115, zone=promote, promoteCutXp=115, gapToPromote=0} 实际={rank=1, xp=115, zone=promote, promoteCutXp=115, gapToPromote=0}
+[S8] Alice 明细：1 次首刷计入 / 1 次重刷不计入 ✅ 期望={xp=115, rows=1, replayAttempts=1, ledger=180} 实际={xp=115, rows=1, replayAttempts=1, ledger=180}
+[S8] 榜上 XP = 首刷那一次（重刷的 65 XP 没进榜） ✅ 期望=True 实际=True
+[S8] Bob 明细：1 次首刷 / 0 次重刷 ✅ 期望={xp=115, rows=1, replayAttempts=0} 实际={xp=115, rows=1, replayAttempts=0}
+[S8] Carol（0 分）：不上榜但保留自己那一行，晋升线 = 榜上最高分 ✅ 期望={participants=2, count=3, lastRealName=实跑Carol, lastRank=0, lastXP=0, lastZone=, lastIsMe=True, promoteCutXp=115, gapToPromote=115} 实际={participants=2, count=3, lastRealName=实跑Carol, lastRank=0, lastXP=0, lastZone=, lastIsMe=True, promoteCutXp=115, gapToPromote=115}
+[S8] 0 分学生看到的是「整条晋升线」的差距（与原型同一句文案） ✅ 期望=True 实际=True
+[S8] Dave：上周首刷 + 本周重刷 → 本周 0 分不上榜，明细 0 行 / 重刷 1 次 ✅ 期望={boardXp=0, boardRank=0, count=3, rows=0, replayAttempts=1, ledger=365} 实际={boardXp=0, boardRank=0, count=3, rows=0, replayAttempts=1, ledger=365}
+[S8] Dave 账本 = 上周 300 + 本周重刷 65（都在账本里、都不在本周榜上） ✅ 期望=True 实际=True
+[S8] SQL 首刷口径（4 人） ✅ 期望={alice=115, bob=115, carol=0, dave=0} 实际={alice=115, bob=115, carol=0, dave=0}
+[S8] SQL 重刷次数（Alice 1 / Bob 0 / Dave 1） ✅ 期望={alice=1, bob=0, dave=1} 实际={alice=1, bob=0, dave=1}
+[S8] 本步断言 15 条，失败 0 条 —— 用例② 对拍
+
+[S8] 合计断言 15 条，失败 0 条

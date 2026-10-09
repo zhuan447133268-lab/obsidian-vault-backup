@@ -1,0 +1,20 @@
+S7 验收实跑开始：2026-10-08 13:33:48
+== 00-precheck：退出码 0 · 失败标记 0 条 ==
+== 01-gotest：退出码 0 · 失败标记 0 条 ==
+== 02-verify：退出码 0 · 失败标记 0 条 ==
+== 03-seed：退出码 0 · 失败标记 0 条 ==
+== 04-reconcile-pre：退出码 0 · 失败标记 0 条 ==
+== 05-browser-full：退出码 0 · 失败标记 0 条 ==
+== 06-browser-member：退出码 0 · 失败标记 0 条 ==
+== 07-browser-solo：退出码 0 · 失败标记 0 条 ==
+== 08-topup：退出码 0 · 失败标记 0 条 ==
+== 09-reconcile-post：退出码 0 · 失败标记 0 条 ==
+== 10-browser-unlocked：退出码 0 · 失败标记 0 条 ==
+== 11-shots：退出码 0 · 失败标记 0 条 ==
+== 99-summary：退出码 0 · 失败标记 0 条 ==
+
+############################################################
+# S7 验收实跑结束：2026-10-08 13:35:40
+# 失败断言总数：0
+# 编号日志：00-precheck 01-gotest 02-verify 03-seed 04-reconcile-pre 05-browser-full 06-browser-member 07-browser-solo 08-topup 09-reconcile-post 10-browser-unlocked 11-shots 99-summary
+############################################################

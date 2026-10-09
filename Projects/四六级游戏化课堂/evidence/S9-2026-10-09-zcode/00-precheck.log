@@ -1,0 +1,18 @@
+
+########## S9 验收前置：服务可达 + S9 接口挂载 + 前端源码已是 S9 ##########
+[CHECK] MySQL 3307 可连（表数 17） ✅ 期望=17 实际=17
+[CHECK] Go 服务 /api/health 200 ✅ 期望=200 实际=200
+[CHECK] Vite 5174 可达 ✅ 期望=200 实际=200
+[CHECK] 积分明细页路由 /s/ledger 可达 ✅ 期望=200 实际=200
+[CHECK] 复盘页路由 /s/review 可达 ✅ 期望=200 实际=200
+[CHECK] S9 /api/me/overview 已挂（401） ✅ 期望=401 实际=401
+[CHECK] S9 /api/me/ledger 已挂（401） ✅ 期望=401 实际=401
+[CHECK] S9 /api/me/review-paper 已挂（401） ✅ 期望=401 实际=401
+[CHECK] S9 /api/shop/redeem 已挂（401） ✅ 期望=401 实际=401
+[CHECK] S9 /api/pet/feed 已挂（401） ✅ 期望=401 实际=401
+[CHECK] Vite 吐的是 S9 之后的 ProfileView（含商城/宠物） ✅ 期望=1 实际=1
+[CHECK] api.ts 三个 S9 接口都在 ✅ 期望=1 实际=1
+[CHECK] 路由表里有 /ledger 与 /review 两条路由 ✅ 期望=1 实际=1
+[CHECK] 底部导航「我的」把明细/复盘算进同一格 ✅ 期望=1 实际=1
+[CHECK] 班级「2024级英语1班」在库（题库指纹的比对基准） ✅ 期望=1 实际=1
+[CHECK] 券种铺库命令在位（cmd/shop-seed） ✅ 期望=1 实际=1

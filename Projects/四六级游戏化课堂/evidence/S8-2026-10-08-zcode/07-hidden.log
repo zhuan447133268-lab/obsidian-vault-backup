@@ -1,0 +1,15 @@
+
+--- 验收②：教师关闭排行 → 学生端脱敏（不返回，而不是返回了再由前端藏） ---
+[S8] 教师关闭回执（含留痕 id） ✅ 期望={className=S8联赛验收班, rankPublic=False} 实际={className=S8联赛验收班, rankPublic=False}
+[S8] 留痕：audit_log 里 rank_toggle 条数 ≥ 1 ✅ 期望=True 实际=True
+[S8] settings_json 合并写（rank_public=false，别人的键还在） ✅ 期望={rank_public=False, foreign=keep-me} 实际={rank_public=False, foreign=keep-me}
+[S8] 关闭态榜头：榜单清空、名次与参与人数归零、我自己的数还在 ✅ 期望={rankPublic=False, hidden=True, items=0, count=0, participants=0, classSize=12, meXp=790, meRank=0, meZone=, meCut=0, meGap=0, hiddenTextNotEmpty=True} 实际={rankPublic=False, hidden=True, items=0, count=0, participants=0, classSize=12, meXp=790, meRank=0, meZone=, meCut=0, meGap=0, hiddenTextNotEmpty=True}
+    · 降级文案：老师暂时关闭了本班公开排名。不排名也能进步，你的努力值照常累计 💪
+[S8] 关闭态响应体不泄露他人数据 ✅ 期望={他人姓名=0, 他人 XP=0, 榜单键(realName/teamName/solo)=0, userId 出现次数=1} 实际={他人姓名=0, 他人 XP=0, 榜单键(realName/teamName/solo)=0, userId 出现次数=1}
+[S8] 关闭态「我的努力值明细」仍然只给我自己的数 ✅ 期望={xp=790, rows=1, replayAttempts=0, 他人姓名=0, 他人 XP=0} 实际={xp=790, rows=1, replayAttempts=0, 他人姓名=0, 他人 XP=0}
+[S8] 学生 token 调教师开关：10 发全被拦、且回执都拿到了（无 RST 断连） ✅ 期望={403=10, 40301=10, 断连=0} 实际={403=10, 40301=10, 断连=0}
+    · 学生调开关返回：HTTP 403 {"code": 40301, "message": "无权访问", "data": null}
+[S8] 重新打开后榜恢复（开关可逆） ✅ 期望={toggleRankPublic=True, rankPublic=True, hidden=False, items=12, participants=12} 实际={toggleRankPublic=True, rankPublic=True, hidden=False, items=12, participants=12}
+[S8] 本步断言 8 条，失败 0 条 —— 验收② 隐藏开关
+
+[S8] 合计断言 8 条，失败 0 条

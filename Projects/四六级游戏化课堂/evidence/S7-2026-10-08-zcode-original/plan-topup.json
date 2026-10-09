@@ -1,0 +1,443 @@
+{
+ "phase": "topup",
+ "tag": "topup",
+ "students": {
+  "S7A": {
+   "userId": 110,
+   "levels": [
+    {
+     "levelId": 25,
+     "levelName": "第 1 关 · 高频词",
+     "attemptId": 273,
+     "status": "finished",
+     "plannedCorrect": 5,
+     "correct": 5,
+     "total": 5,
+     "stars": 3,
+     "xpTotal": 200
+    },
+    {
+     "levelId": 26,
+     "levelName": "第 2 关 · 语法陷阱",
+     "attemptId": 276,
+     "status": "finished",
+     "plannedCorrect": 5,
+     "correct": 5,
+     "total": 5,
+     "stars": 3,
+     "xpTotal": 200
+    },
+    {
+     "levelId": 27,
+     "levelName": "第 3 关 · 阅读速攻",
+     "attemptId": 279,
+     "status": "finished",
+     "plannedCorrect": 5,
+     "correct": 5,
+     "total": 5,
+     "stars": 3,
+     "xpTotal": 250
+    }
+   ],
+   "answers": [
+    {
+     "questionId": 265,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 266,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 267,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 268,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 269,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 270,
+     "type": "grammar",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 271,
+     "type": "grammar",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 272,
+     "type": "grammar",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 273,
+     "type": "grammar",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 274,
+     "type": "grammar",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 275,
+     "type": "reading",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 276,
+     "type": "reading",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 277,
+     "type": "reading",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 278,
+     "type": "reading",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 279,
+     "type": "reading",
+     "correct": true,
+     "serverCorrect": true
+    }
+   ],
+   "hand": {
+    "clears": 3,
+    "answers": 15,
+    "correct": 15,
+    "xpReceipts": 650
+   }
+  },
+  "S7B": {
+   "userId": 111,
+   "levels": [
+    {
+     "levelId": 25,
+     "levelName": "第 1 关 · 高频词",
+     "attemptId": 274,
+     "status": "finished",
+     "plannedCorrect": 5,
+     "correct": 5,
+     "total": 5,
+     "stars": 3,
+     "xpTotal": 200
+    },
+    {
+     "levelId": 26,
+     "levelName": "第 2 关 · 语法陷阱",
+     "attemptId": 277,
+     "status": "finished",
+     "plannedCorrect": 5,
+     "correct": 5,
+     "total": 5,
+     "stars": 3,
+     "xpTotal": 250
+    },
+    {
+     "levelId": 27,
+     "levelName": "第 3 关 · 阅读速攻",
+     "attemptId": 280,
+     "status": "finished",
+     "plannedCorrect": 5,
+     "correct": 5,
+     "total": 5,
+     "stars": 3,
+     "xpTotal": 250
+    }
+   ],
+   "answers": [
+    {
+     "questionId": 265,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 266,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 267,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 268,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 269,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 270,
+     "type": "grammar",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 271,
+     "type": "grammar",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 272,
+     "type": "grammar",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 273,
+     "type": "grammar",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 274,
+     "type": "grammar",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 275,
+     "type": "reading",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 276,
+     "type": "reading",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 277,
+     "type": "reading",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 278,
+     "type": "reading",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 279,
+     "type": "reading",
+     "correct": true,
+     "serverCorrect": true
+    }
+   ],
+   "hand": {
+    "clears": 3,
+    "answers": 15,
+    "correct": 15,
+    "xpReceipts": 700
+   }
+  },
+  "S7C": {
+   "userId": 112,
+   "levels": [
+    {
+     "levelId": 25,
+     "levelName": "第 1 关 · 高频词",
+     "attemptId": 275,
+     "status": "finished",
+     "plannedCorrect": 5,
+     "correct": 5,
+     "total": 5,
+     "stars": 3,
+     "xpTotal": 250
+    },
+    {
+     "levelId": 26,
+     "levelName": "第 2 关 · 语法陷阱",
+     "attemptId": 278,
+     "status": "finished",
+     "plannedCorrect": 5,
+     "correct": 5,
+     "total": 5,
+     "stars": 3,
+     "xpTotal": 250
+    },
+    {
+     "levelId": 27,
+     "levelName": "第 3 关 · 阅读速攻",
+     "attemptId": 281,
+     "status": "finished",
+     "plannedCorrect": 5,
+     "correct": 5,
+     "total": 5,
+     "stars": 3,
+     "xpTotal": 250
+    }
+   ],
+   "answers": [
+    {
+     "questionId": 265,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 266,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 267,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 268,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 269,
+     "type": "vocab",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 270,
+     "type": "grammar",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 271,
+     "type": "grammar",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 272,
+     "type": "grammar",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 273,
+     "type": "grammar",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 274,
+     "type": "grammar",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 275,
+     "type": "reading",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 276,
+     "type": "reading",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 277,
+     "type": "reading",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 278,
+     "type": "reading",
+     "correct": true,
+     "serverCorrect": true
+    },
+    {
+     "questionId": 279,
+     "type": "reading",
+     "correct": true,
+     "serverCorrect": true
+    }
+   ],
+   "hand": {
+    "clears": 3,
+    "answers": 15,
+    "correct": 15,
+    "xpReceipts": 750
+   }
+  }
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "rawXp": 1100,
+   "bonusXp": 110,
+   "xp": 1210,
+   "progress": 61,
+   "remain": 790,
+   "unlocked": false
+  },
+  {
+   "round": 2,
+   "rawXp": 1800,
+   "bonusXp": 180,
+   "xp": 1980,
+   "progress": 99,
+   "remain": 20,
+   "unlocked": false
+  },
+  {
+   "round": 3,
+   "rawXp": 2550,
+   "bonusXp": 255,
+   "xp": 2805,
+   "progress": 100,
+   "remain": 0,
+   "unlocked": true
+  }
+ ]
+}
