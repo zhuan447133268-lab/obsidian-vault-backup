@@ -1,0 +1,156 @@
+{
+  "admin": {
+    "username": "A9001",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMxMywidW5hbWUiOiJBOTAwMSIsInJvbGUiOiJhZG1pbiIsInB2IjoiNWVkODBmMTIwNjRjYTZlYyIsImlzcyI6ImNldDQ2Iiwic3ViIjoiMzEzIiwiZXhwIjoxNzkyMTQ4NzQ5LCJpYXQiOjE3OTE1NDM5NDl9.8zEEzmd_8o0ZOVaqCoMtPu_7-Cj3GyZqWm9hOKBehpI"
+  },
+  "teacherA": {
+    "username": "T9001",
+    "name": "张老师A",
+    "id": 314,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMxNCwidW5hbWUiOiJUOTAwMSIsInJvbGUiOiJ0ZWFjaGVyIiwicHYiOiIyODdkYmFmZWE2ZmI2NTc3IiwiaXNzIjoiY2V0NDYiLCJzdWIiOiIzMTQiLCJleHAiOjE3OTIxNDg3NDksImlhdCI6MTc5MTU0Mzk0OX0.QY4H_X7Dow-S7g0030cJT_myIupbYzoD74Px1VoU8lg"
+  },
+  "teacherB": {
+    "username": "T9002",
+    "name": "李老师B",
+    "id": 315,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMxNSwidW5hbWUiOiJUOTAwMiIsInJvbGUiOiJ0ZWFjaGVyIiwicHYiOiI3NjJmN2JmNjZlYjRkZjViIiwiaXNzIjoiY2V0NDYiLCJzdWIiOiIzMTUiLCJleHAiOjE3OTIxNDg3NDksImlhdCI6MTc5MTU0Mzk0OX0.V_LtuDUuAaZv14NVG1CBFQnZRNGFRHehd5MFjff4KBA"
+  },
+  "classes": {
+    "S10验收1班": {
+      "id": 61,
+      "levels": {
+        "1": [
+          132,
+          "第 1 关 · 高频词",
+          5
+        ],
+        "2": [
+          133,
+          "第 2 关 · 语法陷阱",
+          5
+        ],
+        "3": [
+          134,
+          "第 3 关 · 长文速读",
+          5
+        ],
+        "4": [
+          135,
+          "第 4 关 · 单元 Boss",
+          3
+        ]
+      }
+    },
+    "S10验收2班": {
+      "id": 62,
+      "levels": {
+        "1": [
+          136,
+          "第 1 关 · 高频词",
+          5
+        ],
+        "2": [
+          137,
+          "第 2 关 · 语法陷阱",
+          5
+        ],
+        "3": [
+          138,
+          "第 3 关 · 长文速读",
+          5
+        ],
+        "4": [
+          139,
+          "第 4 关 · 单元 Boss",
+          3
+        ]
+      }
+    },
+    "S10验收3班": {
+      "id": 63,
+      "levels": {
+        "1": [
+          140,
+          "第 1 关 · 高频词",
+          5
+        ],
+        "2": [
+          141,
+          "第 2 关 · 语法陷阱",
+          5
+        ],
+        "3": [
+          142,
+          "第 3 关 · 长文速读",
+          5
+        ],
+        "4": [
+          143,
+          "第 4 关 · 单元 Boss",
+          3
+        ]
+      }
+    }
+  },
+  "students": {
+    "S10A01": {
+      "id": 316,
+      "name": "陈一帆",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMxNiwidW5hbWUiOiJTMTBBMDEiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiYjEzNjQ2Y2RkYjAwZjk1MiIsImlzcyI6ImNldDQ2Iiwic3ViIjoiMzE2IiwiZXhwIjoxNzkyMTQ4NzQ5LCJpYXQiOjE3OTE1NDM5NDl9.YG1Ta1F-XpBAL7i5vWOzjXtTPxf6IhaBvoFi36tObek"
+    },
+    "S10A02": {
+      "id": 317,
+      "name": "李晓萌",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMxNywidW5hbWUiOiJTMTBBMDIiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiMGQyNmFlNWU5YmRlZjE2NCIsImlzcyI6ImNldDQ2Iiwic3ViIjoiMzE3IiwiZXhwIjoxNzkyMTQ4NzQ5LCJpYXQiOjE3OTE1NDM5NDl9.TlfCzzfUjp1VXAhywZ5DJrXKAR0jzGz4nbAdQ4Wgo3A"
+    },
+    "S10A03": {
+      "id": 318,
+      "name": "赵梓豪",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMxOCwidW5hbWUiOiJTMTBBMDMiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiZTI1ZTBiNGE5ZjI4NjBiNCIsImlzcyI6ImNldDQ2Iiwic3ViIjoiMzE4IiwiZXhwIjoxNzkyMTQ4NzUzLCJpYXQiOjE3OTE1NDM5NTN9.FEDcQdHgoE74ipU93lA9Zs0vNnWNHhNg3cgn8CPisDI"
+    },
+    "S10A04": {
+      "id": 319,
+      "name": "刘思远",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMxOSwidW5hbWUiOiJTMTBBMDQiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiZWYyNjdjOWNlZGRlYWFmOSIsImlzcyI6ImNldDQ2Iiwic3ViIjoiMzE5IiwiZXhwIjoxNzkyMTQ4NzUwLCJpYXQiOjE3OTE1NDM5NTB9.HH425QC2dmmkTG0bbkHl0qvAG958wbpncuqHxqmDQrI"
+    },
+    "S10A05": {
+      "id": 320,
+      "name": "孙可欣",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMyMCwidW5hbWUiOiJTMTBBMDUiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiZTE4NzgwOTNkYzZlMWM4OSIsImlzcyI6ImNldDQ2Iiwic3ViIjoiMzIwIiwiZXhwIjoxNzkyMTQ4NzUwLCJpYXQiOjE3OTE1NDM5NTB9.WgxCo0xtEqp7EeydXGM4DZoloRSOjo_wkRjZo9h47xU"
+    },
+    "S10A06": {
+      "id": 321,
+      "name": "王小鱼",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMyMSwidW5hbWUiOiJTMTBBMDYiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiN2Y2MDRmNGU2ZTM0ZDdlYyIsImlzcyI6ImNldDQ2Iiwic3ViIjoiMzIxIiwiZXhwIjoxNzkyMTQ4NzUwLCJpYXQiOjE3OTE1NDM5NTB9.pDWsJOrVyNvqhQxi9hxIC-FVOG2mP2DV13gVq-SJyys"
+    },
+    "S10A11": {
+      "id": 322,
+      "name": "周子墨",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMyMiwidW5hbWUiOiJTMTBBMTEiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiYmE1NTlhMzE1ZTllNjE1NCIsImlzcyI6ImNldDQ2Iiwic3ViIjoiMzIyIiwiZXhwIjoxNzkyMTQ4NzU0LCJpYXQiOjE3OTE1NDM5NTR9.n2rQ0F_QHxhRJA-r5cSx3hy5r1xR6F_Ok9vT2XiWMPg"
+    },
+    "S10A12": {
+      "id": 323,
+      "name": "吴雨桐",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMyMywidW5hbWUiOiJTMTBBMTIiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiZmU3ZmI1ZDI3YzY5YWY4MiIsImlzcyI6ImNldDQ2Iiwic3ViIjoiMzIzIiwiZXhwIjoxNzkyMTQ4NzUwLCJpYXQiOjE3OTE1NDM5NTB9.I5cUpEb25lhEAbFNHmGHWLGd2DXChqCbl1O7aHzGufg"
+    },
+    "S10A13": {
+      "id": 324,
+      "name": "郑凯文",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMyNCwidW5hbWUiOiJTMTBBMTMiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiMGVlNDhlMTZjZmE2YjFmNiIsImlzcyI6ImNldDQ2Iiwic3ViIjoiMzI0IiwiZXhwIjoxNzkyMTQ4NzUwLCJpYXQiOjE3OTE1NDM5NTB9.RjpPbyQUNpuEEuHZt_8Dy8wecYZ_nsYB25bQToJnGYI"
+    },
+    "S10B01": {
+      "id": 325,
+      "name": "黄子轩",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMyNSwidW5hbWUiOiJTMTBCMDEiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiMzU3ZDBhN2YwZWM1M2Q0NSIsImlzcyI6ImNldDQ2Iiwic3ViIjoiMzI1IiwiZXhwIjoxNzkyMTQ4NzUwLCJpYXQiOjE3OTE1NDM5NTB9.0KFj1NK2H-jw5uhOjay2zlFSBDClzZhjUSpEM3un3Bg"
+    },
+    "S10B02": {
+      "id": 326,
+      "name": "徐若曦",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMyNiwidW5hbWUiOiJTMTBCMDIiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiMTY5ZjkyNzk5OTRhNjE3ZSIsImlzcyI6ImNldDQ2Iiwic3ViIjoiMzI2IiwiZXhwIjoxNzkyMTQ4NzUwLCJpYXQiOjE3OTE1NDM5NTB9.R_Q72PVIgT0ljQxltRMbWAs4rBRqSGTktcV0Qxa9goY"
+    }
+  },
+  "passwd": {
+    "init": "Init@2026",
+    "now": "S10Accept@2026"
+  }
+}

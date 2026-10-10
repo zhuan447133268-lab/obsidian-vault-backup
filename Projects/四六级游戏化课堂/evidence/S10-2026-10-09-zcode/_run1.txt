@@ -1,0 +1,90 @@
+== S10 验收实跑（活环境 http://127.0.0.1:8080 + MySQL 3307）==
+
+== ① 导出平时成绩表：表头逐列对齐 + 九列取值逐格对账 ==
+  [OK]   教师导出返回 200 且是 xlsx（zip 魔数）
+  [OK]   下载文件名 = 平时成绩_<班级>_<YYYYMMDD>.xlsx（RFC 5987 编码）
+  [OK]   响应头带 attachment（浏览器直接下载）
+  [OK]   工作簿只有「平时成绩」一张表（没有残留 Sheet1）
+  [OK]   表头九列逐字对齐 PRD 字段表（顺序也算）
+  [OK]   一人一行（6 名学生）
+  [OK]   学号集合与班级名单一致
+  [OK]   学号写成文本单元格（data_type=s）
+  [OK]   同班学生明细接口 200
+  [OK]   每一格都能被账本/attempts 独立算出（6 生 × 9 列 + 看板同源）
+  [OK]   预警标记同时出现「是」与「否」（规则真的在算，不是整列常量）
+
+== ② 手动调关：锁定中的关卡被放行 / 已开的关卡被收回，双端即时生效 ==
+  [OK]   先把目标关归一为锁定（幂等前置）
+  [OK]   前置：S10A02 的第 4 关锁定且未通关
+  [OK]   锁定关取卷被拒（403/40303，不是「取到卷再判失败」）
+  [OK]   教师放行 200
+  [OK]   回执带 auditId/studentId/levelId 且 unlocked=true
+  [OK]   教师端调关面板：已放行 / adjusted=true / 仍未通关
+  [OK]   学生端地图同一步看到放行（下一次拉地图即生效）
+  [OK]   放行后学生能取到该关真卷（200）
+  [OK]   调关不改成绩：XP 一分未动
+  [FAIL] 调关不写 attempts（只写 audit_log） 实际=1 期望=0
+  [OK]   教师收回 200 且 unlocked=false
+  [OK]   学生端地图看到收回（adjusted 仍为真，方向由 unlocked 表达）
+  [OK]   收回后取卷再次被拒（403/40303）
+  [OK]   先把自然解锁的关卡归一为可用（幂等前置）
+  [OK]   锁掉自然解锁的关卡 200
+  [OK]   已通关的关卡也能被收回（cleared 不变，只是打不开）
+  [OK]   被收回的关卡学生立刻打不了（403/40303）
+  [OK]   再放行回来 200
+  [OK]   放行后恢复可取卷（环境复位，学生继续正常玩）
+  [OK]   非法 action 被拒（400/40001）
+  [OK]   缺 levelId 被拒（400/40001）
+  [OK]   缺 studentId 被拒（400/40001）
+  [OK]   复位：第 4 关保持放行
+
+== ③ audit_log：调关 / 排行开关 / 兑换核销三类留痕可查 ==
+  [OK]   关闭本班公开排名 200
+  [FAIL] 看板 rankPublic 同步为 false（教师端开关真的落到设置里） 
+  [OK]   重新打开 200
+  [OK]   看板 rankPublic 复位为 true
+  [OK]   学生兑换验收券成功（核销动作发生）
+  [OK]   兑换回执带券码
+  [OK]   库里有 redeem 留痕且 actor=学生本人
+  [OK]   留痕 detail 带券名（可对账）
+  [OK]   教师查审计日志 200
+  [OK]   本教师留痕条数 ≥4（2 放行/收回 + 2 排行开关）
+  [OK]   教师只看到自己做过的动作（actor 隔离）
+  [OK]   调关与排行开关都有留痕（12 / 3 条）
+  [OK]   调关摘要含 '李晓萌'
+  [OK]   调关摘要含 '第 3 关 · 长文速读'
+  [OK]   调关摘要含 '放行'
+  [OK]   调关摘要含 '收回'
+  [OK]   调关摘要含被收回的关卡名
+  [OK]   排行开关摘要带班级名且方向正确（先关后开两个方向都在）
+  [OK]   动作有中文名（手动调关）
+  [OK]   动作有中文名（排行开关）
+  [OK]   detail 原文可解析出 studentId/levelId/op（对账用）
+  [OK]   按 action 过滤只回调关（12 条）
+  [OK]   分页：total 不变、首页 2 条
+  [OK]   教师 B 的日志里没有教师 A 的动作
+  [OK]   校级（admin）看全量：含学生的兑换核销留痕
+  [OK]   核销动作有中文名
+
+== ⑤ 改密后旧 JWT 立即失效（自助改密 / 教师重置临时密码） ==
+  [OK]   S10A03 用现口令登录成功
+  [OK]   改密前：旧 token 可用
+  [OK]   自助改密 200
+  [OK]   改密后：旧 token 打 /auth/me 立刻 401/40101
+  [OK]   改密后：旧 token 打业务接口也 401（不是只挡 /me）
+  [OK]   新口令可以登录
+  [OK]   改回统一口令（环境复位）
+  [OK]   再改一次：上一次改密后的 token 也失效（每次都换签名）
+  [OK]   复位后统一口令可用
+  [OK]   改密前：S10A11 的 token 可用
+Traceback (most recent call last):
+  File "C:\Users\dfjq\Documents\Obsidian Vault\Projects\四六级游戏化课堂\evidence\S10-2026-10-09-zcode\s10_accept.py", line 604, in <module>
+    sys.exit(1 if main() else 0)
+                  ~~~~^^
+  File "C:\Users\dfjq\Documents\Obsidian Vault\Projects\四六级游戏化课堂\evidence\S10-2026-10-09-zcode\s10_accept.py", line 587, in main
+    accept_jwt()
+    ~~~~~~~~~~^^
+  File "C:\Users\dfjq\Documents\Obsidian Vault\Projects\四六级游戏化课堂\evidence\S10-2026-10-09-zcode\s10_accept.py", line 453, in accept_jwt
+    h.check(data_of(p)["user"]["mustChangePwd"] is False, "该生当前不在「首登改密」状态")
+            ~~~~~~~~~~^^^^^^^^
+KeyError: 'user'

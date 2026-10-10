@@ -1,0 +1,24 @@
+?   	cet46/server/cmd/import-users	[no test files]
+?   	cet46/server/cmd/league-settle	[no test files]
+?   	cet46/server/cmd/migrate	[no test files]
+?   	cet46/server/cmd/qbank	[no test files]
+?   	cet46/server/cmd/seed-teacher	[no test files]
+?   	cet46/server/cmd/server	[no test files]
+?   	cet46/server/cmd/shop-seed	[no test files]
+ok  	cet46/server/internal/auth	2.186s
+ok  	cet46/server/internal/config	0.820s
+ok  	cet46/server/internal/database	2.390s
+?   	cet46/server/internal/dto	[no test files]
+ok  	cet46/server/internal/exam	0.779s
+?   	cet46/server/internal/handler	[no test files]
+?   	cet46/server/internal/jobs	[no test files]
+?   	cet46/server/internal/middleware	[no test files]
+ok  	cet46/server/internal/model	0.865s
+?   	cet46/server/internal/pkg/apperror	[no test files]
+?   	cet46/server/internal/pkg/response	[no test files]
+ok  	cet46/server/internal/qbank	1.303s
+ok  	cet46/server/internal/quiz	1.043s
+ok  	cet46/server/internal/roster	1.202s
+ok  	cet46/server/internal/router	53.581s
+ok  	cet46/server/internal/service	15.424s
+?   	cet46/server/internal/testsupport	[no test files]

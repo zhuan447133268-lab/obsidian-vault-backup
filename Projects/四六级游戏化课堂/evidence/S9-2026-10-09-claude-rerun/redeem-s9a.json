@@ -1,0 +1,280 @@
+{
+  "overview": {
+    "user": {
+      "id": 307,
+      "realName": "兑换生",
+      "avatar": "",
+      "className": "S9商城验收班",
+      "target": "4",
+      "targetText": "英语四级冲关中",
+      "xp": 2655,
+      "lv": 9,
+      "xpInLevel": 255,
+      "xpPerLevel": 300,
+      "streak": 1
+    },
+    "badges": [
+      {
+        "key": "streak",
+        "icon": "🔥",
+        "text": "连课 1 周",
+        "hint": "连续有积分流水的周数（周一为新一周的开始）"
+      },
+      {
+        "key": "perfect",
+        "icon": "🎯",
+        "text": "全对王×3",
+        "hint": "整关全对的次数"
+      },
+      {
+        "key": "level",
+        "icon": "⚡",
+        "text": "LV.9",
+        "hint": "每 300 XP 升一级"
+      }
+    ],
+    "stats": [
+      {
+        "key": "cleared",
+        "label": "累计通关",
+        "value": 3,
+        "text": "3",
+        "hint": "通关次数（重刷也算，奖励只发首刷）"
+      },
+      {
+        "key": "xp",
+        "label": "我的积分",
+        "value": 2655,
+        "text": "2655",
+        "hint": "LV.9 · 级内 255/300（每分都来自账本）"
+      },
+      {
+        "key": "accuracy",
+        "label": "总正确率",
+        "value": 100,
+        "text": "100%",
+        "hint": "答对 6 / 共 6 次作答"
+      }
+    ],
+    "wallet": {
+      "total": 0,
+      "items": [],
+      "note": "券码由老师端确认后生效 · 恶意囤券会被限购哦"
+    },
+    "bag": [
+      {
+        "key": "paper",
+        "icon": "📜",
+        "name": "真题卷",
+        "count": 0,
+        "note": "Boss 通关奖励解锁"
+      },
+      {
+        "key": "cheese",
+        "icon": "🧀",
+        "name": "奶酪",
+        "count": 0,
+        "note": "已喂 0 块 · 当前「幼崽」"
+      },
+      {
+        "key": "coupon",
+        "icon": "🎟️",
+        "name": "福利券",
+        "count": 0,
+        "note": "商城兑换 / 小队宝箱"
+      }
+    ],
+    "pet": {
+      "fedXp": 0,
+      "feeds": 0,
+      "stageKey": "baby",
+      "stageName": "幼崽",
+      "stageIndex": 0,
+      "inStage": 0,
+      "stageSpan": 300,
+      "progress": 0,
+      "isMax": false,
+      "nextStage": {
+        "index": 1,
+        "key": "lively",
+        "name": "活泼",
+        "needXp": 300
+      },
+      "feedCost": 30,
+      "canFeed": true,
+      "note": "再喂 10 块到「活泼」 · 养到阶段可向老师申请平时成绩额度（额度规则待定）",
+      "stages": [
+        {
+          "index": 0,
+          "key": "baby",
+          "name": "幼崽",
+          "needXp": 0
+        },
+        {
+          "index": 1,
+          "key": "lively",
+          "name": "活泼",
+          "needXp": 300
+        },
+        {
+          "index": 2,
+          "key": "strong",
+          "name": "强壮",
+          "needXp": 900
+        },
+        {
+          "index": 3,
+          "key": "king",
+          "name": "王者",
+          "needXp": 1800
+        }
+      ]
+    },
+    "shop": {
+      "balance": 2655,
+      "note": "💡 兑换后自动生成电子券码，老师端确认后生效 · 恶意囤券会被限购哦（额度规则待学校定，只上架教师手工确认类）",
+      "items": [
+        {
+          "id": 26,
+          "name": "免迟到券",
+          "costXp": 300,
+          "stock": 15,
+          "perUserLimit": 3,
+          "owned": 0,
+          "canRedeem": true,
+          "reject": "",
+          "rejectText": ""
+        },
+        {
+          "id": 25,
+          "name": "免旷课券",
+          "costXp": 880,
+          "stock": 5,
+          "perUserLimit": 1,
+          "owned": 0,
+          "canRedeem": true,
+          "reject": "",
+          "rejectText": ""
+        }
+      ]
+    },
+    "review": {
+      "pending": 0,
+      "mastered": 0,
+      "total": 0,
+      "text": "错题本是空的，暂时没有要复盘的内容 🎉",
+      "levelId": 0,
+      "levelName": ""
+    },
+    "chest": null
+  },
+  "redeem_absent": {
+    "coupon": {
+      "id": 20,
+      "code": "C46-6Y2H37EM",
+      "couponId": 25,
+      "name": "免旷课券",
+      "status": "pending",
+      "statusText": "待老师确认",
+      "costXp": 880,
+      "source": "商城兑换",
+      "createdAt": "2026-10-09 15:38",
+      "justGranted": false
+    },
+    "costXp": 880,
+    "balance": 1775,
+    "stockLeft": 4,
+    "owned": 1
+  },
+  "redeem_late": {
+    "coupon": {
+      "id": 21,
+      "code": "C46-GGTWKSVC",
+      "couponId": 26,
+      "name": "免迟到券",
+      "status": "pending",
+      "statusText": "待老师确认",
+      "costXp": 300,
+      "source": "商城兑换",
+      "createdAt": "2026-10-09 15:38",
+      "justGranted": false
+    },
+    "costXp": 300,
+    "balance": 1475,
+    "stockLeft": 14,
+    "owned": 1
+  },
+  "settlement": {
+    "isBoss": false,
+    "correct": 6,
+    "total": 6,
+    "ratio": 1,
+    "stars": 3,
+    "score710": 0,
+    "xpRows": [
+      {
+        "reason": "answer_base",
+        "label": "答题基础分",
+        "delta": 120
+      },
+      {
+        "reason": "answer_speed",
+        "label": "速度加成",
+        "delta": 60
+      },
+      {
+        "reason": "answer_combo",
+        "label": "连击加成",
+        "delta": 75
+      }
+    ],
+    "xpTotal": 255,
+    "xpTotalAll": 2655,
+    "firstClear": false,
+    "replay": true,
+    "review": [
+      {
+        "no": 1,
+        "questionId": 766,
+        "type": "vocab",
+        "tip": "",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "questionId": 767,
+        "type": "vocab",
+        "tip": "",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "questionId": 768,
+        "type": "vocab",
+        "tip": "",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "questionId": 769,
+        "type": "vocab",
+        "tip": "",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "questionId": 770,
+        "type": "vocab",
+        "tip": "",
+        "isCorrect": true
+      },
+      {
+        "no": 6,
+        "questionId": 771,
+        "type": "vocab",
+        "tip": "",
+        "isCorrect": true
+      }
+    ]
+  }
+}

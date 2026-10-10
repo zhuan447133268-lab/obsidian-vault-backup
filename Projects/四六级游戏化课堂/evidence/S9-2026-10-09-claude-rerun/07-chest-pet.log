@@ -1,0 +1,43 @@
+
+--- 验收⑤ 宝箱发奖（2022 年真题卷）+ 消费不回锁 + 宠物喂养/阶段 ---
+[S9] 宝箱队本周学习所得 = 门槛（正好压线） ✅ 期望=2000 实际=2000
+[S9] 宝箱状态（解锁/压线/进度 100；xp = SQL 学习净得 + 10% 组队加成） ✅ 期望={threshold=2000, xp=2200, remain=0, progress=100, unlocked=True, solo=False, granted=True, justGranted=True} 实际={threshold=2000, xp=2200, remain=0, progress=100, unlocked=True, solo=False, granted=True, justGranted=True}
+[S9] 奖励名 = S7 拍板口径「2022 年真题卷」 ✅ 期望=2022 年真题卷 实际=2022 年真题卷
+[S9] 券包里出现奖励券 ✅ 期望=1 实际=1
+[S9] 奖励券口径（0 分 / 待确认 / 宝箱来源 / 刚发） ✅ 期望={costXp=0, status=pending, statusText=待老师确认, source=小队宝箱解锁奖励, justGranted=True} 实际={costXp=0, status=pending, statusText=待老师确认, source=小队宝箱解锁奖励, justGranted=True}
+[S9] 奖励券券码合规 ✅ 期望=True 实际=True
+[S9] 奖励券种（系统券：0 分 / 限 1 张 / 库存 = 人数 / 下架态=不是商品） ✅ 期望={cost_xp=0, per_user_limit=1, stock=5, enabled=0} 实际={cost_xp=0, per_user_limit=1, stock=5, enabled=0}
+[S9] 第二次打开不再标「刚发」 ✅ 期望=False 实际=False
+[S9] 第二次打开宝箱仍是已发状态 ✅ 期望=True 实际=True
+[S9] 奖励券只有 1 张（幂等，不重复发） ✅ 期望=1 实际=1
+[S9] 商城不出现系统奖励券 ✅ 期望=0 实际=0
+[S9] 商城仍只有 2 张可兑券种 ✅ 期望=2 实际=2
+[S9] 兑系统奖励券 → HTTP 409 ✅ 期望=409 实际=409
+[S9] 兑系统奖励券 → 业务码 40901（下架 = 不是商品） ✅ 期望=40901 实际=40901
+[S9] 被拒的兑换不落券（S9D 仍无券） ✅ 期望=0 实际=0
+[S9] 喂第 1 块奶酪（30 分 / 幼崽 / 阶段内 30/300） ✅ 期望={fedXp=30, feeds=1, feedCost=30, stageName=幼崽, stageIndex=0, inStage=30, stageSpan=300, progress=10, isMax=False, stageChanged=False, balance=1970} 实际={fedXp=30, feeds=1, feedCost=30, stageName=幼崽, stageIndex=0, inStage=30, stageSpan=300, progress=10, isMax=False, stageChanged=False, balance=1970}
+[S9] 喂养负流水（ref 指向第几块奶酪） ✅ 期望={delta=-30, reason=pet_feed, ref_type=pet, ref_id=1} 实际={delta=-30, reason=pet_feed, ref_type=pet, ref_id=1}
+[S9] 队友余额已低于宝箱门槛（若按余额口径，此刻应回锁） ✅ 期望=True 实际=True
+[S9] 小队学习所得不受消费影响 ✅ 期望=2000 实际=2000
+[S9] 消费后宝箱仍解锁（口径是学习所得，不是钱包余额） ✅ 期望={unlocked=True, xp=2200, remain=0, granted=True, justGranted=False} 实际={unlocked=True, xp=2200, remain=0, granted=True, justGranted=False}
+[S9] 消费后个人余额确实少了（消费真的扣了分） ✅ 期望=True 实际=True
+[S9] 喂满 10 块（累计 300 / 进阶「活泼」/ 新阶段内 0/600） ✅ 期望={fedXp=300, feeds=10, stageName=活泼, stageIndex=1, inStage=0, stageSpan=600, progress=0, stageChanged=True, isMax=False, balance=1700} 实际={fedXp=300, feeds=10, stageName=活泼, stageIndex=1, inStage=0, stageSpan=600, progress=0, stageChanged=True, isMax=False, balance=1700}
+[S9] 喂养流水 10 条，ref_id 从 1 到 10（第几块奶酪可查） ✅ 期望=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10] 实际=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+[S9] 喂养流水合计 = 300 分 ✅ 期望=-300 实际=-300
+[S9] 个人中心的宠物态与喂养回执一致 ✅ 期望={fedXp=300, feeds=10, stageName=活泼, stageIndex=1, feedCost=30} 实际={fedXp=300, feeds=10, stageName=活泼, stageIndex=1, feedCost=30}
+[S9] 背包奶酪数 = 喂了几块 ✅ 期望=10 实际=10
+[S9] 背包券数 = 券包张数（奖励券 1 张） ✅ 期望=1 实际=1
+[S9] 宠物区说明含「额度规则」提示（一期不承诺折算） ✅ 期望=True 实际=True
+[S9] 积分不足喂养 → HTTP 400 ✅ 期望=400 实际=400
+[S9] 积分不足喂养 → 业务码 40011 ✅ 期望=40011 实际=40011
+[S9] 被拒的喂养不落账本 ✅ 期望=0 实际=0
+[S9] 徽章含连课（本周有学习流水 → 连课 1 周） ✅ 期望=连课 1 周 实际=连课 1 周
+[S9] 徽章含等级（LV. = 1 + 余额 // 300） ✅ 期望=LV.6 实际=LV.6
+[S9] 用户卡等级与余额自洽 ✅ 期望=6 实际=6
+[S9] 用户卡级内进度 = 余额 % 300 ✅ 期望=200 实际=200
+[S9] 三格「我的积分」= 账本聚合 ✅ 期望=1700 实际=1700
+[S9] 目标文案（四级） ✅ 期望=英语四级冲关中 实际=英语四级冲关中
+    · 写出 chest-pet.json
+[S9] 本步断言 37 条，失败 0 条 —— 验收⑤
+
+[S9] 合计断言 37 条，失败 0 条
