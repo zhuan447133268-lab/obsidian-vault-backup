@@ -1,0 +1,131 @@
+{
+  "base": "http://127.0.0.1:8080/api",
+  "teacher": {
+    "username": "T1101",
+    "id": 345,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjM0NSwidW5hbWUiOiJUMTEwMSIsInJvbGUiOiJ0ZWFjaGVyIiwicHYiOiI5NTkyMDI5ZTA2NWYzMGIwIiwiaXNzIjoiY2V0NDYiLCJzdWIiOiIzNDUiLCJleHAiOjE3OTI1NTE2MzgsImlhdCI6MTc5MTk0NjgzOH0.-WjdNBHNacGGHQvadotOAH6rG8vbhmc1ODDRImw-AQ8"
+  },
+  "otherTeacher": {
+    "username": "T1102",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjM0NiwidW5hbWUiOiJUMTEwMiIsInJvbGUiOiJ0ZWFjaGVyIiwicHYiOiI0ZDc4MjczOTQwZDgxOWY0IiwiaXNzIjoiY2V0NDYiLCJzdWIiOiIzNDYiLCJleHAiOjE3OTI1NTE2MzgsImlhdCI6MTc5MTk0NjgzOH0.g_3yjTUI4M2UaJGg6i9qzpCP03A3Chxp1ikqg7m7UQ8"
+  },
+  "admin": {
+    "username": "A1101",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjM0NCwidW5hbWUiOiJBMTEwMSIsInJvbGUiOiJhZG1pbiIsInB2IjoiOTU5NzZmMzBiOWZmOGU3ZiIsImlzcyI6ImNldDQ2Iiwic3ViIjoiMzQ0IiwiZXhwIjoxNzkyNTUxNjM4LCJpYXQiOjE3OTE5NDY4Mzh9.I_-JPb-Z7UoGePS6eXDlv-gt_elZxz6KD4G9n9PAemc"
+  },
+  "class": {
+    "name": "S11验收1班",
+    "id": 73,
+    "studentTotal": 5
+  },
+  "levels": {
+    "1": {
+      "id": 644,
+      "seq": 1,
+      "name": "词汇一",
+      "unit": "S11验收单元"
+    },
+    "2": {
+      "id": 645,
+      "seq": 2,
+      "name": "词汇二",
+      "unit": "S11验收单元"
+    },
+    "3": {
+      "id": 646,
+      "seq": 3,
+      "name": "听力一",
+      "unit": "S11验收单元"
+    }
+  },
+  "questions": [
+    {
+      "seq": 1,
+      "id": 1819,
+      "levelSeq": 1,
+      "stem": "词义辨析 第 1 题：选出最恰当的一项。",
+      "tag": "词义辨析",
+      "type": "vocab"
+    },
+    {
+      "seq": 2,
+      "id": 1820,
+      "levelSeq": 1,
+      "stem": "词义辨析 第 2 题：选出最恰当的一项。",
+      "tag": "词义辨析",
+      "type": "vocab"
+    },
+    {
+      "seq": 3,
+      "id": 1821,
+      "levelSeq": 2,
+      "stem": "词义搭配 第 1 题：选出最恰当的一项。",
+      "tag": "词义搭配",
+      "type": "vocab"
+    },
+    {
+      "seq": 4,
+      "id": 1822,
+      "levelSeq": 2,
+      "stem": "词义搭配 第 2 题：选出最恰当的一项。",
+      "tag": "词义搭配",
+      "type": "vocab"
+    },
+    {
+      "seq": 5,
+      "id": 1823,
+      "levelSeq": 3,
+      "stem": "短对话场景 第 1 题：选出最恰当的一项。",
+      "tag": "短对话场景",
+      "type": "listening"
+    },
+    {
+      "seq": 6,
+      "id": 1824,
+      "levelSeq": 3,
+      "stem": "短对话场景 第 2 题：选出最恰当的一项。",
+      "tag": "短对话场景",
+      "type": "listening"
+    }
+  ],
+  "students": {
+    "A1": {
+      "username": "S11A01",
+      "name": "测试S11A一号",
+      "id": 362,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjM2MiwidW5hbWUiOiJTMTFBMDEiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiODQ3NDQ5YzI1N2ZmYzM5MCIsImlzcyI6ImNldDQ2Iiwic3ViIjoiMzYyIiwiZXhwIjoxNzkyNTUxNjQwLCJpYXQiOjE3OTE5NDY4NDB9._KGkkxt5Fy3tU-naL3BmzKBiqMMxhUyjeVKLQ2GuY5U"
+    },
+    "A2": {
+      "username": "S11A02",
+      "name": "测试S11A二号",
+      "id": 363,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjM2MywidW5hbWUiOiJTMTFBMDIiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiYjQwODY2OGQ3MDRjNWFiNCIsImlzcyI6ImNldDQ2Iiwic3ViIjoiMzYzIiwiZXhwIjoxNzkyNTUxNjQwLCJpYXQiOjE3OTE5NDY4NDB9.P4vNDx6SNw_9racgmhvbA3lBG9tQRDx12bNhvTcscw0"
+    },
+    "A3": {
+      "username": "S11A03",
+      "name": "测试S11A三号",
+      "id": 364,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjM2NCwidW5hbWUiOiJTMTFBMDMiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiMzcwN2I5MTQ4ZTAxY2QyMSIsImlzcyI6ImNldDQ2Iiwic3ViIjoiMzY0IiwiZXhwIjoxNzkyNTUxNjQxLCJpYXQiOjE3OTE5NDY4NDF9.eW6AcWTVR5dvHeHT3Cq1JqvpPUU6sVo7YJwjviX5lsE"
+    },
+    "A4": {
+      "username": "S11A04",
+      "name": "测试S11A四号",
+      "id": 365,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjM2NSwidW5hbWUiOiJTMTFBMDQiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiMDE1YmVkZTFkOWE5MzdkZCIsImlzcyI6ImNldDQ2Iiwic3ViIjoiMzY1IiwiZXhwIjoxNzkyNTUxNjQxLCJpYXQiOjE3OTE5NDY4NDF9.xWraiJhhoS0OIxqbnuaUuf0q6etwa3qiuuvWvFN1HPk"
+    },
+    "A5": {
+      "username": "S11A05",
+      "name": "测试S11A五号",
+      "id": 366,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjM2NiwidW5hbWUiOiJTMTFBMDUiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiZDY5OGVjNTk5MTY5ZDQ2OSIsImlzcyI6ImNldDQ2Iiwic3ViIjoiMzY2IiwiZXhwIjoxNzkyNTUxNjQyLCJpYXQiOjE3OTE5NDY4NDJ9.t7XdDcEisFBO_lKBCpk4X_MHH1BfxyGHkUD3SLvFpEY"
+    }
+  },
+  "seeded": {
+    "today": 10,
+    "yesterday": 1
+  },
+  "passwd": {
+    "init": "Init@2026",
+    "now": "S11Accept@2026"
+  }
+}

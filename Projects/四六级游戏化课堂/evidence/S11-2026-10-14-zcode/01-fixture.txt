@@ -1,0 +1,33 @@
+
+########## 01 夹具：教师/班级/5 名学生/题库 + 按手算计划落今天 10 条 attempt（+昨天 1 条对照） ##########
+== S11 验收环境搭建 ==
+  账号 A1101(校级教务S11) role=admin 就绪
+  账号 T1101(S11验收教师) role=teacher 就绪
+  账号 T1102(S11无关教师) role=teacher 就绪
+  教师 T1101 登录成功（首登已改密 → S11Accept@2026）
+  无关教师 T1102 / 校级 A1101 登录成功
+  清掉上一轮的 S11验收1班（id=72）与其 1 名学生、1 个单元
+-- 班级与名单 --
+  导入名单：新建 5 / 更新 None（None）
+  S11验收1班 id=73
+-- 题库 --
+写出 D:\claude-work\cet46-game\evidence\S11-2026-10-14-zcode\_bank_S11验收1班.xlsx（班级=S11验收1班，6 题）
+  导入题库：新建单元 1 / 关 3 / 题 6（共 6 行）
+  关卡 3 个 / 题 6 道：L1 词汇一、L2 词汇二、L3 听力一
+-- 学生首登改密 --
+  5 名学生完成首登改密
+-- 按手算计划落 attempt（今天 10 条 + 昨天 1 条对照）--
+    A1(S11A01) → L1(词汇一) finished 答对 1/2 @ NOW(3) - INTERVAL 180 MINUTE
+    A1(S11A01) → L1(词汇一) finished 答对 2/2 @ NOW(3) - INTERVAL 170 MINUTE
+    A1(S11A01) → L2(词汇二) failed 答对 1/2 @ NOW(3) - INTERVAL 150 MINUTE
+    A2(S11A02) → L1(词汇一) finished 答对 1/2 @ NOW(3) - INTERVAL 140 MINUTE
+    A2(S11A02) → L1(词汇一) finished 答对 2/2 @ NOW(3) - INTERVAL 130 MINUTE
+    A2(S11A02) → L3(听力一) finished 答对 1/2 @ NOW(3) - INTERVAL 120 MINUTE
+    A3(S11A03) → L1(词汇一) finished 答对 1/2 @ NOW(3) - INTERVAL 100 MINUTE
+    A3(S11A03) → L2(词汇二) failed 答对 0/2 @ NOW(3) - INTERVAL 90 MINUTE
+    A4(S11A04) → L1(词汇一) failed 答对 1/2 @ NOW(3) - INTERVAL 60 MINUTE
+    A4(S11A04) → L2(词汇二) in_progress 答对 0/0 @ CURDATE()
+    A5(S11A05)【昨天对照】 → L1(词汇一) finished 答对 1/2 @ CURDATE() - INTERVAL 1 SECOND
+
+环境就绪 → D:\claude-work\cet46-game\evidence\S11-2026-10-14-zcode\s11-env.json
+  S11验收1班：学生 5 人 / 单元「S11验收单元」/ 关 3 个 / 题 6 道 / 今天 attempt 10 条

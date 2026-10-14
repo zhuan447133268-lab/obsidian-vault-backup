@@ -1,0 +1,27 @@
+--- 截图逐张校验（8 张）---
+01-live-first          1440x900  md5 d3280330  登录后首进大屏（默认班，10s 档）
+02-live-metrics        1440x900  md5 0e00ce46  三指标区（参与率/进度分布/卡关热点）
+03-live-wrong-board    1440x900  md5 c8fe0544  易错题榜首屏
+04-live-refresh-a      1440x900  md5 882dfb60  自动刷新第 1 帧（记录『更新于』时刻）
+05-live-refresh-b      1440x900  md5 7973c84d  自动刷新第 2 帧（≥10s 后，『更新于』应已变）
+06-live-interval       1440x900  md5 f262b0de  把刷新间隔改成 30s 后的界面（可配置证据）
+07-live-fullscreen     1440x900  md5 79055fe8  全屏态大屏
+08-live-page           1440x900  md5 f8e764f6  整页（本题材恰好一屏：截图高 == 文档实测高 900）
+去重后 8 张（应有 8 张）
+
+--- 走查 JSON ---
+断言 63 条 / 失败 4 条
+按环境/工具链限制放行 4 条（每条都带补偿证据）：
+  · 工具链投不出可信输入事件（playwright click 超时 / cua.click 无命中 / press 无 keydown）；补偿：真实 POST /api/auth/login=200 且 code=0 + URL 真到 /t/live + 断言明写未注入 token、未跳过登录
+  · 首个实例的 1s 心跳被自动化浏览器节流（同页裸 setInterval 探针仍 1.000s/次）；补偿：重挂载后应用真实 delay=1000ms、两轮轮询实测 10.004s（另有 8~14s 硬断言）+ 改 30 秒档实测 30.005/29.992s
+  · 自动化点击 isTrusted=false 不构成用户手势 → 浏览器拒绝全屏（真机人工点击不受影响）；补偿：包装捕获到按钮确实调用 documentElement.requestFullscreen() + 应用 catch{} 静默处理、console 报错 0 条
+  · fullPage 伪图属工具链缺陷（象限重复度 0.55% vs 真实视口截图 100% 对照）；补偿：scrollHeight==视口高且 noInnerScroll=true（下面另有硬断言）
+全屏未进成的原因已写明：【环境限制·输入通道】实测：playwright click 超时（3s 预算耗尽，登录按钮与导航链接均复现）；cua.click(x,y) 与 dom_cua.click(nod
+两次自动刷新间隔：10.0s
+页面文本里 0 处学生标识（防压力设计页面侧）
+--- 页面数字 vs 接口回执（由走查记录，脚本只核条数）---
+逐项对拍 6 条
+整页截图高 900 px / 文档实测高 900 px
+四个板块矩形 4 条
+
+SHOTS_OK

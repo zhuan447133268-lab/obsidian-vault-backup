@@ -1,0 +1,304 @@
+{
+  "admin": {
+    "username": "A9101",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMyNywidW5hbWUiOiJBOTEwMSIsInJvbGUiOiJhZG1pbiIsInB2IjoiMTU4MzRhOTdmZDMwMTQ0NCIsImlzcyI6ImNldDQ2Iiwic3ViIjoiMzI3IiwiZXhwIjoxNzkyNDgzNTc1LCJpYXQiOjE3OTE4Nzg3NzV9.8Ryn0dTg9t66KWqG-Q9huqAWSwEaD3rKjqVqjuKdG6k"
+  },
+  "teacherA": {
+    "username": "T9101",
+    "name": "王一鸣",
+    "id": 328,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMyOCwidW5hbWUiOiJUOTEwMSIsInJvbGUiOiJ0ZWFjaGVyIiwicHYiOiI1MDVkMzlmYWFiM2RjNGQzIiwiaXNzIjoiY2V0NDYiLCJzdWIiOiIzMjgiLCJleHAiOjE3OTI0ODM1NzYsImlhdCI6MTc5MTg3ODc3Nn0.WzeBuUfHjy7OAvQVfwMvxpHWZ27XaCFNCP-gmamsNok"
+  },
+  "teacherB": {
+    "username": "T9102",
+    "name": "李思远",
+    "id": 329,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMyOSwidW5hbWUiOiJUOTEwMiIsInJvbGUiOiJ0ZWFjaGVyIiwicHYiOiIwNzA4NmMyMjlkNzk5N2VmIiwiaXNzIjoiY2V0NDYiLCJzdWIiOiIzMjkiLCJleHAiOjE3OTI0ODM1NzYsImlhdCI6MTc5MTg3ODc3Nn0.xBAEAV7df8UDljjC-0RhxUcp-XhdrDhHZUQWyVZciVQ"
+  },
+  "classes": {
+    "S10.5验收1班": {
+      "id": 64,
+      "levels": {
+        "1": [
+          144,
+          "第 1 关 · 听力预热",
+          2
+        ],
+        "2": [
+          145,
+          "第 2 关 · 高频词",
+          3
+        ],
+        "3": [
+          146,
+          "第 3 关 · 语法陷阱",
+          2
+        ],
+        "4": [
+          147,
+          "第 4 关 · 长文速读",
+          2
+        ],
+        "5": [
+          148,
+          "第 5 关 · 单元 Boss",
+          2
+        ]
+      }
+    },
+    "S10.5验收2班": {
+      "id": 65,
+      "levels": {
+        "1": [
+          150,
+          "第 1 关 · 听力预热",
+          2
+        ],
+        "2": [
+          151,
+          "第 2 关 · 高频词",
+          3
+        ],
+        "3": [
+          152,
+          "第 3 关 · 语法陷阱",
+          2
+        ],
+        "4": [
+          153,
+          "第 4 关 · 长文速读",
+          2
+        ],
+        "5": [
+          154,
+          "第 5 关 · 单元 Boss",
+          2
+        ]
+      }
+    },
+    "S10.5验收3班": {
+      "id": 66,
+      "levels": {
+        "1": [
+          156,
+          "第 1 关 · 听力预热",
+          2
+        ],
+        "2": [
+          157,
+          "第 2 关 · 高频词",
+          3
+        ],
+        "3": [
+          158,
+          "第 3 关 · 语法陷阱",
+          2
+        ],
+        "4": [
+          159,
+          "第 4 关 · 长文速读",
+          2
+        ],
+        "5": [
+          160,
+          "第 5 关 · 单元 Boss",
+          2
+        ]
+      }
+    }
+  },
+  "bank": {
+    "S10.5验收1班": {
+      "units": {
+        "1|61": {
+          "weekNo": 1,
+          "unitId": 61,
+          "name": "起跑线",
+          "questions": [
+            826,
+            827,
+            828,
+            829,
+            830,
+            831,
+            832,
+            833,
+            834,
+            835,
+            836
+          ]
+        },
+        "2|62": {
+          "weekNo": 2,
+          "unitId": 62,
+          "name": "六级加练",
+          "questions": [
+            837,
+            838
+          ]
+        }
+      },
+      "questions": [
+        826,
+        827,
+        828,
+        829,
+        830,
+        831,
+        832,
+        833,
+        834,
+        835,
+        836,
+        837,
+        838
+      ]
+    },
+    "S10.5验收2班": {
+      "units": {
+        "1|63": {
+          "weekNo": 1,
+          "unitId": 63,
+          "name": "起跑线",
+          "questions": [
+            839,
+            840,
+            841,
+            842,
+            843,
+            844,
+            845,
+            846,
+            847,
+            848,
+            849
+          ]
+        },
+        "2|64": {
+          "weekNo": 2,
+          "unitId": 64,
+          "name": "六级加练",
+          "questions": [
+            850,
+            851
+          ]
+        }
+      },
+      "questions": [
+        839,
+        840,
+        841,
+        842,
+        843,
+        844,
+        845,
+        846,
+        847,
+        848,
+        849,
+        850,
+        851
+      ]
+    },
+    "S10.5验收3班": {
+      "units": {
+        "1|65": {
+          "weekNo": 1,
+          "unitId": 65,
+          "name": "起跑线",
+          "questions": [
+            852,
+            853,
+            854,
+            855,
+            856,
+            857,
+            858,
+            859,
+            860,
+            861,
+            862
+          ]
+        },
+        "2|66": {
+          "weekNo": 2,
+          "unitId": 66,
+          "name": "六级加练",
+          "questions": [
+            863,
+            864
+          ]
+        }
+      },
+      "questions": [
+        852,
+        853,
+        854,
+        855,
+        856,
+        857,
+        858,
+        859,
+        860,
+        861,
+        862,
+        863,
+        864
+      ]
+    }
+  },
+  "students": {
+    "S105A01": {
+      "id": 330,
+      "name": "陈一鸣",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMzMCwidW5hbWUiOiJTMTA1QTAxIiwicm9sZSI6InN0dWRlbnQiLCJwdiI6IjQ4YjVmMmQ0YzI3Y2IxNDMiLCJpc3MiOiJjZXQ0NiIsInN1YiI6IjMzMCIsImV4cCI6MTc5MjQ4MzU3NywiaWF0IjoxNzkxODc4Nzc3fQ.azt5VJfwD7kTusoIveJGxRiq7-QyCo9Pe7vEIZbLTx0",
+      "classId": 64
+    },
+    "S105A02": {
+      "id": 331,
+      "name": "李晓萌",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMzMSwidW5hbWUiOiJTMTA1QTAyIiwicm9sZSI6InN0dWRlbnQiLCJwdiI6IjZmZmU3NjMzY2QyZGJiNWUiLCJpc3MiOiJjZXQ0NiIsInN1YiI6IjMzMSIsImV4cCI6MTc5MjQ4MzU3NywiaWF0IjoxNzkxODc4Nzc3fQ.3nGmwT0eDPfWLw9wq_QAzb204DPLLodAnsVEHmVDkMk",
+      "classId": 64
+    },
+    "S105A03": {
+      "id": 332,
+      "name": "赵梓豪",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMzMiwidW5hbWUiOiJTMTA1QTAzIiwicm9sZSI6InN0dWRlbnQiLCJwdiI6ImJkZTM1YzRmYTA4NGZmZjEiLCJpc3MiOiJjZXQ0NiIsInN1YiI6IjMzMiIsImV4cCI6MTc5MjQ4MzU3NywiaWF0IjoxNzkxODc4Nzc3fQ.t_XwYMSduacd2sZ6frvH4jFCNgOaf-KXKnJsr7r2gms",
+      "classId": 64
+    },
+    "S105A04": {
+      "id": 333,
+      "name": "刘思远",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMzMywidW5hbWUiOiJTMTA1QTA0Iiwicm9sZSI6InN0dWRlbnQiLCJwdiI6IjNiZjYwYmU3NmU1MjJlYjIiLCJpc3MiOiJjZXQ0NiIsInN1YiI6IjMzMyIsImV4cCI6MTc5MjQ4MzU3NywiaWF0IjoxNzkxODc4Nzc3fQ.XcRqw5m516p2u_5Hwst-oBDwsZDb169jGXm4JdkvUNI",
+      "classId": 64
+    },
+    "S105A11": {
+      "id": 334,
+      "name": "周子墨",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMzNCwidW5hbWUiOiJTMTA1QTExIiwicm9sZSI6InN0dWRlbnQiLCJwdiI6IjQ2MmUxYmIyNmMzNWNjMGEiLCJpc3MiOiJjZXQ0NiIsInN1YiI6IjMzNCIsImV4cCI6MTc5MjQ4MzU3NywiaWF0IjoxNzkxODc4Nzc3fQ.1zjGxKtwYNVQcyJfFIIsQIjE3AFLtj-uip--r6fLZ7Q",
+      "classId": 65
+    },
+    "S105A12": {
+      "id": 335,
+      "name": "吴雨桐",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMzNSwidW5hbWUiOiJTMTA1QTEyIiwicm9sZSI6InN0dWRlbnQiLCJwdiI6IjhlZDUxMDdjYjdjYTBiNTUiLCJpc3MiOiJjZXQ0NiIsInN1YiI6IjMzNSIsImV4cCI6MTc5MjQ4MzU3NywiaWF0IjoxNzkxODc4Nzc3fQ.n0f20J8Io66-JCikNK__IZ93GcrIrSubZQIbJPhN_a4",
+      "classId": 65
+    },
+    "S105B01": {
+      "id": 336,
+      "name": "黄子轩",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMzNiwidW5hbWUiOiJTMTA1QjAxIiwicm9sZSI6InN0dWRlbnQiLCJwdiI6IjQ5Y2ViYTFkYjUzOTdjOGMiLCJpc3MiOiJjZXQ0NiIsInN1YiI6IjMzNiIsImV4cCI6MTc5MjQ4MzU3NywiaWF0IjoxNzkxODc4Nzc3fQ.36RoBvD9zrEC-QyTCBYliQTXIcbVJ7lrPB1OkutmMOo",
+      "classId": 66
+    },
+    "S105B02": {
+      "id": 337,
+      "name": "徐若曦",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMzNywidW5hbWUiOiJTMTA1QjAyIiwicm9sZSI6InN0dWRlbnQiLCJwdiI6ImMzNmU0YjY3ZDZkYjE3MTEiLCJpc3MiOiJjZXQ0NiIsInN1YiI6IjMzNyIsImV4cCI6MTc5MjQ4MzU3OCwiaWF0IjoxNzkxODc4Nzc4fQ.dyJti6p4tv0BeyP9aSQNMjNxFoU5GCQhAGi2m7M2Ass",
+      "classId": 66
+    }
+  },
+  "passwd": {
+    "init": "Init@2026",
+    "now": "S105Accept@2026"
+  }
+}

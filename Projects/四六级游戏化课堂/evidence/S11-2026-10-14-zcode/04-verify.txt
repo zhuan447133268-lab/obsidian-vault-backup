@@ -1,0 +1,53 @@
+
+########## 04 scripts/verify.sh（gofmt / go vet / go test / go build / eslint / 前端 build） ##########
+[2mdist/[22m[32ms.html                                  [39m[1m[2m  0.62 kB[22m[1m[22m[2m │ gzip:   0.41 kB[22m
+[2mdist/[22m[32mt.html                                  [39m[1m[2m  0.66 kB[22m[1m[22m[2m │ gzip:   0.48 kB[22m
+[2mdist/[22m[35massets/ChangePasswordView-BuZwIj40.css  [39m[1m[2m  0.58 kB[22m[1m[22m[2m │ gzip:   0.31 kB[22m
+[2mdist/[22m[35massets/LoginView-cQ0i8iu1.css           [39m[1m[2m  0.66 kB[22m[1m[22m[2m │ gzip:   0.33 kB[22m
+[2mdist/[22m[35massets/ChangePasswordView-BoOBJgab.css  [39m[1m[2m  1.04 kB[22m[1m[22m[2m │ gzip:   0.46 kB[22m
+[2mdist/[22m[35massets/LoginView-FrclLPBZ.css           [39m[1m[2m  1.13 kB[22m[1m[22m[2m │ gzip:   0.47 kB[22m
+[2mdist/[22m[35massets/AuditView-BZwXw2-w.css           [39m[1m[2m  1.47 kB[22m[1m[22m[2m │ gzip:   0.56 kB[22m
+[2mdist/[22m[35massets/SchoolView-BoQ0S8lr.css          [39m[1m[2m  1.50 kB[22m[1m[22m[2m │ gzip:   0.55 kB[22m
+[2mdist/[22m[35massets/ReviewView-BfqBwDn-.css          [39m[1m[2m  2.62 kB[22m[1m[22m[2m │ gzip:   0.75 kB[22m
+[2mdist/[22m[35massets/LedgerView-BNi8IjCo.css          [39m[1m[2m  2.77 kB[22m[1m[22m[2m │ gzip:   0.83 kB[22m
+[2mdist/[22m[35massets/LiveView-CmGzPTir.css            [39m[1m[2m  4.18 kB[22m[1m[22m[2m │ gzip:   1.13 kB[22m
+[2mdist/[22m[35massets/AnswerPanel-BZfEuuwH.css         [39m[1m[2m  4.36 kB[22m[1m[22m[2m │ gzip:   1.26 kB[22m
+[2mdist/[22m[35massets/PaperView-BxKim6Jz.css           [39m[1m[2m  4.41 kB[22m[1m[22m[2m │ gzip:   1.18 kB[22m
+[2mdist/[22m[35massets/RankView-DMb7oA6G.css            [39m[1m[2m  5.15 kB[22m[1m[22m[2m │ gzip:   1.33 kB[22m
+[2mdist/[22m[35massets/DashboardView-Dh7C0Trr.css       [39m[1m[2m  5.41 kB[22m[1m[22m[2m │ gzip:   1.47 kB[22m
+[2mdist/[22m[35massets/MapView-BHO8Kc_U.css             [39m[1m[2m  7.11 kB[22m[1m[22m[2m │ gzip:   1.84 kB[22m
+[2mdist/[22m[35massets/TeamView-BjgvLsPV.css            [39m[1m[2m  7.17 kB[22m[1m[22m[2m │ gzip:   1.68 kB[22m
+[2mdist/[22m[35massets/QuizView-D0T9_e9R.css            [39m[1m[2m  7.63 kB[22m[1m[22m[2m │ gzip:   1.97 kB[22m
+[2mdist/[22m[35massets/ProfileView-C6o31lue.css         [39m[1m[2m 11.30 kB[22m[1m[22m[2m │ gzip:   2.44 kB[22m
+[2mdist/[22m[35massets/s-yqHna-bv.css                   [39m[1m[2m204.30 kB[22m[1m[22m[2m │ gzip:  54.63 kB[22m
+[2mdist/[22m[35massets/t-DHySbgq7.css                   [39m[1m[2m366.69 kB[22m[1m[22m[2m │ gzip:  49.82 kB[22m
+[2mdist/[22m[36massets/LoginView-zjsJ9UbJ.js            [39m[1m[2m  1.62 kB[22m[1m[22m[2m │ gzip:   1.01 kB[22m
+[2mdist/[22m[36massets/ChangePasswordView-pN04zPm6.js   [39m[1m[2m  2.02 kB[22m[1m[22m[2m │ gzip:   1.14 kB[22m
+[2mdist/[22m[36massets/LoginView-S9fHaWoX.js            [39m[1m[2m  2.16 kB[22m[1m[22m[2m │ gzip:   1.28 kB[22m
+[2mdist/[22m[36massets/ChangePasswordView-CN07FpXj.js   [39m[1m[2m  2.40 kB[22m[1m[22m[2m │ gzip:   1.23 kB[22m
+[2mdist/[22m[36massets/LedgerView-BxgCtsg8.js           [39m[1m[2m  2.84 kB[22m[1m[22m[2m │ gzip:   1.58 kB[22m
+[2mdist/[22m[36massets/api-Ds9xW60u.js                  [39m[1m[2m  3.50 kB[22m[1m[22m[2m │ gzip:   1.31 kB[22m
+[2mdist/[22m[36massets/ReviewView-BxYyTUV-.js           [39m[1m[2m  3.55 kB[22m[1m[22m[2m │ gzip:   1.79 kB[22m
+[2mdist/[22m[36massets/AuditView-ADL-uvNo.js            [39m[1m[2m  3.80 kB[22m[1m[22m[2m │ gzip:   1.97 kB[22m
+[2mdist/[22m[36massets/SchoolView-DaX5V8NR.js           [39m[1m[2m  3.90 kB[22m[1m[22m[2m │ gzip:   1.91 kB[22m
+[2mdist/[22m[36massets/AnswerPanel-BK01B8lN.js          [39m[1m[2m  4.49 kB[22m[1m[22m[2m │ gzip:   1.97 kB[22m
+[2mdist/[22m[36massets/RankView-CsBXFiw0.js             [39m[1m[2m  5.54 kB[22m[1m[22m[2m │ gzip:   2.73 kB[22m
+[2mdist/[22m[36massets/LiveView-BDVCrbZd.js             [39m[1m[2m  6.69 kB[22m[1m[22m[2m │ gzip:   3.08 kB[22m
+[2mdist/[22m[36massets/TeamView-DbFpRN2B.js             [39m[1m[2m  9.39 kB[22m[1m[22m[2m │ gzip:   3.99 kB[22m
+[2mdist/[22m[36massets/DashboardView-qF7lwU6K.js        [39m[1m[2m 10.17 kB[22m[1m[22m[2m │ gzip:   4.40 kB[22m
+[2mdist/[22m[36massets/MapView-DzgLOuaq.js              [39m[1m[2m 10.76 kB[22m[1m[22m[2m │ gzip:   4.86 kB[22m
+[2mdist/[22m[36massets/QuizView-DKJoPJ_9.js             [39m[1m[2m 14.75 kB[22m[1m[22m[2m │ gzip:   5.96 kB[22m
+[2mdist/[22m[36massets/ProfileView-BDEMycn3.js          [39m[1m[2m 17.89 kB[22m[1m[22m[2m │ gzip:   7.07 kB[22m
+[2mdist/[22m[36massets/PaperView-Dx-aYE9a.js            [39m[1m[2m 18.97 kB[22m[1m[22m[2m │ gzip:   7.03 kB[22m
+[2mdist/[22m[36massets/preload-helper-D6_4BR8f.js       [39m[1m[2m166.39 kB[22m[1m[22m[2m │ gzip:  63.99 kB[22m
+[2mdist/[22m[36massets/s-C0Lsy22V.js                    [39m[1m[2m227.45 kB[22m[1m[22m[2m │ gzip:  81.29 kB[22m
+[2mdist/[22m[36massets/t-9Wm47WlW.js                    [39m[1m[33m925.12 kB[39m[22m[2m │ gzip: 299.30 kB[22m
+[33m
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[32m✓ built in 18.02s[39m
+
+==== 全部检查通过 ====
+[CHECK] verify.sh 退出码 0 ✅ 期望=0 实际=0
