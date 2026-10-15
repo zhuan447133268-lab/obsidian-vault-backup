@@ -1,0 +1,401 @@
+{
+  "studentUsername": "S12A04",
+  "checks": [
+    {
+      "name": "学生 S12A04 用登录表单登录（token 由应用自己写进 localStorage，未注入）",
+      "ok": true,
+      "detail": "从 /s/login 表单进入；登录前先清掉旧 token，登录态由应用写 key=cet46_token"
+    },
+    {
+      "name": "学生兑换 3 张免迟到券：余额 1200→900→600→300 XP（每张 300 XP）",
+      "ok": true,
+      "detail": "xp_ledger：+1200 level_clear；-300/-300/-300 shop_redeem（15:40:33/35/37）；sum(delta)=300"
+    },
+    {
+      "name": "三张券码各不相同且落库：C46-CVQ6GY3U / C46-2GH5FSQB / C46-TX275AMC",
+      "ok": true,
+      "detail": "coupon_redeems id=48/49/50，user_id=418（S12A04），coupon_id=41（免迟到券）"
+    },
+    {
+      "name": "刚兑完三张券都是「待老师确认」（学生页券包与教师检索一致）",
+      "ok": true,
+      "detail": "/s/me 券包当时显示 3 张待确认；教师端逐张检索时 pill=待老师确认"
+    },
+    {
+      "name": "限购：驳回占着限购名额——已兑 3 张（限 3 张），第 4 张不可再兑",
+      "ok": true,
+      "detail": "学生页商城 rejectText「已兑 3 张（限 3 张）」+ 按钮「不可兑」；口径句「被驳回的券退回券包、积分不退（可再向老师出示，也占着该券种的限购名额）」；券种页 300 XP · 每人限 3 张 · 剩 4 张 · 我已兑 3"
+    },
+    {
+      "name": "券包口径句：被驳回的券退回券包、积分不退，可再向老师出示 · 恶意囤券会被限购哦",
+      "ok": true,
+      "detail": "/s/me 券包 note（截图 12/14 页脚）"
+    },
+    {
+      "name": "教师 T1201 用登录表单登录（截图里导航条显示「S12验收教师」）",
+      "ok": true,
+      "detail": "从 /t/login 表单进入；登录后导航条 操作人=S12验收教师"
+    },
+    {
+      "name": "核销页首屏：券码输入框 + 检索按钮 + 说明（截图 01）",
+      "ok": true,
+      "detail": ".panel.search：input.code-input + 检索按钮 + 「券码由学生端…被驳回的券会退回学生券包…」"
+    },
+    {
+      "name": "输码检索出「待老师确认」的券：学生/班级/券种/300 XP/余额 300 XP（截图 02）",
+      "ok": true,
+      "detail": "测试S12A四号（S12A04）/ S12验收1班 / 免迟到券 商城兑换 / 兑换花费 300 XP / 学生当前余额 300 XP（驳回也不动它）"
+    },
+    {
+      "name": "待确认提示口径：确认后券生效 · 驳回则券退回学生券包（兑换积分不退）",
+      "ok": true,
+      "detail": ".hint = 服务端 actionText（pending 态）"
+    },
+    {
+      "name": "待确认时两个按钮（确认核销 / 驳回（退券不退分））都可按",
+      "ok": true,
+      "detail": "canConfirm=true、canReject=true"
+    },
+    {
+      "name": "驳回弹窗写清后果：券码/学生/券种 +「驳回后券退回学生券包（下次课可再出示核销），兑换花的 300 XP 不退。」（截图 03）",
+      "ok": true,
+      "detail": "ElMessageBox 文本第 2 段；300 XP 来自 costXp"
+    },
+    {
+      "name": "驳回生效：pill=已退回 + 本次动作留痕 #173 + 会话记录多一行「核销驳回 / 已生效 / #173」（截图 04）",
+      "ok": true,
+      "detail": "回执 auditId=173；15:43:14；会话表 verb=核销驳回、结果=已生效"
+    },
+    {
+      "name": "重新检索被驳回的券：pill=已退回，只有「确认核销」可按，「驳回（退券不退分）」灰（截图 05）",
+      "ok": true,
+      "detail": "rejected 态 canConfirm=true / canReject=false"
+    },
+    {
+      "name": "已退回提示口径：学生可再次出示，教师可改判核销（积分不退）",
+      "ok": true,
+      "detail": "actionText：已于 2026-10-14 15:43 由 S12验收教师 驳回，券已退回学生券包（积分不退）；学生可再次出示，教师可改判核销"
+    },
+    {
+      "name": "改判核销生效：已核销 + 会话记录里同一张券出现「核销驳回」与「核销确认」两条（留痕 #174）（截图 06）",
+      "ok": true,
+      "detail": "from=rejected→to=confirmed；15:44:13"
+    },
+    {
+      "name": "已核销是终态：提示写明「核销生效后不能改判为驳回」，两个按钮都灰（截图 06/08）",
+      "ok": true,
+      "detail": "confirmed 态 canConfirm=false / canReject=false"
+    },
+    {
+      "name": "确认弹窗写清：确认后这张券生效，且不能再改判为驳回。（截图 07）",
+      "ok": true,
+      "detail": "ElMessageBox 文本第 2 段第 1 句"
+    },
+    {
+      "name": "确认弹窗写清：学生当前余额 300 XP（核销不再动积分）（截图 07）",
+      "ok": true,
+      "detail": "ElMessageBox 文本第 2 段第 2 句，余额取自学生当前值"
+    },
+    {
+      "name": "第二张券核销成功：已核销 + 本次动作留痕 #175 + 两个按钮都灰（截图 08）",
+      "ok": true,
+      "detail": "回执 auditId=175；15:47:01"
+    },
+    {
+      "name": "重复确认被拒：业务码 40904（HTTP 409）",
+      "ok": true,
+      "detail": "POST /api/admin/redeems/confirm（同码第二遍，用页面自己的 localStorage token）→ HTTP 409"
+    },
+    {
+      "name": "40904 文案带处理人与时间：这张券已在 2026-10-14 15:47 由 S12验收教师 核销过，无需重复确认（截图 09）",
+      "ok": true,
+      "detail": "页面 ElMessage warning（6s，可关闭）原样显示服务端 message"
+    },
+    {
+      "name": "重复确认不写留痕：库里 40904 那次尝试没有新增审计行（该券只有 #175 一条核销留痕）",
+      "ok": true,
+      "detail": "audit_log 该券码命中 1 条（id=175）；尝试时间点之后无新行"
+    },
+    {
+      "name": "40904 后页面跟上库里状态：重新检索回落成「已核销」卡片，会话记录里留一条「被拒」",
+      "ok": true,
+      "detail": "conflict 分支重新 lookup；会话表 结果=被拒、留痕=—"
+    },
+    {
+      "name": "第三张券留在券包里不处理：驳回后不动它（截图 12/14 的「已退回」卡）",
+      "ok": true,
+      "detail": "coupon_redeems id=50 status=rejected，库里与页面一致"
+    },
+    {
+      "name": "审计页筛「核销确认」：动作/操作人 S12验收教师/时间 2026-10-14 15:44:13·15:47:01 三要素齐全（截图 10）",
+      "ok": true,
+      "detail": "8 条里命中 2 条（#174 改判、#175）；摘要带券码与学生班级"
+    },
+    {
+      "name": "审计页筛「核销驳回」：动作/操作人 S12验收教师/时间 2026-10-14 15:43:14·15:49:29 三要素齐全（截图 11）",
+      "ok": true,
+      "detail": "8 条里命中 2 条（#173、#176）；摘要带券码与学生班级"
+    },
+    {
+      "name": "审计摘要带券码与学生班级：测试S12A四号 驳回「免迟到券」- 券码 C46-TX275AMC（券退回券包，300 XP 不退）",
+      "ok": true,
+      "detail": "audit_log.summary 原样渲染到表格第 4 列"
+    },
+    {
+      "name": "审计留痕的库侧三要素与页面一致（actor=373、action=redeem_confirm/redeem_reject、日期 2026-10-14）",
+      "ok": true,
+      "detail": "audit_log id=173/174/175/176 全部 actor=373"
+    },
+    {
+      "name": "学生券包：2 张已核销 + 1 张已退回并存（截图 12/14）",
+      "ok": true,
+      "detail": "/s/me 我的券包 共 3 张；三张卡的 statusText=已核销/已核销/已退回"
+    },
+    {
+      "name": "已退回的卡保留「还能用：下次课把这张券再出示给老师，就可以重新核销」",
+      "ok": true,
+      "detail": "rejected 卡专属一行，明确「驳回≠券没了」"
+    },
+    {
+      "name": "学生余额 300 XP：驳回与核销都没动积分（驳回不退分、核销不再动积分）",
+      "ok": true,
+      "detail": "xp_ledger 只有 3 条 -300 shop_redeem，没有任何退款/返分记录；学生页 我的积分 300"
+    },
+    {
+      "name": "学生页脱敏：页面上 0 处出现别的学生或教师姓名（11 个词表全部未命中）",
+      "ok": true,
+      "detail": "测试S12A一号/二号/三号/五号/六号、隔壁班学生、独苗同学、S12榜上01/02号、S12验收教师、S12无关教师"
+    },
+    {
+      "name": "核销页整页截图（13）：文档实测高 900px，检索区/结果卡/处理记录三块都落在框内",
+      "ok": true,
+      "detail": "innerScrollers=0；sectionRects 底边 220/505/662 ≤ 900"
+    },
+    {
+      "name": "学生券包整页截图（14）：文档实测高 2147px（整页流式布局，0 个内层滚动容器）",
+      "ok": true,
+      "detail": "拍前页面内临时把手机壳改成整页流式布局（3104px）+ zoom 0.692 适配 2160px 视口上限；拍后样式已移除"
+    }
+  ],
+  "fails": [],
+  "all_ok": true,
+  "codeCompare": [
+    {
+      "item": "P=C46-CVQ6GY3U 检索（pending）",
+      "page": "教师核销页：pill「待老师确认」；学生 测试S12A四号（S12A04）；班级 S12验收1班；券种 免迟到券 商城兑换；兑换花费 300 XP；学生当前余额 300 XP（驳回也不动它）；提示「确认后券生效 · 驳回则券退回学生券包（兑换积分不退）」；确认核销/驳回 两个按钮都可按",
+      "api": "POST /api/admin/redeems/reject 回执（这张券 pending 态被驳回的接口证据）：status=rejected、statusText=已退回、auditId=173、handledAt=2026-10-14 15:43、costXp=300、studentBalance=300、canConfirm=true、canReject=false",
+      "db": "coupon_redeems id=48 code=C46-CVQ6GY3U coupon_id=41 cost 300 XP user_id=418",
+      "ok": true
+    },
+    {
+      "item": "P=C46-CVQ6GY3U 驳回（rejected）",
+      "page": "教师核销页（截图 04）：pill「已退回」；提示「已于 2026-10-14 15:43 由 S12验收教师 驳回，券已退回学生券包（积分不退）；学生可再次出示，教师可改判核销」；本次动作留痕 #173；会话记录「核销驳回 / 已生效 / #173 / 15:43:14」",
+      "api": "GET /api/admin/redeems/lookup 回执（rejected 态口径，以库里同为 rejected 的 C46-TX275AMC 复核）：status=rejected、statusText=已退回、canConfirm=true、canReject=false、studentBalance=300、handledAt=2026-10-14 15:49、handlerName=S12验收教师",
+      "db": "audit_log id=173 action=redeem_reject actor=373 detail from=pending→to=rejected 15:43:14",
+      "ok": true
+    },
+    {
+      "item": "P=C46-CVQ6GY3U 改判核销（rejected→confirmed）",
+      "page": "教师核销页（截图 06）：pill「已核销」；提示「已于 2026-10-14 15:44 由 S12验收教师 核销（终态：核销生效后不能改判为驳回）」；会话记录里同券两条「核销驳回」与「核销确认」，留痕 #174",
+      "api": "GET /api/admin/redeems/lookup?code=C46-CVQ6GY3U（现查）：status=confirmed、statusText=已核销、handledAt=2026-10-14 15:44、handlerName=S12验收教师、studentBalance=300、canConfirm=false、canReject=false",
+      "db": "coupon_redeems id=48 status=confirmed confirmed_by=373 confirmed_at=2026-10-14 15:44:13；audit_log id=174 from=rejected→to=confirmed",
+      "ok": true
+    },
+    {
+      "item": "Q=C46-2GH5FSQB 核销确认（pending→confirmed）",
+      "page": "教师核销页（截图 08）：pill「已核销」；两个按钮都灰；本次动作留痕 #175",
+      "api": "GET /api/admin/redeems/lookup?code=C46-2GH5FSQB（现查）：status=confirmed、statusText=已核销、handledAt=2026-10-14 15:47、handlerName=S12验收教师、studentBalance=300",
+      "db": "coupon_redeems id=49 status=confirmed confirmed_by=373 confirmed_at=2026-10-14 15:47:01；audit_log id=175 from=pending→to=confirmed",
+      "ok": true
+    },
+    {
+      "item": "Q=C46-2GH5FSQB 重复确认（40904）",
+      "page": "教师核销页（截图 09）ElMessage warning：「这张券已在 2026-10-14 15:47 由 S12验收教师 核销过，无需重复确认」；会话记录新增一行「核销确认 / 被拒 / —」",
+      "api": "POST /api/admin/redeems/confirm（重复，页面自己的 token）→ HTTP 409 {\"code\":40904,\"message\":\"这张券已在 2026-10-14 15:47 由 S12验收教师 核销过，无需重复确认\",\"data\":null}",
+      "db": "该券码 audit_log 只有 id=175 一条（重复确认不写留痕）",
+      "ok": true
+    },
+    {
+      "item": "S=C46-TX275AMC 驳回后留在券包（rejected，未处理）",
+      "page": "学生券包（截图 12/14）：卡 C46-TX275AMC statusText「已退回」+「还能用：下次课把这张券再出示给老师，就可以重新核销」；教师端再检索仍可「确认核销」",
+      "api": "GET /api/admin/redeems/lookup?code=C46-TX275AMC（现查）：status=rejected、statusText=已退回、canConfirm=true、canReject=false、costXp=300、studentBalance=300、handledAt=2026-10-14 15:49、handlerName=S12验收教师",
+      "db": "coupon_redeems id=50 status=rejected confirmed_by=373 confirmed_at=2026-10-14 15:49:29；audit_log id=176 action=redeem_reject",
+      "ok": true
+    },
+    {
+      "item": "券包回显（/s/me）：三张卡状态与库里一致",
+      "page": "学生券包（截图 12/14）：🎟️ 我的券包 共 3 张 —— 免迟到券 C46-TX275AMC 已退回 / C46-2GH5FSQB 已核销 / C46-CVQ6GY3U 已核销；口径句「券码由老师端确认后生效 · 被驳回的券退回券包、积分不退，可再向老师出示 · 恶意囤券会被限购哦」",
+      "api": "三张券的 lookup 回执：status=rejected/confirmed/confirmed，statusText=已退回/已核销/已核销，costXp=300（券价 300 XP 已扣）",
+      "db": "coupon_redeems 该生 3 行：confirmed、confirmed、rejected（与页面卡序一致）",
+      "ok": true
+    },
+    {
+      "item": "余额口径 300 XP 三方一致（驳回不退分 / 核销不动分）",
+      "page": "教师卡片「学生当前余额 300 XP（驳回也不动它）」「学生当前余额 300 XP（核销不再动积分）」；学生页 我的积分 300 XP、学习档案 总 XP 300",
+      "api": "三张券的 lookup 回执 studentBalance=300（无论 pending/rejected/confirmed 都是 300）",
+      "db": "xp_ledger user_id=418：+1200 level_clear、-300/-300/-300 shop_redeem，sum=300；没有任何退款/返分行（积分不退的库侧证据）",
+      "ok": true
+    }
+  ],
+  "auditCompare": [
+    {
+      "action": "核销确认",
+      "page": "审计页筛「核销确认」（截图 10）表格行：2026-10-14 15:47:01 | S12验收教师 | 核销确认 | 测试S12A四号 核销「免迟到券」- 券码 C46-2GH5FSQB（300 XP 已扣，券生效）；2026-10-14 15:44:13 | S12验收教师 | 核销确认 | 测试S12A四号 核销「免迟到券」- 券码 C46-CVQ6GY3U（300 XP 已扣，券生效）",
+      "api": "GET /api/admin/audit-logs?action=redeem_confirm：total=8，命中 2 条 —— id=175 createdAt=2026-10-14 15:47:01 actorName=S12验收教师（detail from=pending→to=confirmed）；id=174 createdAt=2026-10-14 15:44:13 actorName=S12验收教师（detail from=rejected→to=confirmed，改判）",
+      "ok": true
+    },
+    {
+      "action": "核销驳回",
+      "page": "审计页筛「核销驳回」（截图 11）表格行：2026-10-14 15:49:29 | S12验收教师 | 核销驳回 | 测试S12A四号 驳回「免迟到券」- 券码 C46-TX275AMC（券退回券包，300 XP 不退）；2026-10-14 15:43:14 | S12验收教师 | 核销驳回 | 测试S12A四号 驳回「免迟到券」- 券码 C46-CVQ6GY3U（券退回券包，300 XP 不退）",
+      "api": "GET /api/admin/audit-logs?action=redeem_reject：total=8，命中 2 条 —— id=176 createdAt=2026-10-14 15:49:29 actorName=S12验收教师；id=173 createdAt=2026-10-14 15:43:14 actorName=S12验收教师（detail from=pending→to=rejected）",
+      "ok": true
+    }
+  ],
+  "codeStates": {
+    "C46-CVQ6GY3U": "confirmed",
+    "C46-2GH5FSQB": "confirmed",
+    "C46-TX275AMC": "rejected"
+  },
+  "codesWalked": {
+    "C46-CVQ6GY3U": "第 1 张：pending → 驳回(#173) → 改判核销(#174) → confirmed（终态）",
+    "C46-2GH5FSQB": "第 2 张：pending → 核销确认(#175) → confirmed；重复确认被 40904 拒（不写痕）",
+    "C46-TX275AMC": "第 3 张：pending → 驳回(#176) → rejected，留在学生券包（可再出示/教师可改判）"
+  },
+  "leftRejectedInWallet": true,
+  "studentPageText": "🎮 四六级冲关\n\n🗺️ 闯关地图 · 学生端演示\n\n🗺️ 闯关地图 → Boss 真题卷 → 积分兑换\n🐹 小队组队 · 组内互相提醒\n🏆 班级联赛 · 教师可隐藏排行\n🏪 XP 兑换免早自习券等真实福利\n\n📱 用手机浏览器打开本页 = 全屏 App 体验\n\n🦉\n测试S12A四号\n\nS12验收1班 · 英语四级冲关中\n\n🔥 连课 1 周\n🎯 全对王×1\n⚡ LV.2\n\nLV.2 · 本级 0/300 XP · 累计 300\n\n1\n累计通关\n300\n我的积分\n—\n总正确率\n📒 积分明细\n每一分来源可查 · 去对账 ›\n🎒 背包\n📜\n真题卷 ×0\nBoss 通关奖励解锁\n🧀\n奶酪 ×0\n已喂 0 块 · 当前「幼崽」\n🎟️\n福利券 ×3\n商城兑换 / 小队宝箱\n🎟️ 我的券包\n共 3 张\n免迟到券\n\n商城兑换 · 300 XP · 2026-10-14 15:40\n\n还能用：下次课把这张券再出示给老师，就可以重新核销\n\nC46-TX275AMC\n已退回\n免迟到券\n\n商城兑换 · 300 XP · 2026-10-14 15:40\n\nC46-2GH5FSQB\n已核销\n免迟到券\n\n商城兑换 · 300 XP · 2026-10-14 15:40\n\nC46-CVQ6GY3U\n已核销\n\n券码由老师端确认后生效 · 被驳回的券退回券包、积分不退，可再向老师出示 · 恶意囤券会被限购哦\n\n🐹 我的仓鼠 · 幼崽\n0/300\n\n累计喂养 0 XP · 0 块奶酪 · 再喂 300 XP 进化成「活泼」\n\n🧀 喂一块（-30 XP）\n再喂 10 块到「活泼」 · 养到阶段可向老师申请平时成绩额度（额度规则待定）\n🏪 福利兑换\n当前积分 300 XP · 每学期限量\n🎫\n免迟到券\n\n300 XP · 每人限 3 张 · 剩 4 张 · 我已兑 3\n\n已兑 3 张（限 3 张）\n\n不可兑\n🎫\n双免卡\n\n500 XP · 每人限 1 张 · 剩 2 张\n\n还差 500 分\n\n不可兑\n\n💡 兑换后自动生成电子券码，老师端确认后生效 · 被驳回的券退回券包、积分不退（可再向老师出示，也占着该券种的限购名额）· 恶意囤券会被限购哦（额度规则待学校定，只上架教师手工确认类）\n\n📚 错题复盘 · 0 题待收\n\n错题本是空的，暂时没有要复盘的内容 🎉\n\n✅ 错题本已清空。新错的题会自动收进来。\n\n📈 学习档案\n300\n总 XP\nLV.2\n0/1\n已通关\n个专题\n0\n作答\n题 · 对 0\n0%\n正确率\n错题已清\n闯关进度\n1/3 关\n\n已通关 0/1 个专题 · 通关一关才发通关分与三星分，重刷只算练习（积分不重复发）\n\n能力画像\n\n由入学诊断 + 平时闯关累积 · 已覆盖 0/6 维\n\n词汇\n语法\n阅读\n听力\n翻译\n写作\n—\n—\n—\n—\n—\n—\n词汇\n暂无数据\n语法\n暂无数据\n阅读\n暂无数据\n听力\n暂无数据\n翻译\n暂无数据\n写作\n暂无数据\n\n写作维一期还没题目（AI 作文批改在后续迭代），凑不齐六边形时先看其余几维。\n\n成长曲线\n近 8 周\n\n近 8 周：闯关 1 次 · 作答 0 题 · 正确率 0% · 净得 300 XP\n\n每周正确率\n0%\n50%\n100%\n每周净得 XP\n8/24\n8/31\n9/7\n9/14\n9/21\n9/28\n10/5\n10/12\n\n最近 8 周还没有练习记录，去地图打一关，曲线就有第一个点了\n\n错题本\n\n还没有错题。答错的题会自动进本子，答对一次就划掉——这里记的就是你的进步曲线。\n\n回地图继续冲关\n🗺️\n闯关\n🏆\n联赛\n🐹\n小队\n😎\n我的",
+  "studentTokens": [
+    "测试S12A一号",
+    "测试S12A二号",
+    "测试S12A三号",
+    "测试S12A五号",
+    "测试S12A六号",
+    "隔壁班学生",
+    "独苗同学",
+    "S12榜上01号",
+    "S12榜上02号",
+    "S12验收教师",
+    "S12无关教师"
+  ],
+  "pageHeights": {
+    "13-t-redeem-page": 900,
+    "14-s-wallet-page": 2147
+  },
+  "noInnerScroll": true,
+  "innerScrollAtFullPageShot": [],
+  "sectionRects": [
+    {
+      "name": "检索区（.panel.search：券码输入 + 检索/清空）",
+      "top": 117,
+      "bottom": 220,
+      "page": "13-t-redeem-page"
+    },
+    {
+      "name": "结果卡（.panel.card：状态 pill/学生/班级/券种/花费/余额/提示/两个按钮/留痕号）",
+      "top": 236,
+      "bottom": 505,
+      "page": "13-t-redeem-page"
+    },
+    {
+      "name": "处理记录表（本次会话处理记录 .panel）",
+      "top": 521,
+      "bottom": 662,
+      "page": "13-t-redeem-page"
+    }
+  ],
+  "shots": {
+    "01-t-redeem-empty": {
+      "w": 1440,
+      "h": 900,
+      "bytes": 302463,
+      "md5": "2925ec07f2f6a8164d4354198785b4bb"
+    },
+    "02-t-lookup-pending": {
+      "w": 1440,
+      "h": 900,
+      "bytes": 372335,
+      "md5": "2dcbca994728034dc8c5a2c5355f6fbc"
+    },
+    "03-t-reject-dialog": {
+      "w": 1440,
+      "h": 900,
+      "bytes": 264659,
+      "md5": "bdb8ec13290767657c75fdefbd491632"
+    },
+    "04-t-rejected": {
+      "w": 1440,
+      "h": 900,
+      "bytes": 425489,
+      "md5": "a497eda3a7be1da75b1ad5205021494f"
+    },
+    "05-t-lookup-rejected": {
+      "w": 1440,
+      "h": 900,
+      "bytes": 423368,
+      "md5": "17b6e7f659ef1f32b39c218113e5b0c6"
+    },
+    "06-t-reconfirmed": {
+      "w": 1440,
+      "h": 900,
+      "bytes": 436991,
+      "md5": "07c9e1a396a5bb7df20247ed9fbadcbf"
+    },
+    "07-t-confirm-dialog": {
+      "w": 1440,
+      "h": 900,
+      "bytes": 312015,
+      "md5": "9f1f0709e27152f18cf1d0a47cbd32e1"
+    },
+    "08-t-confirmed": {
+      "w": 1440,
+      "h": 900,
+      "bytes": 449787,
+      "md5": "c4bcc967b991977eb4e8396dde29f822"
+    },
+    "09-t-repeat-confirm-40904": {
+      "w": 1440,
+      "h": 900,
+      "bytes": 426750,
+      "md5": "a418c9697b5ef3a031a5ff930d812501"
+    },
+    "10-t-audit-confirm": {
+      "w": 1440,
+      "h": 900,
+      "bytes": 464865,
+      "md5": "a16d24aae63396683945b9c446a34c52"
+    },
+    "11-t-audit-reject": {
+      "w": 1440,
+      "h": 900,
+      "bytes": 471186,
+      "md5": "c6a3847faf6d8264bbd48ea05d48b202"
+    },
+    "12-s-wallet": {
+      "w": 1440,
+      "h": 900,
+      "bytes": 483923,
+      "md5": "30382bb00f6be39368421049e5e04a89"
+    },
+    "13-t-redeem-page": {
+      "w": 1440,
+      "h": 900,
+      "bytes": 418635,
+      "md5": "4217bc6d5280faf052cf56d0ace10e66"
+    },
+    "14-s-wallet-page": {
+      "w": 1440,
+      "h": 2147,
+      "bytes": 879915,
+      "md5": "2f7ac7319506e872190182597115937f"
+    }
+  },
+  "environment": {
+    "servers": "后端 127.0.0.1:8080（S12 二进制，redeems 三条路由已挂）；Vite 127.0.0.1:5174（/api 代理 8080）；MySQL 127.0.0.1:3307/cet46",
+    "viewport": "1440x900 deviceScaleFactor=1（宽 ≥1280）；整页帧 13=1440x900、14=1440x2147",
+    "login": "学生 S12A04 与教师 T1201 都从登录表单进入；token 由应用自身写入 localStorage（key=cet46_token），未注入、未跳过登录；登录前清掉旧 token 是为了让登录表单真的走一遍",
+    "browserInput": "本面板不投递真实指针/键盘事件（Playwright click/press 与 cua.click 均无效果，rAF 也不跑），页面内操作以 DOM el.click() 触发应用自身的 Vue 处理器；v-model 用原生 HTMLInputElement value setter + input 事件写入（等价于用户键入的受控输入路径）。所有网络调用与状态变化都是应用自己发的",
+    "conflictProbe": "40904 复现用页面自己的 localStorage token 发 POST /api/admin/redeems/confirm（同码第二遍），未新建登录态",
+    "fullPage14": "学生页在桌面视口下是 390px 手机壳 + 内层滚动容器（.wrap clientHeight 824 / scrollHeight 3036），拍整页前在页面内临时加了一段 style 把手机壳改成整页流式布局（.phone/.screen/.wrap → overflow:visible + height:auto），文档实测高 3104px、内层滚动 0 个；视口高度上限 2160px（setViewportSize 硬限制）且本工具的越界截图会出 2×2 拼图伪影，故整页帧用 #app zoom=0.692 缩到 2147px 单帧拍下（图高 2147 = 文档实测高）；拍完已移除该样式，页面回到原样（docH 900、innerScroll=['wrap']）。缩放只影响这一张整页帧的呈现，不改仓库代码、不改数据",
+    "shot09Recovery": "截图 09 第一版拍到了 toast 淡出帧（几乎看不见字），已从 harness artifact 恢复原始成功帧（1440x900，md5 a418c969…），其余截图未做任何替换",
+    "matchedGate": "证据清点：bash run-shots-check.sh → SHOTS_OK"
+  }
+}
