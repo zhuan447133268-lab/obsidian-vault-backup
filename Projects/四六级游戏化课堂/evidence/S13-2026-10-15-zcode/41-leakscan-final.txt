@@ -1,0 +1,12 @@
+S13 口令零泄露复核（逐值搜 evidence，必须 0 命中）
+时间：2026-10-15 22:44:42
+受检目录：
+  D:\claude-work\cet46-game\evidence\S13-2026-10-15-zcode
+  C:\Users\dfjq\Documents\Obsidian Vault\Projects\四六级游戏化课堂\evidence\S13-2026-10-15-zcode
+受检文件：505 个（两个 evidence 目录下所有可读文本/二进制，跳过 2 个自检文件）
+受检值：53 条 = 库口令 1 + SECRET_KEY 1 + admin 口令 1 + 教师口令 1 + 移交 txt 三类 3 + 学生初始口令 41 + 复测临时口令 4 + 复测会话令牌 1
+
+命中：0
+
+说明：命中数必须是 0。逐条入检（含 41 条学生口令的每一条），不做去重合并。
+本文件自身不参与自检（同理 s13_leakscan.py 不在 evidence 目录内）。

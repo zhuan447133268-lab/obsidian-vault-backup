@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>教师培训 · 30 分钟上手（四六级游戏化课堂）</title>
+<!--
+  教师 30 分钟培训页（S13 交付物）。
+
+  为什么是「一个 HTML 文件」：这页要在教室电脑/内网机器上直接打开，不装环境、不连外网、
+  不依赖框架。所以样式全部内联，唯一的脚本是两条按钮（打印 / 回顶部），没有 CDN。
+  它同时放在两个地方：
+    · 仓库 deploy/docs/teacher-training.html（交付文档侧，改这里）
+    · 试点机 web-dist/teacher-training.html（由 02-build-and-stage.ps1 每次构建时同步）
+    内网地址：http://<试点机IP>/teacher-training.html
+  内容口径全部来自教师端代码里的真实按钮文案与路由，别凭印象改文案——老师照着念不出来就白写。
+-->
+<style>
+  :root{
+    --ink:#1a1a1a; --ink-2:#4a4a4a; --ink-3:#757575;
+    --line:#e3e3e3; --line-2:#cfcfcf;
+    --bg:#fbfbfa; --card:#fff;
+    --accent:#2b5f4a; --accent-soft:#eef5f1;
+    --warn:#8a4b16; --warn-soft:#fdf3e8;
+    --stop:#8c2f2f; --stop-soft:#fdeeee;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:16px/1.75 "PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,-apple-system,"Segoe UI",sans-serif;
+  }
+  .wrap{max-width:1000px;margin:0 auto;padding:32px 24px 96px}
+  h1{font-size:27px;line-height:1.35;margin:0 0 6px}
+  h2{font-size:21px;margin:44px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--ink)}
+  h3{font-size:17px;margin:0 0 10px}
+  p{margin:8px 0}
+  a{color:var(--accent)}
+  code{background:#f0f0ee;padding:1px 6px;border-radius:4px;font-size:14px;
+       font-family:"Cascadia Mono",Consolas,"Courier New",monospace}
+  .sub{color:var(--ink-3);font-size:14px;margin:0 0 20px}
+  .lede{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);
+        padding:14px 18px;border-radius:6px;margin:18px 0 26px}
+  .lede p{margin:4px 0}
+  .urls{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:18px 0 8px}
+  .url-card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:12px 16px}
+  .url-card b{display:block;font-size:14px;color:var(--ink-2);font-weight:600;margin-bottom:4px}
+  .url-card a{font-size:17px;font-weight:600;text-decoration:none}
+  .url-card span{display:block;color:var(--ink-3);font-size:13px;margin-top:4px}
+  table{width:100%;border-collapse:collapse;background:var(--card);margin:12px 0 6px;font-size:15px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:#f4f4f2;font-weight:600;white-space:nowrap}
+  td.t{white-space:nowrap;color:var(--ink-2);font-variant-numeric:tabular-nums}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:8px;
+        padding:18px 20px;margin:16px 0}
+  .card > h3{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .card > h3 .idx{color:var(--ink-3);font-size:14px;font-weight:500}
+  .card > h3 .route{font-size:13px;font-weight:500;color:var(--accent);
+                    background:var(--accent-soft);padding:2px 8px;border-radius:999px}
+  .row{display:grid;grid-template-columns:76px 1fr;gap:6px 12px;margin:8px 0 0;font-size:15px}
+  .row dt{color:var(--ink-3)}
+  .row dd{margin:0}
+  .tip,.stop{font-size:14px;border-radius:6px;padding:8px 12px;margin:10px 0 0}
+  .tip{background:var(--warn-soft);color:var(--warn)}
+  .stop{background:var(--stop-soft);color:var(--stop)}
+  ol.steps{margin:8px 0 0;padding-left:22px}
+  ol.steps li{margin:2px 0}
+  .kv{font-size:14px;color:var(--ink-2)}
+  .kv b{color:var(--ink)}
+  ul.tight{margin:8px 0 0;padding-left:22px}
+  ul.tight li{margin:2px 0}
+  .chk{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px 6px 10px}
+  .chk li{list-style:none;position:relative;padding-left:30px;margin:10px 0;font-size:15px}
+  .chk li::before{content:"";position:absolute;left:8px;top:6px;width:14px;height:14px;
+                  border:2px solid var(--line-2);border-radius:3px}
+  .chk ul{padding-left:0;margin:0}
+  .nav{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 6px}
+  .nav a{font-size:14px;text-decoration:none;background:var(--card);border:1px solid var(--line);
+         border-radius:999px;padding:4px 12px;color:var(--ink-2)}
+  .nav a:hover{border-color:var(--accent);color:var(--accent)}
+  footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);
+         color:var(--ink-3);font-size:13px}
+  .tools{display:flex;gap:8px;margin:14px 0 0}
+  .tools button{font:inherit;font-size:14px;background:var(--card);border:1px solid var(--line-2);
+                border-radius:6px;padding:5px 14px;cursor:pointer;color:var(--ink-2)}
+  .tools button:hover{border-color:var(--accent);color:var(--accent)}
+  @media print{
+    body{background:#fff}
+    .wrap{max-width:none;padding:0}
+    .nav,.tools{display:none}
+    h2{break-after:avoid}
+    .card{break-inside:avoid;border-color:#bbb}
+    /* 表格只保证「行不被劈开」：给 table 加整块不断页会把长表整张推到下一页、留半页空白 */
+    tr{break-inside:avoid}
+    a{color:inherit;text-decoration:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>教师 30 分钟上手 · 四六级游戏化课堂</h1>
+<p class="sub">一期试点版 · 2026-10-15 · 面向任课教师（看班级进度、组卷、课中大屏、核销、导出）</p>
+
+<div class="lede">
+  <p><b>这套系统老师要干的事只有三件：看进度、发卷子、课上盯大屏。</b></p>
+  <p>其余（调关、核销、导出、排行开关）都是这三件事的补充动作，都在同一个顶栏里。30 分钟培训按「先跑通一遍，再回头讲细节」的顺序安排——老师在真机上亲手点一遍，比讲 30 分钟 PPT 有用。</p>
+</div>
+
+<div class="urls">
+  <div class="url-card">
+    <b>教师端（本页入口在顶栏右）</b>
+    <a href="/t/" target="_blank" rel="noopener">/t/</a>
+    <span>看板 · 组卷 · 大屏 · 核销 · 校级 · 审计</span>
+  </div>
+  <div class="url-card">
+    <b>学生端（手机，同 Wi‑Fi）</b>
+    <a href="/s/" target="_blank" rel="noopener">/s/</a>
+    <span>学生扫码/输网址打开，第一次登录要改密</span>
+  </div>
+  <div class="url-card">
+    <b>本页永久地址</b>
+    <a href="/teacher-training.html">/teacher-training.html</a>
+    <span>可以打印，也能随时再看</span>
+  </div>
+</div>
+
+<div class="nav">
+  <a href="#agenda">30 分钟怎么用</a>
+  <a href="#login">登录与改密</a>
+  <a href="#features">九项功能</a>
+  <a href="#prep">课前 5 分钟</a>
+  <a href="#rescue">课上应急</a>
+  <a href="#glossary">口径附录</a>
+</div>
+<div class="tools">
+  <button type="button" onclick="window.print()">打印本页</button>
+  <button type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})">回到顶部</button>
+</div>
+
+<h2 id="agenda">一、30 分钟怎么用</h2>
+<p class="kv">讲师按这个节奏走；每段末尾都留了「让老师自己点一次」的时间，别替他点。</p>
+<table>
+  <thead><tr><th>时间</th><th>讲什么</th><th>老师要亲手做的</th></tr></thead>
+  <tbody>
+    <tr><td class="t">0–3 分</td><td>登录、首登改密</td><td>用管理员发的初始密码登录 → 改密 → <b>用新密码再登一次</b></td></tr>
+    <tr><td class="t">3–9 分</td><td>班级看板：四张卡、趋势、错题知识点、学生明细</td><td>切一次班、点开一名学生的「调关」看一眼（先别改）</td></tr>
+    <tr><td class="t">9–14 分</td><td>组卷工作台：选题池 → 组卷 → 发布</td><td>组一份 5 题的小卷，发到自己的班（不设到期时间）</td></tr>
+    <tr><td class="t">14–19 分</td><td>课中大屏：口径、刷新间隔、全屏</td><td>打开大屏 → 选刷新间隔「10 秒」→ 全屏一次 → 退出全屏</td></tr>
+    <tr><td class="t">19–22 分</td><td>兑换核销：检索 → 确认/驳回 → 留痕</td><td>（有券就真核一张；没有就用学生端现场兑一张）</td></tr>
+    <tr><td class="t">22–26 分</td><td>校级汇总 + 审计日志 + 导出平时成绩表</td><td>导出一次平时成绩表，在 Excel 里打开看列</td></tr>
+    <tr><td class="t">26–30 分</td><td>名单与口令：谁负责导入、口令忘了找谁；课前自检与应急</td><td>把「课前 5 分钟自检」照着念一遍</td></tr>
+  </tbody>
+</table>
+<div class="tip">培训当天用<b>真账号真班级</b>跑，别用演示数据。老师在真数据上看到的第一个数字，会成为他对这套系统的第一印象。</div>
+
+<h2 id="login">二、登录与改密（3 分钟，但必须讲清）</h2>
+<div class="card">
+  <h3>登录 <span class="route">/t/login</span></h3>
+  <dl class="row">
+    <dt>怎么点</dt>
+    <dd>浏览器打开教师端地址 → 填「账号（工号）」和「密码」→ 点「登 录」。</dd>
+    <dt>首登必做</dt>
+    <dd>第一次登录如果跳到「先改个只有你知道的密码」整页，说明你拿的是<b>临时密码</b>：填「当前密码」「新密码（至少 6 位）」「确认新密码」→ 点「修改密码」。</dd>
+    <dt>关键一步</dt>
+    <dd>改完密码后，<b>系统会让你重新登录一次</b>——这是设计如此（旧登录凭证在改密那一刻就作废了）。用新密码再登一次即可，不是出错。</dd>
+  </dl>
+  <div class="tip">口令规则：至少 6 位、两次要一致、不能和原密码相同。<b>没有</b>「必须字母+数字」这类复杂度要求——但请提醒老师别用学号。</div>
+  <div class="stop">教师端<b>没有</b>「忘记密码」按钮。忘了口令要走运维：由管理员在服务器上重置，重置后会生成一串临时密码（只在重置结果里显示一次），老师拿到后首登再改。所以：<b>口令忘了找管理员，别自己试</b>。</div>
+</div>
+
+<h2 id="features">三、功能全览（九项，一项一张卡）</h2>
+<p class="kv">顶栏一共六个页面：班级看板 · 组卷工作台 · 课中大屏 · 兑换核销 · 校级汇总（仅校级账号可见）· 审计日志。九项功能里有三项（调关、排行开关、导出）就在看板页上，不单独占一个菜单。</p>
+
+<div class="card">
+  <h3><span class="idx">功能 1</span>看板 <span class="route">/t/</span></h3>
+  <p>班级当前状态一屏看完：本周到课闯关率、人均通关数、班级平均 XP、预警学生，加一张近 8 周通关趋势、一张高频错题知识点、一张学生闯关明细表。</p>
+  <ol class="steps">
+    <li>登录后默认落在看板，显示你名下第一个班。</li>
+    <li>点页面顶部的<b>班级名</b>切换班级（这里选的班，看板/组卷/大屏三页共用）。</li>
+    <li>看四张卡的数字 → 看趋势与错题知识点 → 在「学生闯关明细」里找需要关注的学生。</li>
+  </ol>
+  <dl class="row">
+    <dt>提示</dt>
+    <dd>明细表按<b>本周 XP</b> 排序，通关数是本周的、正确率是累计的（表头副文案写明了口径）。状态药丸「预警」＝连续 2 周闯关少于 1 关。</dd>
+    <dt>别踩</dt>
+    <dd>调关之后明细会刷新，但上方的数据卡和趋势不会跟着变——别以为没生效，切一下班或刷新页面即可。</dd>
+  </dl>
+</div>
+
+<div class="card">
+  <h3><span class="idx">功能 2</span>校级汇总 <span class="route">/t/school</span></h3>
+  <p>全校/全年级横向对比：班级数、学生总数、全年级人均通关、预警学生合计，加一张各班对比表（人数/到课率/人均通关/人均 XP/预警/排行榜状态）。</p>
+  <ol class="steps">
+    <li>顶栏点「校级汇总」（<b>只有校级账号能看到这个入口</b>）。</li>
+    <li>点表头（人均通关 / 人均 XP / 到课率 / 预警）切换排序。</li>
+    <li>要最新数据点「刷新」——这页是打开时的快照，不会自动更新。</li>
+  </ol>
+  <div class="tip">这页是<b>只读</b>：能看不能改。看到某个班「排行榜已隐藏」也改不了——排行榜开关只有该班任课教师本人能拨。</div>
+</div>
+
+<div class="card">
+  <h3><span class="idx">功能 3</span>课中大屏 <span class="route">/t/live</span></h3>
+  <p>课堂上投影用：① 参与率（已开始闯关 / 全班）② 进度分布（谁走到哪一关）③ 卡关热点 TOP3 ④ 实时易错题榜（答错即上榜）。</p>
+  <ol class="steps">
+    <li>顶栏点「课中大屏」→ 点班级名切到本节课的班。</li>
+    <li>右上角选刷新间隔（「跟随服务端」「5 秒」「10 秒」「15 秒」「30 秒」「60 秒」），默认「跟随服务端」，一般是 10 秒。</li>
+    <li>点「⤢ 全屏」投影；课堂上想立刻看最新数据就点「⟳ 立即刷新」。</li>
+  </ol>
+  <dl class="row">
+    <dt>口径</dt>
+    <dd>所有数字都是<b>今天 00:00 到现在</b>；页面上永远不出现学生姓名（只有人数与题号），投影时不用担心点名。</dd>
+    <dt>别踩</dt>
+    <dd>刷新失败时页面<b>不会黑屏</b>，会保留上一帧并提示在重试——看见「仍在重试」别急着关页面。全屏被浏览器拦下时也不会打断，手动按 F11 即可。</dd>
+  </dl>
+</div>
+
+<div class="card">
+  <h3><span class="idx">功能 4</span>组卷发布 <span class="route">/t/papers</span></h3>
+  <p>三栏工作台：左边是你这个班已有的卷，中间是选题池（我的题库 / 教研室公共题库），右边是本次要组的卷。</p>
+  <ol class="steps">
+    <li>顶栏点「组卷工作台」→ 选班级。</li>
+    <li>中间勾题（也可以点「整单元引用」一把把某个单元全选进来），题目会进右栏「这次的卷」。</li>
+    <li>右栏填「卷名」、选「发布形态」（课下练习 / 课内带打）、填「每关限时（分钟，0=不限）」，看一眼「自动分关预览」。</li>
+    <li>点「存草稿并发布」→ 在弹出的「发布到班级」里选目标班、到期时间（留空＝不设到期）→ 点「发布」。</li>
+  </ol>
+  <dl class="row">
+    <dt>提示</dt>
+    <dd>发布后学生端「本周练习」立刻出现入口；到期或关闭后入口消失，拿旧链接取卷也会被挡。想给自己留退路就先「存为草稿」，确认没问题再回左栏点「发布」。</dd>
+    <dt>别踩</dt>
+    <dd>① 一份卷<b>最多 100 题</b>；② 一份卷<b>只能装一个分套</b>（四级和六级的题不能混在一份卷里）；③ 分关是服务端按题型自动切的，老师不用排关；④ <b>已发布的卷不能再改题、也不能删</b>——要改请新建一份（改了就不再是同一份卷，班间 PK 的「同卷」会对不上）。</dd>
+    <dt>跨班</dt>
+    <dd>一份卷发给多个班时，每个班各有<b>一份同内容的副本</b>，不是共用一份；要改得分别改。</dd>
+  </dl>
+</div>
+
+<div class="card">
+  <h3><span class="idx">功能 5</span>核销 <span class="route">/t/redeem</span></h3>
+  <p>学生把「福利券」页出示的券码给你，你在讲台前当场核销（或驳回）。每次动作都写操作留痕。</p>
+  <ol class="steps">
+    <li>顶栏点「兑换核销」→ 输入框里敲券码（形如 <code>C46-AB23CD45</code>，大小写都可以）→ 回车或点「检索」。</li>
+    <li>核对结果卡：学生 / 班级 / 券种 / 兑换花费 / 学生当前余额 / 上次处理。</li>
+    <li>点「确认核销」→ 在确认框里再点一次「确认核销」。接着办下一个就点「清空，核销下一张」。</li>
+  </ol>
+  <dl class="row">
+    <dt>提示</dt>
+    <dd>券码字符集里没有 <code>0 O 1 I L</code>——看到这五个字符就是抄错了，让学生重新念一遍。</dd>
+    <dt>别踩</dt>
+    <dd>① 只看得到<b>自己名下班级</b>学生的券，别班的券查不到（页面会提示看不到学生名字就是不在你名下）；② 「确认核销」是终态，核销完不能改判驳回；③ <b>驳回只退券、不退积分</b>；④ 被驳回的券，学生再拿出来给你时可以<b>重新确认核销</b>——这是正常的，不是重复操作报错；⑤ 页面下方「本次会话处理记录」只留最近几条且刷新就清，<b>完整留痕在「审计日志」页</b>。</dd>
+  </dl>
+</div>
+
+<div class="card">
+  <h3><span class="idx">功能 6</span>调关（给学生放行/收回某一关）<span class="route">在看板页 /t/</span></h3>
+  <p>学生卡在某一关打不动时，老师可以手动放行；学生刷得太快也可以收回。</p>
+  <ol class="steps">
+    <li>看板 → 选班级 → 在「学生闯关明细」里找到那个学生 → 点该行的「调关」。</li>
+    <li>弹窗里按单元分组列出全部关卡，看清状态药丸（已通关 / 教师放行 / 教师收回 / 可玩 / 未解锁）。</li>
+    <li>点「放行」或「收回」。学生端刷新即可见。</li>
+  </ol>
+  <div class="tip">调关<b>只影响「能不能打这一关」</b>，不改成绩与 XP；每次调关都会写审计日志。没题的关卡「放行」按钮是灰的（放行也拿不到卷）。</div>
+</div>
+
+<div class="card">
+  <h3><span class="idx">功能 7</span>排行开关（公开排行榜）<span class="route">在看板页 /t/</span></h3>
+  <p>控制本班学生能不能看到排行榜。差距拉得太大时关掉能保护后进学生，氛围恢复了再打开。</p>
+  <ol class="steps">
+    <li>看板 → 先点班级名切到目标班 → 直接拨「公开排行榜」开关（立即生效，没有二次确认）。</li>
+  </ol>
+  <div class="tip">开关作用于<b>看板当前选中的那个班</b>，切班后开关状态跟着目标班走。关闭后看板下方会提示「排行榜已对学生端隐藏（所有 XP 不可见）」。</div>
+  <div class="stop">必须是该班<b>任课教师本人</b>才能拨——校级账号在别的班上拨不动（这是权限设计，不是 bug）。</div>
+</div>
+
+<div class="card">
+  <h3><span class="idx">功能 8</span>导出 <span class="route">看板页「📤 导出平时成绩表」· 审计页「导出 CSV」</span></h3>
+  <p>平时成绩表（Excel）用于交教务；操作留痕（CSV）用于核销/调关的事后对账。</p>
+  <ol class="steps">
+    <li>看板 → 选好班级 → 点「📤 导出平时成绩表」，浏览器直接下载。</li>
+    <li>审计日志页 → 选动作筛选 → 点「导出 CSV」。</li>
+  </ol>
+  <dl class="row">
+    <dt>平时成绩表</dt>
+    <dd>文件名形如「平时成绩_班级名_20261015.xlsx」，共 9 列：学号 / 姓名 / 班级 / 累计 XP / 本周 XP / 通关数 / 正确率 / 连续到课周数 / 预警标记。学号列是文本格式，Excel 打开不会变成科学计数法。</dd>
+    <dt>别踩</dt>
+    <dd>① 导出的是<b>当前选中的那个班</b>，没有「导出全部班」；② <b>列是固定的</b>，不能自选；③ 审计页的 CSV <b>只导当前页</b>（默认一页 20 条），要全量得逐页导。</dd>
+  </dl>
+</div>
+
+<div class="card">
+  <h3><span class="idx">功能 9</span>名单导入 <span class="route">不在教师端 · 服务器侧操作</span></h3>
+  <p>把班级学生名单（班级 / 学号 / 姓名）一次性灌进系统。这一步<b>教师端没有界面</b>，由运维/管理员在试点机上执行，教师只需负责核对结果。</p>
+  <ol class="steps">
+    <li>老师提供名单 Excel（可照 <code>data\班级学生导入模板.xlsx</code> 填，或直接用教务导出的名单）。</li>
+    <li>运维在服务器上执行导入命令，指定这份名单属于哪位教师。</li>
+    <li>导入完成后，老师登录看板，确认班级人数与「学生闯关明细」名单一致。</li>
+  </ol>
+  <dl class="row">
+    <dt>口径</dt>
+    <dd>「初始密码」一列可以留空——留空时初始密码就是学号，学生首登必须改密。名单里没写过的班级会被自动创建并挂到这位教师名下。</dd>
+    <dt>别踩</dt>
+    <dd>① 学号是<b>全库唯一</b>的，名单里重复、或库里已存在都会按行报错；② <b>只要有坏行，整份名单都不会入库</b>，改完重新导入即可（不是「导一半」）；③ 导入的学生第一次登录必须自己改密。</dd>
+  </dl>
+</div>
+
+<h2 id="prep">四、课前 5 分钟自检</h2>
+<p class="kv">上课前站在讲台上照着点一遍，1 分钟就能过完，能挡掉 90% 的课上意外。</p>
+<div class="chk">
+  <ul>
+    <li>教室电脑能打开教师端，账号能登录（不用首登改密）。</li>
+    <li>课中大屏能打开、班级选对、全屏成功（按 F11 也行）。</li>
+    <li>本节课要发的卷已经在学生端「本周练习」里能看到（自己用学生账号看一眼最稳）。</li>
+    <li>手机连着教室同一 Wi‑Fi、能打开学生端地址。</li>
+    <li>知道今天要核销的券是哪种（手里有没有实物券/截图页）。</li>
+    <li>投影电脑的浏览器缩放是 100%（大屏排版按 100% 设计）。</li>
+  </ul>
+</div>
+
+<h2 id="rescue">五、课上应急</h2>
+<table>
+  <thead><tr><th>现象</th><th>先这么办</th></tr></thead>
+  <tbody>
+    <tr><td>学生登录不了</td><td>先确认是<b>新学生还没改过初始密码</b>（首登会强制改密）；再看账号是不是输错（初始密码可能等于学号）。仍不行→告诉运维重置口令。</td></tr>
+    <tr><td>学生看不到今天要发的卷</td><td>检查卷的状态：是不是「草稿」（没发布）、是不是已到期/已关闭、是不是发给了别的班。</td></tr>
+    <tr><td>大屏数字不动</td><td>看页面上的「更新于 … · n 秒后刷新」是否在倒数；点「⟳ 立即刷新」。口径是「今天」，昨晚的数据今天不会出现。</td></tr>
+    <tr><td>大屏刷新失败提示</td><td>页面保留了上一帧，不用重开；等下一轮自动重试。连续失败再叫运维看服务是否活着。</td></tr>
+    <tr><td>券码查不到</td><td>核对是否 <code>C46-</code> 开头、有没有 <code>0 O 1 I L</code>（不会有这五个字符）；确认该学生在你名下班级。</td></tr>
+    <tr><td>券码提示已被处理</td><td>说明这张券已经核销或被驳回过——「已核销」不能改判；「已驳回」可以再确认一次。</td></tr>
+    <tr><td>某学生卡关打不动</td><td>看板找到该学生 →「调关」→ 放行该关。放行只解锁，不改成绩。</td></tr>
+    <tr><td>班级成绩不方便公开</td><td>看板拨「公开排行榜」开关关掉（对当前班立即生效，下次想公开再拨回来）。</td></tr>
+    <tr><td>全屏按钮没反应</td><td>浏览器可能拦了全屏请求：直接按 F11（或投影软件自己的全屏）。不影响数据刷新。</td></tr>
+  </tbody>
+</table>
+
+<h2 id="glossary">六、附：老师常问的口径</h2>
+<table>
+  <thead><tr><th>词</th><th>含义（老师视角）</th></tr></thead>
+  <tbody>
+    <tr><td class="t">XP</td><td>闯关答题挣的经验值。看板上的「本周 XP」「累计 XP」都来自同一本流水账，两处不会对不上。</td></tr>
+    <tr><td class="t">通关</td><td>某一关的题目全部答完并通过。看板明细里的「通关」是<b>本周</b>的通关数。</td></tr>
+    <tr><td class="t">到课闯关率</td><td>本周有闯关记录的学生占全班的比例。</td></tr>
+    <tr><td class="t">预警学生</td><td>连续 2 周闯关少于 1 关的学生（看板明细里带「预警」药丸）。</td></tr>
+    <tr><td class="t">卡关热点</td><td>今天失败次数最多的关卡（爱心扣完判失败才会计入）。</td></tr>
+    <tr><td class="t">易错题榜</td><td>今天答错的人次最多的题目，答错即更新，只显示题号与人数。</td></tr>
+    <tr><td class="t">积分 / 券</td><td>积分是学生用在商城兑换的东西，券是兑换出来的凭证，需要老师核销才算数。<b>核销与驳回都不退积分</b>。</td></tr>
+    <tr><td class="t">首刷</td><td>第一次通过某一关（首刷给的分最多，之后复习性重打只给基础分）。</td></tr>
+  </tbody>
+</table>
+
+<footer>
+  四六级游戏化课堂 · 教师 30 分钟培训页（一期试点）· 生成于 2026-10-15 ·
+  内容口径以教师端界面上的真实文案为准；界面改版后请同时更新本页（源文件：<code>deploy/docs/teacher-training.html</code>）。
+</footer>
+
+</div>
+</body>
+</html>

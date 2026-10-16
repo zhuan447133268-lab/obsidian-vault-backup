@@ -1,0 +1,5 @@
+== 复位后：生产初始口令与首登强改复核  2026-10-15 15:41:59 ==
+校级admin admin 登录=200 mustChangePwd=True 口令长度=15
+   未改密访问 /admin/classes → 403/40302
+任课教师 T2024001 登录=200 mustChangePwd=True 口令长度=15
+   未改密访问 /admin/classes → 403/40302

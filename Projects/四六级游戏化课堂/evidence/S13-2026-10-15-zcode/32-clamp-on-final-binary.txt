@@ -1,0 +1,78 @@
+== S13 速度加成限幅探针 开始 2026-10-15 20:36:14 ==
+   落点：http://127.0.0.1/api（Nginx 80 → Go 8090 → cet46_pilot）
+   探针学生：2405510144（仍持初始口令）
+
+-- ① 首登强制改密门（40302）与改密后旧令牌作废 --
+[OK  ] 初始口令登录成功（期望=200 实际=200）
+[OK  ] 回执带 mustChangePwd=true（期望=True 实际=True）
+[OK  ] 未改密时业务接口被门挡住（40302）（期望=403/40302 实际=403/40302）
+[OK  ] 改密成功（期望=200 实际=200）
+[OK  ] 改密后旧令牌即作废（再访问 401）（期望=401 实际=401）
+[OK  ] 用新口令重新登录（期望=200 实际=200）
+[OK  ] 重新登录后不再要求改密（期望=False 实际=False）
+[OK  ] 业务接口放行（期望=200 实际=200）
+   已解锁未通关：[(1, '听力 · 新闻 3 篇', 7), (8, '听力 · 新闻 3 篇', 7), (15, '阅读 · 选词填空', 10)]
+   选关：#1 听力 · 新闻 3 篇（7 题 · 每题限时 68 秒）
+[OK  ] 取卷 200（期望=200 实际=200）
+[OK  ] 本关是一次全新 attempt（不是断点续答，观测窗口才干净）（期望=False 实际=False）
+[OK  ] 卷面题数 = 题库题数（期望=7 实际=7）
+[OK  ] 每道题都定位到了正确项（期望=7 实际=7）
+
+-- ② 限幅生效（真的隔了 55 秒，却上报 elapsedMs=0）--
+   等待 55 秒，让服务端观测窗口明显大于 0……
+   撒谎：窗口 55 秒 / 报 0             HTTP 200 · 答对=True · xp={"base": 20, "speed": 2, "combo": 0} · 上报=0
+[OK  ] 速度分按观测窗口算（2），不是白拿的 10（期望=2 实际=2）
+[OK  ] 基础分不受影响（答对 20）（期望=20 实际=20）
+
+-- ③ 诚实上报不被误伤（隔 14 秒，报 13000ms）--
+   诚实：窗口 14 秒 / 报 13000         HTTP 200 · 答对=True · xp={"base": 20, "speed": 8, "combo": 5} · 上报=13000
+[OK  ] 诚实上报拿到它应得的速度分 8（一字未改）（期望=8 实际=8）
+
+-- ④ 没上报耗时（elapsedMs 缺省）--
+   无数据：不上报                      HTTP 200 · 答对=True · xp={"base": 20, "speed": 0, "combo": 10} · 上报=None
+[OK  ] 没上报时速度分为 0（不给「没数据」送满分）（期望=0 实际=0）
+
+-- ⑤ 打完剩下的 4 题，触发结算 --
+   补完：报 5000                    HTTP 200 · 答对=True · xp={"base": 20, "speed": 9, "combo": 15} · 上报=5000
+[OK  ] 补完的题答对（0 失误才有三星）（期望=True 实际=True）
+   补完：报 5000                    HTTP 200 · 答对=True · xp={"base": 20, "speed": 9, "combo": 20} · 上报=5000
+[OK  ] 补完的题答对（0 失误才有三星）（期望=True 实际=True）
+   补完：报 5000                    HTTP 200 · 答对=True · xp={"base": 20, "speed": 9, "combo": 25} · 上报=5000
+[OK  ] 补完的题答对（0 失误才有三星）（期望=True 实际=True）
+   补完：报 5000                    HTTP 200 · 答对=True · xp={"base": 20, "speed": 9, "combo": 30} · 上报=5000
+[OK  ] 补完的题答对（0 失误才有三星）（期望=True 实际=True）
+[OK  ] 本次闯关最终状态 finished（期望=finished 实际=finished）
+[OK  ] 结算回执存在（期望=yes 实际=yes）
+   结算：{"isBoss": false, "correct": 7, "total": 7, "ratio": 1, "stars": 3, "score710": 0, "xpRows": [{"reason": "answer_base", "label": "答题基础分", "delta": 140}, {"reason": "answer_speed", "label": "速度加成", "delta": 46}, {"reason": "answer_combo", "label": "连击加成", "delta": 105}, {"reason": "level_clear", "label": "通关奖励", "delta": 30}, {"reason": "star3_bonus", "label": "三星奖励", "delta": 20}], "xpTotal": 341, "xpTotalAll": 341, "firstClear": true, "replay": false, "review": [{"no": 1, "questionId": 1, "type": "listening", "tip": "", "isCorrect": true}, {"no": 2, "questionId": 2, "type": "listening", "tip": "", "isCorrect": true}, {"no": 3, "questionId": 3, "type": "listening", "tip": "", "isCorrect": true}, {"no": 4, "questionId": 4, "type": "listening", "tip": "", "isCorrect": true}, {"no": 5, "questionId": 5, "type": "listening", "tip": "", "isCorrect": true}, {"no": 6, "questionId": 6, "type": "listening", "tip": "", "isCorrect": true}, {"no": 7, "questionId": 7, "type": "listening", "tip": "", "isCorrect": true}], "practice": false}
+
+-- ⑥ 账本对账（结算后）--
+   账本明细（按 reason 合并）：{"answer_base": 140, "answer_speed": 46, "answer_combo": 105, "level_clear": 30, "star3_bonus": 20}
+   账本逐条流水：
+     answer_base        +20
+     answer_speed       +2
+     answer_base        +20
+     answer_speed       +8
+     answer_combo       +5
+     answer_base        +20
+     answer_combo       +10
+     answer_base        +20
+     answer_speed       +9
+     answer_combo       +15
+     answer_base        +20
+     answer_speed       +9
+     answer_combo       +20
+     answer_base        +20
+     answer_speed       +9
+     answer_combo       +25
+     answer_base        +20
+     answer_speed       +9
+     answer_combo       +30
+     level_clear        +30
+     star3_bonus        +20
+[OK  ] attempts.xp_earned == 账本求和（期望=341 实际=341）
+[OK  ] 答题行数 = 题数（期望=7 实际=7）
+[OK  ] 基础分合计 = 题数 × 20（期望=140 实际=140）
+[OK  ] 通关分 30（期望=30 实际=30）
+[OK  ] 三星奖励 20（期望=20 实际=20）
+
+== 探针结束：断言 27 条 / 失败 0 ==

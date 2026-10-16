@@ -1,0 +1,162 @@
+[21:46:53] 名单 CSV 行数=41
+[21:46:57] 首进必选目标弹层：已选四级关闭（地图首屏）
+[21:46:57] [390x844] 登录态：高琪越（2405510103）lv=1 目标=4，视口 {'width': 390, 'height': 844}
+[21:46:58] 截图 01-map-top-390x844.png (859577 字节)
+[21:46:59] 截图 02-map-practice-strip-390x844.png (865401 字节)
+[21:46:59] F.map_go       .node.current .card .go        -> 3 个，高 [44, 44, 44] / 宽 [104.6, 104.6, 104.6]（最小边 44.0）
+[21:46:59] F.strip        .strip                         -> 4 个，高 [45, 45, 45, 45] / 宽 [312, 312, 312, 312]（最小边 45.0）
+[21:47:00] 截图 03-map-unit11-390x844.png (541146 字节)
+[21:47:02] 截图 04-quiz-cloze-blank1-390x844.png (324876 字节)
+[21:47:02] F.quit         .quit                          -> 1 个，高 [44] / 宽 [44]（最小边 44.0）
+[21:47:03] A@390x844 视口高=844 scrollY=0 docH=844 面板高=342 layout顶=502 rect顶=502 maxH=56% 可视带=34
+[21:47:03]    正确项「I physical」：444~492（高 48）露出 24 px（50%）上面板=True 重叠=0 命中=True/wtext
+[21:47:03]    自己选的项「A awareness」：220~268（高 48）露出 0 px（0%）上面板=True 重叠=0 命中=False/qtext passage
+[21:47:03] 截图 05-A-feedback-390x844.png (473885 字节)
+[21:47:03] 复位检查：pad= scrollTop=0（清空=True / 归零=True）
+[21:47:03] 计分关词表：第 1 空 15 词，与第 2 空同序=True
+[21:47:04] 截图 06-graded-blank2-feedback-390x844.png (465377 字节)
+[21:47:05] 退出关卡落点=/s/（对话框=False）
+[21:47:07] 重进关第 1 空词表与首次一致=True
+[21:47:09] 截图 07-practice-cloze-blank1-390x844.png (325444 字节)
+[21:47:20] B sweep@practice_cloze_10blanks：10 空，词表逐空同序=True，面板字母==界面字母=False（空1:N, 空2:None, 空3:I, 空4:K, 空5:F, 空6:O, 空7:C, 空8:G, 空9:J, 空10:D）
+[21:47:20] 截图 08-practice-cloze-after-10-390x844.png (453221 字节)
+[21:47:22] 截图 10-me-account-card-390x844.png (421321 字节)
+[21:47:22] F.accbtn       .accbtn                        -> 2 个，高 [44, 44] / 宽 [170, 170]（最小边 44.0）
+[21:47:22] F.me_entry     .entry                         -> 1 个，高 [44] / 宽 [350]（最小边 44.0）
+[21:47:22] F.me_review_go .review .go                    -> 1 个，高 [44] / 宽 [192]（最小边 44.0）
+[21:47:22] F.me_back      .back                          -> 1 个，高 [44] / 宽 [350]（最小边 44.0）
+[21:47:23] 截图 11-me-top-390x844.png (421321 字节)
+[21:47:24] F.rank_switch  .switch                        -> 1 个，高 [24] / 宽 [44]（最小边 24.0）
+[21:47:24] 截图 12-rank-390x844.png (383594 字节)
+[21:47:26] F.team_pick    .pick-btn                      -> 6 个，高 [44, 44, 44, 44, 44, 44] / 宽 [44, 44, 44, 44, 44, 44]（最小边 44.0）
+[21:47:26] 截图 13-team-390x844.png (302660 字节)
+[21:47:29] F.me_back      .back                          -> 1 个，高 [44] / 宽 [44]（最小边 44.0）
+[21:47:29] 截图 14-review-390x844.png (321392 字节)
+[21:47:30] F.me_back      .back                          -> 1 个，高 [44] / 宽 [44]（最小边 44.0）
+[21:47:30] 截图 15-ledger-390x844.png (210954 字节)
+[21:47:32] 首进必选目标弹层：已选四级关闭（地图首屏）
+[21:47:33] [390x700] 登录态：高琪越（2405510103）lv=1 目标=4，视口 {'width': 390, 'height': 700}
+[21:47:35] 截图 04-quiz-cloze-blank1-390x700.png (296823 字节)
+[21:47:35] F.quit         .quit                          -> 1 个，高 [44] / 宽 [44]（最小边 44.0）
+[21:47:35] A@390x700 视口高=700 scrollY=0 docH=700 面板高=322 layout顶=492 rect顶=378 maxH=46% 可视带=24
+[21:47:35]    正确项「F offers」：434~482（高 48）露出 14 px（29%）上面板=True 重叠=0 命中=False/fbtext
+[21:47:35]    自己选的项「A awareness」：322~370（高 48）露出 0 px（0%）上面板=True 重叠=0 命中=False/van-popup van-popup--center van-toast van-toast--middle van-toast--text
+[21:47:36] 截图 09-A-feedback-390x700.png (425528 字节)
+[21:47:36] 短屏复位检查：pad= scrollTop=0（清空=True / 归零=True）
+[21:48:06] [390x700] 流程异常：
+Traceback (most recent call last):
+  File "C:\Users\dfjq\AppData\Local\Temp\s13_recheck.py", line 397, in run_viewport
+    answer_current(pg)
+    ~~~~~~~~~~~~~~^^^^
+  File "C:\Users\dfjq\AppData\Local\Temp\s13_recheck.py", line 225, in answer_current
+    pg.locator(".opt").nth(0).click()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\dfjq\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\sync_api\_generated.py", line 17672, in click
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.click(
+        ^^^^^^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+        )
+        ^
+    )
+    ^
+  File "C:\Users\dfjq\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "C:\Users\dfjq\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_locator.py", line 163, in click
+    return await self._frame._click(self._selector, strict=True, **params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dfjq\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_frame.py", line 591, in _click
+    await self._channel.send("click", self._timeout, locals_to_params(locals()))
+  File "C:\Users\dfjq\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\dfjq\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_connection.py", line 563, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".opt").first
+    - locator resolved to <div class="opt" data-v-a7fe5175="">…</div>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div class="result" data-v-8f1188ad="">…</div> from <div class="overlay" data-v-8f1188ad="">…</div> subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <div class="result" data-v-8f1188ad="">…</div> from <div class="overlay" data-v-8f1188ad="">…</div> subtree intercepts pointer events
+  2 × retrying click action
+      - waiting 100ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <button class="ghost" data-v-8f1188ad=""> 先回地图 🗺️ </button> from <div class="overlay" data-v-8f1188ad="">…</div> subtree intercepts pointer events
+  13 × retrying click action
+       - waiting 500ms
+       - waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <div class="result" data-v-8f1188ad="">…</div> from <div class="overlay" data-v-8f1188ad="">…</div> subtree intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+       - waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <div class="result" data-v-8f1188ad="">…</div> from <div class="overlay" data-v-8f1188ad="">…</div> subtree intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+       - waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <button class="ghost" data-v-8f1188ad=""> 先回地图 🗺️ </button> from <div class="overlay" data-v-8f1188ad="">…</div> subtree intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+       - waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <button class="ghost" data-v-8f1188ad=""> 先回地图 🗺️ </button> from <div class="overlay" data-v-8f1188ad="">…</div> subtree intercepts pointer events
+  2 × retrying click action
+      - waiting 500ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div class="result" data-v-8f1188ad="">…</div> from <div class="overlay" data-v-8f1188ad="">…</div> subtree intercepts pointer events
+  - retrying click action
+    - waiting 500ms
+
+
+[21:48:07] 截图 20-E-login-390x844.png (134815 字节)
+[21:48:07] E 用初始态学生：郝孜菡（2405510106）
+[21:48:09] 首登落点 path=/s/chpwd 门标题=先改个好记的密码
+[21:48:09] 截图 21-E-forced-chpwd-390x844.png (156192 字节)
+[21:48:09] 改密前业务接口：{'code': 40302, 'message': '首次登录须先修改初始密码'}
+[21:48:11] 改密后 path=/s/login（旧令牌按设计即刻作废，需重登）
+[21:48:11] 截图 22-E-after-chpwd-390x844.png (143949 字节)
+[21:48:14] 新口令重登落点 path=/s/
+[21:48:15] 首进必选目标弹层：已选四级关闭（E 重登后）
+[21:48:15] 截图 23-E-relogin-map-390x844.png (869216 字节)
+[21:48:16] 截图 24-E-me-account-card-390x844.png (302333 字节)
+[21:48:16] 账户卡两颗按钮：[(170, 44, '🔑 修改密码'), (170, 44, '🚪 退出登录')]
+[21:48:18] 主动改密入口：path=/s/chpwd 标题=修改密码
+[21:48:18] 截图 25-E-voluntary-chpwd-390x844.png (135492 字节)
+[21:48:21] 退出确认弹层：None
+[21:48:21] 退出后 path=/s/login token=None
+[21:48:21] 截图 26-E-after-logout-390x844.png (134815 字节)
+[21:48:23] 退出后再登落点 path=/s/
+[21:48:24] 截图 27-E-login-again-map-390x844.png (864673 字节)
+[21:48:25] 完成：measurements.json + run.log 已落盘；错误 1 条

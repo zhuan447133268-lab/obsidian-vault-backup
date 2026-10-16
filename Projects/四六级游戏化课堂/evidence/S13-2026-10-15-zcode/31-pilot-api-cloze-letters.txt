@@ -1,0 +1,15 @@
+运行中的试点（http://127.0.0.1/api，Nginx→8090→cet46_pilot）· 选词填空卷面字母独立核对
+口径：cloze 是整关共用一张词表，卷面 10 道空的 options 数组必须逐字一致；字母 = 数组下标 A=0。
+
+1) 初始口令登录 → HTTP 200 · code=0 · mustChangePwd=True
+2) 未改密访问业务接口 → HTTP 403 · code=40302（应为 403/40302）
+3) 改密 → HTTP 200 · code=0
+4) 新口令重登 → HTTP 200 · mustChangePwd=False
+5) 取卷 → HTTP 200 · attempt=2 · 题数 10 · 题型：['cloze']
+6) 词表（options 数组）不同版本数：1（应为 1）
+   题数 10 · 词表长度 15
+   词表： A) awareness B) canceling C) controversial D) emptiness E) monstrous F) offers G) parallels H) permanently I) physical J) prepare K) prospects L) quitting M) shed N) significantly O) trigger
+   词 physical   → 卷面字母 I（A=0 起）
+
+结论：通过 —— 卷面 10 道空共用同一份词表、同一个词跨空字母一致。
+注：本条从**运行中的试点服务**取真实卷面，与单测（源码层）、移动视口复测（界面层）构成三条独立证据。

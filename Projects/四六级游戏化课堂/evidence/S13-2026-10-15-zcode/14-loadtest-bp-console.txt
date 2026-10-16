@@ -1,0 +1,5 @@
+[2026-10-15 16:31:44,770] DESKTOP-J2D0S0F/INFO/locust.main: Starting Locust 2.46.7
+[2026-10-15 16:31:44,771] DESKTOP-J2D0S0F/INFO/locust.main: Run time limit set to 100 seconds
+[2026-10-15 16:31:47,738] DESKTOP-J2D0S0F/INFO/locust.runners: Ramping to 40 users at a rate of 40.00 per second
+[2026-10-15 16:31:47,742] DESKTOP-J2D0S0F/INFO/locust.runners: All users spawned: {"StudentUser": 40} (40 total users)
+[2026-10-15 16:33:24,582] DESKTOP-J2D0S0F/INFO/locust.main: --run-time limit reached, shutting down

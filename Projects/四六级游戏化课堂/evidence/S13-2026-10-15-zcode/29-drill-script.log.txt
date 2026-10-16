@@ -1,0 +1,31 @@
+使用备份：cet46_pilot-20261015-143228.sql（504 KB）
+[14:35:40] 恢复演练开始（模式 InPlace，目标库 cet46_pilot）
+[14:35:40] 备份文件：D:\cet46-pilot\backup\cet46_pilot-20261015-143228.sql（516397 字节）
+[14:35:40] ① 恢复前记录在线库计数
+[14:35:40]    before tables=17
+[14:35:40]    before users=43
+[14:35:40]    before classes=1
+[14:35:40]    before units=3
+[14:35:40]    before levels=18
+[14:35:40]    before questions=140
+[14:35:40]    before attempts=1
+[14:35:40]    before attempt_answers=7
+[14:35:40]    before xp_ledger=5
+[14:35:40] ② 停止后端服务（恢复期间不写库）
+[14:35:42] ③ 干净建库 cet46_pilot
+[14:35:42] ④ 从备份导入（source D:\cet46-pilot\backup\cet46_pilot-20261015-143228.sql）
+[14:35:43]    导入完成
+[14:35:43]    after  tables=17
+[14:35:43]    after  users=43
+[14:35:43]    after  classes=1
+[14:35:43]    after  units=3
+[14:35:43]    after  levels=18
+[14:35:43]    after  questions=140
+[14:35:43]    after  attempts=1
+[14:35:43]    after  attempt_answers=7
+[14:35:43]    after  xp_ledger=5
+[14:35:43] ⑤ 重启后端服务
+[14:35:44] ⑥ 服务已连上新库：/api/health → {"code":0,"message":"ok","data":{"status":"ok","env":"production","driver":"mysql","tables":17}}
+[14:35:44] 演练结果：成功（数据一致 + 服务可用）
+
+=== 实录已落盘：D:\cet46-pilot\logs\restore-drill-20261015-143540.txt ===

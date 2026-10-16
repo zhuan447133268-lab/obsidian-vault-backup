@@ -1,0 +1,265 @@
+{
+  "base": "http://127.0.0.1:8080/api",
+  "teacher": {
+    "username": "T1201",
+    "name": "S12验收教师",
+    "id": 373,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjM3MywidW5hbWUiOiJUMTIwMSIsInJvbGUiOiJ0ZWFjaGVyIiwicHYiOiI1ZTNjNzlkZGI5MjFjNzhkIiwiaXNzIjoiY2V0NDYiLCJzdWIiOiIzNzMiLCJleHAiOjE3OTI2NzA1ODIsImlhdCI6MTc5MjA2NTc4Mn0.iw5IEeyG7xXyyyOVwcpI32aExT1OUNdcS-W-ugVK3fY"
+  },
+  "otherTeacher": {
+    "username": "T1202",
+    "name": "S12无关教师",
+    "id": 374,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjM3NCwidW5hbWUiOiJUMTIwMiIsInJvbGUiOiJ0ZWFjaGVyIiwicHYiOiJlMTI0MjhkYTZiODM2N2JlIiwiaXNzIjoiY2V0NDYiLCJzdWIiOiIzNzQiLCJleHAiOjE3OTI2NzA1ODIsImlhdCI6MTc5MjA2NTc4Mn0.VySlSIoai_npH7g0QV0YkGPuyggk7dSMRvupnbsOZ_Q"
+  },
+  "admin": {
+    "username": "A1201",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjM3MiwidW5hbWUiOiJBMTIwMSIsInJvbGUiOiJhZG1pbiIsInB2IjoiMGY5NmFlNzZhMTMzYzBkOSIsImlzcyI6ImNldDQ2Iiwic3ViIjoiMzcyIiwiZXhwIjoxNzkyNjcwNTgyLCJpYXQiOjE3OTIwNjU3ODJ9.rp9bpFsEnPcmpTBt_bk3dSNHVfarqSSQdFA70iO9YnU"
+  },
+  "classes": {
+    "S12验收1班": 107,
+    "S12隔壁班": 110,
+    "S12赛季验收班": 108,
+    "S12一人班": 109
+  },
+  "classOwner": {
+    "S12验收1班": "T1201",
+    "S12隔壁班": "T1202",
+    "S12赛季验收班": "T1201",
+    "S12一人班": "T1201"
+  },
+  "coupons": {
+    "免迟到券": 59,
+    "双免卡": 60,
+    "隔壁班券": 61
+  },
+  "couponSpec": {
+    "免迟到券": {
+      "class": "S12验收1班",
+      "cost": 300,
+      "stock": 10,
+      "limit": 3
+    },
+    "双免卡": {
+      "class": "S12验收1班",
+      "cost": 500,
+      "stock": 3,
+      "limit": 1
+    },
+    "隔壁班券": {
+      "class": "S12隔壁班",
+      "cost": 200,
+      "stock": 2,
+      "limit": 1
+    }
+  },
+  "levels": {
+    "1": {
+      "id": 1117,
+      "seq": 1,
+      "name": "词汇一"
+    },
+    "2": {
+      "id": 1118,
+      "seq": 2,
+      "name": "词汇二"
+    },
+    "3": {
+      "id": 1119,
+      "seq": 3,
+      "name": "词汇三"
+    }
+  },
+  "leagueXP": {
+    "S12L01": [
+      450,
+      900
+    ],
+    "S12L02": [
+      425,
+      850
+    ],
+    "S12L03": [
+      400,
+      800
+    ],
+    "S12L04": [
+      375,
+      750
+    ],
+    "S12L05": [
+      350,
+      700
+    ],
+    "S12L06": [
+      350,
+      700
+    ],
+    "S12L07": [
+      325,
+      650
+    ],
+    "S12L08": [
+      300,
+      600
+    ],
+    "S12L09": [
+      275,
+      550
+    ],
+    "S12L10": [
+      250,
+      500
+    ],
+    "S12L11": [
+      225,
+      450
+    ],
+    "S12L12": [
+      200,
+      400
+    ]
+  },
+  "leaguePlan": {
+    "weekStart": "2026-10-12",
+    "weekIndex": 40,
+    "seasonBegin": "2026-10-12",
+    "seasonEnd": "2026-10-25",
+    "prevBegin": "2026-09-28",
+    "prevEnd": "2026-10-11",
+    "seedPastAt": "2026-10-07 20:00:00",
+    "seedWeekAt": "2026-10-15 17:03:02",
+    "pastSeasonSettle": "2026-10-11T23:00:00+08:00",
+    "weekSettle": "2026-10-18T23:00:00+08:00"
+  },
+  "students": {
+    "S12A01": {
+      "name": "测试S12A一号",
+      "id": 535,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjUzNSwidW5hbWUiOiJTMTJBMDEiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiYTgwNzZmMTEzODY1MGQ4NCIsImlzcyI6ImNldDQ2Iiwic3ViIjoiNTM1IiwiZXhwIjoxNzkyNjcwNTg5LCJpYXQiOjE3OTIwNjU3ODl9.WM6iSidxybZFuxGZsYH5rt4WTxZJTAJaGmSJbxGTyRI",
+      "class": "S12验收1班"
+    },
+    "S12A02": {
+      "name": "测试S12A二号",
+      "id": 536,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjUzNiwidW5hbWUiOiJTMTJBMDIiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiYzMxYjZjZGU1ZTQwNzc0MyIsImlzcyI6ImNldDQ2Iiwic3ViIjoiNTM2IiwiZXhwIjoxNzkyNjcwNTg5LCJpYXQiOjE3OTIwNjU3ODl9.ISd3THJFq63CxZ4I97HIzBtwZ8YCuJ-HO-xso0CGSfA",
+      "class": "S12验收1班"
+    },
+    "S12A03": {
+      "name": "测试S12A三号",
+      "id": 537,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjUzNywidW5hbWUiOiJTMTJBMDMiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiZmE4N2VjMDMzN2IwMGY4OSIsImlzcyI6ImNldDQ2Iiwic3ViIjoiNTM3IiwiZXhwIjoxNzkyNjcwNTg5LCJpYXQiOjE3OTIwNjU3ODl9.uUgCoOSl20wZNQMN3rEX-_by2i3FlJCGLigaXKgI1lM",
+      "class": "S12验收1班"
+    },
+    "S12A04": {
+      "name": "测试S12A四号",
+      "id": 538,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjUzOCwidW5hbWUiOiJTMTJBMDQiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiOTdlMWE2ZGU5NTQ3MzM5ZSIsImlzcyI6ImNldDQ2Iiwic3ViIjoiNTM4IiwiZXhwIjoxNzkyNjcwNTkwLCJpYXQiOjE3OTIwNjU3OTB9.MONudWjnIgSAa1nbjRHoVPryx5IWX3R-BIs_n38uiQU",
+      "class": "S12验收1班"
+    },
+    "S12A05": {
+      "name": "测试S12A五号",
+      "id": 539,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjUzOSwidW5hbWUiOiJTMTJBMDUiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiMjFlOWQ5NjczNmI4NDllYiIsImlzcyI6ImNldDQ2Iiwic3ViIjoiNTM5IiwiZXhwIjoxNzkyNjcwNTkwLCJpYXQiOjE3OTIwNjU3OTB9.NbM3-fXWNVTaVsCNrP5VLfNBe7F1BLFvbdSu0njcSic",
+      "class": "S12验收1班"
+    },
+    "S12A06": {
+      "name": "测试S12A六号",
+      "id": 540,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjU0MCwidW5hbWUiOiJTMTJBMDYiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiN2M0OTlhNzU3NzA2NGE0ZCIsImlzcyI6ImNldDQ2Iiwic3ViIjoiNTQwIiwiZXhwIjoxNzkyNjcwNTkwLCJpYXQiOjE3OTIwNjU3OTB9.jvpIPDjk9gU2U3WcEvILTARelRlsWDBoDrsJ6vdFsd8",
+      "class": "S12验收1班"
+    },
+    "S12B01": {
+      "name": "隔壁班学生",
+      "id": 554,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjU1NCwidW5hbWUiOiJTMTJCMDEiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiMGU5MDJjMjE4ZDJkNWMzMSIsImlzcyI6ImNldDQ2Iiwic3ViIjoiNTU0IiwiZXhwIjoxNzkyNjcwNTkxLCJpYXQiOjE3OTIwNjU3OTF9.5nHUMr5a8ZxNzXo-ig4hk-A1U2JAOd1qQV6_j2mVOME",
+      "class": "S12隔壁班"
+    },
+    "S12L01": {
+      "name": "S12榜上01号",
+      "id": 541,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjU0MSwidW5hbWUiOiJTMTJMMDEiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiOTI3YWYwMzcwZTYzN2Q0ZCIsImlzcyI6ImNldDQ2Iiwic3ViIjoiNTQxIiwiZXhwIjoxNzkyNjcwNTkxLCJpYXQiOjE3OTIwNjU3OTF9.lRYzM5KE7LgTz5vAX1aacMXvJd8HxX1nBmbGOspPmAE",
+      "class": "S12赛季验收班"
+    },
+    "S12L02": {
+      "name": "S12榜上02号",
+      "id": 542,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjU0MiwidW5hbWUiOiJTMTJMMDIiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiMGVjNDhlN2ZjZGRhN2QxOCIsImlzcyI6ImNldDQ2Iiwic3ViIjoiNTQyIiwiZXhwIjoxNzkyNjcwNTkxLCJpYXQiOjE3OTIwNjU3OTF9.qZDNBEunu_WDIjJ21xHNO4QE6YGeTTr8fH5pw-g9VlQ",
+      "class": "S12赛季验收班"
+    },
+    "S12L03": {
+      "name": "S12榜上03号",
+      "id": 543,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjU0MywidW5hbWUiOiJTMTJMMDMiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiYTI1Mjk5NTZmMmZhZjYwYyIsImlzcyI6ImNldDQ2Iiwic3ViIjoiNTQzIiwiZXhwIjoxNzkyNjcwNTkyLCJpYXQiOjE3OTIwNjU3OTJ9.e2IZ1MdNXwPq9Tl8VG7rnH5IDg2jN4hUCXaLUKX_kIk",
+      "class": "S12赛季验收班"
+    },
+    "S12L04": {
+      "name": "S12榜上04号",
+      "id": 544,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjU0NCwidW5hbWUiOiJTMTJMMDQiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiOGIwOTM3ZWQ1ZGQwMmRiNSIsImlzcyI6ImNldDQ2Iiwic3ViIjoiNTQ0IiwiZXhwIjoxNzkyNjcwNTkyLCJpYXQiOjE3OTIwNjU3OTJ9.NqKwqGof7cYlu1dgobmw55cu6tOBUB6PBgZ8usVwbe4",
+      "class": "S12赛季验收班"
+    },
+    "S12L05": {
+      "name": "S12榜上05号",
+      "id": 545,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjU0NSwidW5hbWUiOiJTMTJMMDUiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiN2QwYjA4ZDRiMmQzZGNlZCIsImlzcyI6ImNldDQ2Iiwic3ViIjoiNTQ1IiwiZXhwIjoxNzkyNjcwNTkyLCJpYXQiOjE3OTIwNjU3OTJ9.Z7xbqohVK8nbGUPVORmuMgDLzp9TUVxkun_A-UkcOfI",
+      "class": "S12赛季验收班"
+    },
+    "S12L06": {
+      "name": "S12榜上06号",
+      "id": 546,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjU0NiwidW5hbWUiOiJTMTJMMDYiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiNTg4MTY0MGMxNzIzODBhZCIsImlzcyI6ImNldDQ2Iiwic3ViIjoiNTQ2IiwiZXhwIjoxNzkyNjcwNTkzLCJpYXQiOjE3OTIwNjU3OTN9.Ax98oM83-U6Kpkkry2ThM9mdYkCYWa7JZw6g-x-_dAc",
+      "class": "S12赛季验收班"
+    },
+    "S12L07": {
+      "name": "S12榜上07号",
+      "id": 547,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjU0NywidW5hbWUiOiJTMTJMMDciLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiMzczNDFkOThhZGQyMTgyZSIsImlzcyI6ImNldDQ2Iiwic3ViIjoiNTQ3IiwiZXhwIjoxNzkyNjcwNTkzLCJpYXQiOjE3OTIwNjU3OTN9.DVDaJuW5J4VaD5hja5Hx2Z9oNLVDnlvRflnaIUN6Exk",
+      "class": "S12赛季验收班"
+    },
+    "S12L08": {
+      "name": "S12榜上08号",
+      "id": 548,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjU0OCwidW5hbWUiOiJTMTJMMDgiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiZDUzNzI0ZGJhOGY2ZjZmOSIsImlzcyI6ImNldDQ2Iiwic3ViIjoiNTQ4IiwiZXhwIjoxNzkyNjcwNTkzLCJpYXQiOjE3OTIwNjU3OTN9.AQA8n_wSO7khMDJIXh4VBO2s2J6rUjrXWDtBuymgZYs",
+      "class": "S12赛季验收班"
+    },
+    "S12L09": {
+      "name": "S12榜上09号",
+      "id": 549,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjU0OSwidW5hbWUiOiJTMTJMMDkiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiZTY3NzJlMWJkMzYxNzhlYiIsImlzcyI6ImNldDQ2Iiwic3ViIjoiNTQ5IiwiZXhwIjoxNzkyNjcwNTk0LCJpYXQiOjE3OTIwNjU3OTR9.2-dwrrIJxvb3hyXeYgbsSKxFxctytOP92Ios6ixfuiY",
+      "class": "S12赛季验收班"
+    },
+    "S12L10": {
+      "name": "S12榜上10号",
+      "id": 550,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjU1MCwidW5hbWUiOiJTMTJMMTAiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiMjFmMWEyMmMwYzVjYzc4ZiIsImlzcyI6ImNldDQ2Iiwic3ViIjoiNTUwIiwiZXhwIjoxNzkyNjcwNTk0LCJpYXQiOjE3OTIwNjU3OTR9.HaGmeA4_IQY5T4DO74dWq_8BRbAPBeMVQ7mfkZDaVFo",
+      "class": "S12赛季验收班"
+    },
+    "S12L11": {
+      "name": "S12榜上11号",
+      "id": 551,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjU1MSwidW5hbWUiOiJTMTJMMTEiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiNmQ2OWYyMTVmMzZhMTA5YSIsImlzcyI6ImNldDQ2Iiwic3ViIjoiNTUxIiwiZXhwIjoxNzkyNjcwNTk1LCJpYXQiOjE3OTIwNjU3OTV9.cGPYQWdidCeB_0UOW4sK4Enxwom-sTF3LSiSG_c28qQ",
+      "class": "S12赛季验收班"
+    },
+    "S12L12": {
+      "name": "S12榜上12号",
+      "id": 552,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjU1MiwidW5hbWUiOiJTMTJMMTIiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiOTAzNTY2YjBiMmEwMDI4OCIsImlzcyI6ImNldDQ2Iiwic3ViIjoiNTUyIiwiZXhwIjoxNzkyNjcwNTk1LCJpYXQiOjE3OTIwNjU3OTV9.rMCKFdWeIunBk13Y7O5IpSntu86c7L4aPPPl16agxtg",
+      "class": "S12赛季验收班"
+    },
+    "S12C01": {
+      "name": "独苗同学",
+      "id": 553,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjU1MywidW5hbWUiOiJTMTJDMDEiLCJyb2xlIjoic3R1ZGVudCIsInB2IjoiNzY5Y2IxODlmMGY4Y2JiZiIsImlzcyI6ImNldDQ2Iiwic3ViIjoiNTUzIiwiZXhwIjoxNzkyNjcwNTk1LCJpYXQiOjE3OTIwNjU3OTV9.7qs66Dalj1M5IwHl9W2J9_llwDQUUQ6oAcDG_p6q284",
+      "class": "S12一人班"
+    }
+  },
+  "seedXP": {
+    "main": 1200,
+    "next": 600
+  },
+  "passwd": {
+    "init": "Init@2026",
+    "now": "S12Accept@2026"
+  }
+}

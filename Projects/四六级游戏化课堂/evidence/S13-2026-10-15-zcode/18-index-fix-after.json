@@ -1,0 +1,142 @@
+{
+  "label": "after",
+  "students": 41,
+  "indexes_present": [
+    "idx_xp_ledger_ref",
+    "idx_xp_ledger_user_created",
+    "idx_xp_ledger_user_delta"
+  ],
+  "cases": [
+    {
+      "title": "看板·按用户求和 XP（覆盖索引 user_id,delta）",
+      "explain": {
+        "table": "xp_ledger",
+        "type": "index",
+        "key": "idx_xp_ledger_user_delta",
+        "rows": "53105",
+        "Extra": "Using where; Using index"
+      },
+      "as_is": {
+        "ok": true,
+        "note": "按当前索引状态",
+        "ms_med": 19.05,
+        "ms_min": 18.48,
+        "ms_max": 19.17,
+        "pages_per_query": 911.0,
+        "rows_per_query": 55006.0,
+        "reps": 5
+      },
+      "ignored": {
+        "ok": true,
+        "note": "IGNORE INDEX idx_xp_ledger_user_delta：模拟没有该索引时的行为",
+        "ms_med": 114.23,
+        "ms_min": 110.36,
+        "ms_max": 117.19,
+        "pages_per_query": 165930.0,
+        "rows_per_query": 55006.0,
+        "reps": 5
+      },
+      "explain_ignored": {
+        "table": "xp_ledger",
+        "type": "index",
+        "key": "idx_xp_ledger_user_id",
+        "rows": "53105",
+        "Extra": "Using where"
+      }
+    },
+    {
+      "title": "登录/地图·连续周派生-旧写法（整本账搬回 Go）",
+      "explain": {
+        "table": "xp_ledger",
+        "type": "index",
+        "key": "idx_xp_ledger_user_created",
+        "rows": "53105",
+        "Extra": "Using where; Using index"
+      },
+      "as_is": {
+        "ok": true,
+        "note": "按当前索引状态",
+        "ms_med": 62.16,
+        "ms_min": 60.52,
+        "ms_max": 70.75,
+        "pages_per_query": 1026.0,
+        "rows_per_query": 55006.0,
+        "reps": 5
+      }
+    },
+    {
+      "title": "登录/地图·连续周派生-新写法（按天分组）",
+      "explain": {
+        "table": "xp_ledger",
+        "type": "index",
+        "key": "idx_xp_ledger_user_created",
+        "rows": "53105",
+        "Extra": "Using where; Using index; Using temporary"
+      },
+      "as_is": {
+        "ok": true,
+        "note": "按当前索引状态",
+        "ms_med": 35.55,
+        "ms_min": 33.89,
+        "ms_max": 36.86,
+        "pages_per_query": 1026.0,
+        "rows_per_query": 55006.0,
+        "reps": 5
+      },
+      "ignored": {
+        "ok": true,
+        "note": "IGNORE INDEX idx_xp_ledger_user_created：模拟没有该索引时的行为",
+        "ms_med": 37.75,
+        "ms_min": 37.02,
+        "ms_max": 38.09,
+        "pages_per_query": 948.0,
+        "rows_per_query": 55006.0,
+        "reps": 5
+      },
+      "explain_ignored": {
+        "table": "xp_ledger",
+        "type": "ALL",
+        "key": "NULL",
+        "rows": "53105",
+        "Extra": "Using where; Using temporary"
+      }
+    },
+    {
+      "title": "交卷·按单据查流水（索引 ref_type,ref_id）",
+      "explain": {
+        "table": "xp_ledger",
+        "type": "ref",
+        "key": "idx_xp_ledger_ref",
+        "rows": "2",
+        "Extra": "Using temporary"
+      },
+      "as_is": {
+        "ok": true,
+        "note": "按当前索引状态",
+        "ms_med": 0.54,
+        "ms_min": 0.4,
+        "ms_max": 0.63,
+        "pages_per_query": 13.0,
+        "rows_per_query": 2.0,
+        "reps": 5
+      },
+      "ignored": {
+        "ok": true,
+        "note": "IGNORE INDEX idx_xp_ledger_ref：模拟没有该索引时的行为",
+        "ms_med": 21.34,
+        "ms_min": 20.58,
+        "ms_max": 22.07,
+        "pages_per_query": 411.0,
+        "rows_per_query": 55006.0,
+        "reps": 5
+      },
+      "explain_ignored": {
+        "table": "xp_ledger",
+        "type": "ALL",
+        "key": "NULL",
+        "rows": "53105",
+        "Extra": "Using where; Using temporary"
+      }
+    }
+  ]
+}

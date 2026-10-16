@@ -1,0 +1,54 @@
+S12 验收实跑开始：2026-10-15 18:19:59
+== 00-precheck：退出码 0 · 失败标记 0 条 ==
+== 01-fixture：退出码 0 · 失败标记 0 条 ==
+== 02-accept：退出码 0 · 失败标记 0 条 ==
+== 03-gotest：退出码 0 · 失败标记 0 条 ==
+== 04-verify：退出码 0 · 失败标记 1 条 ==
+[2mdist/[22m[35massets/PaperView-BxKim6Jz.css           [39m[1m[2m  4.41 kB[22m[1m[22m[2m │ gzip:   1.18 kB[22m
+[2mdist/[22m[35massets/RankView-DMb7oA6G.css            [39m[1m[2m  5.15 kB[22m[1m[22m[2m │ gzip:   1.33 kB[22m
+[2mdist/[22m[35massets/DashboardView-Dh7C0Trr.css       [39m[1m[2m  5.41 kB[22m[1m[22m[2m │ gzip:   1.47 kB[22m
+[2mdist/[22m[35massets/MapView-BHO8Kc_U.css             [39m[1m[2m  7.11 kB[22m[1m[22m[2m │ gzip:   1.84 kB[22m
+[2mdist/[22m[35massets/TeamView-BjgvLsPV.css            [39m[1m[2m  7.17 kB[22m[1m[22m[2m │ gzip:   1.68 kB[22m
+[2mdist/[22m[35massets/QuizView-D0T9_e9R.css            [39m[1m[2m  7.63 kB[22m[1m[22m[2m │ gzip:   1.97 kB[22m
+[2mdist/[22m[35massets/ProfileView-FnB3J3ft.css         [39m[1m[2m 11.40 kB[22m[1m[22m[2m │ gzip:   2.46 kB[22m
+[2mdist/[22m[35massets/s-yqHna-bv.css                   [39m[1m[2m204.30 kB[22m[1m[22m[2m │ gzip:  54.63 kB[22m
+[2mdist/[22m[35massets/t-CZ1Dymnb.css                   [39m[1m[2m366.77 kB[22m[1m[22m[2m │ gzip:  49.86 kB[22m
+[2mdist/[22m[36massets/LoginView-Cxo8clxY.js            [39m[1m[2m  1.62 kB[22m[1m[22m[2m │ gzip:   1.01 kB[22m
+[2mdist/[22m[36massets/ChangePasswordView-Dio1O79a.js   [39m[1m[2m  2.02 kB[22m[1m[22m[2m │ gzip:   1.14 kB[22m
+[2mdist/[22m[36massets/LoginView-CxQz-qkG.js            [39m[1m[2m  2.16 kB[22m[1m[22m[2m │ gzip:   1.28 kB[22m
+[2mdist/[22m[36massets/ChangePasswordView-CTc-r269.js   [39m[1m[2m  2.40 kB[22m[1m[22m[2m │ gzip:   1.23 kB[22m
+[2mdist/[22m[36massets/LedgerView-ETT4PIzg.js           [39m[1m[2m  2.84 kB[22m[1m[22m[2m │ gzip:   1.59 kB[22m
+[2mdist/[22m[36massets/ReviewView-BU1-sb9L.js           [39m[1m[2m  3.55 kB[22m[1m[22m[2m │ gzip:   1.80 kB[22m
+[2mdist/[22m[36massets/AuditView-DTUx3Ih_.js            [39m[1m[2m  3.82 kB[22m[1m[22m[2m │ gzip:   1.99 kB[22m
+[2mdist/[22m[36massets/api-DSmEI6yf.js                  [39m[1m[2m  3.89 kB[22m[1m[22m[2m │ gzip:   1.39 kB[22m
+[2mdist/[22m[36massets/SchoolView-BwqbpeG1.js           [39m[1m[2m  3.90 kB[22m[1m[22m[2m │ gzip:   1.91 kB[22m
+[2mdist/[22m[36massets/AnswerPanel-BN_7XKWj.js          [39m[1m[2m  4.49 kB[22m[1m[22m[2m │ gzip:   1.97 kB[22m
+[2mdist/[22m[36massets/RankView-cp6YLsx4.js             [39m[1m[2m  5.54 kB[22m[1m[22m[2m │ gzip:   2.73 kB[22m
+[2mdist/[22m[36massets/RedeemView-Dc_jM447.js           [39m[1m[2m  6.65 kB[22m[1m[22m[2m │ gzip:   3.11 kB[22m
+[2mdist/[22m[36massets/LiveView-0jaL7-Zx.js             [39m[1m[2m  6.69 kB[22m[1m[22m[2m │ gzip:   3.08 kB[22m
+[2mdist/[22m[36massets/TeamView-BCjyZcNT.js             [39m[1m[2m  9.39 kB[22m[1m[22m[2m │ gzip:   3.99 kB[22m
+[2mdist/[22m[36massets/DashboardView-CUeBIrlx.js        [39m[1m[2m 10.17 kB[22m[1m[22m[2m │ gzip:   4.40 kB[22m
+[2mdist/[22m[36massets/MapView-BrKLjr6K.js              [39m[1m[2m 10.76 kB[22m[1m[22m[2m │ gzip:   4.86 kB[22m
+[2mdist/[22m[36massets/QuizView-DUCvaZSy.js             [39m[1m[2m 14.75 kB[22m[1m[22m[2m │ gzip:   5.96 kB[22m
+[2mdist/[22m[36massets/ProfileView-DhVmM_nT.js          [39m[1m[2m 18.04 kB[22m[1m[22m[2m │ gzip:   7.16 kB[22m
+[2mdist/[22m[36massets/PaperView-Ez7k800i.js            [39m[1m[2m 18.97 kB[22m[1m[22m[2m │ gzip:   7.02 kB[22m
+[2mdist/[22m[36massets/preload-helper-D6_4BR8f.js       [39m[1m[2m166.39 kB[22m[1m[22m[2m │ gzip:  63.99 kB[22m
+[2mdist/[22m[36massets/s-ByRbHlKY.js                    [39m[1m[2m227.45 kB[22m[1m[22m[2m │ gzip:  81.29 kB[22m
+[2mdist/[22m[36massets/t-CenkfehV.js                    [39m[1m[33m925.44 kB[39m[22m[2m │ gzip: 299.38 kB[22m
+[33m
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[32m✓ built in 13.24s[39m
+
+==== 验证未通过 ====
+[CHECK] verify.sh 退出码 0 ❌ 期望=0 实际=1
+== 05-regression-s105：退出码 0 · 失败标记 0 条 ==
+== 99-summary：退出码 0 · 失败标记 0 条 ==
+
+############################################################
+# S12 验收实跑结束：2026-10-15 18:25:32
+# 失败断言总数：2（不含 S10.5 套件自身的计数，见 99-regression-s105.txt）
+# 编号日志：00-precheck 01-fixture 02-accept 03-gotest 04-verify 05-regression-s105 99-summary
+############################################################

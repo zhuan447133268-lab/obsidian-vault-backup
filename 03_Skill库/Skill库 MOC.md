@@ -14,6 +14,7 @@ tags: [MOC, Skill库]
 - [[scroll-world 滚动探索网页技能]] — 滚动控制视频进度的品牌叙事网页（付费视频生成）
 - [[srt-whiteboard-animation 白板动画技能]] — SRT 字幕→手绘白板动画视频（作者已实跑 30s 实例）
 - [[three-scope-map 3D中国地图技能]] — 地球入场→中国3D下钻地图（Vue3+Three.js，GPL-3.0），已改造为教师数据地图原型
+- [[hanxiaoyu-visual-story-comic 漫画技能]] — 多页连续漫画（卡通/条漫/知识漫画专用，MIT），参考图锁一致性+逐页漂移检查；高校严肃场景不适用
 
 ## 元说明（怎么用这个库）
 

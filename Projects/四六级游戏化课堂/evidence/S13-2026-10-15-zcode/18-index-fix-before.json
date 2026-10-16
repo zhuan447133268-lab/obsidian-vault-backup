@@ -1,0 +1,87 @@
+{
+  "label": "before",
+  "students": 41,
+  "indexes_present": [],
+  "cases": [
+    {
+      "title": "看板·按用户求和 XP（覆盖索引 user_id,delta）",
+      "explain": {
+        "table": "xp_ledger",
+        "type": "index",
+        "key": "idx_xp_ledger_user_id",
+        "rows": "53105",
+        "Extra": "Using where"
+      },
+      "as_is": {
+        "ok": true,
+        "note": "按当前索引状态",
+        "ms_med": 122.1,
+        "ms_min": 117.61,
+        "ms_max": 125.65,
+        "pages_per_query": 165666.0,
+        "rows_per_query": 55006.0,
+        "reps": 5
+      }
+    },
+    {
+      "title": "登录/地图·连续周派生-旧写法（整本账搬回 Go）",
+      "explain": {
+        "table": "xp_ledger",
+        "type": "ALL",
+        "key": "NULL",
+        "rows": "53105",
+        "Extra": "Using where"
+      },
+      "as_is": {
+        "ok": true,
+        "note": "按当前索引状态",
+        "ms_med": 76.91,
+        "ms_min": 61.27,
+        "ms_max": 85.97,
+        "pages_per_query": 684.0,
+        "rows_per_query": 55006.0,
+        "reps": 5
+      }
+    },
+    {
+      "title": "登录/地图·连续周派生-新写法（按天分组）",
+      "explain": {
+        "table": "xp_ledger",
+        "type": "ALL",
+        "key": "NULL",
+        "rows": "53105",
+        "Extra": "Using where; Using temporary"
+      },
+      "as_is": {
+        "ok": true,
+        "note": "按当前索引状态",
+        "ms_med": 39.61,
+        "ms_min": 37.46,
+        "ms_max": 45.37,
+        "pages_per_query": 684.0,
+        "rows_per_query": 55006.0,
+        "reps": 5
+      }
+    },
+    {
+      "title": "交卷·按单据查流水（索引 ref_type,ref_id）",
+      "explain": {
+        "table": "xp_ledger",
+        "type": "ALL",
+        "key": "NULL",
+        "rows": "53105",
+        "Extra": "Using where; Using temporary"
+      },
+      "as_is": {
+        "ok": true,
+        "note": "按当前索引状态",
+        "ms_med": 24.95,
+        "ms_min": 21.98,
+        "ms_max": 27.1,
+        "pages_per_query": 411.0,
+        "rows_per_query": 55006.0,
+        "reps": 5
+      }
+    }
+  ]
+}

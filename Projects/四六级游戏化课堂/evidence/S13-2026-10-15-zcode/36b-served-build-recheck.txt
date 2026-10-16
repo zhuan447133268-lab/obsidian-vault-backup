@@ -1,0 +1,43 @@
+S13 复测前置③之补：提示条修复后的「站点 build」逐字节复核
+时间：2026-10-15 22:5x（试点站 http://127.0.0.1/ ）
+
+【为什么补这一条】
+36-pilot-served-build-verification.txt 核的是「A 二次修复」那一版构建（入口 s-BRxs6uOM.js、
+QuizView-bPJ37quI.js，21:16 核过）。之后为了让「接着上次答」提示条不再压住刚揭示的正确项，
+又改了 QuizView 的提示条位置（position:'top'）并重建落盘（22:07），**站点服务的 chunk 换了名字**，
+所以 36 号那次的结论对现在的交付物不再成立 —— 本轮复测量的就是这一版，必须重核。
+
+【做法】与 36 号同一口径：从站点入口 HTML 取真实引用的资源名，再逐字节对站点返回与本地构建。
+注意静态资源挂在**根路径** /assets/…（不是 /s/assets/…，后者会命中 SPA history 回退，
+拿到 153 字节的 index.html 且 HTTP 200 —— 本轮又踩了一次，记在此处）。
+
+  入口 HTML http://127.0.0.1/s/ 引用：
+    /assets/s-Bo4kP-eO.js（学生端入口）· /assets/s-yqHna-bv.css · /assets/preload-helper-D6_4BR8f.js
+  入口 chunk 内部引用（动态 import）：
+    QuizView-lyLZ8pHq.js · QuizView-r1tGEMmL.css
+
+  逐字节核对（local = D:\cet46-pilot\web-dist\assets\…，served = http://127.0.0.1/assets/…）：
+
+    文件                          字节数    md5 前 4 段                                   判定
+    s-Bo4kP-eO.js                 227399    8f10c57b 7ab397d3 3039117b 8ca6cc46             SAME
+    QuizView-lyLZ8pHq.js           15470    295a3ea0 630c896c bd46e88e 1df1f3a5             SAME
+    QuizView-r1tGEMmL.css           7816    fdcae0cd 5a83f157 2a58e9b7 9dca808b             SAME
+    s-yqHna-bv.css                204298    ed950f30 11a5b269 c80f5744 03c93992             SAME
+    preload-helper-D6_4BR8f.js    166386    fd6a537e 281e0cf7 6865d9c3 08f66b62             SAME
+
+  （每个文件 local 与 served 的 md5 全值逐位相同；上表为便于阅读截成 4 段。）
+
+【站点返回体里确有本轮的四处修复片段】
+  QuizView-lyLZ8pHq.js  → fb-open（题卡让位类名）1 处 · position:"top"（提示条靠上）
+                          · offsetParent（揭示答案的滚动基准）
+  QuizView-r1tGEMmL.css → .quizscreen.fb-open[data-v-9a91bbc5] .qcard{max-height:250px}
+                          @media(max-height:780px){.feedback{max-height:44%}
+                                                   .quizscreen.fb-open .qcard{max-height:140px}}
+                          ——短屏规则在媒体查询里、长屏规则在它之前（顺序正确，短屏优先）
+
+【其它交付面同时复核】
+  http://127.0.0.1/teacher-training.html → 200（培训页在站点根可直接打开）
+  http://127.0.0.1/s/                   → 200 · /api/health → 200（tables=17）
+
+结论：复测与走查量的、以及这次交出去的，就是同一份构建；36 号与本文两份记录合并回答
+「站点服务的到底是哪一版」。

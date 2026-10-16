@@ -1,0 +1,2128 @@
+{
+  "meta": {
+    "when": "2026-10-15 21:59:13",
+    "engine": "Playwright + 系统 Edge（channel=msedge, headless）",
+    "emulation": "390x844 / 390x700 / 390x664 各自新建上下文；DPR 3、isMobile、hasTouch、iPhone UA",
+    "base": "http://127.0.0.1",
+    "roster_rows": 41,
+    "token_source": "已登录会话的 localStorage；E 用名单 CSV 里的初始口令（脚本不打印口令）",
+    "web_bundle": "本次复测用的是修复后重新构建并部署的 web 包（QuizView 短屏让位 + revealAnswer 基准修正）",
+    "student": {
+      "id": 5,
+      "username": "2405510103",
+      "realName": "高琪越",
+      "role": "student",
+      "avatar": "",
+      "classId": 1,
+      "target": "4",
+      "lv": 1,
+      "streak": 0,
+      "mustChangePwd": false
+    },
+    "toast_fix": "「接着上次答」提示条由默认居中改为靠上，复测：提示条在场时正确项仍整行可见且命中自身；修复前同帧读数留在 A.practice-390x664-blank1_before_toastfix"
+  },
+  "shots": {
+    "01-map-top-390x844.png": 863723,
+    "02-map-practice-strip-390x844.png": 872238,
+    "03-map-unit11-390x844.png": 539111,
+    "04-quiz-cloze-blank1-390x844.png": 324876,
+    "05-A-feedback-390x844.png": 470342,
+    "07-practice-cloze-blank1-390x844.png": 325444,
+    "08-practice-cloze-after-10-390x844.png": 442011,
+    "10-me-account-card-390x844.png": 422317,
+    "11-me-top-390x844.png": 422317,
+    "12-rank-390x844.png": 383594,
+    "13-team-390x844.png": 302660,
+    "14-review-390x844.png": 321042,
+    "15-ledger-390x844.png": 248259,
+    "09-practice-cloze-blank1-390x700.png": 292312,
+    "09b-A-feedback-practice-390x700.png": 376893,
+    "09-practice-cloze-blank1-390x664.png": 279978,
+    "09b-A-feedback-practice-390x664.png": 369429,
+    "20-E-login-390x844.png": 134815,
+    "21-E-forced-chpwd-390x844.png": 155320,
+    "22-E-after-chpwd-390x844.png": 143823,
+    "23-E-relogin-map-390x844.png": 868893,
+    "24-E-me-account-card-390x844.png": 302333,
+    "25-E-voluntary-chpwd-390x844.png": 134601,
+    "26-E-after-logout-390x844.png": 134815,
+    "27-E-login-again-map-390x844.png": 864230
+  },
+  "A": {
+    "graded-390x844-blank1": {
+      "viewportH": 844,
+      "viewportW": 390,
+      "scrollY": 0,
+      "docH": 844,
+      "panelH": 342,
+      "panelRectTop": 502,
+      "panelMaxH": "56%",
+      "panelText": "没关系，记住就是赚到 正确答案 I 💡 【答案】physical adj. 身体的 【语法分析】空格前为 the same,空格后为并列连词 and,其后是形容词 psychological,因此本空应填入形容词,与 psychological 并列修饰名词 symptoms。",
+      "bandAbovePanel": 84,
+      "qcard": {
+        "top": 168,
+        "bottom": 418,
+        "h": 250,
+        "maxH": "250px",
+        "scrollTop": 0
+      },
+      "zone": {
+        "top": 418,
+        "bottom": 844,
+        "h": 426,
+        "scrollTop": 212,
+        "scrollHeight": 806,
+        "clientHeight": 426,
+        "inlinePadBottom": "352px"
+      },
+      "rightOpt": {
+        "text": "I physical",
+        "top": 444,
+        "bottom": 492,
+        "h": 48,
+        "overlapWithPanel": 0,
+        "abovePanel": true,
+        "fullyVisible": true,
+        "visiblePx": 48,
+        "visibleFraction": 1,
+        "hitIsThisOption": true,
+        "hitDesc": "wtext"
+      },
+      "pickedOpt": {
+        "text": "A awareness",
+        "top": 220,
+        "bottom": 268,
+        "h": 48,
+        "overlapWithPanel": 0,
+        "abovePanel": true,
+        "fullyVisible": false,
+        "visiblePx": 0,
+        "visibleFraction": 0,
+        "hitIsThisOption": false,
+        "hitDesc": "qtext passage"
+      }
+    },
+    "reset_after_next": {
+      "feedbackShown": false,
+      "qcardMaxH": "300px",
+      "inlinePadBottom": "",
+      "scrollTop": 0,
+      "inlinePadIsCleared": true,
+      "scrollTopIsZero": true
+    },
+    "graded-390x844-blank2": {
+      "viewportH": 844,
+      "viewportW": 390,
+      "scrollY": 0,
+      "docH": 844,
+      "panelH": 363,
+      "panelRectTop": 481.2,
+      "panelMaxH": "56%",
+      "panelText": "这题考过 3 次了，错得不冤 😌 正确答案 L 💡 【答案】quitting v. 戒掉,停止 【语法分析】空格前为代词 those,空格后为 or 连接的并列结构 smoking cigarettes 和 using drugs,因此本空应填入现在分词,构成现在分词短语作后",
+      "bandAbovePanel": 63.2,
+      "qcard": {
+        "top": 168,
+        "bottom": 418,
+        "h": 250,
+        "maxH": "250px",
+        "scrollTop": 0
+      },
+      "zone": {
+        "top": 418,
+        "bottom": 844,
+        "h": 426,
+        "scrollTop": 289,
+        "scrollHeight": 827,
+        "clientHeight": 426,
+        "inlinePadBottom": "373px"
+      },
+      "rightOpt": {
+        "text": "L quitting",
+        "top": 423,
+        "bottom": 471,
+        "h": 48,
+        "overlapWithPanel": 0,
+        "abovePanel": true,
+        "fullyVisible": true,
+        "visiblePx": 48,
+        "visibleFraction": 1,
+        "hitIsThisOption": true,
+        "hitDesc": "wtext"
+      },
+      "pickedOpt": {
+        "text": "A awareness",
+        "top": 143,
+        "bottom": 191,
+        "h": 48,
+        "overlapWithPanel": 0,
+        "abovePanel": true,
+        "fullyVisible": false,
+        "visiblePx": 0,
+        "visibleFraction": 0,
+        "hitIsThisOption": false,
+        "hitDesc": "combo"
+      }
+    },
+    "quit_state": {
+      "url": "/s/",
+      "dlg": false
+    },
+    "quit_landing": "/s/",
+    "practice-390x700-blank1": {
+      "viewportH": 700,
+      "viewportW": 390,
+      "scrollY": 0,
+      "docH": 700,
+      "panelH": 308,
+      "panelRectTop": 392,
+      "panelMaxH": "44%",
+      "panelText": "错题已加入复盘关，回头收拾它 正确答案 N 💡 【答案】squeezed v. 榨取,勒索 【语法分析】空格位于 that 引导的宾语从句中,从句主语为 the capitalists,空格后接宾语 every ounce of surplus,句子缺少谓语动词,结合主句时态,",
+      "bandAbovePanel": 84,
+      "qcard": {
+        "top": 168,
+        "bottom": 308,
+        "h": 140,
+        "maxH": "140px",
+        "scrollTop": 0
+      },
+      "zone": {
+        "top": 308,
+        "bottom": 700,
+        "h": 392,
+        "scrollTop": 324,
+        "scrollHeight": 772,
+        "clientHeight": 392,
+        "inlinePadBottom": "318px"
+      },
+      "rightOpt": {
+        "text": "N squeezed",
+        "top": 334,
+        "bottom": 382,
+        "h": 48,
+        "overlapWithPanel": 0,
+        "abovePanel": true,
+        "fullyVisible": true,
+        "visiblePx": 48,
+        "visibleFraction": 1,
+        "hitIsThisOption": true,
+        "hitDesc": "wtext"
+      },
+      "pickedOpt": {
+        "text": "A available",
+        "top": -2,
+        "bottom": 46,
+        "h": 48,
+        "overlapWithPanel": 0,
+        "abovePanel": true,
+        "fullyVisible": false,
+        "visiblePx": 0,
+        "visibleFraction": 0,
+        "hitIsThisOption": false,
+        "hitDesc": "head"
+      }
+    },
+    "reset_after_next_practice_390x700": {
+      "feedbackShown": false,
+      "qcardMaxH": "300px",
+      "inlinePadBottom": "",
+      "scrollTop": 0,
+      "inlinePadIsCleared": true,
+      "scrollTopIsZero": true
+    },
+    "qcard_closed_390x700": {
+      "top": 168,
+      "bottom": 468,
+      "h": 300,
+      "maxH": "300px",
+      "scrollTop": 0
+    },
+    "practice-390x700-blank2": {
+      "viewportH": 700,
+      "viewportW": 390,
+      "scrollY": 0,
+      "docH": 700,
+      "panelH": 298,
+      "panelRectTop": 401.6,
+      "panelMaxH": "44%",
+      "panelText": "✅ 拿下！ 💡 【答案】available adj. 可获得的,可购得的 【语法分析】空格位于“with+宾语+宾语补足语”结构中,空格处作宾语补足语来补充修饰其前名词 goods,因此本空应填入形容词。 【语义判断】空格所在句指出,而认为生活水平提高的一方则指出,当时的社会环",
+      "bandAbovePanel": 93.6,
+      "qcard": {
+        "top": 168,
+        "bottom": 308,
+        "h": 140,
+        "maxH": "140px",
+        "scrollTop": 0
+      },
+      "zone": {
+        "top": 308,
+        "bottom": 700,
+        "h": 392,
+        "scrollTop": 0,
+        "scrollHeight": 762,
+        "clientHeight": 392,
+        "inlinePadBottom": "308px"
+      },
+      "rightOpt": {
+        "text": "A available",
+        "top": 322,
+        "bottom": 370,
+        "h": 48,
+        "overlapWithPanel": 0,
+        "abovePanel": true,
+        "fullyVisible": true,
+        "visiblePx": 48,
+        "visibleFraction": 1,
+        "hitIsThisOption": true,
+        "hitDesc": "wtext"
+      },
+      "pickedOpt": {
+        "text": "A available",
+        "top": 322,
+        "bottom": 370,
+        "h": 48,
+        "overlapWithPanel": 0,
+        "abovePanel": true,
+        "fullyVisible": true,
+        "visiblePx": 48,
+        "visibleFraction": 1,
+        "hitIsThisOption": true,
+        "hitDesc": "wtext"
+      }
+    },
+    "practice-390x664-blank1": {
+      "viewportH": 664,
+      "viewportW": 390,
+      "panelH": 292,
+      "panelRectTop": 371.8,
+      "panelMaxH": "44%",
+      "bandAbovePanel": 63.8,
+      "qcardMaxH": "140px",
+      "toast": {
+        "text": "接着上次答：已完成 7/10 题",
+        "top": 114.8,
+        "bottom": 150.8,
+        "display": "flex"
+      },
+      "panelText": "错题已加入复盘关，回头收拾它 正确答案 G 💡 【语法分析】空格前为介词 After，空格后为名词 debate，因此本空应填入形容词作定语来修饰名词。【语义判断】空格所在句指出，在对平均收入进行了____讨论和分析后，历史学家就工业革命期间经济增长是快速还是缓慢的问题无法达成",
+      "rightOpt": {
+        "text": "G exhausting",
+        "top": 314,
+        "bottom": 362,
+        "h": 48,
+        "visiblePx": 48,
+        "fullyVisible": true,
+        "hitIsThisOption": true,
+        "hitDesc": "wtext"
+      },
+      "pickedOpt": {
+        "text": "A available",
+        "top": 146,
+        "bottom": 194,
+        "h": 48,
+        "visiblePx": 0,
+        "fullyVisible": false,
+        "hitIsThisOption": false,
+        "hitDesc": "qcard"
+      }
+    },
+    "reset_after_next_practice_390x664": {
+      "feedbackShown": false,
+      "qcardMaxH": "300px",
+      "inlinePadBottom": "",
+      "scrollTop": 0,
+      "inlinePadIsCleared": true,
+      "scrollTopIsZero": true
+    },
+    "qcard_closed_390x664": {
+      "top": 168,
+      "bottom": 468,
+      "h": 300,
+      "maxH": "300px",
+      "scrollTop": 0
+    },
+    "practice-390x664-blank2": {
+      "viewportH": 664,
+      "viewportW": 390,
+      "scrollY": 0,
+      "docH": 664,
+      "panelH": 280,
+      "panelRectTop": 384.4,
+      "panelMaxH": "44%",
+      "panelText": "错题已加入复盘关，回头收拾它 正确答案 K 💡 【答案】occurred v. 发生,出现 【语法分析】空格位于 when 引导的宾语从句中,从句主语为 this improvement,从句缺少谓语动词,结合上下文时态,本空应填入动词过去式。 【语义判断】空格所在句指出,但他",
+      "bandAbovePanel": 76.4,
+      "qcard": {
+        "top": 168,
+        "bottom": 308,
+        "h": 140,
+        "maxH": "140px",
+        "scrollTop": 0
+      },
+      "zone": {
+        "top": 308,
+        "bottom": 664,
+        "h": 356,
+        "scrollTop": 276,
+        "scrollHeight": 744,
+        "clientHeight": 356,
+        "inlinePadBottom": "290px"
+      },
+      "rightOpt": {
+        "text": "K occurred",
+        "top": 326,
+        "bottom": 374,
+        "h": 48,
+        "overlapWithPanel": 0,
+        "abovePanel": true,
+        "fullyVisible": true,
+        "visiblePx": 48,
+        "visibleFraction": 1,
+        "hitIsThisOption": true,
+        "hitDesc": "wtext"
+      },
+      "pickedOpt": {
+        "text": "A available",
+        "top": 46,
+        "bottom": 94,
+        "h": 48,
+        "overlapWithPanel": 0,
+        "abovePanel": true,
+        "fullyVisible": false,
+        "visiblePx": 0,
+        "visibleFraction": 0,
+        "hitIsThisOption": false,
+        "hitDesc": "H3"
+      }
+    },
+    "practice-390x664-blank1_before_toastfix": {
+      "viewportH": 664,
+      "viewportW": 390,
+      "scrollY": 0,
+      "docH": 664,
+      "panelH": 292,
+      "panelRectTop": 371.8,
+      "panelMaxH": "44%",
+      "panelText": "这题考过 3 次了，错得不冤 😌 正确答案 I 💡 【答案】increased v. 增加;提高 【语法分析】空格位于 that 引导的宾语从句中,该从句主语为名词短语 the standards of living,句子缺少谓语动词,结合上下文时态,此处应填入动词过去式。 ",
+      "bandAbovePanel": 63.8,
+      "qcard": {
+        "top": 168,
+        "bottom": 308,
+        "h": 140,
+        "maxH": "140px",
+        "scrollTop": 0
+      },
+      "zone": {
+        "top": 308,
+        "bottom": 664,
+        "h": 356,
+        "scrollTop": 232,
+        "scrollHeight": 756,
+        "clientHeight": 356,
+        "inlinePadBottom": "302px"
+      },
+      "rightOpt": {
+        "text": "I increased",
+        "top": 314,
+        "bottom": 362,
+        "h": 48,
+        "overlapWithPanel": 0,
+        "abovePanel": true,
+        "fullyVisible": true,
+        "visiblePx": 48,
+        "visibleFraction": 1,
+        "hitIsThisOption": false,
+        "hitDesc": "van-popup van-popup--center van-toast van-toast--middle van-toast--text"
+      },
+      "pickedOpt": {
+        "text": "A available",
+        "top": 90,
+        "bottom": 138,
+        "h": 48,
+        "overlapWithPanel": 0,
+        "abovePanel": true,
+        "fullyVisible": false,
+        "visiblePx": 0,
+        "visibleFraction": 0,
+        "hitIsThisOption": false,
+        "hitDesc": "nums"
+      }
+    }
+  },
+  "F": {
+    "map_go": {
+      "selector": ".node.current .card .go",
+      "note": "地图「开始冲关」",
+      "boxes": [
+        {
+          "i": 0,
+          "w": 104.6,
+          "h": 44,
+          "top": 708,
+          "bottom": 752,
+          "left": 113,
+          "right": 217.6,
+          "minH": "44px",
+          "minW": "0px",
+          "maxH": "none",
+          "cls": "go",
+          "text": "开始冲关 →"
+        },
+        {
+          "i": 1,
+          "w": 104.6,
+          "h": 44,
+          "top": 1615,
+          "bottom": 1659,
+          "left": 113,
+          "right": 217.6,
+          "minH": "44px",
+          "minW": "0px",
+          "maxH": "none",
+          "cls": "go",
+          "text": "开始冲关 →"
+        },
+        {
+          "i": 2,
+          "w": 104.6,
+          "h": 44,
+          "top": 2522,
+          "bottom": 2566,
+          "left": 113,
+          "right": 217.6,
+          "minH": "44px",
+          "minW": "0px",
+          "maxH": "none",
+          "cls": "go",
+          "text": "开始冲关 →"
+        }
+      ]
+    },
+    "strip": {
+      "selector": ".strip",
+      "note": "练习卷关卡条（整条可点）",
+      "boxes": [
+        {
+          "i": 0,
+          "w": 312,
+          "h": 45,
+          "top": 361,
+          "bottom": 406,
+          "left": 39,
+          "right": 351,
+          "minH": "44px",
+          "minW": "auto",
+          "maxH": "none",
+          "cls": "strip",
+          "text": "听力 · 25 题 25 题 开始 →"
+        },
+        {
+          "i": 1,
+          "w": 312,
+          "h": 45,
+          "top": 414,
+          "bottom": 459,
+          "left": 39,
+          "right": 351,
+          "minH": "44px",
+          "minW": "auto",
+          "maxH": "none",
+          "cls": "strip",
+          "text": "选词填空 · 10 题 10 题 开始 →"
+        },
+        {
+          "i": 2,
+          "w": 312,
+          "h": 45,
+          "top": 467,
+          "bottom": 512,
+          "left": 39,
+          "right": 351,
+          "minH": "44px",
+          "minW": "auto",
+          "maxH": "none",
+          "cls": "strip",
+          "text": "段落匹配 · 10 题 10 题 开始 →"
+        },
+        {
+          "i": 3,
+          "w": 312,
+          "h": 45,
+          "top": 520,
+          "bottom": 565,
+          "left": 39,
+          "right": 351,
+          "minH": "44px",
+          "minW": "auto",
+          "maxH": "none",
+          "cls": "strip",
+          "text": "阅读 · 10 题 10 题 开始 →"
+        }
+      ]
+    },
+    "quit": {
+      "selector": ".quit",
+      "note": "关卡右上退出",
+      "boxes": [
+        {
+          "i": 0,
+          "w": 44,
+          "h": 44,
+          "top": 48,
+          "bottom": 92,
+          "left": 20,
+          "right": 64,
+          "minH": "auto",
+          "minW": "auto",
+          "maxH": "none",
+          "cls": "quit",
+          "text": "✕"
+        }
+      ]
+    },
+    "accbtn": {
+      "selector": ".accbtn",
+      "note": "我的页账户入口两颗",
+      "boxes": [
+        {
+          "i": 0,
+          "w": 170,
+          "h": 44,
+          "top": 608,
+          "bottom": 652,
+          "left": 20,
+          "right": 190,
+          "minH": "44px",
+          "minW": "auto",
+          "maxH": "none",
+          "cls": "accbtn",
+          "text": "🔑 修改密码"
+        },
+        {
+          "i": 1,
+          "w": 170,
+          "h": 44,
+          "top": 608,
+          "bottom": 652,
+          "left": 200,
+          "right": 370,
+          "minH": "44px",
+          "minW": "auto",
+          "maxH": "none",
+          "cls": "accbtn out",
+          "text": "🚪 退出登录"
+        }
+      ]
+    },
+    "me_entry": {
+      "selector": ".entry",
+      "note": "明细入口",
+      "boxes": [
+        {
+          "i": 0,
+          "w": 350,
+          "h": 44,
+          "top": -2600,
+          "bottom": -2556,
+          "left": 20,
+          "right": 370,
+          "minH": "44px",
+          "minW": "0px",
+          "maxH": "none",
+          "cls": "entry",
+          "text": "📒 积分明细 每一分来源可查 · 去对账 ›"
+        }
+      ]
+    },
+    "me_review_go": {
+      "selector": ".review .go",
+      "note": "复盘入口",
+      "boxes": [
+        {
+          "i": 0,
+          "w": 192,
+          "h": 44,
+          "top": -1853.9,
+          "bottom": -1809.9,
+          "left": 37,
+          "right": 229,
+          "minH": "44px",
+          "minW": "0px",
+          "maxH": "none",
+          "cls": "go",
+          "text": "去复盘（答对就出本子）→"
+        }
+      ]
+    },
+    "me_back": {
+      "selector": ".back",
+      "note": "明细页返回 @/s/ledger",
+      "boxes": [
+        {
+          "i": 0,
+          "w": 44,
+          "h": 44,
+          "top": 49,
+          "bottom": 93,
+          "left": 20,
+          "right": 64,
+          "minH": "auto",
+          "minW": "auto",
+          "maxH": "none",
+          "cls": "back",
+          "text": "‹"
+        }
+      ]
+    },
+    "rank_switch": {
+      "selector": ".switch",
+      "note": "排行榜切换 @/s/rank",
+      "boxes": [
+        {
+          "i": 0,
+          "w": 44,
+          "h": 24,
+          "top": 233,
+          "bottom": 257,
+          "left": 311,
+          "right": 355,
+          "minH": "auto",
+          "minW": "auto",
+          "maxH": "none",
+          "cls": "switch",
+          "text": ""
+        }
+      ]
+    },
+    "team_pick": {
+      "selector": ".pick-btn",
+      "note": "小队加入/创建 @/s/team",
+      "boxes": [
+        {
+          "i": 0,
+          "w": 44,
+          "h": 44,
+          "top": 240,
+          "bottom": 284,
+          "left": 43,
+          "right": 87,
+          "minH": "auto",
+          "minW": "auto",
+          "maxH": "none",
+          "cls": "pick-btn on",
+          "text": "🐹"
+        },
+        {
+          "i": 1,
+          "w": 44,
+          "h": 44,
+          "top": 240,
+          "bottom": 284,
+          "left": 95,
+          "right": 139,
+          "minH": "auto",
+          "minW": "auto",
+          "maxH": "none",
+          "cls": "pick-btn",
+          "text": "🦆"
+        },
+        {
+          "i": 2,
+          "w": 44,
+          "h": 44,
+          "top": 240,
+          "bottom": 284,
+          "left": 147,
+          "right": 191,
+          "minH": "auto",
+          "minW": "auto",
+          "maxH": "none",
+          "cls": "pick-btn",
+          "text": "🐻"
+        },
+        {
+          "i": 3,
+          "w": 44,
+          "h": 44,
+          "top": 240,
+          "bottom": 284,
+          "left": 199,
+          "right": 243,
+          "minH": "auto",
+          "minW": "auto",
+          "maxH": "none",
+          "cls": "pick-btn",
+          "text": "🐼"
+        },
+        {
+          "i": 4,
+          "w": 44,
+          "h": 44,
+          "top": 240,
+          "bottom": 284,
+          "left": 251,
+          "right": 295,
+          "minH": "auto",
+          "minW": "auto",
+          "maxH": "none",
+          "cls": "pick-btn",
+          "text": "🦊"
+        },
+        {
+          "i": 5,
+          "w": 44,
+          "h": 44,
+          "top": 240,
+          "bottom": 284,
+          "left": 303,
+          "right": 347,
+          "minH": "auto",
+          "minW": "auto",
+          "maxH": "none",
+          "cls": "pick-btn",
+          "text": "🐯"
+        }
+      ]
+    },
+    "team_mini": {
+      "selector": ".member .mini",
+      "note": "小队成员卡按钮 @/s/team",
+      "boxes": []
+    }
+  },
+  "B": {
+    "graded_bank1": [
+      {
+        "label": "A",
+        "text": "awareness",
+        "cls": "opt"
+      },
+      {
+        "label": "B",
+        "text": "canceling",
+        "cls": "opt"
+      },
+      {
+        "label": "C",
+        "text": "controversial",
+        "cls": "opt"
+      },
+      {
+        "label": "D",
+        "text": "emptiness",
+        "cls": "opt"
+      },
+      {
+        "label": "E",
+        "text": "monstrous",
+        "cls": "opt"
+      },
+      {
+        "label": "F",
+        "text": "offers",
+        "cls": "opt"
+      },
+      {
+        "label": "G",
+        "text": "parallels",
+        "cls": "opt"
+      },
+      {
+        "label": "H",
+        "text": "permanently",
+        "cls": "opt"
+      },
+      {
+        "label": "I",
+        "text": "physical",
+        "cls": "opt"
+      },
+      {
+        "label": "J",
+        "text": "prepare",
+        "cls": "opt"
+      },
+      {
+        "label": "K",
+        "text": "prospects",
+        "cls": "opt"
+      },
+      {
+        "label": "L",
+        "text": "quitting",
+        "cls": "opt"
+      },
+      {
+        "label": "M",
+        "text": "shed",
+        "cls": "opt"
+      },
+      {
+        "label": "N",
+        "text": "significantly",
+        "cls": "opt"
+      },
+      {
+        "label": "O",
+        "text": "trigger",
+        "cls": "opt"
+      }
+    ],
+    "graded_bank2": [
+      {
+        "label": "A",
+        "text": "awareness",
+        "cls": "opt"
+      },
+      {
+        "label": "B",
+        "text": "canceling",
+        "cls": "opt"
+      },
+      {
+        "label": "C",
+        "text": "controversial",
+        "cls": "opt"
+      },
+      {
+        "label": "D",
+        "text": "emptiness",
+        "cls": "opt"
+      },
+      {
+        "label": "E",
+        "text": "monstrous",
+        "cls": "opt"
+      },
+      {
+        "label": "F",
+        "text": "offers",
+        "cls": "opt"
+      },
+      {
+        "label": "G",
+        "text": "parallels",
+        "cls": "opt"
+      },
+      {
+        "label": "H",
+        "text": "permanently",
+        "cls": "opt"
+      },
+      {
+        "label": "I",
+        "text": "physical",
+        "cls": "opt"
+      },
+      {
+        "label": "J",
+        "text": "prepare",
+        "cls": "opt"
+      },
+      {
+        "label": "K",
+        "text": "prospects",
+        "cls": "opt"
+      },
+      {
+        "label": "L",
+        "text": "quitting",
+        "cls": "opt"
+      },
+      {
+        "label": "M",
+        "text": "shed",
+        "cls": "opt"
+      },
+      {
+        "label": "N",
+        "text": "significantly",
+        "cls": "opt"
+      },
+      {
+        "label": "O",
+        "text": "trigger",
+        "cls": "opt"
+      }
+    ],
+    "graded_bank1_eq_bank2": true,
+    "graded_letters_blank2": {
+      "qtype": "选词填空",
+      "panelAnsLetter": "L",
+      "rightKeyLetter": "L",
+      "hasSubmitBtn": false,
+      "slotCount": 0,
+      "bankTitle": null,
+      "headText": "✕\n四级 · 阅读 · 选词填空\n\n阅读 · 共 10 题 · 约 12 分钟\n\n❤️ 1"
+    },
+    "practice_cloze_10blanks": [
+      {
+        "blank": 1,
+        "slotCount": 0,
+        "bank": [
+          {
+            "label": "A",
+            "text": "available",
+            "cls": "opt"
+          },
+          {
+            "label": "B",
+            "text": "deteriorating",
+            "cls": "opt"
+          },
+          {
+            "label": "C",
+            "text": "earned",
+            "cls": "opt"
+          },
+          {
+            "label": "D",
+            "text": "effect",
+            "cls": "opt"
+          },
+          {
+            "label": "E",
+            "text": "enhance",
+            "cls": "opt"
+          },
+          {
+            "label": "F",
+            "text": "exactly",
+            "cls": "opt"
+          },
+          {
+            "label": "G",
+            "text": "exhausting",
+            "cls": "opt"
+          },
+          {
+            "label": "H",
+            "text": "experience",
+            "cls": "opt"
+          },
+          {
+            "label": "I",
+            "text": "increased",
+            "cls": "opt"
+          },
+          {
+            "label": "J",
+            "text": "interpret",
+            "cls": "opt"
+          },
+          {
+            "label": "K",
+            "text": "occurred",
+            "cls": "opt"
+          },
+          {
+            "label": "L",
+            "text": "peculiar",
+            "cls": "opt"
+          },
+          {
+            "label": "M",
+            "text": "probably",
+            "cls": "opt"
+          },
+          {
+            "label": "N",
+            "text": "squeezed",
+            "cls": "opt"
+          },
+          {
+            "label": "O",
+            "text": "typically",
+            "cls": "opt"
+          }
+        ],
+        "qtype": "选词填空",
+        "panelAnsLetter": "N",
+        "rightKeyLetter": "N",
+        "reset": {
+          "feedbackShown": false,
+          "qcardMaxH": "300px",
+          "inlinePadBottom": "",
+          "scrollTop": 0,
+          "inlinePadIsCleared": true,
+          "scrollTopIsZero": true
+        }
+      },
+      {
+        "blank": 2,
+        "slotCount": 0,
+        "bank": [
+          {
+            "label": "A",
+            "text": "available",
+            "cls": "opt"
+          },
+          {
+            "label": "B",
+            "text": "deteriorating",
+            "cls": "opt"
+          },
+          {
+            "label": "C",
+            "text": "earned",
+            "cls": "opt"
+          },
+          {
+            "label": "D",
+            "text": "effect",
+            "cls": "opt"
+          },
+          {
+            "label": "E",
+            "text": "enhance",
+            "cls": "opt"
+          },
+          {
+            "label": "F",
+            "text": "exactly",
+            "cls": "opt"
+          },
+          {
+            "label": "G",
+            "text": "exhausting",
+            "cls": "opt"
+          },
+          {
+            "label": "H",
+            "text": "experience",
+            "cls": "opt"
+          },
+          {
+            "label": "I",
+            "text": "increased",
+            "cls": "opt"
+          },
+          {
+            "label": "J",
+            "text": "interpret",
+            "cls": "opt"
+          },
+          {
+            "label": "K",
+            "text": "occurred",
+            "cls": "opt"
+          },
+          {
+            "label": "L",
+            "text": "peculiar",
+            "cls": "opt"
+          },
+          {
+            "label": "M",
+            "text": "probably",
+            "cls": "opt"
+          },
+          {
+            "label": "N",
+            "text": "squeezed",
+            "cls": "opt"
+          },
+          {
+            "label": "O",
+            "text": "typically",
+            "cls": "opt"
+          }
+        ],
+        "qtype": "选词填空",
+        "panelAnsLetter": null,
+        "rightKeyLetter": "A",
+        "reset": {
+          "feedbackShown": false,
+          "qcardMaxH": "300px",
+          "inlinePadBottom": "",
+          "scrollTop": 0,
+          "inlinePadIsCleared": true,
+          "scrollTopIsZero": true
+        }
+      },
+      {
+        "blank": 3,
+        "slotCount": 0,
+        "bank": [
+          {
+            "label": "A",
+            "text": "available",
+            "cls": "opt"
+          },
+          {
+            "label": "B",
+            "text": "deteriorating",
+            "cls": "opt"
+          },
+          {
+            "label": "C",
+            "text": "earned",
+            "cls": "opt"
+          },
+          {
+            "label": "D",
+            "text": "effect",
+            "cls": "opt"
+          },
+          {
+            "label": "E",
+            "text": "enhance",
+            "cls": "opt"
+          },
+          {
+            "label": "F",
+            "text": "exactly",
+            "cls": "opt"
+          },
+          {
+            "label": "G",
+            "text": "exhausting",
+            "cls": "opt"
+          },
+          {
+            "label": "H",
+            "text": "experience",
+            "cls": "opt"
+          },
+          {
+            "label": "I",
+            "text": "increased",
+            "cls": "opt"
+          },
+          {
+            "label": "J",
+            "text": "interpret",
+            "cls": "opt"
+          },
+          {
+            "label": "K",
+            "text": "occurred",
+            "cls": "opt"
+          },
+          {
+            "label": "L",
+            "text": "peculiar",
+            "cls": "opt"
+          },
+          {
+            "label": "M",
+            "text": "probably",
+            "cls": "opt"
+          },
+          {
+            "label": "N",
+            "text": "squeezed",
+            "cls": "opt"
+          },
+          {
+            "label": "O",
+            "text": "typically",
+            "cls": "opt"
+          }
+        ],
+        "qtype": "选词填空",
+        "panelAnsLetter": "I",
+        "rightKeyLetter": "I",
+        "reset": {
+          "feedbackShown": false,
+          "qcardMaxH": "300px",
+          "inlinePadBottom": "",
+          "scrollTop": 0,
+          "inlinePadIsCleared": true,
+          "scrollTopIsZero": true
+        }
+      },
+      {
+        "blank": 4,
+        "slotCount": 0,
+        "bank": [
+          {
+            "label": "A",
+            "text": "available",
+            "cls": "opt"
+          },
+          {
+            "label": "B",
+            "text": "deteriorating",
+            "cls": "opt"
+          },
+          {
+            "label": "C",
+            "text": "earned",
+            "cls": "opt"
+          },
+          {
+            "label": "D",
+            "text": "effect",
+            "cls": "opt"
+          },
+          {
+            "label": "E",
+            "text": "enhance",
+            "cls": "opt"
+          },
+          {
+            "label": "F",
+            "text": "exactly",
+            "cls": "opt"
+          },
+          {
+            "label": "G",
+            "text": "exhausting",
+            "cls": "opt"
+          },
+          {
+            "label": "H",
+            "text": "experience",
+            "cls": "opt"
+          },
+          {
+            "label": "I",
+            "text": "increased",
+            "cls": "opt"
+          },
+          {
+            "label": "J",
+            "text": "interpret",
+            "cls": "opt"
+          },
+          {
+            "label": "K",
+            "text": "occurred",
+            "cls": "opt"
+          },
+          {
+            "label": "L",
+            "text": "peculiar",
+            "cls": "opt"
+          },
+          {
+            "label": "M",
+            "text": "probably",
+            "cls": "opt"
+          },
+          {
+            "label": "N",
+            "text": "squeezed",
+            "cls": "opt"
+          },
+          {
+            "label": "O",
+            "text": "typically",
+            "cls": "opt"
+          }
+        ],
+        "qtype": "选词填空",
+        "panelAnsLetter": "K",
+        "rightKeyLetter": "K",
+        "reset": {
+          "feedbackShown": false,
+          "qcardMaxH": "300px",
+          "inlinePadBottom": "",
+          "scrollTop": 0,
+          "inlinePadIsCleared": true,
+          "scrollTopIsZero": true
+        }
+      },
+      {
+        "blank": 5,
+        "slotCount": 0,
+        "bank": [
+          {
+            "label": "A",
+            "text": "available",
+            "cls": "opt"
+          },
+          {
+            "label": "B",
+            "text": "deteriorating",
+            "cls": "opt"
+          },
+          {
+            "label": "C",
+            "text": "earned",
+            "cls": "opt"
+          },
+          {
+            "label": "D",
+            "text": "effect",
+            "cls": "opt"
+          },
+          {
+            "label": "E",
+            "text": "enhance",
+            "cls": "opt"
+          },
+          {
+            "label": "F",
+            "text": "exactly",
+            "cls": "opt"
+          },
+          {
+            "label": "G",
+            "text": "exhausting",
+            "cls": "opt"
+          },
+          {
+            "label": "H",
+            "text": "experience",
+            "cls": "opt"
+          },
+          {
+            "label": "I",
+            "text": "increased",
+            "cls": "opt"
+          },
+          {
+            "label": "J",
+            "text": "interpret",
+            "cls": "opt"
+          },
+          {
+            "label": "K",
+            "text": "occurred",
+            "cls": "opt"
+          },
+          {
+            "label": "L",
+            "text": "peculiar",
+            "cls": "opt"
+          },
+          {
+            "label": "M",
+            "text": "probably",
+            "cls": "opt"
+          },
+          {
+            "label": "N",
+            "text": "squeezed",
+            "cls": "opt"
+          },
+          {
+            "label": "O",
+            "text": "typically",
+            "cls": "opt"
+          }
+        ],
+        "qtype": "选词填空",
+        "panelAnsLetter": "F",
+        "rightKeyLetter": "F",
+        "reset": {
+          "feedbackShown": false,
+          "qcardMaxH": "300px",
+          "inlinePadBottom": "",
+          "scrollTop": 0,
+          "inlinePadIsCleared": true,
+          "scrollTopIsZero": true
+        }
+      },
+      {
+        "blank": 6,
+        "slotCount": 0,
+        "bank": [
+          {
+            "label": "A",
+            "text": "available",
+            "cls": "opt"
+          },
+          {
+            "label": "B",
+            "text": "deteriorating",
+            "cls": "opt"
+          },
+          {
+            "label": "C",
+            "text": "earned",
+            "cls": "opt"
+          },
+          {
+            "label": "D",
+            "text": "effect",
+            "cls": "opt"
+          },
+          {
+            "label": "E",
+            "text": "enhance",
+            "cls": "opt"
+          },
+          {
+            "label": "F",
+            "text": "exactly",
+            "cls": "opt"
+          },
+          {
+            "label": "G",
+            "text": "exhausting",
+            "cls": "opt"
+          },
+          {
+            "label": "H",
+            "text": "experience",
+            "cls": "opt"
+          },
+          {
+            "label": "I",
+            "text": "increased",
+            "cls": "opt"
+          },
+          {
+            "label": "J",
+            "text": "interpret",
+            "cls": "opt"
+          },
+          {
+            "label": "K",
+            "text": "occurred",
+            "cls": "opt"
+          },
+          {
+            "label": "L",
+            "text": "peculiar",
+            "cls": "opt"
+          },
+          {
+            "label": "M",
+            "text": "probably",
+            "cls": "opt"
+          },
+          {
+            "label": "N",
+            "text": "squeezed",
+            "cls": "opt"
+          },
+          {
+            "label": "O",
+            "text": "typically",
+            "cls": "opt"
+          }
+        ],
+        "qtype": "选词填空",
+        "panelAnsLetter": "O",
+        "rightKeyLetter": "O",
+        "reset": {
+          "feedbackShown": false,
+          "qcardMaxH": "300px",
+          "inlinePadBottom": "",
+          "scrollTop": 0,
+          "inlinePadIsCleared": true,
+          "scrollTopIsZero": true
+        }
+      },
+      {
+        "blank": 7,
+        "slotCount": 0,
+        "bank": [
+          {
+            "label": "A",
+            "text": "available",
+            "cls": "opt"
+          },
+          {
+            "label": "B",
+            "text": "deteriorating",
+            "cls": "opt"
+          },
+          {
+            "label": "C",
+            "text": "earned",
+            "cls": "opt"
+          },
+          {
+            "label": "D",
+            "text": "effect",
+            "cls": "opt"
+          },
+          {
+            "label": "E",
+            "text": "enhance",
+            "cls": "opt"
+          },
+          {
+            "label": "F",
+            "text": "exactly",
+            "cls": "opt"
+          },
+          {
+            "label": "G",
+            "text": "exhausting",
+            "cls": "opt"
+          },
+          {
+            "label": "H",
+            "text": "experience",
+            "cls": "opt"
+          },
+          {
+            "label": "I",
+            "text": "increased",
+            "cls": "opt"
+          },
+          {
+            "label": "J",
+            "text": "interpret",
+            "cls": "opt"
+          },
+          {
+            "label": "K",
+            "text": "occurred",
+            "cls": "opt"
+          },
+          {
+            "label": "L",
+            "text": "peculiar",
+            "cls": "opt"
+          },
+          {
+            "label": "M",
+            "text": "probably",
+            "cls": "opt"
+          },
+          {
+            "label": "N",
+            "text": "squeezed",
+            "cls": "opt"
+          },
+          {
+            "label": "O",
+            "text": "typically",
+            "cls": "opt"
+          }
+        ],
+        "qtype": "选词填空",
+        "panelAnsLetter": "C",
+        "rightKeyLetter": "C",
+        "reset": {
+          "feedbackShown": false,
+          "qcardMaxH": "300px",
+          "inlinePadBottom": "",
+          "scrollTop": 0,
+          "inlinePadIsCleared": true,
+          "scrollTopIsZero": true
+        }
+      },
+      {
+        "blank": 8,
+        "slotCount": 0,
+        "bank": [
+          {
+            "label": "A",
+            "text": "available",
+            "cls": "opt"
+          },
+          {
+            "label": "B",
+            "text": "deteriorating",
+            "cls": "opt"
+          },
+          {
+            "label": "C",
+            "text": "earned",
+            "cls": "opt"
+          },
+          {
+            "label": "D",
+            "text": "effect",
+            "cls": "opt"
+          },
+          {
+            "label": "E",
+            "text": "enhance",
+            "cls": "opt"
+          },
+          {
+            "label": "F",
+            "text": "exactly",
+            "cls": "opt"
+          },
+          {
+            "label": "G",
+            "text": "exhausting",
+            "cls": "opt"
+          },
+          {
+            "label": "H",
+            "text": "experience",
+            "cls": "opt"
+          },
+          {
+            "label": "I",
+            "text": "increased",
+            "cls": "opt"
+          },
+          {
+            "label": "J",
+            "text": "interpret",
+            "cls": "opt"
+          },
+          {
+            "label": "K",
+            "text": "occurred",
+            "cls": "opt"
+          },
+          {
+            "label": "L",
+            "text": "peculiar",
+            "cls": "opt"
+          },
+          {
+            "label": "M",
+            "text": "probably",
+            "cls": "opt"
+          },
+          {
+            "label": "N",
+            "text": "squeezed",
+            "cls": "opt"
+          },
+          {
+            "label": "O",
+            "text": "typically",
+            "cls": "opt"
+          }
+        ],
+        "qtype": "选词填空",
+        "panelAnsLetter": "G",
+        "rightKeyLetter": "G",
+        "reset": {
+          "feedbackShown": false,
+          "qcardMaxH": "300px",
+          "inlinePadBottom": "",
+          "scrollTop": 0,
+          "inlinePadIsCleared": true,
+          "scrollTopIsZero": true
+        }
+      },
+      {
+        "blank": 9,
+        "slotCount": 0,
+        "bank": [
+          {
+            "label": "A",
+            "text": "available",
+            "cls": "opt"
+          },
+          {
+            "label": "B",
+            "text": "deteriorating",
+            "cls": "opt"
+          },
+          {
+            "label": "C",
+            "text": "earned",
+            "cls": "opt"
+          },
+          {
+            "label": "D",
+            "text": "effect",
+            "cls": "opt"
+          },
+          {
+            "label": "E",
+            "text": "enhance",
+            "cls": "opt"
+          },
+          {
+            "label": "F",
+            "text": "exactly",
+            "cls": "opt"
+          },
+          {
+            "label": "G",
+            "text": "exhausting",
+            "cls": "opt"
+          },
+          {
+            "label": "H",
+            "text": "experience",
+            "cls": "opt"
+          },
+          {
+            "label": "I",
+            "text": "increased",
+            "cls": "opt"
+          },
+          {
+            "label": "J",
+            "text": "interpret",
+            "cls": "opt"
+          },
+          {
+            "label": "K",
+            "text": "occurred",
+            "cls": "opt"
+          },
+          {
+            "label": "L",
+            "text": "peculiar",
+            "cls": "opt"
+          },
+          {
+            "label": "M",
+            "text": "probably",
+            "cls": "opt"
+          },
+          {
+            "label": "N",
+            "text": "squeezed",
+            "cls": "opt"
+          },
+          {
+            "label": "O",
+            "text": "typically",
+            "cls": "opt"
+          }
+        ],
+        "qtype": "选词填空",
+        "panelAnsLetter": "J",
+        "rightKeyLetter": "J",
+        "reset": {
+          "feedbackShown": false,
+          "qcardMaxH": "300px",
+          "inlinePadBottom": "",
+          "scrollTop": 0,
+          "inlinePadIsCleared": true,
+          "scrollTopIsZero": true
+        }
+      },
+      {
+        "blank": 10,
+        "slotCount": 0,
+        "bank": [
+          {
+            "label": "A",
+            "text": "available",
+            "cls": "opt"
+          },
+          {
+            "label": "B",
+            "text": "deteriorating",
+            "cls": "opt"
+          },
+          {
+            "label": "C",
+            "text": "earned",
+            "cls": "opt"
+          },
+          {
+            "label": "D",
+            "text": "effect",
+            "cls": "opt"
+          },
+          {
+            "label": "E",
+            "text": "enhance",
+            "cls": "opt"
+          },
+          {
+            "label": "F",
+            "text": "exactly",
+            "cls": "opt"
+          },
+          {
+            "label": "G",
+            "text": "exhausting",
+            "cls": "opt"
+          },
+          {
+            "label": "H",
+            "text": "experience",
+            "cls": "opt"
+          },
+          {
+            "label": "I",
+            "text": "increased",
+            "cls": "opt"
+          },
+          {
+            "label": "J",
+            "text": "interpret",
+            "cls": "opt"
+          },
+          {
+            "label": "K",
+            "text": "occurred",
+            "cls": "opt"
+          },
+          {
+            "label": "L",
+            "text": "peculiar",
+            "cls": "opt"
+          },
+          {
+            "label": "M",
+            "text": "probably",
+            "cls": "opt"
+          },
+          {
+            "label": "N",
+            "text": "squeezed",
+            "cls": "opt"
+          },
+          {
+            "label": "O",
+            "text": "typically",
+            "cls": "opt"
+          }
+        ],
+        "qtype": "选词填空",
+        "panelAnsLetter": "D",
+        "rightKeyLetter": "D"
+      }
+    ],
+    "practice_cloze_10blanks_summary": {
+      "blanks": 10,
+      "bank_identical": true,
+      "letter_match_all": false
+    }
+  },
+  "D": {
+    "target_picker_shown_on": [
+      "地图首屏",
+      "地图首屏",
+      "地图首屏",
+      "E 重登后"
+    ],
+    "unit_titles": [
+      "UNIT 9 · 2026年6月四级真题（第1套） 第 9 周 · 共 7 关 · 约 69 分钟 || 第 1 关 · 听力 · 新闻 3 篇 | 第 2 关 · 听力 · 长对话 2 篇 | 第 3 关 · 听力 · 篇章 3 篇 | 第 4 关 · 阅读 · 选词填空 | 第 5 关 · 阅读 · 段落匹配 | 第 6 关 · 阅读 · 仔细阅读（一） | 第 7 关 · 阅读 · 仔细阅读（二）",
+      "UNIT 10 · 2026年6月四级真题（第2套） 第 10 周 · 共 7 关 · 约 69 分钟 || 第 1 关 · 听力 · 新闻 3 篇 | 第 2 关 · 听力 · 长对话 2 篇 | 第 3 关 · 听力 · 篇章 3 篇 | 第 4 关 · 阅读 · 选词填空 | 第 5 关 · 阅读 · 段落匹配 | 第 6 关 · 阅读 · 仔细阅读（一） | 第 7 关 · 阅读 · 仔细阅读（二）",
+      "UNIT 11 · 2026年6月四级真题（第3套） 第 11 周 · 共 4 关 · 约 38 分钟 || 第 1 关 · 阅读 · 选词填空 | 第 2 关 · 阅读 · 段落匹配 | 第 3 关 · 阅读 · 仔细阅读（一） | 第 4 关 · 阅读 · 仔细阅读（二）"
+    ],
+    "graded_first_qtype": {
+      "qtype": "选词填空",
+      "panelAnsLetter": null,
+      "rightKeyLetter": null,
+      "hasSubmitBtn": false,
+      "slotCount": 0,
+      "bankTitle": null,
+      "headText": "✕\n四级 · 阅读 · 选词填空\n\n阅读 · 共 10 题 · 约 12 分钟\n\n❤️ 3"
+    },
+    "practice_first_qtype": {
+      "qtype": "选词填空",
+      "panelAnsLetter": null,
+      "rightKeyLetter": null,
+      "hasSubmitBtn": false,
+      "slotCount": 0,
+      "bankTitle": null,
+      "headText": "✕\n四级 · 选词填空 · 10 题\n\n课下练习 · 共 10 题 · 只记逐题分\n\n📝 练习中"
+    }
+  },
+  "E": {
+    "init_state_student": {
+      "sid": "2405510107",
+      "name": "贾静美"
+    },
+    "login_landing": "/s/chpwd",
+    "must_change_gate_title": "先改个好记的密码",
+    "blocked_before_chpwd": {
+      "code": 40302,
+      "message": "首次登录须先修改初始密码"
+    },
+    "after_chpwd_path": "/s/login",
+    "relogin_landing": "/s/",
+    "account_buttons": [
+      {
+        "i": 0,
+        "w": 170,
+        "h": 44,
+        "top": 608.3,
+        "bottom": 652.3,
+        "left": 20,
+        "right": 190,
+        "minH": "44px",
+        "minW": "auto",
+        "maxH": "none",
+        "cls": "accbtn",
+        "text": "🔑 修改密码"
+      },
+      {
+        "i": 1,
+        "w": 170,
+        "h": 44,
+        "top": 608.3,
+        "bottom": 652.3,
+        "left": 200,
+        "right": 370,
+        "minH": "44px",
+        "minW": "auto",
+        "maxH": "none",
+        "cls": "accbtn out",
+        "text": "🚪 退出登录"
+      }
+    ],
+    "voluntary_chpwd_path": "/s/chpwd",
+    "voluntary_chpwd_title": "修改密码",
+    "logout_dialog": null,
+    "logout_landing": "/s/login",
+    "token_after_logout": null,
+    "login_again_landing": "/s/"
+  },
+  "errors": [],
+  "F.strip_children": [
+    {
+      "i": 0,
+      "w": 68.6,
+      "h": 17,
+      "top": 375,
+      "bottom": 392,
+      "left": 52,
+      "right": 120.6,
+      "minH": "auto",
+      "minW": "auto",
+      "maxH": "none",
+      "cls": "lname",
+      "text": "听力 · 25 题"
+    },
+    {
+      "i": 1,
+      "w": 26.3,
+      "h": 15,
+      "top": 376,
+      "bottom": 391,
+      "left": 128.6,
+      "right": 154.9,
+      "minH": "auto",
+      "minW": "auto",
+      "maxH": "none",
+      "cls": "lq",
+      "text": "25 题"
+    },
+    {
+      "i": 2,
+      "w": 60.1,
+      "h": 23,
+      "top": 372,
+      "bottom": 395,
+      "left": 277.9,
+      "right": 338,
+      "minH": "auto",
+      "minW": "auto",
+      "maxH": "none",
+      "cls": "go",
+      "text": "开始 →"
+    },
+    {
+      "i": 3,
+      "w": 94.6,
+      "h": 17,
+      "top": 428,
+      "bottom": 445,
+      "left": 52,
+      "right": 146.6,
+      "minH": "auto",
+      "minW": "auto",
+      "maxH": "none",
+      "cls": "lname",
+      "text": "选词填空 · 10 题"
+    },
+    {
+      "i": 4,
+      "w": 26.3,
+      "h": 15,
+      "top": 429,
+      "bottom": 444,
+      "left": 154.6,
+      "right": 180.9,
+      "minH": "auto",
+      "minW": "auto",
+      "maxH": "none",
+      "cls": "lq",
+      "text": "10 题"
+    },
+    {
+      "i": 5,
+      "w": 60.1,
+      "h": 23,
+      "top": 425,
+      "bottom": 448,
+      "left": 277.9,
+      "right": 338,
+      "minH": "auto",
+      "minW": "auto",
+      "maxH": "none",
+      "cls": "go",
+      "text": "开始 →"
+    },
+    {
+      "i": 6,
+      "w": 94.6,
+      "h": 17,
+      "top": 481,
+      "bottom": 498,
+      "left": 52,
+      "right": 146.6,
+      "minH": "auto",
+      "minW": "auto",
+      "maxH": "none",
+      "cls": "lname",
+      "text": "段落匹配 · 10 题"
+    },
+    {
+      "i": 7,
+      "w": 26.3,
+      "h": 15,
+      "top": 482,
+      "bottom": 497,
+      "left": 154.6,
+      "right": 180.9,
+      "minH": "auto",
+      "minW": "auto",
+      "maxH": "none",
+      "cls": "lq",
+      "text": "10 题"
+    },
+    {
+      "i": 8,
+      "w": 60.1,
+      "h": 23,
+      "top": 478,
+      "bottom": 501,
+      "left": 277.9,
+      "right": 338,
+      "minH": "auto",
+      "minW": "auto",
+      "maxH": "none",
+      "cls": "go",
+      "text": "开始 →"
+    },
+    {
+      "i": 9,
+      "w": 68.6,
+      "h": 17,
+      "top": 534,
+      "bottom": 551,
+      "left": 52,
+      "right": 120.6,
+      "minH": "auto",
+      "minW": "auto",
+      "maxH": "none",
+      "cls": "lname",
+      "text": "阅读 · 10 题"
+    },
+    {
+      "i": 10,
+      "w": 26.3,
+      "h": 15,
+      "top": 535,
+      "bottom": 550,
+      "left": 128.6,
+      "right": 154.9,
+      "minH": "auto",
+      "minW": "auto",
+      "maxH": "none",
+      "cls": "lq",
+      "text": "10 题"
+    },
+    {
+      "i": 11,
+      "w": 60.1,
+      "h": 23,
+      "top": 531,
+      "bottom": 554,
+      "left": 277.9,
+      "right": 338,
+      "minH": "auto",
+      "minW": "auto",
+      "maxH": "none",
+      "cls": "go",
+      "text": "开始 →"
+    }
+  ]
+}

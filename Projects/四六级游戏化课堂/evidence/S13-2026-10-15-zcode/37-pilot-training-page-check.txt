@@ -1,0 +1,15 @@
+S13 交付核对：站点上的教师培训页是修好的那一版（对应 §四 的 H / I 两条）
+时间：2026-10-15 21:2x
+
+【核对三处】
+1. 站点可真开：GET http://127.0.0.1/teacher-training.html -> HTTP 200，24807 字节。
+2. 内容与仓库源逐字节相同（md5 一致，说明 02-build-and-stage.ps1 把修好的文件投上了站）：
+     D:\cet46-pilot\web-dist\teacher-training.html        8c86bd6b87a2281c663e49d03b4cd4ee
+     D:\claude-work\cet46-game\deploy\docs\teacher-training.html  8c86bd6b87a2281c663e49d03b4cd4ee
+     （HTTP 取回的响应体同样是 8c86bd6b87a2281c663e49d03b4cd4ee）
+3. 两处修复都在页面上：
+     H（错别字）「第一次登录」出现 3 次、「第一条登录」0 次；
+     I（打印断行）打印样式里 `break-inside` 规则 2 条（只对表格行生效，长表不整体推页）。
+
+【说明】教师 30 分钟培训页的 7 张实测截图在 evidence/training-page/（桌面整页/上下两屏、
+手机视口、打印模拟）。本轮只把它在**交付站点上**再核一次，避免"仓库里改了、站点上还是旧版"。

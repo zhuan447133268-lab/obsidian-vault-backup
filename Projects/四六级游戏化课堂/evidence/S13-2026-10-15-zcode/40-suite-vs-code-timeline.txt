@@ -1,0 +1,24 @@
+S13 证据完整性核对：各道闸门跑的是不是「当前这版代码」
+时间：2026-10-15 21:2x
+
+【为什么要核】
+本阶段改了两批东西——先后端（B 的 cloze 不洗牌 + D 的题库修正 + 04 对拍闸门），
+后前端（A 的二次修复 + F 的余项 + E/H/I）。冻结套件只覆盖后端接口，前端改动由
+verify.sh（vue-tsc/eslint/build）覆盖。若"闸门跑完又动了代码"，闸门结论就作废，
+所以按下述时间线逐条对齐（文件修改时间 vs 日志落盘时间）：
+
+  后端源码最后修改            19:56   server/internal/router/profile_s65_test.go
+  （此前：quiz_service.go 19:36 / model/quiz.go 18:27 / teacher_service.go 18:16 …）
+  冻结 S12 套件跑完            20:03   regression-s12/02-accept.txt        155 条 / 失败 0
+  冻结 S10.5 套件回归跑完      20:05   regression-s12/99-regression-s105.txt  244 / 0
+  底账红线（表结构 + 题库 CRC）20:05   regression-s12/99-summary.txt      17 表 128 列 · CRC 3897258111
+  前端源码最后修改            20:52—20:53  web/src/student/views/（QuizView / ProfileView /
+                                  ReviewView / LedgerView / TeamView）
+  重建并落盘（含新前端）       20:54   33-rebuild-after-afix.txt
+  静态门禁（gofmt/vet/go test/vue-tsc/eslint/build） 20:57  34-verify-after-afix.txt
+  站点服务的确是新构建         21:1x   36-pilot-served-build-verification.txt（chunk md5 逐字节相同）
+
+结论：
+1. 后端源码（19:56 定稿）**早于**冻结套件（20:03/20:05）——155/0 与 244/0 对当前后端成立；
+2. 前端（20:53 定稿）由 20:54 重建 + 20:57 静态门禁覆盖，并由 36-* 证明站点服务的就是这一版；
+3. 因此本阶段所有闸门与复测，指向的是同一份代码（后端 19:56 / 前端 20:53 之后无源码改动）。

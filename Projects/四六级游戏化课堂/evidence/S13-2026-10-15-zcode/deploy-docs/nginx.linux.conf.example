@@ -1,0 +1,39 @@
+# 四六级游戏化课堂 — Nginx 反代样例（Linux）
+# 套路照 textbook-analysis-tool/deploy/nginx.linux.conf.example：
+#   /api/* → Go 8080；其余 → web/dist 静态托管（学生端 /s、教师端 /t 同源）
+server {
+    listen 80;
+    server_name _;
+
+    root /srv/cet46/web/dist;
+    index index.html;
+
+    # 双入口：/s/* 学生端（Vant）、/t/* 教师端（Element Plus）
+    # 前端路由为 history 模式，未命中文件的路径回落到对应入口页
+    location ^~ /s/ {
+        try_files $uri $uri/ /s.html;
+    }
+
+    location ^~ /t/ {
+        try_files $uri $uri/ /t.html;
+    }
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    location /api/ {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    # 静态资源长缓存（Vite 产物带内容哈希）
+    location ~* \.(js|css|png|jpg|jpeg|gif|svg|woff2?|mp3)$ {
+        expires 30d;
+        add_header Cache-Control "public, immutable";
+    }
+}

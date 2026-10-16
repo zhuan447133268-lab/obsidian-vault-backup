@@ -1,0 +1,77 @@
+S13 复测前置：教师在试点库组一份「课下练习」卷并发布到真实班
+时间：2026-10-15 21:05—21:08（试点环境 http://127.0.0.1/ · 库 cet46_pilot · 班「2024级英语1班」）
+
+【为什么要做这一步】
+上一轮移动视口复测（evidence/walkthrough-recheck）里，「试卷关卡条 .strip」量不到——
+试点库只有第 9/10/11 周三套真题单元，没有任何练习卷单元（.strip 只在练习/卷单元上渲染）。
+本轮按真实教师路径把数据造出来：首登强制改密 → 选题池 → 组卷 → 发布 → 学生端可见，
+单测完由 scripts/10-reset-pilot-data.ps1 整库复位回交付态（该脚本会把账号口令重置为
+sql/pilot_secrets.json 里的一次性值，因此本步骤不会把试点交接口令改坏）。
+
+【本步骤脚本自身返工一处，如实记下】
+第一次发布请求漏了 classId 查询参数（服务端用 ?classId= 定位宿主班），服务端回
+40001「参数错误」；补上 ?classId=1 后 200。这是测脚本的写法问题，不是产品缺陷。
+
+================================================================
+① 教师侧：首登改密 → 选题池 → 组卷 → 发布（s13_publish_probe.py 实跑输出）
+================================================================
+① 任课教师首登（初始口令，试点交接文件里的那一份）
+  ok   login 200 st=200 mustChangePwd=True
+② 首登强制改密（改完才放行教师接口）：旧口令 -> 临时强口令
+  ok   chpwd 200 st=200 msg=ok
+  ok   改密后能登录 st=200
+  ok   mustChangePwd 已清
+③ 选题池：拿班里真实单元（第 9/10/11 周真题）
+  ok   bank/units 200 st=200 msg=ok
+  ok   有真实单元可选 n=3
+      unit 1 · 第9周 · 2026年6月四级真题（第1套） · 题 55
+      unit 2 · 第10周 · 2026年6月四级真题（第2套） · 题 55
+      unit 3 · 第11周 · 2026年6月四级真题（第3套） · 题 30
+④ 组卷（课下练习形态，整单元引用真实题库）
+  ok   compose 200 st=200 msg=ok
+      卷单元 id=4 题数=55 状态=draft
+  ok   卷里有题 qcount=55
+⑤ 发布到真实班（2024级英语1班）
+  FAIL publish 200 st=400 msg=参数错误        <-- 漏 classId 查询参数（见上「返工一处」）
+  ...补 ?classId=1 重发...
+  200 {"code":0,"data":{"unitId":4,...,"status":"published","publishedAt":"2026-10-15T21:06:54+08:00",
+       "publishedBy":2,"open":true,"levelCount":4,"questionCount":55,"timeLimit":1200}}
+
+================================================================
+② 学生侧：练习卷是否真的落到学生端（s13_prep_student.py 实跑输出）
+================================================================
+学生：真实班学号 2405510103（口令取 data\学生初始口令-分发后删除.csv，复测中临时改密）
+① 学生登录（真实班 2024级英语1班 · 学号 2405510103）
+  FAIL 初始口令登录（已被前次复测改密，属预期） msg=学号或密码错误
+      （首次运行 21:07 时此步为 ok，并顺带验到：未改密时 /quiz/levels 被首登闸门拦回 40302）
+② 用复测临时口令登录
+  ok   改密后能登录 st=200 msg=ok
+  ok   mustChangePwd 已清
+③ 学生端单元列表：教师刚发布的课下练习卷是否已挂上
+  ok   quiz/levels 200 st=200 ok
+      unit 1 · 第9周 · practice=False · 关 7 · 题 55 · 2026年6月四级真题（第1套）
+      unit 2 · 第10周 · practice=False · 关 7 · 题 55 · 2026年6月四级真题（第2套）
+      unit 3 · 第11周 · practice=False · 关 4 · 题 30 · 2026年6月四级真题（第3套）
+      unit 4 · 第100周 · practice=True · 关 4 · 题 55 · S13复测·课下练习（第9周真题）
+  ok   出现练习卷单元（.strip 的数据来源） n=1
+  ok   练习卷有关卡 levelCount=4
+  ok   练习卷有题 questionCount=55
+  ok   走 practice 形态 paperMode=practice
+  ok   未设到期 dueAt=None
+
+断言 8 条通过
+
+================================================================
+③ 落库对拍（复测当时的库内事实，只读查询）
+================================================================
+SELECT id,class_id,week_no,name FROM units WHERE week_no>=100;
+  4  1  100  S13复测·课下练习（第9周真题）
+
+SELECT LEFT(settings_json,300) FROM classes WHERE id=1;
+  {"papers":{"4":{"title":"S13复测·课下练习（第9周真题）","mode":"practice","status":"published",
+   "publishedAt":"2026-10-15T21:06:54+08:00","publishedBy":2,"sourceUnitId":1}}}
+
+levels_of_unit4 = 4      questions_in_unit4_levels = 55
+
+【说明】以上练习卷单元与 settings_json.papers 条目属复测夹具，复测结束后随
+scripts/10-reset-pilot-data.ps1 整库复位删除，不进交付态。

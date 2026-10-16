@@ -1,0 +1,227 @@
+移动视口复测记录 (S13 · 2026-10-15 · zcode)
+====================================================
+站点: http://127.0.0.1/  (nginx:80 -> 试点后端:8090)
+学生端: http://127.0.0.1/s/
+账号: 学号 2405510101
+口令: 初始 <学生初始口令> -> 改密为 <走查临时新口令>
+视口: 390x844 (另在 390x700 做了短屏对照)
+仓库/代码: 未做任何修改；本次唯一写入为本目录的截图与本文本。
+
+====================================================
+0. 测量环境与 harness 限制（如实记录）
+====================================================
+- 内嵌浏览器只暴露 visibility 能力：无 deviceScaleFactor / touch / UA 覆盖。
+  实测页面内参数：
+    devicePixelRatio = 1.0000000298  (≈1.0)
+    navigator.maxTouchPoints = 0
+    navigator.userAgent = Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+                          (KHTML, like Gecko) ZCode/3.15.1 Chrome/146.0.7680.80
+                          Electron/41.0.3 Safari/537.36
+  => 本次是「移动视口模拟」（仅把 CSS 视口设为 390x844），不是真机、无触摸事件、
+     无移动 UA、无 DPR 缩放。所有 px 均为 CSS px @DPR 1.0。
+- 截图 fullPage:true 会返回平铺重复帧（上一轮已知），本次全部使用视口单帧截图
+  （需要看某区域时先滚动到目标位置再截）。
+- 截图接口不稳定：首次尝试常见报错
+    "browser screenshot surface preparation timed out after 3000ms"
+  需要静置 4~12 秒后重试（最多试 6 次）才能成功；另有 1 次新建标签页报
+    "browser guest not attached (webview not ready)"。
+  单个标签页长时间使用后截图面会持续失败，本次通过重试最终全部取得。
+
+====================================================
+1. 逐步操作轨迹
+====================================================
+(1) 打开 http://127.0.0.1/s/ -> 登录页（placeholder「初始密码由老师发给你」）
+(2) 输入 2405510101 / <学生初始口令> -> 登录
+    -> 强制跳转 http://127.0.0.1/s/chpwd
+       标题「先改个好记的密码」，说明「陈佳怡，初始密码是老师发的，改完才能进地图」
+       三个输入框 placeholder：老师发的初始密码 / 至少 6 位 / 再输一遍新密码
+(3) 提交新口令 <走查临时新口令>（原密码框填初始口令）-> 回到 /s/login
+(4) 用新口令重新登录 -> 首次出现「选择备考目标」，选「英语四级 CET-4」
+    -> 进入闯关地图 /s/
+(5) 底部导航点「我的」-> /s/me -> 滚到底部账号卡片：
+    「🔑 修改密码」「🚪 退出登录」
+(6) 点「修改密码」-> /s/chpwd（主动入口）
+    标题「修改密码」，说明「陈佳怡，改完下次用新密码登录」
+    输入框 placeholder：当前密码 / 至少 6 位 / 再输一遍新密码
+    （与首次强制的文案不同：不是「老师发的初始密码」，标题也不是「先改个好记的密码」）
+    -> tab.back() 返回 /s/me
+(7) 读 localStorage: cet46_token = eyJ...（JWT 存在）
+(8) 点「退出登录」-> /s/login，localStorage 里 cet46_token 已被清除
+(9) reload -> 仍在 /s/login；back -> /s/login?redirect=/，仍未登录、无 token
+(10) 重新登录（新口令，无强制改密、无目标选择）
+(11) 地图点 UNIT 11「第 1 关 · 阅读 · 选词填空」-> 正常进入 /s/quiz/15
+     （即题库 id=15：第 11 周 · 第 1 关 · 阅读·选词填空，10 题）
+     —— 是从地图正常点进去的，未用直链
+(12) 预览页点「开始答题 →」-> 答题界面
+(13) 第 1 题选 I) physical -> 反馈面板升起，解析引用「I) physical」
+(14) 「继续 →」-> 第 2 题，抓词表；第 3 题故意选错 A)、第 4 题选错 A)、第 5 题选错 B)
+     -> 爱心 3->2->1->0，出现结算遮罩「差一点点！爱心用完了…错题已经收进复盘关…
+        本次得分 0（已作废）」
+(15) 点「先回地图 🗺️」-> /s/ -> 「我的」-> 出现「📚 错题复盘 · 3 题待收」
+     按钮「去复盘（答对就出本子）→」-> 进入 /s/review
+(16) 复盘页逐题读「考点」：第 1/3、第 2/3、第 3/3 三题都显示「阅读 · 选词填空」，
+     全程页面文本 /听力/ 匹配数 = 0
+(17) 直链尝试 /s/quiz/4（第 9 周 · 第 4 关 · 阅读·选词填空）：页面能打开预览，
+     但显示「还没解锁：先通过上一关。」且「开始答题 →」按钮为 disabled，
+     Playwright 报 "Timeout waiting for click actionability (disabled)"，无法进入。
+
+====================================================
+2. 各项结论
+====================================================
+【E｜学生端账户入口】 PASS
+ E-1 PASS 初始口令登录 -> 强制 /s/chpwd，说明文字与「老师发的初始密码」placeholder 都存在。
+ E-2 PASS 改密后重新登录进地图；「我的」页账号卡片含
+          「🔑 修改密码」与「🚪 退出登录」两个按钮。
+ E-3 PASS 主动「修改密码」进入 /s/chpwd：标题「修改密码」，
+          placeholder 为「当前密码」（不是「老师发的初始密码」）。
+ E-4 PASS 退出登录后回登录页；localStorage.cet46_token 被清除；
+          reload 后仍在 /s/login；back 后仍是 /s/login?redirect=/。
+ E-5 PASS 触达高度见下方 F 表（两个账号按钮与复盘入口均 44px）。
+
+【B｜选词填空词表字母跨空稳定】 PASS
+ 进入方式：地图 -> UNIT 11 -> 「第 1 关 · 阅读 · 选词填空」-> /s/quiz/15（非直链）。
+ 词表首项字母 = A（A) awareness）；末项字母 = O（O) trigger）；共 15 项 A~O。
+ 同一性比对（完整字符串逐字比较，非抽样）：
+   Q1(空26) 词表 = A)awareness,B)canceling,C)controversial,D)emptiness,E)monstrous,F)offers,
+                   G)parallels,H)permanently,I)physical,J)prepare,K)prospects,L)quitting,
+                   M)shed,N)significantly,O)trigger
+   Q2(空27) 词表 = 与 Q1 完全相同的字符串（逐字相等）
+   Q3(空28) 词表 = 与 Q1 完全相同的字符串（逐字相等）
+   重进本关后的 Q1 词表 = 与上面完全相同的字符串（逐字相等）
+   Q4/Q5 词表：抓取的前 60 字符前缀与 Q1 完全一致
+     （A)awareness,B)canceling,C)controversial,D)emptiness,E)monstr…）
+ 示例：physical 在空 26 / 空 27 / 空 28 上均为字母 I；significantly 均 N；offers 均 F。
+ => 同一个词在所有空上字母一致，未再出现「逐空换字母」。
+
+ B-2（解析字母 vs 屏幕字母）逐条核对，7/7 全部一致：
+   quiz 级别 / 第1题(空26)：解析「I) physical(身体的)符合文意,故为答案」；屏幕 I = physical  ✔
+   quiz 级别 / 第3题(空28)：解析「F) offers(提供,给予)符合文意,故为答案」；屏幕 F = offers    ✔
+   quiz 级别 / 第4题(空29)：解析「N) significantly(显著地,明显地)…故为答案」；屏幕 N = significantly ✔
+   quiz 级别 / 第5题(空30)：解析「G) parallels(与……相似,比得上)…故为答案」；屏幕 G = parallels ✔
+   复盘页 第1/3 题：解析「G) parallels…」；屏幕 G = parallels（.opt.right 在 G）            ✔
+   复盘页 第2/3 题：解析「N) significantly…」；屏幕 .opt.right = N                          ✔
+   复盘页 第3/3 题：解析「F) offers…」；屏幕 .opt.right = F                                  ✔
+
+【A｜窄屏反馈条遮住选项】 FAIL（核心问题仍在）
+ 判据：选项底的 y ≤ 面板顶的 y（允许 0 重叠）；另用 elementFromPoint 做遮挡命中测试。
+ 390x844：
+   反馈面板 .feedback.show  position:absolute; bottom:0; z-index:8
+     panelTop = 524.9  panelBottom = 844  panelHeight = 319.1  (max-height: 56%)
+   正确选项 .answerpanel .optzone .opt.right（key = I）
+     top = 602.0  bottom = 650.0  h = 48.0
+   选项底 − 面板顶 = 650.0 − 524.9 = +125.1 px（> 0，不满足判据）
+   重叠高度 = 48.0 px（= 选项整个高度，完全重叠）
+   命中测试：elementFromPoint(选项中心 105.5, 626) -> P.fbtext（面板内），
+             panelContainsPoint = true，isOptionOrDescendant = false
+             => 该选项在视觉与点击上都被面板盖住
+   App 确实尝试滚动：答题前把 .optzone.scrollTop 归零，提交后变成 104.0
+     （= 该容器最大可滚距离 480 − 376 = 104，即已经滚到底），
+     但最大滚距仍不足以把该选项抬到面板上方（差 125.1 − 104 = 21.1 px）。
+   同一关第 3 题（正确项 F，第 3 行）在 scrollTop=104 下：F 占 490~538，
+     面板顶 502.8 -> 仍被压住 35.3 px，命中测试同样落在 .fbtext 上。
+ 390x700（短屏）：
+     max-height 计算值 = 46%（命中 @media (max-height:780px) 规则，确认生效）
+     面板 top = 380.9 / height = 319.1 / 占视口 45.6% / bottom = 700
+     选项顶 602 底 650 -> 选项底 − 面板顶 = +160.0，重叠 48px，命中测试被盖
+     （短屏下更糟：面板几乎盖住整个选项区）
+ 结论：提交后选项没有被滚到面板上方可见处，判定 FAIL。
+ 附带记录：A~O 全部 15 个选项中，提交后唯一「部分露出」的只有中间行
+   （E/F 行 490~538，露出约 12.8px）；其余（G 行及以下）完全被盖，
+   而最上面两行（A~D）在 scrollTop=104 下被 .optzone 裁掉、不可见。
+
+ 面板高度 / 限高（题目要求附带报告）：
+   基础规则  .feedback { max-height: 56% }   （无 media 条件）
+   短屏规则  @media (max-height: 780px) { .feedback { max-height: 46% } }  —— 存在且生效
+   844 高时 780 的 media 不命中 -> 采用 56%；实测渲染高度 319.1~341.9px
+     （占视口 37.8% ~ 40.5%），即 56% 未被顶到，高度由内容决定
+   700 高时 media 命中 -> max-height 46%（实测 45.6%，319.1px）
+   面板自身不滚动：.feedback clientHeight == scrollHeight（319/341）；
+     其内层 .fbtext 也是 clientHeight == scrollHeight（187），overflow-y: visible
+     => 「反馈面板的滚动容器高度」= 面板自身高度，面板不会内部滚动，
+        内容变长时只会把面板撑高到 56%（或短屏 46%）上限。
+
+【F｜触达尺寸 ≥44px】
+ 元素                                       宽 x 高 (px)        是否 ≥44
+ .node.current .card .go （「开始冲关 →」）  104.6 x 44.0        PASS（高 44，3 处实例均 44.0）
+ .quit （关卡右上「✕」）                     44.0 x 44.0         PASS（CSS width/height 均显式 44px）
+ .strip （试卷页关卡条）                     无法实测（见下）    未测到
+   原因：.strip 属于 MapView 内的 PaperSection 组件，仅当地图接口返回
+   unit.practice === true 的单元时才渲染（模板：q.value.length ? <PaperSection> : null）。
+   当前 /api/quiz/levels 返回的 3 个单元 practice 全为 false
+   （unitId 1/2/3：2026年6月四级真题第1/2/3套），实测 .paperbox=0、.strips=0、.strip=0。
+   因此本账号下该元素在页面上不存在，拿不到 getBoundingClientRect()。
+   仅能引用样式中声明值：.strip { min-height: 44px } —— 静态声明 44px，但未做活体验证。
+ 另外顺带量到（不在要求清单内，供参考）：
+   .我的 页 .accbtn「🔑 修改密码」170 x 44.0   PASS
+   .我的 页 .accbtn.out「🚪 退出登录」170 x 44.0  PASS
+   .我的 页 .review .go「去复盘（答对就出本子）→」192 x 44.0  PASS
+   .我的 页 .entry「📒 积分明细」350 x 42.7  （<44）
+   .我的 页 .back「回地图继续冲关」350 x 41.3  （<44）
+   复盘页 .back「‹」按钮 —— 未单独测量
+
+【D｜错题本考点显示】 PASS
+ 背景：在 level=15 故意答错 3 题（空28 选 A 实为 F、空29 选 A 实为 N、空30 选 B 实为 G）
+       -> 爱心耗尽结算，文案「错题已经收进复盘关」。
+ 「我的」页复盘入口文案：「📚 错题复盘 · 3 题待收」+
+       「3 题待收，去「阅读 · 选词填空」收拾它们」。
+ 进 /s/review 后逐题读「考点」原文（元素 .from .lv）：
+   第 1 / 3 题：考点 = 「阅读 · 选词填空」，副行「错过 1 次 · 最近 2026-10-15」
+                （题型徽标 .qtype = 「选词填空」）
+   第 2 / 3 题：考点 = 「阅读 · 选词填空」，副行同上
+   第 3 / 3 题：考点 = 「阅读 · 选词填空」，副行同上
+ 这三题的解析分别引用 G)/N)/F)，与屏幕字母一致。
+ 全页面纯文本中 /听力/ 匹配次数 = 0（三题逐题检查均为 0）。
+ => 考点显示为阅读域标签且含「选词填空」字样，未再出现「听力」。
+
+====================================================
+3. 截图文件名对应关系（共 15 张）
+====================================================
+recheck-E-01-login.png                        登录页（初始状态）
+recheck-E-02-forced-chpwd.png                 初始口令登录后的强制改密页（「先改个好记的密码」+「老师发的初始密码」）
+recheck-E-03-map-after-relogin.png            改密后重新登录进入的闯关地图（含「开始冲关 →」按钮）
+recheck-E-04-me-account-card.png              「我的」页底部账号卡片（🔑 修改密码 / 🚪 退出登录）
+recheck-E-05-voluntary-chpwd.png              主动「修改密码」页（标题「修改密码」+「当前密码」）
+recheck-E-06-logout-login.png                 退出登录后的登录页（token 已清）
+recheck-E-07-me-review-entry.png              「我的」页错题复盘入口（3 题待收 + 去复盘按钮）
+recheck-B-01-cloze-blank1-bank.png            level=15 第 1 空（空26）词表 A)~O)
+recheck-B-02-cloze-blank2-bank.png            level=15 第 2 空（空27）词表 A)~O)（可见 I physical 同字母）
+recheck-A-01-feedback-overlaps-option.png     390x844 提交后：反馈条压住选项（只露出 E/F 行上半）
+recheck-A-02-short-screen-feedback-46pct.png  390x700 提交后：面板 46% 限高、几乎盖满选项区
+recheck-F-01-quiz-quit-44px.png               关卡内右上「✕」与词表（44x44 元素可见）
+recheck-F-02-map-go-button.png                地图页当前关卡「开始冲关 →」按钮
+recheck-D-01-wrongbook-domain-tag.png         错题复盘 第1/3 题：考点「阅读 · 选词填空」
+recheck-D-02-review-q3-feedback-no-listening.png 错题复盘 第3/3 题：考点 + 解析 F) offers，全页无「听力」
+
+备注：A-01 与 B-01 画面同为第 1 空；A-02 为短屏对照；D-02 同时可作为 B 的解析字母证据。
+
+====================================================
+4. 没测到 / 存疑的点（不粉饰）
+====================================================
+1) .strip 未能实测。当前试点数据里没有任何 practice=true 的单元，
+   地图上 .paperbox/.strips/.strip 元素数为 0，本账号下根本无法渲染出该元素。
+   只拿到样式声明 .strip { min-height: 44px }，未做活体测量。
+   想实测需要先有「老师发布的练习卷」（practice 单元）挂到该班级。
+2) level=4（第 9 周 · 第 4 关 · 阅读·选词填空）无法进入。
+   直链 /s/quiz/4 能打开预览页，但页面明确显示「还没解锁：先通过上一关。」，
+   「开始答题 →」按钮为 disabled，Playwright 报
+   "Timeout waiting for click actionability (disabled)"。
+   因此 B 项只在 level=15 上做了完整验证，level=4 未验证。
+3) 真机移动端行为无法验证：无触摸事件（maxTouchPoints=0）、无移动 UA、DPR=1.0。
+   本次所有 ≥44px 结论只代表「CSS 视口 390x844 下的 CSS px 高度」。
+   另外 -- 因为 DPR=1，若真机 DPR=2/3，「物理像素」会更大，但 CSS px 判据本身不受影响。
+4) A 项在 844 高（>780）时走的是基础 56% 限高，不是 46%；46% 只在 ≤780 高时生效。
+   如果验收标准是按「短屏 46%」来写，请注意 390x844 这一常见机型高度并不会触发 46%。
+5) 反馈面板「滚动容器高度」这一项：面板内部不滚动（clientHeight==scrollHeight，
+   .fbtext overflow-y: visible），所以只能报告面板自身渲染高度与其 max-height 上限，
+   不存在一个「面板内滚动容器」可测。
+6) 复盘页翻页只能靠作答后点「下一题 →」；该按钮位于底部导航之上会被 .navbar 遮挡，
+   常规 Playwright 点击会报 "covered by <a>… from <nav class="navbar">"，
+   本次改用页面内直接 .click() 完成翻页（不影响考点文本的读取结论）。
+7) 复盘页作答不像关卡内那样弹出反馈面板，只在选项上打 right/wrong 标记；
+   我最初对「第1题正确项」的判断（先以为 I，实为 G）来自这个标记，已在报告中修正。
+8) 顺手发现（不属于本次四项，仅供参考，未做修复）：
+   a. 关卡内 .optzone 的滚动位置在切题时不重置（第 1 题滚到底后，第 2 题仍是 104）。
+   b. 第 1 题答题时 .optzone 滚到最大后，第 1~2 行选项（A~D）会被裁出可视区、完全看不见。
+   c. 「我的」页 .entry（积分明细 42.7px）与 .back（回地图 41.3px）高度小于 44px。
+   d. 关卡内计时器读数异常：从 07:58 在数十秒内跳到 01:59、随后显示 00:00
+      （未确认是倒计时计算问题还是我停留过久；结算由「爱心用尽」触发，不是超时）。

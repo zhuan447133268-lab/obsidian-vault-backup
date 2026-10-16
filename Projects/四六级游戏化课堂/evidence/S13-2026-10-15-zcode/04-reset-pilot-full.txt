@@ -1,0 +1,122 @@
+[15:41:17] 整库复位开始（目标库 cet46_pilot）
+[15:41:17] ① 停后端服务（复位期间不写库）
+[15:41:19] ② 重新建空库 cet46_pilot（账号 cet46_pilot）
+[15:41:19] ③ 建 17 张表 + 建账号（03）
+[1/3] 建表（bin\migrate.exe，幂等）...
+driver=mysql
+SHOW TABLES:
+ 1. attempt_answers
+ 2. attempts
+ 3. audit_log
+ 4. classes
+ 5. coupon_redeems
+ 6. coupons
+ 7. diagnoses
+ 8. levels
+ 9. questions
+10. reminders
+11. seasons
+12. team_members
+13. teams
+14. units
+15. users
+16. wrong_book
+17. xp_ledger
+
+业务表齐备: 17/17
+迁移完成，表结构校验通过。
+[2/3] 建账号（校级 admin + 任课教师）...
+2026/10/15 15:41:21 已创建账号: username=admin name=校级管理员 role=admin（初始密码已设置，首次登录须改密）
+2026/10/15 15:41:22 已创建账号: username=T2024001 name=任课教师 role=teacher（初始密码已设置，首次登录须改密）
+[3/3] 核对 ...
+tables=17（期望 17）
+accounts=2（期望 2：admin + T2024001）
+
+=== 建表与账号就绪 ===
+如首次表数不足 17，检查 server\.env 的 DB_HOST/DB_PORT/DB_NAME。
+[15:41:22] ④ 灌真实名单与真题题库（04）
+[1/3] 导入名单：D:\cet46-pilot\data\真实名单.csv
+文件: D:\cet46-pilot\data\真实名单.csv
+归属教师: T2024001(2)
+读到数据行: 41
+
+新建班级: 1，复用已有班级: 0
+导入学生: 41 人，全部成功，零报错。
+[2/3] 导入题库：D:\cet46-pilot\data\真题题库-140题.csv（重复题自动跳过，可重复执行）
+文件: D:\cet46-pilot\data\真题题库-140题.csv
+归属教师: T2024001(2)
+读到数据行: 140（另有 0 行格式错误）
+
+新建单元: 3，复用已有单元: 0
+新建关卡: 18，复用已有关卡: 0
+导入题目: 140 道，跳过重复: 0 道（共 140 行），零报错。
+该班级当前可下发题目（按分套 + 已启用）: 140 道。
+[3/3] 对拍 ...
+  questions_total  140
+  units_total      3
+  levels_total     18
+  students         41
+  classes          1
+  by_week:
+    week 9 = 55 题 / 7 关
+    week 10 = 55 题 / 7 关
+    week 11 = 30 题 / 4 关
+  by_type:
+    listening = 50
+    cloze = 30
+    match = 30
+    reading = 30
+  by_week_level:
+    week 9 / 第1关 (听力 · 新闻 3 篇) = 7 题
+    week 9 / 第2关 (听力 · 长对话 2 篇) = 8 题
+    week 9 / 第3关 (听力 · 篇章 3 篇) = 10 题
+    week 9 / 第4关 (阅读 · 选词填空) = 10 题
+    week 9 / 第5关 (阅读 · 段落匹配) = 10 题
+    week 9 / 第6关 (阅读 · 仔细阅读（一）) = 5 题
+    week 9 / 第7关 (阅读 · 仔细阅读（二）) = 5 题
+    week 10 / 第1关 (听力 · 新闻 3 篇) = 7 题
+    week 10 / 第2关 (听力 · 长对话 2 篇) = 8 题
+    week 10 / 第3关 (听力 · 篇章 3 篇) = 10 题
+    week 10 / 第4关 (阅读 · 选词填空) = 10 题
+    week 10 / 第5关 (阅读 · 段落匹配) = 10 题
+    week 10 / 第6关 (阅读 · 仔细阅读（一）) = 5 题
+    week 10 / 第7关 (阅读 · 仔细阅读（二）) = 5 题
+    week 11 / 第1关 (阅读 · 选词填空) = 10 题
+    week 11 / 第2关 (阅读 · 段落匹配) = 10 题
+    week 11 / 第3关 (阅读 · 仔细阅读（一）) = 5 题
+    week 11 / 第4关 (阅读 · 仔细阅读（二）) = 5 题
+  empty_checks:
+  empty_stem       0
+  empty_answer     0
+
+=== 真实数据灌库完成 ===
+口径：题数应为 140；空题干与空答案均应为 0；学生数 = 名单行数（41）。
+[15:41:27] ⑤ 复位后对账（要求：学生 41 · 班级 1 · 题库 140 · 答题 0 · 流水 0）
+[15:41:27]    tables=17
+[15:41:27]    users=43
+[15:41:27]    admins=2
+[15:41:27]    students=41
+[15:41:27]    classes=1
+[15:41:27]    units=3
+[15:41:27]    levels=18
+[15:41:27]    questions=140
+[15:41:27]    attempts=0
+[15:41:27]    attempt_answers=0
+[15:41:27]    xp_ledger=0
+[15:41:27]    init_pwd_pending=43
+[15:41:27] ✓ 对账全中
+[15:41:27] ⑥ 起服务并健康检查（08）
+启动后端 cet46-server.exe（D:\cet46-pilot\server，端口 8090）...
+后端 OK：/api/health → {"code":0,"message":"ok","data":{"status":"ok","env":"production","driver":"mysql","tables":17}}
+Nginx 已在运行
+
+=== 访问地址（学生手机 / 教师电脑需与本机同一局域网）===
+  本机自测： http://127.0.0.1/s      学生端
+            http://127.0.0.1/t      教师端
+  局域网：   http://192.168.0.238/s   /   http://192.168.0.238/t
+[15:41:30] ⑦ 口令状态（复位后）
+[15:41:30]    校级/教师：口令回到 sql\pilot_secrets.json 里的一次性随机值（改过密的会被重置为「初始」态）
+[15:41:30]    学生：口令 = data\学生初始口令-分发后删除.csv 里的随机值
+[15:41:30]    分发完后请删除 初始口令-移交后删除.txt 与 学生初始口令-分发后删除.csv
+
+整库复位结束。实录：D:\cet46-pilot\logs\reset-20261015-154117.txt

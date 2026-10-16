@@ -1,0 +1,16 @@
+
+########## 00 前置：重编 S12 二进制（server / seed-teacher / league-settle）+ 换掉 8080 上的旧服务 ##########
+--- 00-1 编译（三个产物都编进临时目录，不往仓库里丢）---
+二进制：C:\Users\dfjq\AppData\Local\Temp\tmp.YPOs4ecu2x\cet46-server-s12.exe
+--- 00-2 换服务（按端口杀旧进程）---
+8080 上的旧进程：30396
+[CHECK] 8080 新服务起来（/api/health） ✅ 期望=ok 实际=ok
+[CHECK] MySQL 3307 可连 ✅ 期望=1 实际=1
+[CHECK] Vite 5174 可达（走查用） ✅ 期望=200 实际=200
+[CHECK] 本机时区 = +0800（联赛结算的那把尺子） ✅ 期望=+0800 实际=+0800
+--- 00-3 S12 三条核销路由已挂上（未带 token 是 401，不是 404）---
+[CHECK] GET /api/admin/redeems/lookup 无 token → 401 ✅ 期望=401 实际=401
+[CHECK] POST /api/admin/redeems/confirm 无 token → 401 ✅ 期望=401 实际=401
+[CHECK] POST /api/admin/redeems/reject 无 token → 401 ✅ 期望=401 实际=401
+[CHECK] 三条路由都是 JSON 回执（不是路由未匹配的纯文本） ✅ 期望=3 实际=3
+[CHECK] 启动日志里有联赛结算 cron 的注册行 ✅ 期望=1 实际=1

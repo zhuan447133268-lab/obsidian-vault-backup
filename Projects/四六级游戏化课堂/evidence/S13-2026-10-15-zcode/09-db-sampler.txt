@@ -1,0 +1,57 @@
+窗口 100s · 起始计数 {'Threads_running': 4.0, 'Innodb_row_lock_waits': 0.0, 'Innodb_log_waits': 0.0, 'Innodb_data_fsyncs': 25821.0}
+[  0.1s] running=4.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=25832.0 slow=0
+[  2.3s] running=6.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=26034.0 slow=0
+[  5.3s] running=6.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=26277.0 slow=0
+[  7.6s] running=7.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=26476.0 slow=0
+[  9.9s] running=3.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=26687.0 slow=0
+[ 12.1s] running=3.0 connected=12.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=26877.0 slow=0
+[ 14.5s] running=4.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=27086.0 slow=0
+[ 16.8s] running=6.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=27274.0 slow=0
+[ 19.1s] running=4.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=27542.0 slow=0
+[ 21.4s] running=6.0 connected=13.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=27779.0 slow=0
+[ 23.6s] running=6.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=27991.0 slow=0
+[ 26.1s] running=6.0 connected=14.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=28223.0 slow=0
+[ 28.6s] running=5.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=28486.0 slow=0
+[ 31.0s] running=4.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=28740.0 slow=0
+[ 33.3s] running=4.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=29008.0 slow=0
+[ 35.4s] running=3.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=29199.0 slow=0
+[ 37.6s] running=4.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=29445.0 slow=0
+[ 39.9s] running=5.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=29662.0 slow=0
+[ 42.1s] running=5.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=29887.0 slow=0
+[ 44.2s] running=4.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=30133.0 slow=0
+[ 46.4s] running=3.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=30336.0 slow=0
+[ 48.6s] running=4.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=30574.0 slow=0
+[ 50.7s] running=5.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=30815.0 slow=0
+[ 52.9s] running=2.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=31100.0 slow=0
+[ 55.0s] running=3.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=31342.0 slow=0
+[ 57.2s] running=5.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=31589.0 slow=0
+[ 59.4s] running=3.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=31802.0 slow=0
+[ 61.6s] running=3.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=32048.0 slow=0
+[ 63.8s] running=4.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=32312.0 slow=0
+[ 65.9s] running=5.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=32580.0 slow=0
+[ 68.1s] running=3.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=32824.0 slow=0
+[ 70.2s] running=6.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=33074.0 slow=0
+[ 72.3s] running=6.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=33306.0 slow=0
+[ 74.5s] running=5.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=33502.0 slow=0
+[ 76.6s] running=5.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=33770.0 slow=0
+[ 78.8s] running=6.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=34020.0 slow=0
+[ 81.0s] running=4.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=34245.0 slow=0
+[ 83.2s] running=2.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=34453.0 slow=0
+[ 85.3s] running=2.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=34701.0 slow=0
+[ 87.6s] running=3.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=34907.0 slow=0
+[ 89.8s] running=9.0 connected=13.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=35137.0 slow=0
+[ 92.5s] running=3.0 connected=11.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=35389.0 slow=0
+[ 94.7s] running=2.0 connected=21.0 row_lock_waits=0.0 log_waits=0.0 fsyncs=35487.0 slow=0
+
+--- 增量（100s 窗口）---
+Innodb_log_write_requests        +69504.0
+Innodb_data_fsyncs               +9767.0
+Threads_running                  +3.0
+Threads_connected                +6.0
+Queries                          +201518.0
+Threads_running 峰值: 9.0
+
+--- 等得最久的 SQL（time>=1s）---
+max  1s ×3   states=['executing'] | SELECT user_id AS user_id, COALESCE(SUM(delta), 0) AS sum FROM `xp_ledger` WHERE
+max  1s ×1   states=['executing'] | SELECT reason, COALESCE(SUM(delta), 0) AS delta FROM `xp_ledger` WHERE ref_type 
+max  1s ×1   states=['executing'] | SELECT aa.question_id AS question_id, COUNT(*) AS answer_count, SUM(CASE WHEN aa

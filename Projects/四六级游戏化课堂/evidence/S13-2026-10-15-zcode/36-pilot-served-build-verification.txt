@@ -1,0 +1,30 @@
+S13 复测前置③：证明「复测量的就是修好的那一版」
+时间：2026-10-15 21:1x（试点站 http://127.0.0.1/ ）
+
+【为什么要有这一条】
+复测结论只有在「站点服务的确实含修复的新构建」时才成立。A 的二次修复改了学生端 QuizView
+（反馈条升起时给 .optzone 垫高），这行代码进的是按哈希命名的异步 chunk——光看 index.html
+变了不算证据，必须逐字节核对站点返回的 chunk 与本地新构建一致。
+
+【做法】
+1. 02-build-and-stage.ps1 重建并落盘 → 20:5x 完成（33-rebuild-after-afix.txt）。
+2. 09-stop → 08-start 重启后端（21:00），站点随后可访问（/s/ 200、/api/health 200）。
+3. 从站点入口 HTML 取真实引用的资源名，再看含修复片段的 chunk 是否逐字节相同：
+
+   curl -s http://127.0.0.1/s/ | grep -o '/assets/[A-Za-z0-9._-]*'
+     -> /assets/s-BRxs6uOM.js（学生端入口）、/assets/s-yqHna-bv.css、/assets/preload-helper-D6_4BR8f.js
+
+   grep -l paddingBottom D:\cet46-pilot\web-distssets\*.js
+     -> assets/QuizView-bPJ37quI.js（含 A 二次修复）、assets/s-BRxs6uOM.js、assets/t-CenkfehV.js
+
+   逐个对站点返回与本地文件做 md5：
+     s-BRxs6uOM.js          local=f965cd3e025cd35b197441c166bf60b5  served=f965cd3e025cd35b197441c166bf60b5  SAME
+     QuizView-bPJ37quI.js   local=ac87c8e48facbb6a8237c8433158d7c8  served=ac87c8e48facbb6a8237c8433158d7c8  SAME
+
+   核到站点返回的 QuizView chunk 里确有 paddingBottom 修复片段（.optzone 垫高逻辑）。
+
+【一个容易踩的坑（记下来给复跑的人）】
+站点的静态资源挂在根路径 `/assets/...`，不是 `/s/assets/...`；拿 `/s/assets/QuizView-*.js`
+去取会命中 SPA 的 history 回退，返回 623 字节的 index.html（HTTP 200），看着"有响应"
+其实拿错了文件——第一次比对就是这么比出"DIFF"的假警报。判断依据：返回体以 `<!doctype html>`
+开头、长度与本地差两个数量级。

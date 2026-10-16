@@ -1,0 +1,48 @@
+# 四六级游戏化课堂 — Nginx 反代配置（Windows 试点/生产）
+# 套路照 textbook-analysis-tool/deploy/nginx.windows.conf.example：
+#   前端静态产物与 /api 同源，学生端 /s、教师端 /t 双入口，禁 CORS 放开。
+#
+# 用法：把本文件内容并入 nginx/conf/nginx.conf 的 http{} 段（或 include 进 http 段）。
+# 试点部署根目录 D:/cet46-pilot（同目录结构见 deploy/docs/deploy-windows.md）。
+
+server {
+    listen       80;
+    server_name  _;
+
+    # 前端构建产物（vite build 输出，含 index.html / s.html / t.html）
+    root   D:/cet46-pilot/web-dist;
+    index  index.html;
+
+    # 上传名单 / 题库 Excel 的请求体上限
+    client_max_body_size 20m;
+
+    # 学生端（Vant）：history 路由未命中文件时回落到 s.html
+    location ^~ /s/ {
+        try_files $uri $uri/ /s.html;
+    }
+
+    # 教师端（Element Plus）：回落到 t.html
+    location ^~ /t/ {
+        try_files $uri $uri/ /t.html;
+    }
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    # 后端：试点服务端口 8090（开发验收环境用 8080，两套并存互不干扰）
+    location /api/ {
+        proxy_pass http://127.0.0.1:8090;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    # 静态资源长缓存（Vite 产物带内容哈希）
+    location ~* \.(js|css|png|jpg|jpeg|gif|svg|woff2?|mp3)$ {
+        expires 30d;
+        add_header Cache-Control "public, immutable";
+    }
+}

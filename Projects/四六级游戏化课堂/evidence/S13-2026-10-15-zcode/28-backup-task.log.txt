@@ -1,0 +1,12 @@
+SUCCESS: The scheduled task "cet46-pilot-daily-backup-0300" has successfully been created.
+
+=== 计划任务已注册 ===
+
+TaskName:      \cet46-pilot-daily-backup-0300
+Next Run Time: 2026/10/16 3:00:00
+Status:        Ready
+
+立即试跑一次（验证脚本本身没问题）：
+  powershell -NoProfile -ExecutionPolicy Bypass -File "D:\cet46-pilot\scripts\05-backup-db.ps1"
+
+

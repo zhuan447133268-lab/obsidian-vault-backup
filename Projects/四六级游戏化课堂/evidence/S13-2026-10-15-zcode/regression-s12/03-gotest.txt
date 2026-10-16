@@ -1,0 +1,31 @@
+
+########## 03 go test ./... -count=1（全包；S12 新增券状态机/越权/审计留痕断言） ##########
+?   	cet46/server/cmd/import-users	[no test files]
+?   	cet46/server/cmd/league-settle	[no test files]
+?   	cet46/server/cmd/migrate	[no test files]
+?   	cet46/server/cmd/qbank	[no test files]
+?   	cet46/server/cmd/seed-teacher	[no test files]
+?   	cet46/server/cmd/server	[no test files]
+?   	cet46/server/cmd/shop-seed	[no test files]
+ok  	cet46/server/internal/auth	2.571s
+ok  	cet46/server/internal/config	1.283s
+ok  	cet46/server/internal/database	2.772s
+?   	cet46/server/internal/dto	[no test files]
+ok  	cet46/server/internal/exam	0.861s
+?   	cet46/server/internal/handler	[no test files]
+?   	cet46/server/internal/jobs	[no test files]
+?   	cet46/server/internal/middleware	[no test files]
+ok  	cet46/server/internal/model	0.917s
+?   	cet46/server/internal/pkg/apperror	[no test files]
+?   	cet46/server/internal/pkg/response	[no test files]
+ok  	cet46/server/internal/qbank	1.404s
+ok  	cet46/server/internal/quiz	1.193s
+ok  	cet46/server/internal/roster	1.602s
+ok  	cet46/server/internal/router	86.132s
+ok  	cet46/server/internal/service	21.830s
+?   	cet46/server/internal/testsupport	[no test files]
+
+--- 统计 ---
+[CHECK] go test 无 FAIL ✅ 期望=0 实际=0
+[CHECK] go test 无构建错误 ✅ 期望=0 实际=0
+[CHECK] quiz / router / service 三个包在通过列表里 ✅ 期望=3 实际=3

@@ -1,0 +1,65 @@
+S13 压测暴露的缺陷 · 修复前后对拍（试点库 cet46_pilot@3306，55,006 行 xp_ledger）
+==============================================================================
+
+量的是三条查询：
+  ① 看板/名单·按用户求和 XP     SELECT user_id, SUM(delta) ... WHERE user_id IN (41 个 id) GROUP BY user_id
+  ② 登录/地图·连续周派生       SELECT user_id, created_at ... WHERE user_id IN (...)  → 改按 DATE() 分组
+  ③ 交卷·按单据查流水          SELECT reason, SUM(delta) ... WHERE ref_type=? AND ref_id=? GROUP BY reason
+
+三项数据：EXPLAIN 的访问方式 / 服务端耗时 / Innodb_buffer_pool_read_requests 每次请求增量（逻辑页访问）。
+逻辑页读不受并发噪声影响，是「回表 / 全表扫」最硬的证据。
+
+阶段一（修复前，索引尚未建立）：已建索引 = 无
+阶段二（修复后，新二进制启动时迁移出索引）：已建索引 = ['idx_xp_ledger_ref', 'idx_xp_ledger_user_created', 'idx_xp_ledger_user_delta']
+阶段二还多跑了一组 IGNORE INDEX：同一份数据、同一秒内把「没有该索引的行为」再跑一遍，避免跨时间采样。
+
+------------------------------------------------------------------------------
+
+## 看板·按用户求和 XP（覆盖索引 user_id,delta）
+
+  EXPLAIN(修复前) : {"table": "xp_ledger", "type": "index", "key": "idx_xp_ledger_user_id", "rows": "53105", "Extra": "Using where"}
+  EXPLAIN(修复后) : {"table": "xp_ledger", "type": "index", "key": "idx_xp_ledger_user_delta", "rows": "53105", "Extra": "Using where; Using index"}
+  EXPLAIN(忽略索引): {"table": "xp_ledger", "type": "index", "key": "idx_xp_ledger_user_id", "rows": "53105", "Extra": "Using where"}
+  修复前     中位    122.1 ms  每次逻辑页读   165666.0  每次扫过行   55006.0
+  修复后     中位    19.05 ms  每次逻辑页读      911.0  每次扫过行   55006.0
+  同秒对照  中位   114.23 ms  每次逻辑页读   165930.0  每次扫过行   55006.0   （IGNORE INDEX，模拟没索引）
+
+## 登录/地图·连续周派生-旧写法（整本账搬回 Go）
+
+  EXPLAIN(修复前) : {"table": "xp_ledger", "type": "ALL", "key": "NULL", "rows": "53105", "Extra": "Using where"}
+  EXPLAIN(修复后) : {"table": "xp_ledger", "type": "index", "key": "idx_xp_ledger_user_created", "rows": "53105", "Extra": "Using where; Using index"}
+  修复前     中位    76.91 ms  每次逻辑页读      684.0  每次扫过行   55006.0
+  修复后     中位    62.16 ms  每次逻辑页读     1026.0  每次扫过行   55006.0
+
+## 登录/地图·连续周派生-新写法（按天分组）
+
+  EXPLAIN(修复前) : {"table": "xp_ledger", "type": "ALL", "key": "NULL", "rows": "53105", "Extra": "Using where; Using temporary"}
+  EXPLAIN(修复后) : {"table": "xp_ledger", "type": "index", "key": "idx_xp_ledger_user_created", "rows": "53105", "Extra": "Using where; Using index; Using temporary"}
+  EXPLAIN(忽略索引): {"table": "xp_ledger", "type": "ALL", "key": "NULL", "rows": "53105", "Extra": "Using where; Using temporary"}
+  修复前     中位    39.61 ms  每次逻辑页读      684.0  每次扫过行   55006.0
+  修复后     中位    35.55 ms  每次逻辑页读     1026.0  每次扫过行   55006.0
+  同秒对照  中位    37.75 ms  每次逻辑页读      948.0  每次扫过行   55006.0   （IGNORE INDEX，模拟没索引）
+
+## 交卷·按单据查流水（索引 ref_type,ref_id）
+
+  EXPLAIN(修复前) : {"table": "xp_ledger", "type": "ALL", "key": "NULL", "rows": "53105", "Extra": "Using where; Using temporary"}
+  EXPLAIN(修复后) : {"table": "xp_ledger", "type": "ref", "key": "idx_xp_ledger_ref", "rows": "2", "Extra": "Using temporary"}
+  EXPLAIN(忽略索引): {"table": "xp_ledger", "type": "ALL", "key": "NULL", "rows": "53105", "Extra": "Using where; Using temporary"}
+  修复前     中位    24.95 ms  每次逻辑页读      411.0  每次扫过行   55006.0
+  修复后     中位     0.54 ms  每次逻辑页读       13.0  每次扫过行       2.0
+  同秒对照  中位    21.34 ms  每次逻辑页读      411.0  每次扫过行   55006.0   （IGNORE INDEX，模拟没索引）
+
+------------------------------------------------------------------------------
+
+结论（按测量值，不按感觉）：
+  ① 覆盖索引 (user_id, delta)：每次请求的逻辑页读从 165,666 降到 911（182 倍），
+     耗时中位 114 ms → 19 ms。EXPLAIN 从 idx_xp_ledger_user_id 的回表变成 Using index。
+  ② 连续周派生：SELECT 回给 Go 的行数从 55,006 行降到 40 行（今天全部流水只落 40 个「用户×日」组），
+     EXPLAIN 从全表 ALL 变成覆盖索引 Using index；耗时中位 76.9 ms → 35.6 ms。
+     换按天分组后 Go 侧不再接收/解析 5.5 万行切片——这才是登录链路上真正的省。
+  ③ 交卷链路 (ref_type, ref_id)：EXPLAIN rows 从 53,105 降到 2，耗时中位 21.3 ms → 0.54 ms（40 倍），
+     而且是每次交卷跑两遍的查询。
+
+三条查询在压测里各自代表一条链路：看板/名单、登录/地图、交卷。
+索引是 GORM AutoMigrate 在服务启动时建的（幂等、只加不删），启动日志里有 CREATE INDEX 行：
+  logs\server.log  →  [245.960ms] CREATE INDEX `idx_xp_ledger_ref` ON `xp_ledger`(`ref_type`,`ref_id`)
