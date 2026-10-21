@@ -22,6 +22,7 @@ type: project
 - [ ] 前端已重新 build 成功（`npm ci && npm run build`）
 - [ ] 确认没有未提交的本地改动影响部署
 - [ ] **前端构建带对认证模式**：正式/测试环境构建必须注入 `VITE_AUTH_MODE=cookie`（`VITE_AUTH_MODE=cookie npm run build`），**不要**去改仓库 `.env.production`（会连坐其他环境）；产物自检=构建出的 JS 里含 `X-CSRF-Token`（cookie 构建特征），一处都没有说明走了 bearer 默认值，登录会卡在登录页
+- [ ] **产物形态自检**：用构建产物起一遍（`npm run preview` 或静态服务器 + 真后端）打一发 `/api/health`，确认返回 **JSON**（不是 HTML）。`Unexpected token '<'` / `200` 但内容是 HTML = 代理或路由回退没配。`server.proxy` 与 `preview.proxy` 是两棵配置树，只配 dev 那棵 = 源码态全绿、产物必挂（2026-07-17 踩过；详见 [[开发避坑记录]] 2026-10-21 补录）
 
 ---
 
