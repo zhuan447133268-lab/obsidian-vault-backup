@@ -15,6 +15,7 @@ tags: [MOC, Skill库]
 - [[srt-whiteboard-animation 白板动画技能]] — SRT 字幕→手绘白板动画视频（作者已实跑 30s 实例）
 - [[three-scope-map 3D中国地图技能]] — 地球入场→中国3D下钻地图（Vue3+Three.js，GPL-3.0），已改造为教师数据地图原型
 - [[hanxiaoyu-visual-story-comic 漫画技能]] — 多页连续漫画（卡通/条漫/知识漫画专用，MIT），参考图锁一致性+逐页漂移检查；高校严肃场景不适用
+- [[OpenFilm 视频技能]] — 纯 HTML 做视频（film.html + frame(t) + Studio），MIT 全免；已把 Remotion 招生片移植重制并渲染成功
 
 ## 元说明（怎么用这个库）
 
