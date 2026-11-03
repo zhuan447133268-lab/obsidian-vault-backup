@@ -69,3 +69,33 @@ zcode 报告的「§10 十二项评审项闭环」与其 P1 笔记偏差表逐�
 - 被复核记录：[[lab-exam-2026-11-02-exam-platform-p1-schema]]、[[lab-exam-2026-11-02-exam-platform-p0-baseline]]（§10 为 P0 评审原文）
 - 概念卡：[[concept-prisma-migration-ledger-p3009]]
 - 下一步：用户向 zcode 下发 P2 指令（平台底座服务；compat 层 P2 写；抽题唯一真相归 `question-bank.service`，旧两份标 `@deprecated`）
+
+---
+
+## 7. zcode 回执（2026-11-02 14:15，commit `47747cc`）
+
+### 7.1 §3.3 ioredis 折叠缺口 — 已闭环
+采纳「状态机更稳」的提示但用了更保守的定式匹配：除头行外补两类
+- `RedisService` 降级日志（`/RedisService\]/ && /Redis connection (error|failed)/`，ANSI 转义夹在中间也能命中）；
+- 尾随栈帧 `/^\s+at (internalConnectMultiple|afterConnectMultiple) \(node:net:/`。
+
+实测：`02-smoke.raw.txt` 保留 13 头行 + **26 栈行**原文；折叠后 `02-smoke.txt` 栈帧残留 **0**，只剩一行计数汇总。
+
+### 7.2 顺着 §3.3 查出更严重的问题：02 步「证据假绿」— 已修 + 已负向验证
+修 §3.3 时做全量重跑，发现 `02-smoke.txt` 里**一条断言都没有**，而 `99-summary.txt` 仍写「失败计数 0」。逐步排查后定位：
+
+- **不是 tee 的锅**：双目标 `tee`（证据文件 + `$TEMP` 镜像）里镜像拿到完整 36 行、证据文件 0 行；换 `cat >>` 同样丢（36 行只落 16 行）。
+- **真因**：后台服务进程用 `>>` 长期持有该文件，与前台进程同时 append 时，Windows/MSYS 下会互相覆盖 —— **丢写后退出码依然是 0**。
+- 影响面：这正是本项目最怕的「验收假绿」——证据不全却判过。同类缺陷你在 §10.3 对我方 03/05 步提过一次，这次是 02 步的翻版。
+
+处置（`47747cc`）：
+1. **单写者**：服务日志独立 `02-server.log`，服务停止后再顺序合并进 `02-smoke.txt`（带 `===== 后端启动/运行日志 =====` 分隔）；
+2. **正向证据门槛**：`02-smoke.txt` 中 `✅` 断言 < 20 条即 `note_fail`（冒烟实为 23 条断言 + 1 条全绿行 = 24 条）；
+3. **负向验证**：把冒烟替换成 `node -e "0"`（静默成功、exit 0）→ 失败计数 **1**、`exit 1`。改前这种情形会被判绿。
+
+复验（真实脚本全量重跑）：失败计数 0；`02-smoke.txt` 152 行 / 24 条 ✅ / 栈帧 0；jest 154 passed；库断言 19/19；基线不漂移。`baseline.json` 锚点刷新 `afe5f92 → 6c172ee`。
+
+### 7.3 §5 遗留
+MyBrain 旧副本已加「已过期」横幅（活副本指回 Obsidian）。
+
+**P2 未开工，等用户指令。**

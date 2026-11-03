@@ -89,6 +89,20 @@ npx prisma migrate resolve --applied 20260907000000_add_exam_audience
 
 > 补充：本次重跑也把 `baseline.json` 的 `commit` 字段从 `45f472b` 刷新到 `afe5f92`（其余数值零漂移，`--check` 通过）。
 
+### 第 4 步补充 3 · P1.2：评审 §3.3 闭环 + 顺带查出「02 步证据假绿」（14:00–14:15，commit `47747cc`）
+
+Claude Code 复核记录（[[lab-exam-2026-11-02-exam-platform-p1-claude-review]]）§3.3 指出 ioredis 折叠只吞头行、**26 行栈帧仍留在 02-smoke.txt**。修的时候按「证据必须可复核」往下追，发现了比 §3.3 严重得多的既有缺陷：
+
+| # | 问题 | 实测 | 处置 |
+|---|---|---|---|
+| 1 | §3.3 折叠不全 | 每个事件尾随 2 行 `at internalConnectMultiple/afterConnectMultiple` 未匹配，26 行残留 | awk 补 `node:net` 栈帧模式 + RedisService 降级行（ANSI 容错 `/RedisService\]/ && /Redis connection (error\|failed)/`） |
+| 2 | **02 步证据假绿（新发现）** | 后台服务日志与冒烟输出同时 append 同一文件，Windows/MSYS 互相覆盖：冒烟 36 行**只落 16 行**、控制台 23 条断言文件里一条没有，而**退出码仍是 0**，验收判绿 | 改为「一个文件只有一个写者」：服务日志独立 `02-server.log`，服务停止后顺序合并进 `02-smoke.txt` |
+| 3 | 只判退出码，冒烟没跑也算过 | 用 `node -e "0"` 替换冒烟（静默成功）→ 旧逻辑仍绿 | 新增正向证据门槛：`✅` 断言 < 20 条即 `note_fail`。负向验证结果：失败计数 **1**、exit **1** |
+
+复验（真实脚本全量重跑）：失败计数 0，`02-smoke.txt` 152 行 / **24 条 ✅**（23 断言 + 全绿行）、栈帧残留 **0**，`02-smoke.raw.txt` 保留全量原文（13 头行 + 26 栈行）；服务日志以 `===== 后端启动/运行日志 =====` 分隔附在冒烟之后。`baseline.json` 锚点随之刷新到 `6c172ee`（库事实零漂移）。
+
+> 排查手段备忘：`tee` 与 `cat >>` 两种写法都复现丢写 → 用「双目标 tee（证据文件 + `$TEMP` 镜像）」判定 `tee` 收齐数据、问题在并发写；再用 `wc -l` 探针在 pipeline 结束后立刻计数，排除是 fold 阶段丢的。**结论是文件级并发写，不是 tee 的锅**（第一版注释曾写错归因，已改）。
+
 ---
 
 ## 2. 意外发现：迁移链从来就不自足（比评审预判更严重）
@@ -156,7 +170,7 @@ npx prisma migrate resolve --applied 20260907000000_add_exam_audience
 
 ```bash
 cd D:/2026准入题库
-git checkout feat/exam-platform && git log --oneline -3      # afe5f92 / 45f472b / 9307520
+git checkout feat/exam-platform && git log --oneline -4      # 47747cc / 6c172ee / afe5f92 / 45f472b
 
 bash scripts/run-acceptance.sh P1                            # 失败计数应为 0
 
