@@ -17,6 +17,8 @@ tags: [MOC, Skill库]
 - [[hanxiaoyu-visual-story-comic 漫画技能]] — 多页连续漫画（卡通/条漫/知识漫画专用，MIT），参考图锁一致性+逐页漂移检查；高校严肃场景不适用
 - [[OpenFilm 视频技能]] — 纯 HTML 做视频（film.html + frame(t) + Studio），MIT 全免；已把 Remotion 招生片移植重制并渲染成功
 - [[nsfc-roadmap NSFC 纵向技术路线图]] — 自研；纵向分组技术路线图出印刷级 SVG/PDF + drawio，中文配置改字 + 双击重出全套（智擎杯决赛展板实战沉淀）
+- [[pixel2motion 位图转平滑矢量动效技能]] — 位图 logo→平滑 SVG→带 QA 证据的动画 HTML（MIT）；**三层能力**＝静态矢量化 / 动效配方 / 验收协议，前两层可脱离引擎单独用。本机两次实跑：Google wordmark 动效（IoU 0.8073、终帧 0 像素差）、校徽纯矢量化（分层交付：几何全矢量 + 文字保留 live text，盾形填充 IoU 1.0000）。已核实**不能**跟 bento-deck 封面文字结合，只能作课程验收素材而非课堂工具
+- [[bigdata-dashboard 可视化大屏技能]] — Excel/JSON→单文件离线 HTML 大屏（15 骨架 + 布局引擎，AGPL-3.0）；2026-11-09 本地修复 5 处后安装：默认模式 CDN 白屏、第三方背景图外链、`#dash-root` 高度塌陷致图表全空、radar 空白图、文档口径矛盾。新增零外链交付自检，双模式实跑 + Chrome 实渲通过；**同日追加 v1.2 视觉重写**（字体 / 配色 / 卡片 / 12+ 类图表 / `showcase.json` 丰富样例），解决「饼图扎堆、不高级」；**再追加 v1.3 真实数据检验**（真实财务 xlsx 走安装版 → 抓出汇总 sheet 与在营明细两个口径打架并统一；新增可配置 `subtitle`、表格行数自适应、`polarBar` 按 max/min>8 自动降级横柱）；11 类图表全部由 xlsx 真实聚合，13 组件 + 6 行数据体检全可见，3/3 产物零外链 PASS；**对外商业交付优先只用模式1**（骨架源自 BigDataView_，授权链未核实）
 
 ## 元说明（怎么用这个库）
 
