@@ -19,7 +19,7 @@ tags: [index, current-state, handoff]
 
 ---
 
-## 活跃项目（7）
+## 活跃项目（8）
 
 | 项目 | 当前状态（一句话） | CURRENT 更新 | 工作区 |
 |---|---|---|---|
@@ -30,6 +30,7 @@ tags: [index, current-state, handoff]
 | [[Projects/像素小岛农场/CURRENT\|像素小岛农场]] | 农场玩法做完，第 12 轮课堂化；欠 K1 配置项 / K2 规则库 / K3 还原键 | 11-17 | `D:\Zcode\.zcode\workspace\00beaaa9-…` |
 | [[Projects/四六级游戏化课堂/CURRENT\|四六级游戏化课堂]] | S0~S13 全验收放行，Windows 单机交付 `D:\cet46-pilot\`；待真机试点 | 11-17 | `D:\claude-work\cet46-game\`（不推远程） |
 | [[Projects/WebRetriever挑战赛/CURRENT\|WebRetriever挑战赛]] | 评测窗口已过；本地 benchmark hang 在第 10 题，7/9 PASS 待接手 | 11-17 | `D:\claude-work\WR-001` |
+| [[Projects/游戏项目/CURRENT\|游戏项目]] | 深水渔场 / 林间木屋 / 秋日小院 三件成品；笔记与素材已入库，源码仍在各自目录 | 11-23 | `D:\03-个人文档\学习空间\{lampwake, forest-treehouse, autumn-courtyard}` |
 
 ---
 
