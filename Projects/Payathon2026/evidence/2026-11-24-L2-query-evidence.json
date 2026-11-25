@@ -1,0 +1,70 @@
+{
+  "collectedAt": "2026-11-24T06:57:23.824Z",
+  "gateway": "https://openapi-sandbox.dl.alipaydev.com/gateway.do",
+  "orders": [
+    {
+      "outTradeNo": "DEMO202611241441296768",
+      "clickedAt": null,
+      "createdAt": "2026-11-24T06:41:29.692Z",
+      "paidAt": "2026-11-24T06:45:50.141Z",
+      "clickToQueryVisibleSeconds": null,
+      "apiResponse": {
+        "outTradeNo": "DEMO202611241441296768",
+        "amount": "0.01",
+        "paidAmount": "0.00",
+        "state": "PAID",
+        "tradeStatus": "TRADE_SUCCESS",
+        "tradeNo": "2026112422001407470511386833",
+        "source": "QUERY"
+      }
+    },
+    {
+      "outTradeNo": "DEMO202611241449174994",
+      "clickedAt": "2026-11-24T06:50:26.000Z",
+      "createdAt": "2026-11-24T06:49:17.384Z",
+      "paidAt": "2026-11-24T06:50:42.920Z",
+      "clickToQueryVisibleSeconds": 16.9,
+      "apiResponse": {
+        "outTradeNo": "DEMO202611241449174994",
+        "amount": "0.01",
+        "paidAmount": "",
+        "state": "PAID",
+        "tradeStatus": "TRADE_SUCCESS",
+        "tradeNo": "2026112422001407470511386834",
+        "source": "QUERY"
+      }
+    },
+    {
+      "outTradeNo": "DEMO202611241451016927",
+      "clickedAt": "2026-11-24T06:52:12.647Z",
+      "createdAt": "2026-11-24T06:51:01.281Z",
+      "paidAt": "2026-11-24T06:52:26.269Z",
+      "clickToQueryVisibleSeconds": 13.6,
+      "apiResponse": {
+        "outTradeNo": "DEMO202611241451016927",
+        "amount": "0.01",
+        "paidAmount": "",
+        "state": "PAID",
+        "tradeStatus": "TRADE_SUCCESS",
+        "tradeNo": "2026112422001407470511383727",
+        "source": "QUERY"
+      }
+    },
+    {
+      "outTradeNo": "DEMO202611241454088090",
+      "clickedAt": "2026-11-24T06:55:45.156Z",
+      "createdAt": "2026-11-24T06:54:08.750Z",
+      "paidAt": "2026-11-24T06:55:59.220Z",
+      "clickToQueryVisibleSeconds": 14.1,
+      "apiResponse": {
+        "outTradeNo": "DEMO202611241454088090",
+        "amount": "0.01",
+        "paidAmount": "",
+        "state": "PAID",
+        "tradeStatus": "TRADE_SUCCESS",
+        "tradeNo": "2026112422001407470511385213",
+        "source": "QUERY"
+      }
+    }
+  ]
+}

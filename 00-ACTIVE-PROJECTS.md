@@ -19,10 +19,11 @@ tags: [index, current-state, handoff]
 
 ---
 
-## 活跃项目（8）
+## 活跃项目（9）
 
 | 项目 | 当前状态（一句话） | CURRENT 更新 | 工作区 |
 |---|---|---|---|
+| [[Projects/Payathon2026/CURRENT\|Payathon 2026]] | 已报名；跑道暂定 Vibe Pay，卡在接入校准（L3 真实支付未拿），12-09 截止 | 11-24 | （待建） |
 | [[Projects/AI短剧制作/CURRENT\|AI短剧制作]] | 路线定为 AI 生成（ImageGen+VideoGen/LibTV），5秒试水片成功；**故事线待用户给出** | 11-18 | `D:\03-个人文档\学习空间\factory-demo\campus\` |
 | [[Projects/AI竞赛模块课程/CURRENT\|AI竞赛模块课程]] | 口径重构完毕，领导已认可绿红版思路图，**尚未报校长** | 11-17 | `D:\claude-work\ai-competition-course\` |
 | [[Projects/实验室准入考试系统/CURRENT\|实验室准入考试系统]] | `4f7e919` 已发版结案；新待发批 `b234d9c` 随下次发版，**开发侧只读** | 11-17 | `D:\01-项目\2026准入题库-main` |
@@ -30,7 +31,7 @@ tags: [index, current-state, handoff]
 | [[Projects/像素小岛农场/CURRENT\|像素小岛农场]] | 农场玩法做完，第 12 轮课堂化；欠 K1 配置项 / K2 规则库 / K3 还原键 | 11-17 | `D:\Zcode\.zcode\workspace\00beaaa9-…` |
 | [[Projects/四六级游戏化课堂/CURRENT\|四六级游戏化课堂]] | S0~S13 全验收放行，Windows 单机交付 `D:\cet46-pilot\`；待真机试点 | 11-17 | `D:\claude-work\cet46-game\`（不推远程） |
 | [[Projects/WebRetriever挑战赛/CURRENT\|WebRetriever挑战赛]] | 评测窗口已过；本地 benchmark hang 在第 10 题，7/9 PASS 待接手 | 11-17 | `D:\claude-work\WR-001` |
-| [[Projects/游戏项目/CURRENT\|游戏项目]] | 深水渔场 / 林间木屋 / 秋日小院 三件成品；笔记与素材已入库，源码仍在各自目录 | 11-23 | `D:\03-个人文档\学习空间\{lampwake, forest-treehouse, autumn-courtyard}` |
+| [[Projects/游戏项目/CURRENT\|游戏项目]] | 四件成品（深水渔场 / 林间木屋 / 秋日小院 / 爱丽丝：门后的花园）；爱丽丝已出 26s 竖版成片 + 文案，做法与踩坑全部入库 | 11-24 | `D:\03-个人文档\学习空间\{lampwake, forest-treehouse, autumn-courtyard}`；爱丽丝在 `D:\Users\dfjq\Desktop\爱丽丝梦游仙境\爱丽丝_门后的花园_网页版\` |
 
 ---
 

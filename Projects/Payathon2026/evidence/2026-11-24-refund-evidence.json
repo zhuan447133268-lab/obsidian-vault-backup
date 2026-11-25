@@ -1,0 +1,15 @@
+{
+  "collectedAt": "2026-11-24T07:04:59.264Z",
+  "outTradeNo": "DEMO202611241454088090",
+  "outRequestNo": "RF-CHECK-20261124-01",
+  "refundQuery": {
+    "code": "10000",
+    "msg": "Success",
+    "refundStatus": "REFUND_SUCCESS",
+    "refundAmount": "0.01",
+    "success": true
+  },
+  "missingRequestNoResponse": {
+    "error": "OUT_REQUEST_NO_REQUIRED"
+  }
+}
