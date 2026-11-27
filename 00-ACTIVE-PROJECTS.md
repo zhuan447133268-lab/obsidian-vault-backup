@@ -31,7 +31,7 @@ tags: [index, current-state, handoff]
 | [[Projects/像素小岛农场/CURRENT\|像素小岛农场]] | 农场玩法做完，第 12 轮课堂化；欠 K1 配置项 / K2 规则库 / K3 还原键 | 11-17 | `D:\Zcode\.zcode\workspace\00beaaa9-…` |
 | [[Projects/四六级游戏化课堂/CURRENT\|四六级游戏化课堂]] | S0~S13 全验收放行，Windows 单机交付 `D:\cet46-pilot\`；待真机试点 | 11-17 | `D:\claude-work\cet46-game\`（不推远程） |
 | [[Projects/WebRetriever挑战赛/CURRENT\|WebRetriever挑战赛]] | 评测窗口已过；本地 benchmark hang 在第 10 题，7/9 PASS 待接手 | 11-17 | `D:\claude-work\WR-001` |
-| [[Projects/游戏项目/CURRENT\|游戏项目]] | 四件成品（深水渔场 / 林间木屋 / 秋日小院 / 爱丽丝：门后的花园）；爱丽丝已出 26s 竖版成片 + 文案，做法与踩坑全部入库 | 11-24 | `D:\03-个人文档\学习空间\{lampwake, forest-treehouse, autumn-courtyard}`；爱丽丝在 `D:\Users\dfjq\Desktop\爱丽丝梦游仙境\爱丽丝_门后的花园_网页版\` |
+| [[Projects/游戏项目/CURRENT\|游戏项目]] | 四件成品（深水渔场 / 林间木屋 / 秋日小院 / 爱丽丝：门后的花园）+ 一件在做《湖灯亭 · 雪夜汤泉客栈》：单人经营循环已实跑通过，**社交化（联网/多房间/敲门聊天）方向已定、代码为零** | 11-27 | `D:\03-个人文档\学习空间\{lampwake, forest-treehouse, autumn-courtyard, snow-ryokan}`；爱丽丝在 `D:\Users\dfjq\Desktop\爱丽丝梦游仙境\爱丽丝_门后的花园_网页版\` |
 
 ---
 
